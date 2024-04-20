@@ -533,21 +533,22 @@ void QVGraphicsView::zoomOut()
     zoomRelative(qPow(zoomMultiplier, -1));
 }
 
-void QVGraphicsView::zoomRelative(qreal relativeLevel, const std::optional<QPoint> &pos)
+void QVGraphicsView::zoomRelative(const qreal relativeLevel, const std::optional<QPoint> &mousePos)
 {
     const qreal absoluteLevel = zoomLevel * relativeLevel;
 
     if (absoluteLevel >= 500 || absoluteLevel <= 0.01)
         return;
 
-    zoomAbsolute(absoluteLevel, pos);
+    zoomAbsolute(absoluteLevel, mousePos);
 }
 
-void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &pos, const bool isApplyingCalculation)
+void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &mousePos, const bool isApplyingCalculation)
 {
     if (!isApplyingCalculation || !Qv::calculatedZoomModeIsSticky(calculatedZoomMode.value()))
         setCalculatedZoomMode({});
 
+    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : isCursorZoomEnabled ? mousePos : getUsableViewportRect().center();
     if (pos != lastZoomEventPos)
     {
         lastZoomEventPos = pos;
@@ -569,11 +570,9 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
 
     scrollHelper->cancelAnimation();
 
-    // If we have a point to zoom towards and cursor zooming is enabled
-    if (pos.has_value() && isCursorZoomEnabled)
+    if (pos.has_value())
     {
-        const QPointF p1mouse = mapFromScene(scenePos);
-        const QPointF move = p1mouse - pos.value();
+        const QPointF move = mapFromScene(scenePos) - pos.value();
         horizontalScrollBar()->setValue(horizontalScrollBar()->value() + (move.x() * (isRightToLeft() ? -1 : 1)));
         verticalScrollBar()->setValue(verticalScrollBar()->value() + move.y());
         lastZoomRoundingError = mapToScene(pos.value()) - scenePos;
@@ -942,7 +941,7 @@ QRectF QVGraphicsView::getContentRect() const
     return transform().mapRect(loadedPixmapItem->boundingRect());
 }
 
-QRect QVGraphicsView::getUsableViewportRect(bool addOverscan) const
+QRect QVGraphicsView::getUsableViewportRect(const bool addOverscan) const
 {
 #ifdef COCOA_LOADED
     int obscuredHeight = QVCocoaFunctions::getObscuredHeight(window()->windowHandle());

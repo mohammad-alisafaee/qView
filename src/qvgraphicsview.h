@@ -49,9 +49,9 @@ public:
 
     void zoomOut();
 
-    void zoomRelative(const qreal relativeLevel, const std::optional<QPoint> &pos = {});
+    void zoomRelative(const qreal relativeLevel, const std::optional<QPoint> &mousePos = {});
 
-    void zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &pos = {}, const bool isApplyingCalculation = false);
+    void zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &mousePos = {}, const bool isApplyingCalculation = false);
 
     const std::optional<Qv::CalculatedZoomMode> &getCalculatedZoomMode() const;
     void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value);
@@ -141,7 +141,7 @@ protected:
 
     QRectF getContentRect() const;
 
-    QRect getUsableViewportRect(bool addOverscan = false) const;
+    QRect getUsableViewportRect(const bool addOverscan = false) const;
 
     void setTransformScale(qreal absoluteScale);
 
