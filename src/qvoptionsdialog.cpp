@@ -31,6 +31,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->scalingCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::scalingCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
+    connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged);
     connect(ui->middleButtonModeClickRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->middleButtonModeDragRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->titlebarComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::titlebarComboBoxCurrentIndexChanged);
@@ -263,6 +264,9 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncComboBox(ui->altVerticalScrollComboBox, "viewportaltverticalscrollaction", defaults, makeConnections);
     syncComboBox(ui->altHorizontalScrollComboBox, "viewportalthorizontalscrollaction", defaults, makeConnections);
     syncCheckbox(ui->scrollActionCooldownCheckbox, "scrollactioncooldown", defaults, makeConnections);
+    syncCheckbox(ui->cursorAutoHideFullscreenCheckbox, "cursorautohidefullscreenenabled", defaults, makeConnections);
+    cursorAutoHideFullscreenCheckboxStateChanged(ui->cursorAutoHideFullscreenCheckbox->checkState());
+    syncDoubleSpinBox(ui->cursorAutoHideFullscreenDelaySpinBox, "cursorautohidefullscreendelay", defaults, makeConnections);
 }
 
 void QVOptionsDialog::syncCheckbox(QCheckBox *checkbox, const QString &key, bool defaults, bool makeConnection)
@@ -549,7 +553,7 @@ void QVOptionsDialog::titlebarComboBoxCurrentIndexChanged(int index)
 void QVOptionsDialog::windowResizeComboBoxCurrentIndexChanged(int index)
 {
     const auto value = static_cast<Qv::WindowResizeMode>(ui->windowResizeComboBox->itemData(index).toInt());
-    bool enableRelatedControls = value != Qv::WindowResizeMode::Never;
+    const bool enableRelatedControls = value != Qv::WindowResizeMode::Never;
     ui->afterMatchingSizeLabel->setEnabled(enableRelatedControls);
     ui->afterMatchingSizeComboBox->setEnabled(enableRelatedControls);
     ui->minWindowResizeLabel->setEnabled(enableRelatedControls);
@@ -566,6 +570,11 @@ void QVOptionsDialog::fitZoomLimitCheckboxStateChanged(int state)
 void QVOptionsDialog::constrainImagePositionCheckboxStateChanged(int state)
 {
     ui->constrainCentersSmallImageCheckbox->setEnabled(static_cast<bool>(state));
+}
+
+void QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged(int state)
+{
+    ui->cursorAutoHideFullscreenDelaySpinBox->setEnabled(static_cast<bool>(state));
 }
 
 void QVOptionsDialog::populateCategories()

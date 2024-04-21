@@ -80,6 +80,8 @@ private slots:
 
     void constrainImagePositionCheckboxStateChanged(int state);
 
+    void cursorAutoHideFullscreenCheckboxStateChanged(int state);
+
     void languageComboBoxCurrentIndexChanged(int index);
 
     void formatsItemChanged(QTableWidgetItem *item);

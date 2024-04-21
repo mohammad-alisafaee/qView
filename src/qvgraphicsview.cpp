@@ -20,6 +20,7 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     setFrameShape(QFrame::NoFrame);
     setTransformationAnchor(QGraphicsView::NoAnchor);
     viewport()->setAutoFillBackground(false);
+    viewport()->setMouseTracking(true);
     grabGesture(Qt::PinchGesture);
 
     // Scene setup
@@ -52,6 +53,11 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     emitZoomLevelChangedTimer->setSingleShot(true);
     emitZoomLevelChangedTimer->setInterval(50);
     connect(emitZoomLevelChangedTimer, &QTimer::timeout, this, [this]{emit zoomLevelChanged();});
+
+    hideCursorTimer = new QTimer(this);
+    hideCursorTimer->setSingleShot(true);
+    hideCursorTimer->setInterval(1000);
+    connect(hideCursorTimer, &QTimer::timeout, this, [this]{setCursorVisible(false);});
 
     loadedPixmapItem = new QGraphicsPixmapItem();
     scene->addItem(loadedPixmapItem);
@@ -114,6 +120,7 @@ void QVGraphicsView::mousePressEvent(QMouseEvent *event)
     const auto initializeDrag = [this, event]() {
         pressedMouseButton = event->button();
         mousePressModifiers = event->modifiers();
+        setCursorVisible(true);
         viewport()->setCursor(Qt::ClosedHandCursor);
         lastMousePos = event->pos();
     };
@@ -161,6 +168,7 @@ void QVGraphicsView::mouseReleaseEvent(QMouseEvent *event)
     {
         pressedMouseButton = Qt::NoButton;
         mousePressModifiers = Qt::NoModifier;
+        setCursorVisible(true);
         viewport()->setCursor(Qt::ArrowCursor);
         scrollHelper->constrain();
         return;
@@ -171,6 +179,8 @@ void QVGraphicsView::mouseReleaseEvent(QMouseEvent *event)
 
 void QVGraphicsView::mouseMoveEvent(QMouseEvent *event)
 {
+    setCursorVisible(true);
+
     if (pressedMouseButton != Qt::NoButton)
     {
         const bool isAltAction = mousePressModifiers.testFlag(Qt::ControlModifier);
@@ -411,6 +421,9 @@ void QVGraphicsView::executeScrollAction(const Qv::ViewportScrollAction action, 
         if (uniAxisDelta < 0)
             zoomFactor = qPow(zoomFactor, -1);
 
+        if (isCursorVisible)
+            setCursorVisible(true);
+
         zoomRelative(zoomFactor, mousePos);
     }
     else if (action == Qv::ViewportScrollAction::Navigate)
@@ -548,7 +561,7 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
     if (!isApplyingCalculation || !Qv::calculatedZoomModeIsSticky(calculatedZoomMode.value()))
         setCalculatedZoomMode({});
 
-    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : isCursorZoomEnabled ? mousePos : getUsableViewportRect().center();
+    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : isCursorZoomEnabled && isCursorVisible ? mousePos : getUsableViewportRect().center();
     if (pos != lastZoomEventPos)
     {
         lastZoomEventPos = pos;
@@ -759,6 +772,32 @@ void QVGraphicsView::centerImage()
     verticalScrollBar()->setValue(vOffset + (vOverflow / 2));
 
     scrollHelper->cancelAnimation();
+}
+
+void QVGraphicsView::setCursorVisible(const bool visible)
+{
+    const bool autoHideCursor = isCursorAutoHideFullscreenEnabled && window()->isFullScreen();
+    if (visible)
+    {
+        if (autoHideCursor && pressedMouseButton == Qt::NoButton)
+            hideCursorTimer->start();
+        else
+            hideCursorTimer->stop();
+
+        if (isCursorVisible) return;
+
+        window()->setCursor(Qt::ArrowCursor);
+        viewport()->setCursor(Qt::ArrowCursor);
+        isCursorVisible = true;
+    }
+    else
+    {
+        if (!isCursorVisible) return;
+
+        window()->setCursor(Qt::BlankCursor);
+        viewport()->setCursor(Qt::BlankCursor);
+        isCursorVisible = false;
+    }
 }
 
 const QJsonObject QVGraphicsView::getSessionState() const
@@ -1083,11 +1122,17 @@ void QVGraphicsView::settingsUpdated()
     altHorizontalScrollAction = settingsManager.getEnum<Qv::ViewportScrollAction>("viewportalthorizontalscrollaction");
     scrollActionCooldown = settingsManager.getBoolean("scrollactioncooldown");
 
+    //cursor auto-hiding
+    isCursorAutoHideFullscreenEnabled = settingsManager.getBoolean("cursorautohidefullscreenenabled");
+    hideCursorTimer->setInterval(settingsManager.getDouble("cursorautohidefullscreendelay") * 1000.0);
+
     // End of settings variables
 
     handleDpiAdjustmentChange();
 
     fitOrConstrainImage();
+
+    setCursorVisible(true);
 }
 
 void QVGraphicsView::closeImage()

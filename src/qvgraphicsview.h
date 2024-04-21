@@ -66,6 +66,8 @@ public:
 
     void centerImage();
 
+    void setCursorVisible(const bool visible);
+
     const QJsonObject getSessionState() const;
 
     void loadSessionState(const QJsonObject &state);
@@ -190,7 +192,7 @@ private:
     Qv::ViewportScrollAction altHorizontalScrollAction {Qv::ViewportScrollAction::None};
     bool scrollActionCooldown {false};
 
-    std::optional<Qv::CalculatedZoomMode> calculatedZoomMode {Qv::CalculatedZoomMode::ZoomToFit};
+    std::optional<Qv::CalculatedZoomMode> calculatedZoomMode;
     bool navigationResetsZoom {true};
     bool loadIsFromSessionRestore {false};
     qreal zoomLevel {1.0};
@@ -198,12 +200,15 @@ private:
     qreal appliedExpensiveScaleZoomLevel {0.0};
     std::optional<QPoint> lastZoomEventPos;
     QPointF lastZoomRoundingError;
+    bool isCursorAutoHideFullscreenEnabled {true};
+    bool isCursorVisible {true};
 
     QVImageCore imageCore {this};
 
     QTimer *expensiveScaleTimer;
     QTimer *constrainBoundsTimer;
     QTimer *emitZoomLevelChangedTimer;
+    QTimer *hideCursorTimer;
 
     ScrollHelper *scrollHelper;
     AxisLocker scrollAxisLocker;

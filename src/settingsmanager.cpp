@@ -240,4 +240,6 @@ void SettingsManager::initializeSettingsLibrary()
 #else
     settingsLibrary.insert("scrollactioncooldown", {false, {}});
 #endif
+    settingsLibrary.insert("cursorautohidefullscreenenabled", {true, {}});
+    settingsLibrary.insert("cursorautohidefullscreendelay", {2, {}});
 }
