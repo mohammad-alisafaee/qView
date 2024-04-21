@@ -17,5 +17,6 @@ This fork of qView adds the following features:
 * Windows: Option for different theme; non-native look but it allows for dark mode.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
+* Option to hide mouse cursor in fullscreen mode.
 * Option for checkerboard background.
 * Option to disable icons in "Open Recent" and "Open With" submenus.

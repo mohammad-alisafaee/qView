@@ -480,7 +480,7 @@
              <string>The amount to zoom every scroll wheel click</string>
             </property>
             <property name="suffix">
-             <string notr="true">%</string>
+             <string>%</string>
             </property>
             <property name="minimum">
              <number>1</number>
