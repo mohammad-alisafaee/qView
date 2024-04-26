@@ -19,7 +19,7 @@ jobs:
           - runner: 'macos-14'
             qtVersion: '6.5.3'
             qtModules: 'qtimageformats'
-          - runner: 'macos-12'
+          - runner: 'macos-14'
             qtVersion: '5.15.2'
             osSuffix: '_legacy'
           - runner: 'windows-2022'
