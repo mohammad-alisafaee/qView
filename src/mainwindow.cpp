@@ -621,7 +621,7 @@ bool MainWindow::getTitlebarHidden() const
     if (!windowHandle())
         return false;
 
-#ifdef COCOA_LOADED
+#if defined COCOA_LOADED && QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     return QVCocoaFunctions::getTitlebarHidden(windowHandle());
 #else
     return !windowFlags().testFlag(Qt::WindowTitleHint);
