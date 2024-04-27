@@ -28,6 +28,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->bgColorCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::bgColorCheckboxStateChanged);
     connect(ui->nonNativeThemeCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("nonnativetheme", state); });
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
+    connect(ui->slideshowKeepsWindowOnTopCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("slideshowkeepswindowontop", state); });
     connect(ui->scalingCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::scalingCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
@@ -46,14 +47,17 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     QSettings settings;
     ui->categoryList->setCurrentRow(settings.value("optionstab", 1).toInt());
 
-    // On macOS, the dialog should not be dependent on any window
-#ifndef Q_OS_MACOS
-    setWindowModality(Qt::WindowModal);
+#ifdef Q_OS_MACOS
+    if (qvApp->getSlideshowKeepsWindowOnTop())
+        setWindowModality(Qt::ApplicationModal);
 #else
+    setWindowModality(Qt::WindowModal);
+#endif
+
+#ifdef Q_OS_MACOS
     // Load window geometry
     restoreGeometry(settings.value("optionsgeometry").toByteArray());
 #endif
-
 
     if (QOperatingSystemVersion::current() < QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 13)) {
         setWindowTitle(tr("Preferences"));
@@ -190,6 +194,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->detailsInFullscreen, "fullscreendetails", defaults, makeConnections);
     // submenuicons
     syncCheckbox(ui->submenuIconsCheckbox, "submenuicons", defaults, makeConnections);
+    // slideshowkeepswindowontop
+    syncCheckbox(ui->slideshowKeepsWindowOnTopCheckbox, "slideshowkeepswindowontop", defaults, makeConnections);
     // persistsession
     syncCheckbox(ui->persistSessionCheckbox, "persistsession", defaults, makeConnections);
     // filteringenabled

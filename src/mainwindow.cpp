@@ -1305,25 +1305,18 @@ void MainWindow::nextFrame()
 void MainWindow::toggleSlideshow()
 {
     const auto slideshowActions = qvApp->getActionManager().getAllClonesOfAction("slideshow", this);
-
-    if (slideshowTimer->isActive())
-    {
-        slideshowTimer->stop();
-        for (const auto &slideshowAction : slideshowActions)
-        {
-            slideshowAction->setText(tr("Start S&lideshow"));
-            slideshowAction->setIcon(QIcon::fromTheme("media-playback-start"));
-        }
-    }
-    else
-    {
+    const bool isStarting = !slideshowTimer->isActive();
+    if (isStarting)
         slideshowTimer->start();
-        for (const auto &slideshowAction : slideshowActions)
-        {
-            slideshowAction->setText(tr("Stop S&lideshow"));
-            slideshowAction->setIcon(QIcon::fromTheme("media-playback-stop"));
-        }
+    else
+        slideshowTimer->stop();
+    for (const auto &slideshowAction : slideshowActions)
+    {
+        slideshowAction->setText(isStarting ? tr("Stop S&lideshow") : tr("Start S&lideshow"));
+        slideshowAction->setIcon(QIcon::fromTheme(isStarting ? "media-playback-stop" : "media-playback-start"));
     }
+    if (qvApp->getSlideshowKeepsWindowOnTop())
+        windowHandle()->setFlag(Qt::WindowStaysOnTopHint, isStarting);
 }
 
 void MainWindow::cancelSlideshow()

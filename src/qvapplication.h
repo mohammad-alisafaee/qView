@@ -92,6 +92,8 @@ public:
 
     bool getShowSubmenuIcons() const { return showSubmenuIcons; }
 
+    bool getSlideshowKeepsWindowOnTop() const { return slideshowKeepsWindowOnTop; }
+
     void ensureFontLoaded(const QString &path);
 
     static QIcon iconFromFont(const QString &fontFamily, const QChar &codePoint, const int pixelSize, const qreal pixelRatio);
@@ -143,6 +145,7 @@ private:
     QPointer<QVAboutDialog> aboutDialog;
 
     bool showSubmenuIcons {true};
+    bool slideshowKeepsWindowOnTop {false};
 
     UpdateChecker updateChecker;
 

@@ -35,6 +35,7 @@ QVApplication::QVApplication(int &argc, char **argv) : QApplication(argc, argv)
         updateChecker.check();
 
     showSubmenuIcons = getSettingsManager().getBoolean("submenuicons");
+    slideshowKeepsWindowOnTop = getSettingsManager().getBoolean("slideshowkeepswindowontop");
 
     // Block any erroneous icons from showing up on mac and windows
     // (this is overridden in some cases)
