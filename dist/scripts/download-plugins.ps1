@@ -7,11 +7,10 @@ $pluginNames = "qtapng", "kimageformats"
 $qtVersion = ((qmake --version -split '\n')[1] -split ' ')[3]
 Write-Host "Detected Qt Version $qtVersion"
 
-# Qt version availability and runner names are assumed.
 if ($IsWindows) {
     $imageName = "windows-2019"
 } elseif ($IsMacOS) {
-    $imageName = "macos-latest"
+    $imageName = "macos-12"
 } else {
     $imageName = "ubuntu-20.04"
 }
@@ -33,7 +32,6 @@ foreach ($pluginName in $pluginNames) {
     Expand-Archive $artifactName -DestinationPath $pluginName
     Remove-Item $artifactName
 }
-
 
 if ($IsWindows) {
     $out_frm = "bin/"
