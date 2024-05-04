@@ -22,9 +22,7 @@ if ($pluginNames.count -eq 0) {
 }
 
 foreach ($pluginName in $pluginNames) {
-    $pluginQtVersion = If ($pluginName -eq 'qtapng' -and $qtVersion -like '6.*') { "6.4.3" } Else { $qtVersion }
-    $arch = If (-not $env:arch -or $env:arch -eq '') { "" } Else { "-$env:arch" }
-    $artifactName = "$pluginName-$imageName-$pluginQtVersion$arch.zip"
+    $artifactName = "$pluginName-$imageName-$qtVersion$($env:arch ? "-$env:arch" : $null).zip"
     $downloadUrl = "$binaryBaseUrl/$artifactName"
 
     Write-Host "Downloading $downloadUrl"
@@ -50,11 +48,11 @@ New-Item -Type Directory -Path "$out_imf" -ErrorAction SilentlyContinue
 # Copy QtApng
 if ($pluginNames -contains 'qtapng') {
     if ($IsWindows) {
-        cp qtapng/QtApng/plugins/imageformats/qapng.dll "$out_imf/"
+        cp qtapng/QtApng/output/qapng.dll "$out_imf/"
     } elseif ($IsMacOS) {
-        cp qtapng/QtApng/plugins/imageformats/libqapng.dylib "$out_imf/"
+        cp qtapng/QtApng/output/libqapng.dylib "$out_imf/"
     } else {
-        cp qtapng/QtApng/plugins/imageformats/libqapng.so "$out_imf/"
+        cp qtapng/QtApng/output/libqapng.so "$out_imf/"
     }
 }
 
