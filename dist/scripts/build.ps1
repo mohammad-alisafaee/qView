@@ -19,20 +19,11 @@ if ($IsWindows) {
     }
 }
 
-$qmakeArgs = @(
-    "PREFIX=""$Prefix""",
-    "DEFINES+=""$env:nightlyDefines"""
-)
-if ($IsMacOS -and $qtVersion -notlike '5.*') {
-    $qmakeArgs += "QMAKE_APPLE_DEVICE_ARCHS=""x86_64 arm64"""
-}
-Write-Host "Running 'qmake', args: $qmakeArgs"
-Invoke-Expression "qmake $qmakeArgs"
+$argDeviceArchs = $IsMacOS -and $qtVersion -notlike '5.*' ? "QMAKE_APPLE_DEVICE_ARCHS=x86_64 arm64" : $null;
+qmake PREFIX="$Prefix" DEFINES+="$env:nightlyDefines" $argDeviceArchs
 
 if ($IsWindows) {
-    Write-Host "Running 'nmake'"
     nmake
 } else {
-    Write-Host "Running 'make'"
     make
 }
