@@ -4,13 +4,13 @@ param (
     $Prefix = "/usr"
 )
 
-$qtVersion = ((qmake --version -split '\n')[1] -split ' ')[3]
+$qtVersion = [version]((qmake --version -split '\n')[1] -split ' ')[3]
 Write-Host "Detected Qt Version $qtVersion"
 
 if ($IsWindows) {
     dist/scripts/vcvars.ps1
 } elseif ($IsMacOS) {
-    if ($qtVersion -like '5.*') {
+    if ($qtVersion -lt [version]"6.0") {
         # Keep Qt 5.x build on Xcode 14 due to concern over QTBUG-117484
         sudo xcode-select --switch /Applications/Xcode_14.3.1.app
     } else {
@@ -19,7 +19,7 @@ if ($IsWindows) {
     }
 }
 
-$argDeviceArchs = $IsMacOS -and $qtVersion -notlike '5.*' ? "QMAKE_APPLE_DEVICE_ARCHS=x86_64 arm64" : $null;
+$argDeviceArchs = $IsMacOS -and $qtVersion -ge [version]"6.0" ? "QMAKE_APPLE_DEVICE_ARCHS=x86_64 arm64" : $null;
 qmake PREFIX="$Prefix" DEFINES+="$env:nightlyDefines" $argDeviceArchs
 
 if ($IsWindows) {

@@ -1,13 +1,12 @@
-param
-(
+param (
     $NightlyVersion = ""
 )
 
-$qtVersion = ((qmake --version -split '\n')[1] -split ' ')[3]
+$qtVersion = [version]((qmake --version -split '\n')[1] -split ' ')[3]
 Write-Host "Detected Qt Version $qtVersion"
 
-# Download and extract openssl
-if ($qtVersion -like '5.*') {
+# Download and extract OpenSSL
+if ($qtVersion -lt [version]"6.5") {
     $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-1.1.1w.zip"
     $openSslFolderVersion = "1.1"
     $openSslFilenameVersion = "1_1"
@@ -33,7 +32,6 @@ if ($env:arch.substring(3, 2) -eq '32') {
 
 # Run windeployqt which should be in path
 windeployqt bin/qView.exe --no-compiler-runtime
-
 
 if ($NightlyVersion -eq '') {
     # Call innomake if we are not building a nightly version (no version passed)
