@@ -11,7 +11,7 @@ if ($qtVersion -lt [version]"6.5") {
     $openSslFolderVersion = "1.1"
     $openSslFilenameVersion = "1_1"
 } else {
-    $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-3.2.1.zip"
+    $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-3.3.0.zip"
     $openSslFolderVersion = "3"
     $openSslFilenameVersion = "3"
 }
