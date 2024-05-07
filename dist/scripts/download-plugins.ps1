@@ -56,52 +56,24 @@ if ($pluginNames -contains 'qtapng') {
     }
 }
 
+function CopyFrameworkDlls($mainDll, $otherDlls) {
+    if (-not (Test-Path -Path kimageformats/kimageformats/output/$mainDll -PathType Leaf)) {
+        return
+    }
+    foreach ($dll in @($mainDll) + $otherDlls) {
+        cp kimageformats/kimageformats/output/$dll "$out_frm/"
+    }
+}
+
 if ($pluginNames -contains 'kimageformats') {
     if ($IsWindows) {
         mv kimageformats/kimageformats/output/kimg_*.dll "$out_imf/"
-        # Copy karchive
-        if (Test-Path -Path kimageformats/kimageformats/output/KF5Archive.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/KF5Archive.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/zlib1.dll "$out_frm/"
-        }
-        # copy avif stuff
-        if (Test-Path -Path kimageformats/kimageformats/output/avif.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/avif.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/aom.dll "$out_frm/"
-        }
-        # copy heif stuff
-        if (Test-Path -Path kimageformats/kimageformats/output/heif.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/heif.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/libde265.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/libx265.dll "$out_frm/"
-        }
-        # copy raw stuff
-        if (Test-Path -Path kimageformats/kimageformats/output/raw.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/raw.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/lcms2.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/zlib1.dll "$out_frm/"
-        }
-        # copy jxl stuff
-        if (Test-Path -Path kimageformats/kimageformats/output/jxl.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/jxl.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/brotlicommon.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/brotlidec.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/brotlienc.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/hwy.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/jxl_cms.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/jxl_threads.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/lcms2.dll "$out_frm/"
-        }
-        # copy openexr stuff
-        if (Test-Path -Path kimageformats/kimageformats/output/OpenEXR-3_2.dll -PathType Leaf) {
-            cp kimageformats/kimageformats/output/OpenEXR-3_2.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/deflate.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/Iex-3_2.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/IlmThread-3_2.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/Imath-3_1.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/OpenEXRCore-3_2.dll "$out_frm/"
-            cp kimageformats/kimageformats/output/zlib1.dll "$out_frm/"
-        }
+        CopyFrameworkDlls "KF5Archive.dll" @("zlib1.dll")
+        CopyFrameworkDlls "avif.dll" @("aom.dll")
+        CopyFrameworkDlls "heif.dll" @("libde265.dll", "libx265.dll")
+        CopyFrameworkDlls "raw.dll" @("lcms2.dll", "zlib1.dll")
+        CopyFrameworkDlls "jxl.dll" @("brotlicommon.dll", "brotlidec.dll", "brotlienc.dll", "hwy.dll", "jxl_cms.dll", "jxl_threads.dll", "lcms2.dll")
+        CopyFrameworkDlls "OpenEXR-3_2.dll" @("deflate.dll", "Iex-3_2.dll", "IlmThread-3_2.dll", "Imath-3_1.dll", "OpenEXRCore-3_2.dll")
     } elseif ($IsMacOS) {
         cp kimageformats/kimageformats/output/*.so "$out_imf/"
         cp kimageformats/kimageformats/output/libKF5Archive.5.dylib "$out_frm/"
