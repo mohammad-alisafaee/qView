@@ -249,6 +249,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->askDeleteCheckbox, "askdelete", defaults, makeConnections);
     // allowmimecontentdetection
     syncCheckbox(ui->mimeContentDetectionCheckbox, "allowmimecontentdetection", defaults, makeConnections);
+    // skiphidden
+    syncCheckbox(ui->skipHiddenCheckbox, "skiphidden", defaults, makeConnections);
     // saverecents
     syncCheckbox(ui->saveRecentsCheckbox, "saverecents", defaults, makeConnections);
     // updatenotifications

@@ -286,7 +286,11 @@ QList<QVImageCore::CompatibleFile> QVImageCore::getCompatibleFiles(const QString
 
     QMimeDatabase::MatchMode mimeMatchMode = allowMimeContentDetection ? QMimeDatabase::MatchDefault : QMimeDatabase::MatchExtension;
 
-    const QFileInfoList currentFolder = QDir(dirPath).entryInfoList(QDir::Files | QDir::Hidden, QDir::Unsorted);
+    QDir::Filters filters = QDir::Files;
+    if (!skipHiddenFiles)
+        filters |= QDir::Hidden;
+
+    const QFileInfoList currentFolder = QDir(dirPath).entryInfoList(filters, QDir::Unsorted);
     for (const QFileInfo &fileInfo : currentFolder)
     {
         const QString absoluteFilePath = fileInfo.absoluteFilePath();
@@ -653,6 +657,9 @@ void QVImageCore::settingsUpdated()
 
     //allow mime content detection
     allowMimeContentDetection = settingsManager.getBoolean("allowmimecontentdetection");
+
+    //skip hidden files
+    skipHiddenFiles = settingsManager.getBoolean("skiphidden");
 
     //update folder info to reflect new settings (e.g. sort order)
     updateFolderInfo();

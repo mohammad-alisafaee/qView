@@ -120,6 +120,7 @@ private:
     Qv::SortMode sortMode {Qv::SortMode::Name};
     bool sortDescending {false};
     bool allowMimeContentDetection {false};
+    bool skipHiddenFiles {false};
     Qv::ColorSpaceConversion colorSpaceConversion {Qv::ColorSpaceConversion::AutoDetect};
 
     static QCache<QString, ReadData> pixmapCache;

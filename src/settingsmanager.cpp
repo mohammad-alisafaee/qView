@@ -217,6 +217,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("afterdelete", {static_cast<int>(Qv::AfterDelete::MoveForward), {}});
     settingsLibrary.insert("askdelete", {true, {}});
     settingsLibrary.insert("allowmimecontentdetection", {false, {}});
+    settingsLibrary.insert("skiphidden", {false, {}});
     settingsLibrary.insert("saverecents", {true, {}});
     settingsLibrary.insert("updatenotifications", {false, {}});
     // Formats
