@@ -18,5 +18,6 @@ This fork of qView adds the following features:
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
 * Option to hide mouse cursor in fullscreen mode.
+* Option to keep window on top during slideshow.
 * Option for checkerboard background.
 * Option to disable icons in "Open Recent" and "Open With" submenus.

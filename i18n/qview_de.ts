@@ -382,71 +382,71 @@
         <translation type="vanished">Leer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="827"/>
-        <location filename="../src/mainwindow.cpp" line="854"/>
-        <location filename="../src/mainwindow.cpp" line="877"/>
-        <location filename="../src/mainwindow.cpp" line="962"/>
-        <location filename="../src/mainwindow.cpp" line="1042"/>
-        <location filename="../src/mainwindow.cpp" line="1099"/>
-        <location filename="../src/mainwindow.cpp" line="1107"/>
+        <location filename="../src/mainwindow.cpp" line="825"/>
+        <location filename="../src/mainwindow.cpp" line="852"/>
+        <location filename="../src/mainwindow.cpp" line="875"/>
+        <location filename="../src/mainwindow.cpp" line="960"/>
+        <location filename="../src/mainwindow.cpp" line="1040"/>
+        <location filename="../src/mainwindow.cpp" line="1097"/>
+        <location filename="../src/mainwindow.cpp" line="1105"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="827"/>
+        <location filename="../src/mainwindow.cpp" line="825"/>
         <source>Error: URL is invalid</source>
         <translation>Fehler: URL ist ungültig</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="833"/>
+        <location filename="../src/mainwindow.cpp" line="831"/>
         <source>Downloading image...</source>
         <translation>Bild herunterladen&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="833"/>
+        <location filename="../src/mainwindow.cpp" line="831"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="837"/>
-        <location filename="../src/mainwindow.cpp" line="893"/>
+        <location filename="../src/mainwindow.cpp" line="835"/>
+        <location filename="../src/mainwindow.cpp" line="891"/>
         <source>Open URL...</source>
         <translation>URL öffnen&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="854"/>
+        <location filename="../src/mainwindow.cpp" line="852"/>
         <source>Error </source>
         <translation>Fehler </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="877"/>
+        <location filename="../src/mainwindow.cpp" line="875"/>
         <source>Error: Invalid image</source>
         <translation>Fehler: ungültige Bilddatei</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="894"/>
+        <location filename="../src/mainwindow.cpp" line="892"/>
         <source>URL of a supported image file:</source>
         <translation>URL zu einer unterstützten Bilddatei:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="962"/>
+        <location filename="../src/mainwindow.cpp" line="960"/>
         <source>Can&apos;t delete %1:
 No write permission or file is read-only.</source>
         <translation>%1 kann nicht gelöscht werden:
 Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="969"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
         <translation type="unfinished">Sind Sie sicher, dass Sie %1 endgültig löschen möchten? Dies kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="976"/>
+        <location filename="../src/mainwindow.cpp" line="974"/>
         <source>Are you sure you want to move %1 to the Trash?</source>
         <translation>Sind Sie sicher, dass Sie %1 in den Papierkorb verschieben wollen?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="974"/>
+        <location filename="../src/mainwindow.cpp" line="972"/>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
         <translation>Sind Sie sicher, dass Sie %1 in den Papierkorb verschieben möchten?</translation>
     </message>
@@ -460,43 +460,43 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
 %2 (Fehler %1)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="980"/>
+        <location filename="../src/mainwindow.cpp" line="978"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="983"/>
+        <location filename="../src/mainwindow.cpp" line="981"/>
         <source>Do not ask again</source>
         <translation>Nicht erneut nachfragen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1042"/>
+        <location filename="../src/mainwindow.cpp" line="1040"/>
         <source>Can&apos;t delete %1.</source>
         <translation>Kann %1 nicht löschen.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
-        <location filename="../src/mainwindow.cpp" line="1112"/>
+        <location filename="../src/mainwindow.cpp" line="1030"/>
+        <location filename="../src/mainwindow.cpp" line="1110"/>
         <source>Not Supported</source>
         <translation>Nicht unterstützt</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1032"/>
-        <location filename="../src/mainwindow.cpp" line="1112"/>
+        <location filename="../src/mainwindow.cpp" line="1030"/>
+        <location filename="../src/mainwindow.cpp" line="1110"/>
         <source>This program was compiled with an old version of Qt and this feature is not available.
 If you see this message, please report a bug!</source>
         <translation>Dieses Programm wurde mit einer alten Version von Qt kompiliert und diese Funktion ist nicht verfügbar.
 Wenn Sie diese Meldung sehen, melden Sie diesen Fehler bitte!</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1099"/>
+        <location filename="../src/mainwindow.cpp" line="1097"/>
         <source>Can&apos;t undo deletion of %1:
 No write permission or file is read-only.</source>
         <translation>Löschung von %1 kann nicht rückgängig gemacht werden:
 Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1107"/>
+        <location filename="../src/mainwindow.cpp" line="1105"/>
         <source>Failed undoing deletion of %1.</source>
         <translation>Das Wiederherstellen von %1 ist fehlgeschlagen.</translation>
     </message>
@@ -515,27 +515,27 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
 (Überprüfe, ob du Schreibrechte hast)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1260"/>
+        <location filename="../src/mainwindow.cpp" line="1258"/>
         <source>Save Frame As...</source>
         <translation>Frame speichern als&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1284"/>
+        <location filename="../src/mainwindow.cpp" line="1282"/>
         <source>Res&amp;ume</source>
         <translation>&amp;Fortsetzen</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1293"/>
+        <location filename="../src/mainwindow.cpp" line="1291"/>
         <source>Pause</source>
         <translation>Pause</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1316"/>
+        <location filename="../src/mainwindow.cpp" line="1315"/>
         <source>Start S&amp;lideshow</source>
         <translation>Diashow &amp;starten</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="1325"/>
+        <location filename="../src/mainwindow.cpp" line="1315"/>
         <source>Stop S&amp;lideshow</source>
         <translation>Diashow s&amp;toppen</translation>
     </message>
@@ -640,39 +640,39 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="vanished">Unterstützte Dateiformate</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="187"/>
+        <location filename="../src/qvapplication.cpp" line="188"/>
         <source>Error</source>
         <translation type="unfinished">Fehler</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="187"/>
+        <location filename="../src/qvapplication.cpp" line="188"/>
         <source>Error checking for updates:
 %1</source>
         <translation type="unfinished">Fehler beim Suchen nach Aktualisierungen:
 %1</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="189"/>
+        <location filename="../src/qvapplication.cpp" line="190"/>
         <source>No Updates</source>
         <translation type="unfinished">Keine Aktualisierungen</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="189"/>
+        <location filename="../src/qvapplication.cpp" line="190"/>
         <source>You already have the latest version.</source>
         <translation type="unfinished">Sie haben bereits die neueste Version.</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="343"/>
+        <location filename="../src/qvapplication.cpp" line="344"/>
         <source>Supported Images</source>
         <translation>Unterstützte Bilder</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="390"/>
+        <location filename="../src/qvapplication.cpp" line="391"/>
         <source>All Files</source>
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../src/qvapplication.cpp" line="116"/>
+        <location filename="../src/qvapplication.cpp" line="117"/>
         <source>Open...</source>
         <translation>Öffnen&#xa0;…</translation>
     </message>
@@ -848,7 +848,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="vanished">Optionen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="589"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="597"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
@@ -895,17 +895,17 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="unfinished">Fenster an Bildgröße anpassen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="730"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="738"/>
         <source>Never</source>
         <translation>Nie</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="731"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="739"/>
         <source>When launching</source>
         <translation>Beim Programmstart</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="732"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="740"/>
         <source>When opening images</source>
         <translation>Beim Öffnen von Bildern</translation>
     </message>
@@ -937,12 +937,12 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation>Maximale Größe:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="340"/>
+        <location filename="../src/qvoptionsdialog.ui" line="347"/>
         <source>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</source>
         <translation>Legt fest, ob die Titelleiste immer dunkel sein soll, unabhängig von deinem macOS-Aussehen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="343"/>
+        <location filename="../src/qvoptionsdialog.ui" line="350"/>
         <source>&amp;Titlebar always dark</source>
         <translation>&amp;Titelleiste immer dunkel</translation>
     </message>
@@ -1009,178 +1009,193 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="unfinished">Symbole in Untermenüs anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="353"/>
+        <location filename="../src/qvoptionsdialog.ui" line="340"/>
+        <source>Keep window on top during slideshow</source>
+        <translation type="unfinished">Fenster während der Diashow im Vordergrund halten</translation>
+    </message>
+    <message>
+        <location filename="../src/qvoptionsdialog.ui" line="360"/>
         <source>&amp;Quit on last window closed</source>
         <translation>Schließen, wenn letztes Fenster geschlossen wurde</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="360"/>
+        <location filename="../src/qvoptionsdialog.ui" line="367"/>
         <source>Persist session across app restarts</source>
         <translation type="unfinished">Sitzung über App-Neustarts hinweg beibehalten</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="590"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="598"/>
         <source>Image</source>
         <translation>Bild</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="411"/>
+        <location filename="../src/qvoptionsdialog.ui" line="418"/>
         <source>Scaling:</source>
         <translation>Skalierung:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="418"/>
+        <location filename="../src/qvoptionsdialog.ui" line="425"/>
         <source>Turn this off to see individual pixels</source>
         <translation>Ausschalten, um einzelne Pixel zu sehen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="421"/>
+        <location filename="../src/qvoptionsdialog.ui" line="428"/>
         <source>&amp;Bilinear filtering</source>
         <translation>&amp;Bilineare Filterung</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="431"/>
+        <location filename="../src/qvoptionsdialog.ui" line="438"/>
         <source>Images appear aliased (having jagged edges) without this, but it is faster</source>
         <translation>Ohne diese Option erscheinen die Bilder im „aliased“-Modus, d.h. sie können kantig wirken; der „aliased“-Modus ist jedoch schneller</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="434"/>
+        <location filename="../src/qvoptionsdialog.ui" line="441"/>
         <source>&amp;Image scaling</source>
         <translation>&amp;Bildskalierung</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="444"/>
+        <location filename="../src/qvoptionsdialog.ui" line="451"/>
         <source>Choose whether or not the image continues to be scaled when zooming above the window size (can be laggier with large images)</source>
         <translation>Legt fest, ob das Bild weiter skaliert werden soll, wenn über die Größe des Programmfensters hinaus gezoomt wird (dies kann bei großen Bildern zu Verzögerungen führen)</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="447"/>
+        <location filename="../src/qvoptionsdialog.ui" line="454"/>
         <source>&amp;Scaling above window size</source>
         <translation>&amp;Skaliere über die Größe des Programmfensters hinaus</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="470"/>
-        <location filename="../src/qvoptionsdialog.ui" line="480"/>
+        <location filename="../src/qvoptionsdialog.ui" line="477"/>
+        <location filename="../src/qvoptionsdialog.ui" line="487"/>
         <source>The amount to zoom every scroll wheel click</source>
         <translation>Legt fest, wie viel pro Mausrad-Drehung gezoomt wird</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="473"/>
+        <location filename="../src/qvoptionsdialog.ui" line="480"/>
         <source>Zoom amount:</source>
         <translation>Zoomfaktor:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="538"/>
+        <location filename="../src/qvoptionsdialog.ui" line="545"/>
         <source>Zoom default:</source>
         <translation type="unfinished">Standardzoom:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="593"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="601"/>
         <source>Mouse</source>
         <translation type="unfinished">Maus</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="760"/>
+        <location filename="../src/qvoptionsdialog.ui" line="767"/>
         <source>Navigation speed:</source>
         <translation>Navigationsgeschwindigkeit:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="767"/>
+        <location filename="../src/qvoptionsdialog.ui" line="774"/>
         <source> ms</source>
         <translation> ms</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1007"/>
+        <location filename="../src/qvoptionsdialog.ui" line="899"/>
+        <source>May be slow with network folders</source>
+        <translation type="unfinished">Kann bei Netzwerkordnern langsam sein</translation>
+    </message>
+    <message>
+        <location filename="../src/qvoptionsdialog.ui" line="902"/>
+        <source>Skip hidden files</source>
+        <translation type="unfinished">Versteckte Dateien überspringen</translation>
+    </message>
+    <message>
+        <location filename="../src/qvoptionsdialog.ui" line="1024"/>
         <source>Left Button</source>
         <translation type="unfinished">Linke Taste</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1034"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1051"/>
         <source>Double Click:</source>
         <translation type="unfinished">Doppelklick:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1054"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1071"/>
         <source>Drag:</source>
         <translation type="unfinished">Ziehen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1077"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1094"/>
         <source>Middle Button</source>
         <translation type="unfinished">Mittlere Taste</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1104"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1121"/>
         <source>Mode:</source>
         <translation type="unfinished">Modus:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1113"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1130"/>
         <source>Click</source>
         <translation type="unfinished">Klicken</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1120"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1137"/>
         <source>Drag</source>
         <translation type="unfinished">Ziehen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1129"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1146"/>
         <source>Middle Click:</source>
         <translation type="unfinished">Mittelklick:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1149"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1166"/>
         <source>Middle Drag:</source>
         <translation type="unfinished">Mittel-Ziehen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1172"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1189"/>
         <source>Scroll Wheel / Touchpad</source>
         <translation type="unfinished">Scrollrad / Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1199"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1216"/>
         <source>Vertical Scroll:</source>
         <translation type="unfinished">Vertikales Scrollen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1209"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1226"/>
         <source>Horizontal Scroll:</source>
         <translation type="unfinished">Horizontales Scrollen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1239"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1256"/>
         <source>Useful for touchpads, to prevent a single swipe from triggering multiple navigations, for example</source>
         <translation type="unfinished">Nützlich für Touchpads, um zu verhindern, dass ein einzelner Wischvorgang mehrere Navigationen auslöst, zum Beispiel</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1242"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1259"/>
         <source>Cooldown for discrete actions</source>
         <translation type="unfinished">Abklingzeit für einzelne Aktionen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1252"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1269"/>
         <source>Cursor</source>
         <translation>Mauszeiger</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1285"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1302"/>
         <source>Auto-hide in fullscreen:</source>
         <translation type="unfinished">Auto-ausblenden im Vollbildmodus:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1292"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1309"/>
         <source> sec delay</source>
         <translation type="unfinished"> Sek. Verzögerung</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1365"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1382"/>
         <source>Extension</source>
         <translation>Erweiterung</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="1370"/>
+        <location filename="../src/qvoptionsdialog.ui" line="1387"/>
         <source>Enabled</source>
         <translation>Aktiviert</translation>
     </message>
@@ -1221,63 +1236,63 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="vanished">Beim Ändern der Fenstergröße:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="502"/>
+        <location filename="../src/qvoptionsdialog.ui" line="509"/>
         <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
         <translation>Legt fest, ob beim Zoomen über 100&#xa0;% in Richtung Mauszeiger gezoomt wird</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="505"/>
+        <location filename="../src/qvoptionsdialog.ui" line="512"/>
         <source>Zoom &amp;towards cursor</source>
         <translation>In &amp;Richtung Mauszeiger zoomen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="515"/>
+        <location filename="../src/qvoptionsdialog.ui" line="522"/>
         <source>Zoom level is relative to screen pixels</source>
         <translation type="unfinished">Zoomstufe bezieht sich auf Bildschirmpixel</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="554"/>
+        <location filename="../src/qvoptionsdialog.ui" line="561"/>
         <source>Limit fit/fill zoom:</source>
         <translation type="unfinished">Zoomgrenze für Anpassung/Ausfüllung:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="483"/>
-        <location filename="../src/qvoptionsdialog.ui" line="561"/>
+        <location filename="../src/qvoptionsdialog.ui" line="490"/>
+        <location filename="../src/qvoptionsdialog.ui" line="568"/>
         <source>%</source>
         <translation>%</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="580"/>
+        <location filename="../src/qvoptionsdialog.ui" line="587"/>
         <source> pixel overscan</source>
         <translation type="unfinished"> Pixel Overscan</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="606"/>
+        <location filename="../src/qvoptionsdialog.ui" line="613"/>
         <source>&amp;Constrain image position</source>
         <translation type="unfinished">Bildposition beschränken</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="616"/>
+        <location filename="../src/qvoptionsdialog.ui" line="623"/>
         <source>Keep ce&amp;ntered if smaller</source>
         <translation type="unfinished">Zentriert halten, wenn kleiner</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="639"/>
+        <location filename="../src/qvoptionsdialog.ui" line="646"/>
         <source>Color space conversion:</source>
         <translation type="unfinished">Farbraumkonvertierung:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="591"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="599"/>
         <source>Miscellaneous</source>
         <translation>Verschiedenes</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="703"/>
+        <location filename="../src/qvoptionsdialog.ui" line="710"/>
         <source>Sort files by:</source>
         <translation>Dateien sortieren nach:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="709"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="717"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
@@ -1286,334 +1301,334 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="vanished">Datum der letzten Änderung</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="712"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="720"/>
         <source>Size</source>
         <translation>Dateigröße</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="713"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="721"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="703"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="714"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="711"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="722"/>
         <source>Random</source>
         <translation>Zufall</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="713"/>
+        <location filename="../src/qvoptionsdialog.ui" line="720"/>
         <source>A&amp;scending</source>
         <translation>A&amp;ufsteigend</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="723"/>
+        <location filename="../src/qvoptionsdialog.ui" line="730"/>
         <source>D&amp;escending</source>
         <translation>A&amp;bsteigend</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="743"/>
-        <location filename="../src/qvoptionsdialog.ui" line="753"/>
+        <location filename="../src/qvoptionsdialog.ui" line="750"/>
+        <location filename="../src/qvoptionsdialog.ui" line="760"/>
         <source>Controls the amount of images preloaded</source>
         <translation>Legt fest, wie viele Bilder im Voraus geladen werden sollen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="746"/>
+        <location filename="../src/qvoptionsdialog.ui" line="753"/>
         <source>Preloading:</source>
         <translation>Im Voraus laden:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="684"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="693"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="692"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="701"/>
         <source>Disabled</source>
         <translation>Deaktiviert</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="685"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="693"/>
         <source>Auto-detect</source>
         <translation type="unfinished">Automatisch erkennen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="686"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="694"/>
         <source>sRGB</source>
         <translation type="unfinished">sRGB</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="687"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="695"/>
         <source>Display P3</source>
         <translation type="unfinished">Display P3</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="694"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="702"/>
         <source>Adjacent</source>
         <translation>Benachbarte</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="695"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="703"/>
         <source>Extended</source>
         <translation>Erweiterte</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="777"/>
+        <location filename="../src/qvoptionsdialog.ui" line="784"/>
         <source>Controls whether or not qView should go back to the first item after reaching the end of a folder</source>
         <translation>Legt fest, ob qView zur ersten Datei springen soll, wenn das Ende eines Ordners erreicht wurde</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="780"/>
+        <location filename="../src/qvoptionsdialog.ui" line="787"/>
         <source>&amp;Loop through folders</source>
         <translation>Durch Ordner &amp;rotieren</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="803"/>
+        <location filename="../src/qvoptionsdialog.ui" line="810"/>
         <source>Slideshow direction:</source>
         <translation>Richtung der Diashow:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="701"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="709"/>
         <source>Forward</source>
         <translation>Vorwärts</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="702"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="710"/>
         <source>Backward</source>
         <translation>Rückwärts</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="813"/>
+        <location filename="../src/qvoptionsdialog.ui" line="820"/>
         <source>Slideshow timer:</source>
         <translation>Diashow-Timer:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="820"/>
+        <location filename="../src/qvoptionsdialog.ui" line="827"/>
         <source> sec</source>
         <translation> Sek.</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="882"/>
+        <location filename="../src/qvoptionsdialog.ui" line="889"/>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
         <translation type="unfinished">Unterstützte Dateien im Ordner erkennen, auch wenn die Erweiterung nicht erkannt wird (kann bei größeren/Netzwerkordnern langsam sein)</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="885"/>
+        <location filename="../src/qvoptionsdialog.ui" line="892"/>
         <source>Allow &amp;MIME content detection</source>
         <translation type="unfinished">MIME-Inhaltserkennung zulassen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="892"/>
+        <location filename="../src/qvoptionsdialog.ui" line="909"/>
         <source>Save &amp;recent files</source>
         <translation>Zuletzt geöffnete Dateien speichern</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="899"/>
+        <location filename="../src/qvoptionsdialog.ui" line="916"/>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
         <translation>Benachrichtige über Aktualisierungen beim Programmstart</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="693"/>
+        <location filename="../src/qvoptionsdialog.ui" line="700"/>
         <source>Language:</source>
         <translation>Sprache:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="660"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="668"/>
         <source>Move Back</source>
         <translation>Zurück</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="661"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="669"/>
         <source>Do Nothing</source>
         <translation>Nichts tun</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="662"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="670"/>
         <source>Move Forward</source>
         <translation>Weiter</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="852"/>
+        <location filename="../src/qvoptionsdialog.ui" line="859"/>
         <source>After deletion:</source>
         <translation>Nach dem Löschen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="862"/>
+        <location filename="../src/qvoptionsdialog.ui" line="869"/>
         <source>&amp;Ask before deleting files</source>
         <translation>Vor dem Löschen von Dateien fragen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="965"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="592"/>
+        <location filename="../src/qvoptionsdialog.ui" line="982"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="600"/>
         <source>Shortcuts</source>
         <translation>Tastenkürzel</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.ui" line="960"/>
+        <location filename="../src/qvoptionsdialog.ui" line="977"/>
         <source>Action</source>
         <translation>Aktion</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="602"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="610"/>
         <source>System Language</source>
         <translation>Systemsprache</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="539"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="625"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="547"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="633"/>
         <source>Restart Required</source>
         <translation>Programmneustart erforderlich</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="59"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="63"/>
         <source>Preferences</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="89"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="93"/>
         <source>%1 + Double Click:</source>
         <translation type="unfinished">%1 + Doppelklick:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="90"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="94"/>
         <source>%1 + Drag:</source>
         <translation type="unfinished">%1 + Ziehen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="91"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="95"/>
         <source>%1 + Middle Click:</source>
         <translation type="unfinished">%1 + Mittelklick:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="92"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="96"/>
         <source>%1 + Middle Drag:</source>
         <translation type="unfinished">%1 + Mittel-Ziehen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="93"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="97"/>
         <source>%1 + Vertical Scroll:</source>
         <translation type="unfinished">%1 + Vertikales Scrollen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="94"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="98"/>
         <source>%1 + Horizontal Scroll:</source>
         <translation type="unfinished">%1 + Horizontales Scrollen:</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="539"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="547"/>
         <source>You must restart qView to change this setting.</source>
         <translation>Du musst qView neustarten, um diese Einstellung wirksam zu machen.</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="594"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="602"/>
         <source>Formats</source>
         <translation>Formate</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="625"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="633"/>
         <source>You must restart qView to change the language.</source>
         <translation>Du musst qView neustarten, um die Spracheinstellungen wirksam zu machen.</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="668"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="676"/>
         <source>Avoid repositioning</source>
         <translation type="unfinished">Neupositionierung vermeiden</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="669"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="677"/>
         <source>Center relative to previous image</source>
         <translation type="unfinished">Relativ zum vorherigen Bild zentrieren</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="670"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="678"/>
         <source>Center relative to screen</source>
         <translation type="unfinished">Relativ zum Bildschirm zentrieren</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="677"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="740"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="685"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="748"/>
         <source>Fill Window</source>
         <translation type="unfinished">Fenster ausfüllen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="710"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="718"/>
         <source>Date Modified</source>
         <translation type="unfinished">Änderungsdatum</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="711"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="719"/>
         <source>Date Created</source>
         <translation type="unfinished">Erstellungsdatum</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="720"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="728"/>
         <source>Basic</source>
         <translation>Grundlegend</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="721"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="729"/>
         <source>Minimal</source>
         <translation>Minimal</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="722"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="730"/>
         <source>Practical</source>
         <translation>Praktisch</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="723"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="731"/>
         <source>Verbose</source>
         <translation>Ausschweifend</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="724"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="732"/>
         <source>Custom</source>
         <translation>Benutzerdefiniert</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="738"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="749"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="746"/>
         <location filename="../src/qvoptionsdialog.cpp" line="757"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="765"/>
         <source>None</source>
         <translation type="unfinished">Keine</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="676"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="739"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="684"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="747"/>
         <source>Zoom to Fit</source>
         <translation type="unfinished">Größe an Fenster anpassen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="678"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="741"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="686"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="749"/>
         <source>Original Size</source>
         <translation type="unfinished">Originalgröße</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="742"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="750"/>
         <source>Toggle Full Screen</source>
         <translation type="unfinished">Vollbildmodus umschalten</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="743"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="751"/>
         <source>Toggle Titlebar Hidden</source>
         <translation type="unfinished">Titelleiste ausgeblendet umschalten</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="750"/>
-        <location filename="../src/qvoptionsdialog.cpp" line="760"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="758"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="768"/>
         <source>Pan</source>
         <translation type="unfinished">Schwenken</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="751"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="759"/>
         <source>Move Window</source>
         <translation type="unfinished">Fenster verschieben</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="758"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="766"/>
         <source>Zoom</source>
         <translation type="unfinished">Zoomen</translation>
     </message>
     <message>
-        <location filename="../src/qvoptionsdialog.cpp" line="759"/>
+        <location filename="../src/qvoptionsdialog.cpp" line="767"/>
         <source>Navigate</source>
         <translation type="unfinished">Navigieren</translation>
     </message>
