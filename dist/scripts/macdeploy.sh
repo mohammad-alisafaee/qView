@@ -28,6 +28,12 @@ fi
 cd bin
 
 macdeployqt qView.app
+
+if [[ -f "qView.app/Contents/PlugIns/imageformats/kimg_heif.so" && -f "qView.app/Contents/PlugIns/imageformats/libqmacheif.dylib" ]]; then
+    # Prefer kimageformats HEIF plugin for proper color space handling
+    rm "qView.app/Contents/PlugIns/imageformats/libqmacheif.dylib"
+fi
+
 if [[ "$APPLE_NOTARIZE_REQUESTED" == "true" ]]; then
     APP_IDENTIFIER=$(/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" "qView.app/Contents/Info.plist")
     codesign --sign "$CODESIGN_CERT_NAME" --deep --options runtime --timestamp "qView.app"
