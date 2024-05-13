@@ -27,13 +27,17 @@ fi
 
 cd bin
 
+echo "Running macdeployqt"
 macdeployqt qView.app
 
-if [[ -f "qView.app/Contents/PlugIns/imageformats/kimg_heif.so" && -f "qView.app/Contents/PlugIns/imageformats/libqmacheif.dylib" ]]; then
+IMF_DIR=qView.app/Contents/PlugIns/imageformats
+if [[ (-f "$IMF_DIR/kimg_heif.dylib" || -f "$IMF_DIR/kimg_heif.so") && -f "$IMF_DIR/libqmacheif.dylib" ]]; then
     # Prefer kimageformats HEIF plugin for proper color space handling
-    rm "qView.app/Contents/PlugIns/imageformats/libqmacheif.dylib"
+    echo "Removing duplicate HEIF plugin"
+    rm "$IMF_DIR/libqmacheif.dylib"
 fi
 
+echo "Running codesign"
 if [[ "$APPLE_NOTARIZE_REQUESTED" == "true" ]]; then
     APP_IDENTIFIER=$(/usr/libexec/PlistBuddy -c "Print CFBundleIdentifier" "qView.app/Contents/Info.plist")
     codesign --sign "$CODESIGN_CERT_NAME" --deep --options runtime --timestamp "qView.app"
@@ -41,6 +45,7 @@ else
     codesign --sign "$CODESIGN_CERT_NAME" --deep "qView.app"
 fi
 
+echo "Creating disk image"
 if [[ -n "$1" ]]; then
     BUILD_NAME=qView-JDP-$1
     DMG_FILENAME=$BUILD_NAME-macOS$2.dmg
