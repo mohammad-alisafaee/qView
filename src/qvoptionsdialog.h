@@ -30,6 +30,8 @@ public:
 protected:
     void done(int r) override;
 
+    void changeEvent(QEvent *event) override;
+
     void modifySetting(QString key, QVariant value);
     void saveSettings();
     void syncSettings(bool defaults = false, bool makeConnections = false);
@@ -46,7 +48,7 @@ protected:
     void bgColorButtonClicked();
     void updateBgColorButton();
     void restartNotifyForCheckbox(const QString &key, const int state);
-    void populateCategories();
+    void populateCategories(int selectedRow);
     void populateLanguages();
     void populateComboBoxes();
 

@@ -40,12 +40,11 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->langComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::languageComboBoxCurrentIndexChanged);
     connect(ui->formatsTable, &QTableWidget::itemChanged, this, &QVOptionsDialog::formatsItemChanged);
 
-    populateCategories();
+    QSettings settings;
+
+    populateCategories(settings.value("optionstab", 1).toInt());
     populateComboBoxes();
     populateLanguages();
-
-    QSettings settings;
-    ui->categoryList->setCurrentRow(settings.value("optionstab", 1).toInt());
 
 #ifdef Q_OS_MACOS
     if (qvApp->getSlideshowKeepsWindowOnTop())
@@ -118,6 +117,15 @@ void QVOptionsDialog::done(int r)
     settings.setValue("optionstab", ui->categoryList->currentRow());
 
     QDialog::done(r);
+}
+
+void QVOptionsDialog::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::PaletteChange)
+    {
+        populateCategories(ui->categoryList->currentRow());
+    }
+    QDialog::changeEvent(event);
 }
 
 void QVOptionsDialog::modifySetting(QString key, QVariant value)
@@ -585,7 +593,7 @@ void QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged(int state)
     ui->cursorAutoHideFullscreenDelaySpinBox->setEnabled(static_cast<bool>(state));
 }
 
-void QVOptionsDialog::populateCategories()
+void QVOptionsDialog::populateCategories(int selectedRow)
 {
     const int iconSize = 24;
     const int listRightPadding = 3;
@@ -594,12 +602,24 @@ void QVOptionsDialog::populateCategories()
     };
     ui->categoryList->setIconSize(QSize(iconSize, iconSize));
     ui->categoryList->setFont(QApplication::font());
+    const QString currentStyle = qApp->style()->objectName();
+    if (currentStyle.compare("fusion", Qt::CaseInsensitive) == 0 ||
+        currentStyle.compare("macos", Qt::CaseInsensitive) == 0)
+    {
+        const QColor textColor = QApplication::palette().color(QPalette::WindowText);
+        QPalette palette = ui->categoryList->palette();
+        palette.setColor(QPalette::HighlightedText, textColor);
+        palette.setColor(QPalette::Highlight, Qv::getPerceivedBrightness(textColor) > 0.5 ? QColor(0, 65, 127) : QColor(75, 166, 255));
+        ui->categoryList->setPalette(palette);
+    }
+    ui->categoryList->clear();
     addItem(u'\ue069', tr("Window"));
     addItem(u'\ue3f4', tr("Image"));
     addItem(u'\ue429', tr("Miscellaneous"));
     addItem(u'\ue312', tr("Shortcuts"));
     addItem(u'\ue323', tr("Mouse"));
     addItem(u'\ue87b', tr("Formats"));
+    ui->categoryList->setCurrentRow(selectedRow);
     ui->categoryList->setFixedWidth(ui->categoryList->sizeHintForColumn(0) + ui->categoryList->frameWidth() + listRightPadding);
 }
 
