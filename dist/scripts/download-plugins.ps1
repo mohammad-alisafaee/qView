@@ -71,7 +71,7 @@ if ($pluginNames -contains 'kimageformats') {
         mv kimageformats/kimageformats/output/kimg_*.dll "$out_imf/"
         CopyFrameworkDlls "KF$($kfMajorVer)Archive.dll" @("zlib1.dll")
         CopyFrameworkDlls "avif.dll" @("aom.dll")
-        CopyFrameworkDlls "heif.dll" @("libde265.dll", "libx265.dll")
+        CopyFrameworkDlls "heif.dll" @("aom.dll", "libde265.dll", "libx265.dll")
         CopyFrameworkDlls "raw.dll" @("lcms2.dll", "zlib1.dll")
         CopyFrameworkDlls "jxl.dll" @("brotlicommon.dll", "brotlidec.dll", "brotlienc.dll", "hwy.dll", "jxl_cms.dll", "jxl_threads.dll", "lcms2.dll")
         CopyFrameworkDlls "OpenEXR-3_2.dll" @("deflate.dll", "Iex-3_2.dll", "IlmThread-3_2.dll", "Imath-3_1.dll", "OpenEXRCore-3_2.dll")
