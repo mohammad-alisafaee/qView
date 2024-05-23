@@ -85,7 +85,8 @@ bool QVApplication::event(QEvent *event)
     if (event->type() == QEvent::FileOpen)
     {
         auto *openEvent = static_cast<QFileOpenEvent *>(event);
-        openFile(getMainWindow(true), openEvent->file());
+        bool reuseWindow = getSettingsManager().getBoolean("reusewindow");
+        openFile(getMainWindow(!reuseWindow), openEvent->file());
     }
     else if (event->type() == QEvent::ApplicationStateChange)
     {

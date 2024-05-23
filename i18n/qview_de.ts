@@ -1014,6 +1014,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="unfinished">Fenster während der Diashow im Vordergrund halten</translation>
     </message>
     <message>
+        <location filename="../src/qvoptionsdialog.ui" line="347"/>
+        <source>Reuse window when launching with image</source>
+        <translation type="unfinished">Fenster wiederverwenden beim Öffnen von Bildern</translation>
+    </message>
+    <message>
         <location filename="../src/qvoptionsdialog.ui" line="360"/>
         <source>&amp;Quit on last window closed</source>
         <translation>Schließen, wenn letztes Fenster geschlossen wurde</translation>

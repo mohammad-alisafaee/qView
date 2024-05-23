@@ -179,6 +179,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("minwindowresizedpercentage", {20, {}});
     settingsLibrary.insert("maxwindowresizedpercentage", {70, {}});
     settingsLibrary.insert("nonnativetheme", {false, {}});
+    settingsLibrary.insert("reusewindow", {false, {}});
     settingsLibrary.insert("titlebaralwaysdark", {false, {}});
     settingsLibrary.insert("quitonlastwindow", {false, {}});
     settingsLibrary.insert("menubarenabled", {false, {}});

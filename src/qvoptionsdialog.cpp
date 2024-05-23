@@ -69,6 +69,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
 #ifdef Q_OS_MACOS
     ui->menubarCheckbox->hide();
 #else
+    ui->reuseWindowCheckbox->hide();
     ui->darkTitlebarCheckbox->hide();
     ui->quitOnLastWindowCheckbox->hide();
 #endif
@@ -204,6 +205,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->submenuIconsCheckbox, "submenuicons", defaults, makeConnections);
     // slideshowkeepswindowontop
     syncCheckbox(ui->slideshowKeepsWindowOnTopCheckbox, "slideshowkeepswindowontop", defaults, makeConnections);
+    // reusewindow
+    syncCheckbox(ui->reuseWindowCheckbox, "reusewindow", defaults, makeConnections);
     // persistsession
     syncCheckbox(ui->persistSessionCheckbox, "persistsession", defaults, makeConnections);
     // filteringenabled
