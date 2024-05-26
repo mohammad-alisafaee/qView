@@ -165,8 +165,8 @@ private slots:
 private:
     QGraphicsPixmapItem *loadedPixmapItem;
 
-    bool isScalingEnabled {true};
-    bool isScalingTwoEnabled {true};
+    Qv::SmoothScalingMode smoothScalingMode {Qv::SmoothScalingMode::Disabled};
+    bool expensiveScalingAboveWindowSize {false};
     std::optional<qreal> fitZoomLimit;
     int fitOverscan {0};
     bool isLoopFoldersEnabled {true};

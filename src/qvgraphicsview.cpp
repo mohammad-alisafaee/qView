@@ -638,12 +638,12 @@ void QVGraphicsView::setNavigationResetsZoom(const bool value)
 
 void QVGraphicsView::applyExpensiveScaling()
 {
-    if (!isScalingEnabled || !getCurrentFileDetails().isPixmapLoaded)
+    if (smoothScalingMode != Qv::SmoothScalingMode::Expensive || !getCurrentFileDetails().isPixmapLoaded)
         return;
 
     // If we are above maximum scaling size
     const QSize contentSize = getContentRect().size().toSize();
-    const QSize maxSize = getUsableViewportRect(true).size() * (isScalingTwoEnabled ? 3 : 1) + QSize(1, 1);
+    const QSize maxSize = getUsableViewportRect(true).size() * (expensiveScalingAboveWindowSize ? 3 : 1) + QSize(1, 1);
     if (contentSize.width() > maxSize.width() || contentSize.height() > maxSize.height())
     {
         // Return to original size
@@ -685,7 +685,7 @@ void QVGraphicsView::animatedFrameChanged(QRect rect)
 {
     Q_UNUSED(rect)
 
-    if (isScalingEnabled)
+    if (smoothScalingMode == Qv::SmoothScalingMode::Expensive)
     {
         applyExpensiveScaling();
     }
@@ -1057,24 +1057,11 @@ void QVGraphicsView::settingsUpdated()
 {
     auto &settingsManager = qvApp->getSettingsManager();
 
-    //filtering
-    if (settingsManager.getBoolean("filteringenabled"))
-        loadedPixmapItem->setTransformationMode(Qt::SmoothTransformation);
-    else
-        loadedPixmapItem->setTransformationMode(Qt::FastTransformation);
+    //smooth scaling
+    smoothScalingMode = settingsManager.getEnum<Qv::SmoothScalingMode>("smoothscalingmode");
 
-    //scaling
-    isScalingEnabled = settingsManager.getBoolean("scalingenabled");
-    if (isScalingEnabled)
-        expensiveScaleTimer->start();
-    else
-        removeExpensiveScaling();
-
-    //scaling2
-    if (!isScalingEnabled)
-        isScalingTwoEnabled = false;
-    else
-        isScalingTwoEnabled = settingsManager.getBoolean("scalingtwoenabled");
+    //scaling two
+    expensiveScalingAboveWindowSize = settingsManager.getBoolean("scalingtwoenabled");
 
     //calculatedzoommode
     defaultCalculatedZoomMode = settingsManager.getEnum<Qv::CalculatedZoomMode>("calculatedzoommode");
@@ -1127,6 +1114,16 @@ void QVGraphicsView::settingsUpdated()
     hideCursorTimer->setInterval(settingsManager.getDouble("cursorautohidefullscreendelay") * 1000.0);
 
     // End of settings variables
+
+    if (smoothScalingMode == Qv::SmoothScalingMode::Disabled)
+        loadedPixmapItem->setTransformationMode(Qt::FastTransformation);
+    else
+        loadedPixmapItem->setTransformationMode(Qt::SmoothTransformation);
+
+    if (smoothScalingMode == Qv::SmoothScalingMode::Expensive)
+        expensiveScaleTimer->start();
+    else
+        removeExpensiveScaling();
 
     handleDpiAdjustmentChange();
 

@@ -29,7 +29,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->nonNativeThemeCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("nonnativetheme", state); });
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
     connect(ui->slideshowKeepsWindowOnTopCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("slideshowkeepswindowontop", state); });
-    connect(ui->scalingCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::scalingCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
     connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged);
@@ -37,6 +36,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->middleButtonModeDragRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->titlebarComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::titlebarComboBoxCurrentIndexChanged);
     connect(ui->windowResizeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::windowResizeComboBoxCurrentIndexChanged);
+    connect(ui->smoothScalingComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged);
     connect(ui->langComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::languageComboBoxCurrentIndexChanged);
     connect(ui->formatsTable, &QTableWidget::itemChanged, this, &QVOptionsDialog::formatsItemChanged);
 
@@ -209,11 +209,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->reuseWindowCheckbox, "reusewindow", defaults, makeConnections);
     // persistsession
     syncCheckbox(ui->persistSessionCheckbox, "persistsession", defaults, makeConnections);
-    // filteringenabled
-    syncCheckbox(ui->filteringCheckbox, "filteringenabled", defaults, makeConnections);
-    // scalingenabled
-    syncCheckbox(ui->scalingCheckbox, "scalingenabled", defaults, makeConnections);
-    scalingCheckboxStateChanged(ui->scalingCheckbox->checkState());
+    // smoothscalingmode
+    syncComboBox(ui->smoothScalingComboBox, "smoothscalingmode", defaults, makeConnections);
     // scalingtwoenabled
     syncCheckbox(ui->scalingTwoCheckbox, "scalingtwoenabled", defaults, makeConnections);
     // scalefactor
@@ -558,11 +555,6 @@ void QVOptionsDialog::restartNotifyForCheckbox(const QString &key, const int sta
         QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView to change this setting."));
 }
 
-void QVOptionsDialog::scalingCheckboxStateChanged(int state)
-{
-    ui->scalingTwoCheckbox->setEnabled(static_cast<bool>(state));
-}
-
 void QVOptionsDialog::titlebarComboBoxCurrentIndexChanged(int index)
 {
     const auto value = static_cast<Qv::TitleBarText>(ui->titlebarComboBox->itemData(index).toInt());
@@ -579,6 +571,12 @@ void QVOptionsDialog::windowResizeComboBoxCurrentIndexChanged(int index)
     ui->minWindowResizeSpinBox->setEnabled(enableRelatedControls);
     ui->maxWindowResizeLabel->setEnabled(enableRelatedControls);
     ui->maxWindowResizeSpinBox->setEnabled(enableRelatedControls);
+}
+
+void QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged(int index)
+{
+    const auto value = static_cast<Qv::SmoothScalingMode>(ui->smoothScalingComboBox->itemData(index).toInt());
+    ui->scalingTwoCheckbox->setEnabled(value == Qv::SmoothScalingMode::Expensive);
 }
 
 void QVOptionsDialog::fitZoomLimitCheckboxStateChanged(int state)
@@ -735,6 +733,14 @@ const Ui::ComboBoxItems<Qv::SlideshowDirection> QVOptionsDialog::mapSlideshowDir
     };
 }
 
+const Ui::ComboBoxItems<Qv::SmoothScalingMode> QVOptionsDialog::mapSmoothScalingMode() {
+    return {
+        { Qv::SmoothScalingMode::Disabled, tr("Disabled") },
+        { Qv::SmoothScalingMode::Bilinear, tr("Bilinear") },
+        { Qv::SmoothScalingMode::Expensive, tr("Expensive") }
+    };
+}
+
 const Ui::ComboBoxItems<Qv::SortMode> QVOptionsDialog::mapSortMode() {
     return {
         { Qv::SortMode::Name, tr("Name") },
@@ -809,6 +815,8 @@ void QVOptionsDialog::populateComboBoxes()
     populateComboBox(ui->windowResizeComboBox, mapWindowResizeMode());
 
     populateComboBox(ui->afterMatchingSizeComboBox, mapAfterMatchingSize());
+
+    populateComboBox(ui->smoothScalingComboBox, mapSmoothScalingMode());
 
     populateComboBox(ui->zoomDefaultComboBox, mapCalculatedZoomMode());
 

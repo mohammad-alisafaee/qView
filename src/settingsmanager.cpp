@@ -145,6 +145,24 @@ bool SettingsManager::isDefault(const QString &key) const
     return getSetting(key) == getSetting(key, true);
 }
 
+void SettingsManager::migrateOldSettings()
+{
+    if (!QSettings().contains("firstlaunch"))
+        copyFromOfficial();
+
+    QSettings settings;
+    settings.beginGroup("options");
+
+    if (!settings.contains("smoothscalingmode") && settings.contains("filteringenabled"))
+    {
+        const auto value =
+            settings.value("scalingenabled").toBool() ? Qv::SmoothScalingMode::Expensive :
+            settings.value("filteringenabled").toBool() ? Qv::SmoothScalingMode::Bilinear :
+            Qv::SmoothScalingMode::Disabled;
+        settings.setValue("smoothscalingmode", static_cast<int>(value));
+    }
+}
+
 void SettingsManager::copyFromOfficial()
 {
     const QSet<QString> keysToSkip = []()
@@ -187,8 +205,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("submenuicons", {true, {}});
     settingsLibrary.insert("persistsession", {false, {}});
     // Image
-    settingsLibrary.insert("filteringenabled", {true, {}});
-    settingsLibrary.insert("scalingenabled", {true, {}});
+    settingsLibrary.insert("smoothscalingmode", {static_cast<int>(Qv::SmoothScalingMode::Expensive), {}});
     settingsLibrary.insert("scalingtwoenabled", {true, {}});
     settingsLibrary.insert("scalefactor", {25, {}});
     settingsLibrary.insert("cursorzoom", {true, {}});
