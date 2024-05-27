@@ -29,6 +29,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->nonNativeThemeCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("nonnativetheme", state); });
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
     connect(ui->slideshowKeepsWindowOnTopCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("slideshowkeepswindowontop", state); });
+    connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
     connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged);
@@ -213,6 +214,10 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncComboBox(ui->smoothScalingComboBox, "smoothscalingmode", defaults, makeConnections);
     // scalingtwoenabled
     syncCheckbox(ui->scalingTwoCheckbox, "scalingtwoenabled", defaults, makeConnections);
+    // smoothscalinglimitenabled
+    syncCheckbox(ui->smoothScalingLimitCheckbox, "smoothscalinglimitenabled", defaults, makeConnections);
+    // smoothscalinglimitpercent
+    syncSpinBox(ui->smoothScalingLimitSpinBox, "smoothscalinglimitpercent", defaults, makeConnections);
     // scalefactor
     syncSpinBox(ui->scaleFactorSpinBox, "scalefactor", defaults, makeConnections);
     // cursorzoom
@@ -577,6 +582,14 @@ void QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged(int index)
 {
     const auto value = static_cast<Qv::SmoothScalingMode>(ui->smoothScalingComboBox->itemData(index).toInt());
     ui->scalingTwoCheckbox->setEnabled(value == Qv::SmoothScalingMode::Expensive);
+    ui->smoothScalingLimitCheckbox->setEnabled(value != Qv::SmoothScalingMode::Disabled);
+    smoothScalingLimitCheckboxStateChanged(ui->smoothScalingLimitCheckbox->checkState());
+}
+
+void QVOptionsDialog::smoothScalingLimitCheckboxStateChanged(int state)
+{
+    const bool selfEnabled = ui->smoothScalingLimitCheckbox->isEnabled();
+    ui->smoothScalingLimitSpinBox->setEnabled(selfEnabled && static_cast<bool>(state));
 }
 
 void QVOptionsDialog::fitZoomLimitCheckboxStateChanged(int state)

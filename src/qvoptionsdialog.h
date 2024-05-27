@@ -79,6 +79,8 @@ private slots:
 
     void smoothScalingComboBoxCurrentIndexChanged(int index);
 
+    void smoothScalingLimitCheckboxStateChanged(int state);
+
     void fitZoomLimitCheckboxStateChanged(int state);
 
     void constrainImagePositionCheckboxStateChanged(int state);

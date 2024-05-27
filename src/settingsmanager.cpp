@@ -207,6 +207,8 @@ void SettingsManager::initializeSettingsLibrary()
     // Image
     settingsLibrary.insert("smoothscalingmode", {static_cast<int>(Qv::SmoothScalingMode::Expensive), {}});
     settingsLibrary.insert("scalingtwoenabled", {true, {}});
+    settingsLibrary.insert("smoothscalinglimitenabled", {false, {}});
+    settingsLibrary.insert("smoothscalinglimitpercent", {400, {}});
     settingsLibrary.insert("scalefactor", {25, {}});
     settingsLibrary.insert("cursorzoom", {true, {}});
 #ifdef Q_OS_MACOS
