@@ -62,7 +62,7 @@ void UpdateChecker::readReply(QNetworkReply *reply)
     checkResult = {
         true,
         {},
-        parseVersion(object.value("tag_name").toString()),
+        object.value("tag_name").toString(),
         object.value("name").toString(),
         object.value("body").toString()
     };
@@ -85,7 +85,7 @@ void UpdateChecker::onError(QString msg)
     emit checkedUpdates();
 }
 
-QDateTime UpdateChecker::getLastCheckTime() const
+QDateTime UpdateChecker::getLastCheckTime()
 {
     qint64 secsSinceEpoch = QSettings().value("lastupdatecheck").toLongLong();
     return secsSinceEpoch == 0 ? QDateTime() : QDateTime::fromSecsSinceEpoch(secsSinceEpoch, Qt::UTC);
@@ -96,41 +96,63 @@ void UpdateChecker::setLastCheckTime(QDateTime value)
     QSettings().setValue("lastupdatecheck", value.toSecsSinceEpoch());
 }
 
+QString UpdateChecker::getSkippedTagName()
+{
+    return QSettings().value("skippedupdatetagname").toString();
+}
+
+void UpdateChecker::setSkippedTagName(QString value)
+{
+    QSettings().setValue("skippedupdatetagname", value);
+}
+
 double UpdateChecker::parseVersion(QString str)
 {
     return str.remove(QRegularExpression("[^0-9]")).left(8).toDouble();
 }
 
-bool UpdateChecker::isVersionConsideredUpdate(double v)
+bool UpdateChecker::isVersionConsideredUpdate(QString tagName)
 {
 #ifndef NIGHTLY
     // This fork uses only the nightly build number for update versioning
     return false;
 #endif
 
-    return v > 0 && v > parseVersion(QT_STRINGIFY(NIGHTLY));
+    QString skippedTagName = getSkippedTagName();
+    if (!skippedTagName.isEmpty() && tagName == skippedTagName)
+        return false;
+
+    double tagVersion = parseVersion(tagName);
+    return tagVersion > 0 && tagVersion > parseVersion(QT_STRINGIFY(NIGHTLY));
 }
 
-void UpdateChecker::openDialog(QWidget *parent, bool showDisableButton)
+void UpdateChecker::openDialog(QWidget *parent, bool isAutoCheck)
 {
     if (!(hasChecked && checkResult.wasSuccessful && checkResult.isConsideredUpdate()))
         return;
-
-    auto *downloadButton = new QPushButton(QIcon::fromTheme("edit-download", QIcon::fromTheme("document-save")), tr("Download"));
 
     auto *msgBox = new QMessageBox(parent);
     msgBox->setWindowTitle(tr("qView Update Available"));
     msgBox->setText(tr("A newer version is available to download.")
                     + "\n\n" + checkResult.releaseName + ":\n" + checkResult.changelog);
     msgBox->setWindowModality(Qt::ApplicationModal);
-    msgBox->setStandardButtons(QMessageBox::Close | (showDisableButton ? QMessageBox::Reset : QMessageBox::NoButton));
+    msgBox->setStandardButtons(QMessageBox::Close | (isAutoCheck ? QMessageBox::Reset : QMessageBox::NoButton));
+    if (isAutoCheck)
+    {
+        auto *skipButton = new QPushButton(tr("Skip Version"), msgBox);
+        msgBox->addButton(skipButton, QMessageBox::ActionRole);
+        connect(skipButton, &QAbstractButton::clicked, this, [this]{
+            setSkippedTagName(checkResult.tagName);
+        });
+    }
+    auto *downloadButton = new QPushButton(tr("Download"), msgBox);
     msgBox->addButton(downloadButton, QMessageBox::ActionRole);
     connect(downloadButton, &QAbstractButton::clicked, this, [this]{
         QDesktopServices::openUrl(DOWNLOAD_URL);
     });
-    if (showDisableButton)
+    if (isAutoCheck)
     {
-        msgBox->button(QMessageBox::Reset)->setText(tr("&Disable Update Checking"));
+        msgBox->button(QMessageBox::Reset)->setText(tr("&Disable Checking"));
         connect(msgBox->button(QMessageBox::Reset), &QAbstractButton::clicked, qvApp, []{
             QSettings settings;
             settings.beginGroup("options");

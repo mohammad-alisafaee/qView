@@ -13,16 +13,16 @@ public:
     {
         bool wasSuccessful;
         QString errorMessage;
-        double latestVersionNum;
+        QString tagName;
         QString releaseName;
         QString changelog;
 
-        bool isConsideredUpdate() const { return isVersionConsideredUpdate(latestVersionNum); }
+        bool isConsideredUpdate() const { return isVersionConsideredUpdate(tagName); }
     };
 
     void check(bool isManualCheck = false);
 
-    void openDialog(QWidget *parent, bool showDisableButton);
+    void openDialog(QWidget *parent, bool isAutoCheck);
 
     bool getIsChecking() const { return isChecking; }
 
@@ -38,13 +38,17 @@ protected:
 
     void onError(QString msg);
 
-    QDateTime getLastCheckTime() const;
+    static QDateTime getLastCheckTime();
 
-    void setLastCheckTime(QDateTime value);
+    static void setLastCheckTime(QDateTime value);
+
+    static QString getSkippedTagName();
+
+    static void setSkippedTagName(QString value);
 
     static double parseVersion(QString str);
 
-    static bool isVersionConsideredUpdate(double v);
+    static bool isVersionConsideredUpdate(QString tagName);
 
 private:
     const QString API_BASE_URL = "https://api.github.com/repos/jdpurcell/qView/releases";
