@@ -5,6 +5,7 @@ This fork of qView adds the following features:
 * Shows zoom level in titlebar in Practical/Verbose mode.
 * Custom titlebar mode based on format string.
 * Option to make zoom level relative to screen pixels (for Windows/Linux users with DPI scaling enabled; not so useful in macOS due to the way it handles scaling).
+* Option to disable smooth scaling above a specified zoom level.
 * Menu toggle to preserve zoom level when changing between images.
 * "Fill Window" zoom option.
 * Ctrl/Cmd double-click viewport to hide the titlebar, Ctrl/Cmd drag viewport to move the window.
@@ -15,6 +16,7 @@ This fork of qView adds the following features:
 * Show image loading errors inside viewport instead of as modal dialog.
 * Improved performance during rapid image navigation when holding down the previous/next file shortcut keys, and configurable speed no longer linked to key repeat rate.
 * Windows: Option for different theme; non-native look but it allows for dark mode.
+* macOS: Option to reuse existing window when launching with image.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
 * Option to hide mouse cursor in fullscreen mode.
