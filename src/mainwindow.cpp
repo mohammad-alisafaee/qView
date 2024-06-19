@@ -1013,25 +1013,10 @@ void MainWindow::deleteFile(bool permanent)
     }
     else
     {
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
         QFile file(filePath);
         success = file.moveToTrash();
         if (success)
             trashFilePath = file.fileName();
-#elif defined Q_OS_MACOS && COCOA_LOADED
-        QString trashedFile = QVCocoaFunctions::deleteFile(filePath);
-        success = !trashedFile.isEmpty();
-        if (success)
-            trashFilePath = QUrl(trashedFile).toLocalFile(); // remove file:// protocol
-#elif defined Q_OS_UNIX && !defined Q_OS_MACOS
-        trashFilePath = deleteFileLinuxFallback(filePath, false);
-        success = !trashFilePath.isEmpty();
-#else
-        QMessageBox::critical(this, tr("Not Supported"), tr("This program was compiled with an old version of Qt and this feature is not available.\n"
-                                                            "If you see this message, please report a bug!"));
-
-        return;
-#endif
     }
 
     if (!success || QFile::exists(filePath))
@@ -1053,34 +1038,6 @@ void MainWindow::deleteFile(bool permanent)
     disableActions();
 }
 
-QString MainWindow::deleteFileLinuxFallback(const QString &path, bool putBack)
-{
-    QStringList gioArgs = {"trash", path};
-    if (putBack)
-        gioArgs.insert(1, "--restore");
-
-    QProcess process;
-    process.start("gio", gioArgs);
-    process.waitForFinished();
-
-    if (process.error() != QProcess::FailedToStart && !putBack)
-    {
-        process.start("gio", {"trash", "--list"});
-        process.waitForFinished();
-
-        const auto &output = QString(process.readAllStandardOutput()).split("\n");
-        for (const auto &line : output)
-        {
-            if (line.contains(path))
-                return line.split("\t").at(0);
-        }
-    }
-
-
-    qWarning("Failed to use linux fallback delete");
-    return "";
-}
-
 void MainWindow::undoDelete()
 {
     if (lastDeletedFiles.isEmpty())
@@ -1090,7 +1047,6 @@ void MainWindow::undoDelete()
     if (lastDeletedFile.pathInTrash.isEmpty() || lastDeletedFile.previousPath.isEmpty())
         return;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)) || (defined Q_OS_MACOS && COCOA_LOADED)
     const QFileInfo fileInfo(lastDeletedFile.pathInTrash);
     if (!fileInfo.isWritable())
     {
@@ -1104,14 +1060,6 @@ void MainWindow::undoDelete()
     {
         QMessageBox::critical(this, tr("Error"), tr("Failed undoing deletion of %1.").arg(fileInfo.fileName()));
     }
-#elif defined Q_OS_UNIX && !defined Q_OS_MACOS
-    deleteFileLinuxFallback(lastDeletedFile.pathInTrash, true);
-#else
-    QMessageBox::critical(this, tr("Not Supported"), tr("This program was compiled with an old version of Qt and this feature is not available.\n"
-                                                        "If you see this message, please report a bug!"));
-
-    return;
-#endif
 
     openFile(lastDeletedFile.previousPath);
     disableActions();

@@ -75,8 +75,6 @@ public:
 
     void deleteFile(bool permanent);
 
-    QString deleteFileLinuxFallback(const QString &path, bool putBack);
-
     void undoDelete();
 
     void copy();

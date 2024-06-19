@@ -33,8 +33,6 @@ public:
 
     static QList<OpenWith::OpenWithItem> getOpenWithItems(const QString &filePath, const bool loadIcons);
 
-    static QString deleteFile(const QString &filePath);
-
     static QByteArray getIccProfileForWindow(const QWindow *window);
 };
 

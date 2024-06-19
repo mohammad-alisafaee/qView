@@ -78,18 +78,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     if (!QVApplication::supportsSessionPersistence())
         ui->persistSessionCheckbox->hide();
 
-// Hide language selection below 5.12, as 5.12 does not support embedding the translations :(
-#if (QT_VERSION < QT_VERSION_CHECK(5, 12, 0))
-    ui->langComboBox->hide();
-    ui->langComboLabel->hide();
-#endif
-
-// Hide color space conversion below 5.14, which is when color space support was introduced
-#if (QT_VERSION < QT_VERSION_CHECK(5, 14, 0))
-    ui->colorSpaceConversionComboBox->hide();
-    ui->colorSpaceConversionLabel->hide();
-#endif
-
     QString ctrlKeyName = QKeySequence(Qt::CTRL).toString(QKeySequence::NativeText).replace(QRegularExpression("\\+$"), "");
     ui->altDoubleClickLabel->setText(tr("%1 + Double Click:").arg(ctrlKeyName));
     ui->altDragLabel->setText(tr("%1 + Drag:").arg(ctrlKeyName));

@@ -142,7 +142,6 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         readImage = imageReader.read();
     }
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     // Work around Qt ICC profile parsing bug
     if (!readImage.colorSpace().isValid() && !readImage.colorSpace().iccProfile().isEmpty())
     {
@@ -157,7 +156,6 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
     // Convert image color space if we have a target that's different
     if (targetColorSpace.isValid() && readImage.colorSpace() != targetColorSpace)
         readImage.convertToColorSpace(targetColorSpace);
-#endif
 
     QPixmap readPixmap = QPixmap::fromImage(readImage);
     QFileInfo fileInfo(fileName);
@@ -325,11 +323,7 @@ QList<QVImageCore::CompatibleFile> QVImageCore::getCompatibleFiles(const QString
                 absoluteFilePath,
                 fileName,
                 sortMode == Qv::SortMode::DateModified ? fileInfo.lastModified().toMSecsSinceEpoch() : 0,
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
                 sortMode == Qv::SortMode::DateCreated ? fileInfo.birthTime().toMSecsSinceEpoch() : 0,
-#else
-                sortMode == Qv::SortMode::DateCreated ? fileInfo.created().toMSecsSinceEpoch() : 0,
-#endif
                 sortMode == Qv::SortMode::Size ? fileInfo.size() : 0,
                 sortMode == Qv::SortMode::Type ? mimeType : QString()
             });
@@ -534,30 +528,21 @@ void QVImageCore::addToCache(const ReadData &readData)
 
 QString QVImageCore::getPixmapCacheKey(const QString &absoluteFilePath, const qint64 &fileSize, const QColorSpace &targetColorSpace)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QString targetColorSpaceHash = QCryptographicHash::hash(targetColorSpace.iccProfile(), QCryptographicHash::Md5).toHex();
-#else
-    QString targetColorSpaceHash = "";
-#endif
     return absoluteFilePath + "\n" + QString::number(fileSize) + "\n" + targetColorSpaceHash;
 }
 
 QColorSpace QVImageCore::getTargetColorSpace() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     return
         colorSpaceConversion == Qv::ColorSpaceConversion::AutoDetect ? detectDisplayColorSpace() :
         colorSpaceConversion == Qv::ColorSpaceConversion::SRgb ? QColorSpace::SRgb :
         colorSpaceConversion == Qv::ColorSpaceConversion::DisplayP3 ? QColorSpace::DisplayP3 :
         QColorSpace();
-#else
-    return {};
-#endif
 }
 
 QColorSpace QVImageCore::detectDisplayColorSpace() const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QWindow *window = static_cast<QWidget*>(parent())->window()->windowHandle();
 
     QByteArray profileData;
@@ -578,7 +563,6 @@ QColorSpace QVImageCore::detectDisplayColorSpace() const
             colorSpace = QColorSpace::fromIccProfile(profileData);
         return colorSpace;
     }
-#endif
 
     return {};
 }
@@ -586,7 +570,6 @@ QColorSpace QVImageCore::detectDisplayColorSpace() const
 // Workaround for QTBUG-125241
 bool QVImageCore::removeTinyDataTagsFromIccProfile(QByteArray &profile)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     const int offsetTagCount = 128;
     const qsizetype length = profile.length();
     qsizetype offset = offsetTagCount;
@@ -626,9 +609,6 @@ bool QVImageCore::removeTinyDataTagsFromIccProfile(QByteArray &profile)
         qToBigEndian(qFromBigEndian<quint32>(data + offsetTagCount) - 1, data + offsetTagCount);
     }
     return foundTinyData;
-#else
-    return false;
-#endif
 }
 
 void QVImageCore::jumpToNextFrame()

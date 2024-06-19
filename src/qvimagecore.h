@@ -12,12 +12,7 @@
 #include <QTimer>
 #include <QCache>
 #include <QElapsedTimer>
-
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
 #include <QColorSpace>
-#else
-typedef QString QColorSpace;
-#endif
 
 class QVImageCore : public QObject
 {
