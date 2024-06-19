@@ -142,6 +142,7 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         readImage = imageReader.read();
     }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
     // Work around Qt ICC profile parsing bug
     if (!readImage.colorSpace().isValid() && !readImage.colorSpace().iccProfile().isEmpty())
     {
@@ -149,6 +150,8 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         if (removeTinyDataTagsFromIccProfile(profileData))
             readImage.setColorSpace(QColorSpace::fromIccProfile(profileData));
     }
+#endif
+
     // Assume image is sRGB if it doesn't specify
     if (!readImage.colorSpace().isValid())
         readImage.setColorSpace(QColorSpace::SRgb);
@@ -559,14 +562,17 @@ QColorSpace QVImageCore::detectDisplayColorSpace() const
     if (!profileData.isEmpty())
     {
         QColorSpace colorSpace = QColorSpace::fromIccProfile(profileData);
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
         if (!colorSpace.isValid() && removeTinyDataTagsFromIccProfile(profileData))
             colorSpace = QColorSpace::fromIccProfile(profileData);
+#endif
         return colorSpace;
     }
 
     return {};
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
 // Workaround for QTBUG-125241
 bool QVImageCore::removeTinyDataTagsFromIccProfile(QByteArray &profile)
 {
@@ -610,6 +616,7 @@ bool QVImageCore::removeTinyDataTagsFromIccProfile(QByteArray &profile)
     }
     return foundTinyData;
 }
+#endif
 
 void QVImageCore::jumpToNextFrame()
 {
