@@ -19,7 +19,7 @@ if ($IsWindows) {
     }
 }
 
-$argDeviceArchs = $IsMacOS -and $qtVersion -ge [version]"6.0" ? "QMAKE_APPLE_DEVICE_ARCHS=x86_64 arm64" : $null
+$argDeviceArchs = $IsMacOS -and $env:buildArch -eq 'Universal' ? "QMAKE_APPLE_DEVICE_ARCHS=x86_64 arm64" : $null
 qmake PREFIX="$Prefix" DEFINES+="$env:nightlyDefines" $argDeviceArchs
 
 if ($IsWindows) {
