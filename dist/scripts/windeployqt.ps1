@@ -43,9 +43,7 @@ if ($env:buildArch -eq 'Arm64') {
     windeployqt --no-compiler-runtime bin\qView.exe
 }
 
-if ($env:buildArch -ne 'Arm64') {
-    if ($NightlyVersion -eq '') {
-        # Call innomake if we are not building a nightly version (no version passed)
-        & "dist/scripts/innomake.ps1"
-    }
+if ($NightlyVersion -eq '') {
+    # Call innomake if we are not building a nightly version (no version passed)
+    & "dist/scripts/innomake.ps1"
 }
