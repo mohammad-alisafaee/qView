@@ -42,6 +42,12 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     setAttribute(Qt::WA_DeleteOnClose);
     setAttribute(Qt::WA_OpaquePaintEvent);
 
+#ifdef COCOA_LOADED
+    // Allow the titlebar to overlap widgets with full size content view
+    setAttribute(Qt::WA_ContentsMarginsRespectsSafeArea, false);
+    centralWidget()->setAttribute(Qt::WA_ContentsMarginsRespectsSafeArea, false);
+#endif
+
     sessionStateToLoad = windowSessionState;
     lastActivated.start();
 
