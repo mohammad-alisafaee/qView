@@ -16,8 +16,20 @@ int main(int argc, char *argv[])
 
     SettingsManager::migrateOldSettings();
 
-    if (QSettings().value("options/nonnativetheme").toBool())
-        QApplication::setStyle("fusion");
+#ifdef Q_OS_WIN
+    QString styleName = QSettings().value("options/nonnativetheme").toBool() ? "fusion" : QString();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    if (styleName.isEmpty())
+        styleName = "windowsvista"; // Avoid windows11 style until it's less buggy
+#endif
+    // The docs recommend calling QApplication's static setStyle before its constructor, one reason
+    // being that this allows styles to be set via command line arguments. Unfortunately it seems
+    // that after running windeployqt, some styles such as windowsvista and windows11 aren't yet
+    // loaded/available until the constructor runs. So we'll use this environment variable instead,
+    // which Qt uses as a fallback override mechanism if a style wasn't specified via command line.
+    if (!styleName.isEmpty())
+        qputenv("QT_STYLE_OVERRIDE", styleName.toLocal8Bit());
+#endif
 
     QVApplication app(argc, argv);
 
