@@ -1163,15 +1163,19 @@ void QVGraphicsView::setSpeed(const int &desiredSpeed)
 
 void QVGraphicsView::rotateImage(const int relativeAngle)
 {
-    rotate(relativeAngle);
+    const QTransform t = transform();
+    const bool isMirroredOrFlipped = t.isRotating() ? (t.m12() < 0 == t.m21() < 0) : (t.m11() < 0 != t.m22() < 0);
+    rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1));
 }
 
 void QVGraphicsView::mirrorImage()
 {
-    scale(-1, 1);
+    const int rotateCorrection = transform().isRotating() ? -1 : 1;
+    scale(-1 * rotateCorrection, 1 * rotateCorrection);
 }
 
 void QVGraphicsView::flipImage()
 {
-    scale(1, -1);
+    const int rotateCorrection = transform().isRotating() ? -1 : 1;
+    scale(1 * rotateCorrection, -1 * rotateCorrection);
 }
