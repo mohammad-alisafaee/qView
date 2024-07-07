@@ -103,6 +103,8 @@ public:
 
     void flip();
 
+    void resetTransformation();
+
     void firstFile();
 
     void previousFile();

@@ -85,6 +85,7 @@ public:
     void rotateImage(const int relativeAngle);
     void mirrorImage();
     void flipImage();
+    void resetTransformation();
 
     void fitOrConstrainImage();
 

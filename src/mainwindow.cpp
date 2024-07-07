@@ -1173,6 +1173,12 @@ void MainWindow::flip()
     graphicsView->fitOrConstrainImage();
 }
 
+void MainWindow::resetTransformation()
+{
+    graphicsView->resetTransformation();
+    graphicsView->fitOrConstrainImage();
+}
+
 void MainWindow::firstFile()
 {
     graphicsView->goToFile(QVGraphicsView::GoToFileMode::first);

@@ -277,9 +277,9 @@ QMenu *ActionManager::buildViewMenu(bool addIcon, QWidget *parent)
     viewMenu->addSeparator();
     addCloneOfAction(viewMenu, "rotateright");
     addCloneOfAction(viewMenu, "rotateleft");
-    viewMenu->addSeparator();
     addCloneOfAction(viewMenu, "mirror");
     addCloneOfAction(viewMenu, "flip");
+    addCloneOfAction(viewMenu, "resettransformation");
     viewMenu->addSeparator();
     addCloneOfAction(viewMenu, "fullscreen");
 
@@ -662,6 +662,8 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->mirror();
     } else if (key == "flip") {
         relevantWindow->flip();
+    } else if (key == "resettransformation") {
+        relevantWindow->resetTransformation();
     } else if (key == "fullscreen") {
         relevantWindow->toggleFullScreen();
     } else if (key == "firstfile") {
@@ -813,6 +815,10 @@ void ActionManager::initializeActionLibrary()
     auto *flipAction = new QAction(QIcon::fromTheme("object-flip-vertical"), tr("&Flip"));
     flipAction->setData({"disable"});
     actionLibrary.insert("flip", flipAction);
+
+    auto *resetTransformationAction = new QAction(tr("Reset &Transformation"));
+    resetTransformationAction->setData({"disable"});
+    actionLibrary.insert("resettransformation", resetTransformationAction);
 
     auto *fullScreenAction = new QAction(QIcon::fromTheme("view-fullscreen"), tr("Enter F&ull Screen"));
     fullScreenAction->setMenuRole(QAction::NoRole);

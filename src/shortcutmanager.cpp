@@ -93,6 +93,7 @@ void ShortcutManager::initializeShortcutsList()
     shortcutsList.append({tr("Rotate Left"), "rotateleft", QStringList(QKeySequence(Qt::Key_Down).toString()), {}});
     shortcutsList.append({tr("Mirror"), "mirror", QStringList(QKeySequence(Qt::Key_F).toString()), {}});
     shortcutsList.append({tr("Flip"), "flip", QStringList(QKeySequence(Qt::CTRL | Qt::Key_F).toString()), {}});
+    shortcutsList.append({tr("Reset Transformation"), "resettransformation", QStringList(QKeySequence(Qt::Key_T).toString()), {}});
     shortcutsList.append({tr("Full Screen"), "fullscreen", keyBindingsToStringList(QKeySequence::FullScreen), {}});
     //Fixes alt+enter only working with numpad enter when using qt's standard keybinds
 #ifdef Q_OS_WIN

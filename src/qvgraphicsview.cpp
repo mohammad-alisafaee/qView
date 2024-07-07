@@ -1179,3 +1179,10 @@ void QVGraphicsView::flipImage()
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
     scale(1 * rotateCorrection, -1 * rotateCorrection);
 }
+
+void QVGraphicsView::resetTransformation()
+{
+    const QTransform t = transform();
+    const qreal scale = qFabs(t.isRotating() ? t.m21() : t.m11());
+    setTransform(QTransform::fromScale(scale, scale));
+}

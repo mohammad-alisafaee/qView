@@ -194,6 +194,11 @@
         <translation type="unfinished">Fenster ausfüllen</translation>
     </message>
     <message>
+        <location filename="../src/actionmanager.cpp" line="819"/>
+        <source>Reset &amp;Transformation</source>
+        <translation type="unfinished">&amp;Transformationen zurücksetzen</translation>
+    </message>
+    <message>
         <location filename="../src/actionmanager.cpp" line="870"/>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
@@ -1854,6 +1859,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <location filename="../src/shortcutmanager.cpp" line="90"/>
         <source>Fill Window</source>
         <translation type="unfinished">Fenster ausfüllen</translation>
+    </message>
+    <message>
+        <location filename="../src/shortcutmanager.cpp" line="96"/>
+        <source>Reset Transformation</source>
+        <translation type="unfinished">Transformationen zurücksetzen</translation>
     </message>
     <message>
         <location filename="../src/shortcutmanager.cpp" line="115"/>
