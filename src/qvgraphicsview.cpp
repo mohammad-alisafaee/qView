@@ -611,6 +611,12 @@ void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoo
         return;
     }
 
+    if (value == Qv::CalculatedZoomMode::OriginalSize && zoomLevel == 1 && defaultCalculatedZoomMode != Qv::CalculatedZoomMode::OriginalSize && qvApp->getSettingsManager().getBoolean("originalsizeastoggle"))
+    {
+        setCalculatedZoomMode(defaultCalculatedZoomMode);
+        return;
+    }
+
     calculatedZoomMode = value;
     if (calculatedZoomMode.has_value())
         recalculateZoom();

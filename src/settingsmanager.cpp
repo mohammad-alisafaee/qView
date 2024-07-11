@@ -197,12 +197,13 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("minwindowresizedpercentage", {20, {}});
     settingsLibrary.insert("maxwindowresizedpercentage", {70, {}});
     settingsLibrary.insert("nonnativetheme", {false, {}});
-    settingsLibrary.insert("reusewindow", {false, {}});
     settingsLibrary.insert("titlebaralwaysdark", {false, {}});
     settingsLibrary.insert("quitonlastwindow", {false, {}});
     settingsLibrary.insert("menubarenabled", {false, {}});
     settingsLibrary.insert("fullscreendetails", {false, {}});
     settingsLibrary.insert("submenuicons", {true, {}});
+    settingsLibrary.insert("slideshowkeepswindowontop", {false, {}});
+    settingsLibrary.insert("reusewindow", {false, {}});
     settingsLibrary.insert("persistsession", {false, {}});
     // Image
     settingsLibrary.insert("smoothscalingmode", {static_cast<int>(Qv::SmoothScalingMode::Expensive), {}});
@@ -218,6 +219,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("onetoonepixelsizing", {true, {}});
 #endif
     settingsLibrary.insert("calculatedzoommode", {static_cast<int>(Qv::CalculatedZoomMode::ZoomToFit), {}});
+    settingsLibrary.insert("originalsizeastoggle", {false, {}});
     settingsLibrary.insert("fitzoomlimitenabled", {false, {}});
     settingsLibrary.insert("fitzoomlimitpercent", {100, {}});
     settingsLibrary.insert("fitoverscan", {0, {}});
@@ -233,7 +235,6 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("loopfoldersenabled", {true, {}});
     settingsLibrary.insert("slideshowdirection", {static_cast<int>(Qv::SlideshowDirection::Forward), {}});
     settingsLibrary.insert("slideshowtimer", {5, {}});
-    settingsLibrary.insert("slideshowkeepswindowontop", {false, {}});
     settingsLibrary.insert("afterdelete", {static_cast<int>(Qv::AfterDelete::MoveForward), {}});
     settingsLibrary.insert("askdelete", {true, {}});
     settingsLibrary.insert("allowmimecontentdetection", {false, {}});

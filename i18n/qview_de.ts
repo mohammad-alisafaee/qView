@@ -196,7 +196,7 @@
     <message>
         <location filename="../src/actionmanager.cpp" line="819"/>
         <source>Reset &amp;Transformation</source>
-        <translation type="unfinished">&amp;Transformationen zurücksetzen</translation>
+        <translation type="unfinished">&amp;Transformation zurücksetzen</translation>
     </message>
     <message>
         <location filename="../src/actionmanager.cpp" line="870"/>
@@ -1863,7 +1863,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <location filename="../src/shortcutmanager.cpp" line="96"/>
         <source>Reset Transformation</source>
-        <translation type="unfinished">Transformationen zurücksetzen</translation>
+        <translation type="unfinished">Transformation zurücksetzen</translation>
     </message>
     <message>
         <location filename="../src/shortcutmanager.cpp" line="115"/>
