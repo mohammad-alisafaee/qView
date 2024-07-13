@@ -207,6 +207,13 @@ void QVGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
         executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
         return;
     }
+    else if (event->button() == Qt::MouseButton::MiddleButton && middleButtonMode == Qv::ClickOrDrag::Click)
+    {
+        // We don't have double middle click actions, but process the normal click action here to allow rapid clicking
+        const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
+        executeClickAction(isAltAction ? altMiddleClickAction : middleClickAction);
+        return;
+    }
 
     QGraphicsView::mouseDoubleClickEvent(event);
 }
