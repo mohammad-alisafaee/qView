@@ -54,7 +54,7 @@ public:
     void zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &mousePos = {}, const bool isApplyingCalculation = false);
 
     const std::optional<Qv::CalculatedZoomMode> &getCalculatedZoomMode() const;
-    void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value);
+    void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating = false);
 
     bool getNavigationResetsZoom() const;
     void setNavigationResetsZoom(const bool value);

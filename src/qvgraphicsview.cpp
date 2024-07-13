@@ -499,7 +499,7 @@ void QVGraphicsView::postLoad()
     if (!loadIsFromSessionRestore)
     {
         if (navigationResetsZoom && calculatedZoomMode != defaultCalculatedZoomMode)
-            setCalculatedZoomMode(defaultCalculatedZoomMode);
+            setCalculatedZoomMode(defaultCalculatedZoomMode, true);
         else
             fitOrConstrainImage();
     }
@@ -602,7 +602,7 @@ const std::optional<Qv::CalculatedZoomMode> &QVGraphicsView::getCalculatedZoomMo
     return calculatedZoomMode;
 }
 
-void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value)
+void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating)
 {
     if (calculatedZoomMode == value)
     {
@@ -611,9 +611,9 @@ void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoo
         return;
     }
 
-    if (value == Qv::CalculatedZoomMode::OriginalSize && zoomLevel == 1 && defaultCalculatedZoomMode != Qv::CalculatedZoomMode::OriginalSize && qvApp->getSettingsManager().getBoolean("originalsizeastoggle"))
+    if (value == Qv::CalculatedZoomMode::OriginalSize && zoomLevel == 1 && !isNavigating && qvApp->getSettingsManager().getBoolean("originalsizeastoggle"))
     {
-        setCalculatedZoomMode(defaultCalculatedZoomMode);
+        setCalculatedZoomMode(defaultCalculatedZoomMode != Qv::CalculatedZoomMode::OriginalSize ? defaultCalculatedZoomMode : Qv::CalculatedZoomMode::ZoomToFit);
         return;
     }
 
