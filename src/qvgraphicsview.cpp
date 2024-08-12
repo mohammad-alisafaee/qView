@@ -503,6 +503,10 @@ void QVGraphicsView::postLoad()
     // Set the pixmap to the new image and reset the transform's scale to a known value
     removeExpensiveScaling();
 
+    qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
+
+    emit fileChanged(loadIsFromSessionRestore);
+
     if (!loadIsFromSessionRestore)
     {
         if (navigationResetsZoom && calculatedZoomMode != defaultCalculatedZoomMode)
@@ -510,14 +514,9 @@ void QVGraphicsView::postLoad()
         else
             fitOrConstrainImage();
     }
+    loadIsFromSessionRestore = false;
 
     expensiveScaleTimer->start();
-
-    qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
-
-    emit fileChanged(loadIsFromSessionRestore);
-
-    loadIsFromSessionRestore = false;
 
     if (turboNavMode.has_value())
     {
