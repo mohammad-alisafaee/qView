@@ -17,10 +17,17 @@ int main(int argc, char *argv[])
     SettingsManager::migrateOldSettings();
 
 #ifdef Q_OS_WIN
-    QString styleName = QSettings().value("options/nonnativetheme").toBool() ? "fusion" : QString();
-#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    bool useNonNativeTheme = QSettings().value("options/nonnativetheme").toBool();
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+    useNonNativeTheme = false;
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 7, 3)
+    if (useNonNativeTheme && QOperatingSystemVersion::current() >= QOperatingSystemVersion::Windows11)
+        useNonNativeTheme = false; // Disable if we can use windows11 style instead
+#endif
+    QString styleName = useNonNativeTheme ? "fusion" : QString();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) && QT_VERSION <= QT_VERSION_CHECK(6, 7, 2)
     if (styleName.isEmpty())
-        styleName = "windowsvista"; // Avoid windows11 style until it's less buggy
+        styleName = "windowsvista"; // windows11 style was buggy for a while after it was introduced
 #endif
     // The docs recommend calling QApplication's static setStyle before its constructor, one reason
     // being that this allows styles to be set via command line arguments. Unfortunately it seems

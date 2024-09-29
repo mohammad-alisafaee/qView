@@ -43,6 +43,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
 
     QSettings settings;
 
+    customizePalette();
     populateCategories(settings.value("optionstab", 1).toInt());
     populateComboBoxes();
     populateLanguages();
@@ -59,12 +60,18 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     restoreGeometry(settings.value("optionsgeometry").toByteArray());
 #endif
 
-    if (QOperatingSystemVersion::current() < QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 13)) {
+    if (QOperatingSystemVersion::current() < QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 13))
         setWindowTitle(tr("Preferences"));
-    }
 
 // Platform specific settings
-#if !defined(Q_OS_WIN) || QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+#ifdef Q_OS_WIN
+#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
+    ui->nonNativeThemeCheckbox->hide();
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 7, 3)
+    if (QOperatingSystemVersion::current() >= QOperatingSystemVersion::Windows11)
+        ui->nonNativeThemeCheckbox->hide();
+#endif
+#else
     ui->nonNativeThemeCheckbox->hide();
 #endif
 #ifdef Q_OS_MACOS
@@ -113,6 +120,7 @@ void QVOptionsDialog::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::PaletteChange)
     {
+        customizePalette();
         populateCategories(ui->categoryList->currentRow());
     }
     QDialog::changeEvent(event);
@@ -595,25 +603,53 @@ void QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged(int state)
     ui->cursorAutoHideFullscreenDelaySpinBox->setEnabled(static_cast<bool>(state));
 }
 
-void QVOptionsDialog::populateCategories(int selectedRow)
+void QVOptionsDialog::customizePalette()
 {
-    const int iconSize = 24;
-    const int listRightPadding = 3;
-    auto addItem = [&](const QChar &iconChar, const QString &text) {
-        ui->categoryList->addItem(new QListWidgetItem(qvApp->iconFromFont("Material Icons Outlined", iconChar, iconSize, devicePixelRatioF()), text));
-    };
-    ui->categoryList->setIconSize(QSize(iconSize, iconSize));
-    ui->categoryList->setFont(QApplication::font());
     const QString currentStyle = qApp->style()->objectName();
+    const QPalette appPalette = QApplication::palette();
     if (currentStyle.compare("fusion", Qt::CaseInsensitive) == 0 ||
         currentStyle.compare("macos", Qt::CaseInsensitive) == 0)
     {
-        const QColor textColor = QApplication::palette().color(QPalette::WindowText);
+        const QColor textColor = appPalette.color(QPalette::WindowText);
         QPalette palette = ui->categoryList->palette();
         palette.setColor(QPalette::HighlightedText, textColor);
         palette.setColor(QPalette::Highlight, Qv::getPerceivedBrightness(textColor) > 0.5 ? QColor(0, 65, 127) : QColor(75, 166, 255));
         ui->categoryList->setPalette(palette);
     }
+#if defined(Q_OS_WIN) && QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    if (currentStyle.compare("windows11", Qt::CaseInsensitive) == 0)
+    {
+        // This is to work around styling issues with radio buttons and checkboxes. Not sure if it's because of
+        // the type of container they're in (stacked widget + scroll area) but they seem to inherit incorrect
+        // colors. Setting the widgets' palettes to the application's palette isn't enough because Qt keeps
+        // track of which colors were explicitly set, so we need to set the specific colors we need.
+        const auto specifyWindowAndAccentColors = [&](QWidget *widget) {
+            QPalette palette = widget->palette();
+            palette.setColor(QPalette::Active, QPalette::Window, appPalette.color(QPalette::Active, QPalette::Window));
+            palette.setColor(QPalette::Disabled, QPalette::Window, appPalette.color(QPalette::Disabled, QPalette::Window));
+            palette.setColor(QPalette::Inactive, QPalette::Window, appPalette.color(QPalette::Inactive, QPalette::Window));
+            palette.setColor(QPalette::Active, QPalette::Accent, appPalette.color(QPalette::Active, QPalette::Accent));
+            palette.setColor(QPalette::Disabled, QPalette::Accent, appPalette.color(QPalette::Disabled, QPalette::Accent));
+            palette.setColor(QPalette::Inactive, QPalette::Accent, appPalette.color(QPalette::Inactive, QPalette::Accent));
+            widget->setPalette(palette);
+        };
+        for (QRadioButton* radioButton : findChildren<QRadioButton*>())
+            specifyWindowAndAccentColors(radioButton);
+        for (QCheckBox* checkBox : findChildren<QCheckBox*>())
+            specifyWindowAndAccentColors(checkBox);
+    }
+#endif
+}
+
+void QVOptionsDialog::populateCategories(int selectedRow)
+{
+    const int iconSize = 24;
+    const int listRightPadding = 3;
+    const auto addItem = [&](const QChar &iconChar, const QString &text) {
+        ui->categoryList->addItem(new QListWidgetItem(qvApp->iconFromFont("Material Icons Outlined", iconChar, iconSize, devicePixelRatioF()), text));
+    };
+    ui->categoryList->setIconSize(QSize(iconSize, iconSize));
+    ui->categoryList->setFont(QApplication::font());
     ui->categoryList->clear();
     addItem(u'\ue069', tr("Window"));
     addItem(u'\ue3f4', tr("Image"));
