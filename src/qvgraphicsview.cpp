@@ -500,8 +500,16 @@ void QVGraphicsView::postLoad()
 {
     scrollHelper->cancelAnimation();
 
+    // If a prior pixmap is still loaded, capture its content rect
+    if (!loadedPixmapItem->pixmap().isNull())
+        lastImageContentRect = getContentRect();
+
     // Set the pixmap to the new image and reset the transform's scale to a known value
     removeExpensiveScaling();
+
+    // If we have a content rect for the prior pixmap, scroll the new pixmap to align their centers
+    if (lastImageContentRect.isValid())
+        matchContentCenter(lastImageContentRect);
 
     qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
 
@@ -991,6 +999,12 @@ QSizeF QVGraphicsView::getEffectiveOriginalSize() const
     return getTransformWithNoScaling().mapRect(QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize)).size() * getDpiAdjustment();
 }
 
+void QVGraphicsView::matchContentCenter(const QRectF target)
+{
+    const QPointF delta = getContentRect().center() - target.center();
+    scrollHelper->move(QPointF(delta.x() * (isRightToLeft() ? -1 : 1), delta.y()));
+}
+
 QRectF QVGraphicsView::getContentRect() const
 {
     return transform().mapRect(loadedPixmapItem->boundingRect());
@@ -1175,26 +1189,34 @@ void QVGraphicsView::setSpeed(const int &desiredSpeed)
 
 void QVGraphicsView::rotateImage(const int relativeAngle)
 {
+    const QRectF oldRect = getContentRect();
     const QTransform t = transform();
     const bool isMirroredOrFlipped = t.isRotating() ? (t.m12() < 0 == t.m21() < 0) : (t.m11() < 0 != t.m22() < 0);
     rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1));
+    matchContentCenter(oldRect);
 }
 
 void QVGraphicsView::mirrorImage()
 {
+    const QRectF oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
     scale(-1 * rotateCorrection, 1 * rotateCorrection);
+    matchContentCenter(oldRect);
 }
 
 void QVGraphicsView::flipImage()
 {
+    const QRectF oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
     scale(1 * rotateCorrection, -1 * rotateCorrection);
+    matchContentCenter(oldRect);
 }
 
 void QVGraphicsView::resetTransformation()
 {
+    const QRectF oldRect = getContentRect();
     const QTransform t = transform();
     const qreal scale = qFabs(t.isRotating() ? t.m21() : t.m11());
     setTransform(QTransform::fromScale(scale, scale));
+    matchContentCenter(oldRect);
 }

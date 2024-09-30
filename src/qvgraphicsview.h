@@ -146,6 +146,8 @@ protected:
 
     bool isExpensiveScalingRequested() const;
 
+    void matchContentCenter(const QRectF target);
+
     QRectF getContentRect() const;
 
     QRect getUsableViewportRect(const bool addOverscan = false) const;
@@ -210,6 +212,7 @@ private:
     QPointF lastZoomRoundingError;
     bool isCursorAutoHideFullscreenEnabled {true};
     bool isCursorVisible {true};
+    QRectF lastImageContentRect;
 
     QVImageCore imageCore {this};
 
