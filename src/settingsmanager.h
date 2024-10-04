@@ -7,15 +7,6 @@ class SettingsManager : public QObject
 {
     Q_OBJECT
 public:
-    enum class Type
-    {
-        Boolean,
-        Integer,
-        Double,
-        String
-    };
-    Q_ENUM(Type)
-
     struct SSetting {
         QVariant defaultValue;
         QVariant value;

@@ -156,7 +156,7 @@ MainWindow *QVApplication::getMainWindow(bool shouldBeEmpty)
 {
     MainWindow *foundWindow = nullptr;
 
-    for (MainWindow *window : qAsConst(activeWindows))
+    for (MainWindow *window : std::as_const(activeWindows))
     {
         // If an empty window is requested, check this flag because it gets set right
         // after a load is requested, so it will be set if an image is already loaded
@@ -225,7 +225,7 @@ void QVApplication::deleteFromActiveWindows(MainWindow *window)
 
 bool QVApplication::foundLoadedImage() const
 {
-    for (MainWindow *window : qAsConst(activeWindows))
+    for (MainWindow *window : std::as_const(activeWindows))
     {
         if (window->getIsPixmapLoaded())
             return true;

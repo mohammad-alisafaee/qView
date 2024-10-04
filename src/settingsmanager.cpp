@@ -100,8 +100,8 @@ bool SettingsManager::getBoolean(const QString &key, bool defaults) const
 {
     auto value = getSetting(key, defaults);
 
-    if (value.canConvert(QMetaType::Bool))
-        return value.toBool();
+    if (value.canConvert<bool>())
+        return value.value<bool>();
 
     qWarning() << "Error: Can't convert setting key " + key + " to bool";
     return false;
@@ -111,8 +111,8 @@ int SettingsManager::getInteger(const QString &key, bool defaults) const
 {
     auto value = getSetting(key, defaults);
 
-    if (value.canConvert(QMetaType::Int))
-        return value.toInt();
+    if (value.canConvert<int>())
+        return value.value<int>();
 
     qWarning() << "Error: Can't convert setting key " + key + " to int";
     return 0;
@@ -122,8 +122,8 @@ double SettingsManager::getDouble(const QString &key, bool defaults) const
 {
     auto value = getSetting(key, defaults);
 
-    if (value.canConvert(QMetaType::Double))
-        return value.toDouble();
+    if (value.canConvert<double>())
+        return value.value<double>();
 
     qWarning() << "Error: Can't convert setting key " + key + " to double";
     return 0;
@@ -133,8 +133,8 @@ const QString SettingsManager::getString(const QString &key, bool defaults) cons
 {
     auto value = getSetting(key, defaults);
 
-    if (value.canConvert(QMetaType::QString))
-        return value.toString();
+    if (value.canConvert<QString>())
+        return value.value<QString>();
 
     qWarning() << "Error: Can't convert setting key " + key + " to string";
     return "";

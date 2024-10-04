@@ -298,8 +298,8 @@ void MainWindow::paintEvent(QPaintEvent *event)
         if (checkerboardBackground && getIsPixmapLoaded())
         {
             const int gridSize = 16;
-            const QColor darkColor = Qt::darkGray;
-            const QColor lightColor = Qt::lightGray;
+            const QColor darkColor = QColorConstants::DarkGray;
+            const QColor lightColor = QColorConstants::LightGray;
             const int numHorizontalSquares = (viewportRect.width() + (gridSize - 1)) / gridSize;
             const int numVerticalSquares = (viewportRect.height() + (gridSize - 1)) / gridSize;
             for (int iY = 0; iY < numVerticalSquares; iY++)
@@ -347,11 +347,7 @@ void MainWindow::settingsUpdated()
     buildWindowTitle();
 
     //bgcolor
-    customBackgroundColor = QColor();
-    if (settingsManager.getBoolean("bgcolorenabled"))
-    {
-        customBackgroundColor.setNamedColor(settingsManager.getString("bgcolor"));
-    }
+    customBackgroundColor = settingsManager.getBoolean("bgcolorenabled") ? QColor(settingsManager.getString("bgcolor")) : QColor();
 
     //checkerboardbackground
     checkerboardBackground = settingsManager.getBoolean("checkerboardbackground");
