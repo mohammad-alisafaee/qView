@@ -367,7 +367,6 @@ void MainWindow::settingsUpdated()
     ui->fullscreenLabel->setVisible(qvApp->getSettingsManager().getBoolean("fullscreendetails") && (windowState() == Qt::WindowFullScreen));
 
     updateMenuBarVisible();
-    setWindowSize();
 
     // repaint in case background color changed
     update();
@@ -676,17 +675,13 @@ void MainWindow::setWindowSize()
     if (windowState() == Qt::WindowMaximized || windowState() == Qt::WindowFullScreen)
         return;
 
-
-    qreal minWindowResizedPercentage = qvApp->getSettingsManager().getInteger("minwindowresizedpercentage")/100.0;
-    qreal maxWindowResizedPercentage = qvApp->getSettingsManager().getInteger("maxwindowresizedpercentage")/100.0;
+    const qreal minWindowResizedPercentage = qvApp->getSettingsManager().getInteger("minwindowresizedpercentage")/100.0;
+    const qreal maxWindowResizedPercentage = qvApp->getSettingsManager().getInteger("maxwindowresizedpercentage")/100.0;
 
     // Try to grab the current screen
     QScreen *currentScreen = screenContaining(frameGeometry());
-
-    // makeshift validity check
-    bool screenValid = QGuiApplication::screens().contains(currentScreen);
-    // Use first screen as fallback
-    if (!screenValid)
+    // If completely offscreen, use first screen as fallback
+    if (!currentScreen)
         currentScreen = QGuiApplication::screens().at(0);
 
     QSize extraWidgetsSize { 0, 0 };
@@ -703,7 +698,8 @@ void MainWindow::setWindowSize()
     const QSize screenSize = currentScreen->size();
     const QSize minWindowSize = (screenSize * minWindowResizedPercentage).boundedTo(hardLimitSize);
     const QSize maxWindowSize = (screenSize * maxWindowResizedPercentage).boundedTo(hardLimitSize);
-    const QSizeF imageSize = graphicsView->getEffectiveOriginalSize();
+    const bool isZoomFixed = !graphicsView->getNavigationResetsZoom() && !graphicsView->getCalculatedZoomMode().has_value();
+    const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);
 
@@ -718,8 +714,10 @@ void MainWindow::setWindowSize()
 
     targetSize = targetSize.expandedTo(minWindowSize).boundedTo(maxWindowSize);
 
+    const bool recenterImage = isZoomFixed && geometry().size() != targetSize + extraWidgetsSize;
+
     const auto afterMatchingSizeMode = qvApp->getSettingsManager().getEnum<Qv::AfterMatchingSize>("aftermatchingsizemode");
-    QPoint referenceCenter =
+    const QPoint referenceCenter =
         afterMatchingSizeMode == Qv::AfterMatchingSize::CenterOnPrevious ? geometry().center() :
         afterMatchingSizeMode == Qv::AfterMatchingSize::CenterOnScreen ? currentScreen->availableGeometry().center() :
         QPoint();
@@ -730,9 +728,7 @@ void MainWindow::setWindowSize()
     QRect newRect = geometry();
 
     if (afterMatchingSizeMode != Qv::AfterMatchingSize::AvoidRepositioning)
-    {
         newRect.moveCenter(referenceCenter);
-    }
 
     // Ensure titlebar is not above or below the available screen area
     const QRect availableScreenRect = currentScreen->availableGeometry();
@@ -746,6 +742,9 @@ void MainWindow::setWindowSize()
 
     // Reposition window
     setGeometry(newRect);
+
+    if (recenterImage)
+        graphicsView->centerImage();
 }
 
 // Initially copied from Qt source code (QGuiApplication::screenAt) and then customized
