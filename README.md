@@ -15,7 +15,7 @@ This fork of qView adds the following features:
 * Option to ignore certain file extensions when navigating through a folder.
 * Show image loading errors inside viewport instead of as modal dialog.
 * Improved performance during rapid image navigation when holding down the previous/next file shortcut keys, and configurable speed no longer linked to key repeat rate.
-* Windows: Option for different theme; non-native look but it allows for dark mode.
+* Windows: Dark mode supported in Windows 11 by default. Windows 10 users get a "non-native theme" option which supports dark mode.
 * macOS: Option to reuse existing window when launching with image.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
