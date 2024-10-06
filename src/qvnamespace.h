@@ -95,7 +95,8 @@ namespace Qv
         FillWindow = 2,
         OriginalSize = 3,
         ToggleFullScreen = 4,
-        ToggleTitlebarHidden = 5
+        ToggleTitlebarHidden = 5,
+        CenterImage = 6
     };
 
     enum class ViewportDragAction

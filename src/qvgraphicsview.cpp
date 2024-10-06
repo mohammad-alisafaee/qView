@@ -362,6 +362,10 @@ void QVGraphicsView::executeClickAction(const Qv::ViewportClickAction action)
     {
         setCalculatedZoomMode(Qv::CalculatedZoomMode::OriginalSize);
     }
+    else if (action == Qv::ViewportClickAction::CenterImage)
+    {
+        centerImage();
+    }
     else if (action == Qv::ViewportClickAction::ToggleFullScreen)
     {
         if (const auto mainWindow = getMainWindow())

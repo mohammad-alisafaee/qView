@@ -813,6 +813,7 @@ const Ui::ComboBoxItems<Qv::ViewportClickAction> QVOptionsDialog::mapViewportCli
         { Qv::ViewportClickAction::ZoomToFit, tr("Zoom to Fit") },
         { Qv::ViewportClickAction::FillWindow, tr("Fill Window") },
         { Qv::ViewportClickAction::OriginalSize, tr("Original Size") },
+        { Qv::ViewportClickAction::CenterImage, tr("Center Image") },
         { Qv::ViewportClickAction::ToggleFullScreen, tr("Toggle Full Screen") },
         { Qv::ViewportClickAction::ToggleTitlebarHidden, tr("Toggle Titlebar Hidden") }
     };
