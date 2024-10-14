@@ -336,12 +336,21 @@ void QVApplication::defineFilterLists()
 
         addExtension(fileExtension);
 
-        // If we support jpg, we actually support the jfif, jfi, and jpe file extensions too almost certainly.
+        // Register additional file extensions that decoders support but don't advertise
         if (fileExtension == ".jpg")
         {
             addExtension(".jpe");
             addExtension(".jfi");
             addExtension(".jfif");
+        }
+        else if (fileExtension == ".heic")
+        {
+            addExtension(".heics");
+        }
+        else if (fileExtension == ".heif")
+        {
+            addExtension(".heifs");
+            addExtension(".hif");
         }
     }
     filterString.chop(1);
