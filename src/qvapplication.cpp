@@ -308,28 +308,26 @@ void QVApplication::settingsUpdated()
 
 void QVApplication::defineFilterLists()
 {
-    allFileExtensionList.clear();
-    nameFilterList.clear();
+    allFileExtensionSet.clear();
     fileExtensionSet.clear();
     mimeTypeNameSet.clear();
-
-    const auto &byteArrayFormats = QImageReader::supportedImageFormats();
-
-    auto filterString = tr("Supported Images") + " (";
-    fileExtensionSet.reserve(byteArrayFormats.size()-1);
+    nameFilterList.clear();
 
     const auto addExtension = [&](const QString &extension) {
-        allFileExtensionList << extension;
+        if (allFileExtensionSet.contains(extension))
+            return;
+        allFileExtensionSet << extension;
         if (disabledFileExtensions.contains(extension))
             return;
-        filterString += "*" + extension + " ";
         fileExtensionSet << extension;
     };
 
-    // Build extension and filter lists
+    // Build extension list
+    const auto &byteArrayFormats = QImageReader::supportedImageFormats();
     for (const auto &byteArray : byteArrayFormats)
     {
         const auto fileExtension = "." + QString::fromUtf8(byteArray);
+
         // Qt 5.15 seems to have added pdf support for QImageReader but it is super broken in qView
         if (fileExtension == ".pdf")
             continue;
@@ -353,23 +351,29 @@ void QVApplication::defineFilterLists()
             addExtension(".hif");
         }
     }
-    filterString.chop(1);
-    filterString += ")";
 
     // Build mime type list
     const auto &byteArrayMimeTypes = QImageReader::supportedMimeTypes();
-    mimeTypeNameSet.reserve(byteArrayMimeTypes.size()-1);
     for (const auto &byteArray : byteArrayMimeTypes)
     {
+        const QString mimeType = QString::fromUtf8(byteArray);
+
         // Qt 5.15 seems to have added pdf support for QImageReader but it is super broken in qView
-        const QString mime = QString::fromUtf8(byteArray);
-        if (mime == "application/pdf")
+        if (mimeType == "application/pdf")
             continue;
 
-        mimeTypeNameSet << mime;
+        mimeTypeNameSet << mimeType;
     }
 
     // Build name filter list for file dialogs
+    const auto extensions = Qv::setToSortedList(fileExtensionSet);
+    auto filterString = tr("Supported Images") + " (";
+    for (const auto &extension : extensions)
+    {
+        filterString += "*" + extension + " ";
+    }
+    filterString.chop(1);
+    filterString += ")";
     nameFilterList << filterString;
     nameFilterList << tr("All Files") + " (*)";
 }

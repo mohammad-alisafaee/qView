@@ -437,26 +437,27 @@ void QVOptionsDialog::syncFormats(bool defaults)
     else
         transientDisabledFileExtensions = qvApp->getDisabledFileExtensions();
 
-    QStringList extensions = qvApp->getAllFileExtensionList();
-    extensions.sort(Qt::CaseInsensitive);
+    const QStringList extensions = Qv::setToSortedList(qvApp->getAllFileExtensionList());
 
     isLoadingFormats = true;
 
-    ui->formatsTable->setRowCount(extensions.length());
+    ui->formatsTable->setRowCount(extensions.count());
 
-    for (int i = 0; i < extensions.length(); i++)
+    int row = 0;
+    for (const QString &extension : extensions)
     {
-        const QString &extension = extensions.value(i);
         const bool isDisabled = transientDisabledFileExtensions.contains(extension);
 
         auto *extensionItem = new QTableWidgetItem();
         extensionItem->setText(extension);
-        ui->formatsTable->setItem(i, 0, extensionItem);
+        ui->formatsTable->setItem(row, 0, extensionItem);
 
         auto *enabledItem = new QTableWidgetItem();
         enabledItem->setCheckState(isDisabled ? Qt::Unchecked : Qt::Checked);
         enabledItem->setData(Qt::UserRole, extension);
-        ui->formatsTable->setItem(i, 1, enabledItem);
+        ui->formatsTable->setItem(row, 1, enabledItem);
+
+        row++;
     }
 
     isLoadingFormats = false;

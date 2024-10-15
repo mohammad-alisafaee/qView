@@ -73,13 +73,13 @@ public:
 
     const QSet<QString> &getDisabledFileExtensions() const { return disabledFileExtensions; }
 
-    const QStringList &getAllFileExtensionList() const { return allFileExtensionList; }
-
-    const QStringList &getNameFilterList() const { return nameFilterList; }
+    const QSet<QString> &getAllFileExtensionList() const { return allFileExtensionSet; }
 
     const QSet<QString> &getFileExtensionSet() const { return fileExtensionSet; }
 
     const QSet<QString> &getMimeTypeNameSet() const { return mimeTypeNameSet; }
+
+    const QStringList &getNameFilterList() const { return nameFilterList; }
 
     const SettingsManager &getSettingsManager() const { return settingsManager; }
     SettingsManager &getSettingsManager() { return settingsManager; }
@@ -130,10 +130,10 @@ private:
 
     QSet<QString> disabledFileExtensions;
 
-    QStringList allFileExtensionList;
-    QStringList nameFilterList;
+    QSet<QString> allFileExtensionSet;
     QSet<QString> fileExtensionSet;
     QSet<QString> mimeTypeNameSet;
+    QStringList nameFilterList;
 
     // This order is very important
     SettingsManager settingsManager; 

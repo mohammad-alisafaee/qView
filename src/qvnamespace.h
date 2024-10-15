@@ -145,6 +145,13 @@ namespace Qv
         return QStringList(set.begin(), set.end());
     }
 
+    inline QStringList setToSortedList(const QSet<QString> &set, Qt::CaseSensitivity cs = Qt::CaseSensitive)
+    {
+        auto list = QStringList(set.begin(), set.end());
+        list.sort(cs);
+        return list;
+    }
+
     inline bool calculatedZoomModeIsSticky(const CalculatedZoomMode mode)
     {
         return
