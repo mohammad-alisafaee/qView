@@ -1,5 +1,5 @@
 # qView
-This fork of qView adds the following features:
+## Additional features in this fork
 * Option to constrain image position to keep it snapped inside the viewport.
 * macOS: Option to persist session across app restarts.
 * Shows zoom level in titlebar in Practical/Verbose mode.
@@ -23,3 +23,11 @@ This fork of qView adds the following features:
 * Option to keep window on top during slideshow.
 * Option for checkerboard background.
 * Option to disable icons in "Open Recent" and "Open With" submenus.
+## Screenshot
+![screenshot](docs/screenshot.png)
+## Supported platforms
+* Windows 10+ (x64 or ARM64 binaries). You may need to install the [Visual C++ runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) if you don't have it already.
+* macOS 11+ (Universal binary).
+* Legacy Windows (7+, x86), Legacy macOS (10.13+, x64), and Linux AppImage binaries are built via GitHub Actions, but not well tested nor published as releases.
+## About releases
+There's nothing particularly special about the builds uploaded under "Releases". Every once in a while, typically after enough noteworthy changes, I simply download the binaries from a GitHub Actions run and upload them as a "Release". I do this to make them more easily accessible since the Actions artifacts are only available to users logged into GitHub, and to preserve them since the Actions artifacts expire after 90 days. But in general, I avoid committing unfinished/untested work to the `master` branch. So if you see a commit you're interested in there, no need to wait for a release; simply download the artifact from Actions.
