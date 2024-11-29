@@ -10,8 +10,8 @@ Write-Host "Detected Qt Version $qtVersion"
 if ($IsWindows) {
     dist/scripts/vcvars.ps1
 } elseif ($IsMacOS) {
-    if ($qtVersion -lt [version]"6.5.3") {
-        # Keep older Qt versions on Xcode 14 due to concern over QTBUG-117484
+    if ($qtVersion -lt [version]'6.5.3') {
+        # Workaround for QTBUG-117484
         sudo xcode-select --switch /Applications/Xcode_14.3.1.app
     }
 }
