@@ -19,7 +19,7 @@ if ($qtVersion -lt [version]'6.8' -and $env:buildArch -ne 'Arm64') {
         $openSslFilenameVersion = "1_1"
     } else {
         $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-3.4.0.zip"
-        $openSslSubfolder = "openssl-3\"
+        $openSslSubfolder = ""
         $openSslFilenameVersion = "3"
     }
     Write-Host "Downloading $openSslDownloadUrl"
