@@ -3,6 +3,7 @@
 #include "qvwin32functions.h"
 
 #include <QCommandLineParser>
+#include <QFontDatabase>
 
 int main(int argc, char *argv[])
 {
@@ -16,29 +17,43 @@ int main(int argc, char *argv[])
 
     SettingsManager::migrateOldSettings();
 
+    QString defaultStyleName;
+    QStringList fontsToInstall;
+
 #ifdef Q_OS_WIN
-    bool useNonNativeTheme = QSettings().value("options/nonnativetheme").toBool();
-#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
-    useNonNativeTheme = false;
-#elif QT_VERSION >= QT_VERSION_CHECK(6, 7, 3)
-    if (useNonNativeTheme && QOperatingSystemVersion::current() >= QOperatingSystemVersion::Windows11)
-        useNonNativeTheme = false; // Disable if we can use windows11 style instead
-#endif
-    QString styleName = useNonNativeTheme ? "fusion" : QString();
 #if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) && QT_VERSION <= QT_VERSION_CHECK(6, 7, 2)
-    if (styleName.isEmpty())
-        styleName = "windowsvista"; // windows11 style was buggy for a while after it was introduced
+    defaultStyleName = "windowsvista"; // windows11 style was buggy for a while after it was introduced
+#elif QT_VERSION >= QT_VERSION_CHECK(6, 8, 1)
+    if (QOperatingSystemVersion::current() < QOperatingSystemVersion::Windows11)
+    {
+        // Qt's windows11 style can work on Windows 10, but it isn't enabled by default because the required
+        // font isn't included with Windows 10. If we can locate and install the font, use windows11 style.
+        const QString windows11StyleFontPath = QDir(QApplication::applicationDirPath()).filePath("fonts/Segoe Fluent Icons.ttf");
+        if (QFile::exists(windows11StyleFontPath))
+        {
+            defaultStyleName = "windows11";
+            fontsToInstall.append(windows11StyleFontPath);
+        }
+    }
 #endif
-    // The docs recommend calling QApplication's static setStyle before its constructor, one reason
-    // being that this allows styles to be set via command line arguments. Unfortunately it seems
-    // that after running windeployqt, some styles such as windowsvista and windows11 aren't yet
-    // loaded/available until the constructor runs. So we'll use this environment variable instead,
-    // which Qt uses as a fallback override mechanism if a style wasn't specified via command line.
-    if (!styleName.isEmpty())
-        qputenv("QT_STYLE_OVERRIDE", styleName.toLocal8Bit());
 #endif
 
+    if (!defaultStyleName.isEmpty() && qEnvironmentVariableIsEmpty("QT_STYLE_OVERRIDE"))
+    {
+        // The docs recommend calling QApplication's static setStyle before its constructor, one reason
+        // being that this allows styles to be set via command line arguments. Unfortunately it seems
+        // that after running windeployqt, some styles such as windowsvista and windows11 aren't yet
+        // loaded/available until the constructor runs. So we'll use this environment variable instead,
+        // which Qt uses as a fallback override mechanism if a style wasn't specified via command line.
+        qputenv("QT_STYLE_OVERRIDE", defaultStyleName.toLocal8Bit());
+    }
+
     QVApplication app(argc, argv);
+
+    for (const QString &font : fontsToInstall)
+    {
+        QFontDatabase::addApplicationFont(font);
+    }
 
     QCommandLineParser parser;
     parser.addHelpOption();

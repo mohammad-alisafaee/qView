@@ -15,7 +15,7 @@
 * Option to ignore certain file extensions when navigating through a folder.
 * Show image loading errors inside viewport instead of as modal dialog.
 * Improved performance during rapid image navigation when holding down the previous/next file shortcut keys, and configurable speed no longer linked to key repeat rate.
-* Windows: Dark mode supported in Windows 11 by default. Windows 10 users get a "non-native theme" option which supports dark mode.
+* Windows: New style which supports dark mode.
 * macOS: Option to reuse existing window when launching with image.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
@@ -27,7 +27,7 @@
 ![screenshot](docs/screenshot.png)
 ## Supported platforms
 * Windows 10+ (x64 or ARM64 binaries). You may need to install the [Visual C++ runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) if you don't have it already.
-* macOS 11+ (Universal binary).
+* macOS 12+ (Universal binary).
 * Legacy Windows (7+, x86), Legacy macOS (10.13+, x64), and Linux AppImage binaries are built via GitHub Actions, but not well tested nor published as releases.
 ## About releases
 There's nothing particularly special about the builds uploaded under "Releases". Every once in a while, typically after enough noteworthy changes, I simply download the binaries from a GitHub Actions run and upload them as a "Release". I do this to make them more easily accessible since the Actions artifacts are only available to users logged into GitHub, and to preserve them since the Actions artifacts expire after 90 days. But in general, I avoid committing unfinished/untested work to the `master` branch. So if you see a commit you're interested in there, no need to wait for a release; simply download the artifact from Actions.

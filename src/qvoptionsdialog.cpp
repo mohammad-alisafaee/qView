@@ -18,7 +18,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(windowFlags() & (~Qt::WindowContextHelpButtonHint | Qt::CustomizeWindowHint));
 
-    resize(640, 530);
+    resize(640, 540);
 
     qvApp->ensureFontLoaded(":/fonts/MaterialIconsOutlined-Regular.otf");
 
@@ -26,7 +26,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &QVOptionsDialog::buttonBoxClicked);
     connect(ui->shortcutsTable, &QTableWidget::cellDoubleClicked, this, &QVOptionsDialog::shortcutCellDoubleClicked);
     connect(ui->bgColorCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::bgColorCheckboxStateChanged);
-    connect(ui->nonNativeThemeCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("nonnativetheme", state); });
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
     connect(ui->slideshowKeepsWindowOnTopCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("slideshowkeepswindowontop", state); });
     connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
@@ -64,16 +63,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
         setWindowTitle(tr("Preferences"));
 
 // Platform specific settings
-#ifdef Q_OS_WIN
-#if QT_VERSION < QT_VERSION_CHECK(6, 5, 0)
-    ui->nonNativeThemeCheckbox->hide();
-#elif QT_VERSION >= QT_VERSION_CHECK(6, 7, 3)
-    if (QOperatingSystemVersion::current() >= QOperatingSystemVersion::Windows11)
-        ui->nonNativeThemeCheckbox->hide();
-#endif
-#else
-    ui->nonNativeThemeCheckbox->hide();
-#endif
 #ifdef Q_OS_MACOS
     ui->menubarCheckbox->hide();
 #else
@@ -188,8 +177,6 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncSpinBox(ui->minWindowResizeSpinBox, "minwindowresizedpercentage", defaults, makeConnections);
     // maxwindowresizedperecentage
     syncSpinBox(ui->maxWindowResizeSpinBox, "maxwindowresizedpercentage", defaults, makeConnections);
-    // nonnativetheme
-    syncCheckbox(ui->nonNativeThemeCheckbox, "nonnativetheme", defaults, makeConnections);
     // titlebaralwaysdark
     syncCheckbox(ui->darkTitlebarCheckbox, "titlebaralwaysdark", defaults, makeConnections);
     // quitonlastwindow
@@ -617,13 +604,10 @@ void QVOptionsDialog::customizePalette()
         palette.setColor(QPalette::Highlight, Qv::getPerceivedBrightness(textColor) > 0.5 ? QColor(0, 65, 127) : QColor(75, 166, 255));
         ui->categoryList->setPalette(palette);
     }
-#if defined(Q_OS_WIN) && QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+#if defined(Q_OS_WIN) && QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 1)
     if (currentStyle.compare("windows11", Qt::CaseInsensitive) == 0)
     {
-        // This is to work around styling issues with radio buttons and checkboxes. Not sure if it's because of
-        // the type of container they're in (stacked widget + scroll area) but they seem to inherit incorrect
-        // colors. Setting the widgets' palettes to the application's palette isn't enough because Qt keeps
-        // track of which colors were explicitly set, so we need to set the specific colors we need.
+        // Workaround for QTBUG-130828
         const auto specifyWindowAndAccentColors = [&](QWidget *widget) {
             QPalette palette = widget->palette();
             palette.setColor(QPalette::Active, QPalette::Window, appPalette.color(QPalette::Active, QPalette::Window));

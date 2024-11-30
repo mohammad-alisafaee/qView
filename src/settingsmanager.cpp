@@ -196,7 +196,6 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("aftermatchingsizemode", {static_cast<int>(Qv::AfterMatchingSize::CenterOnPrevious), {}});
     settingsLibrary.insert("minwindowresizedpercentage", {20, {}});
     settingsLibrary.insert("maxwindowresizedpercentage", {70, {}});
-    settingsLibrary.insert("nonnativetheme", {false, {}});
     settingsLibrary.insert("titlebaralwaysdark", {false, {}});
     settingsLibrary.insert("quitonlastwindow", {false, {}});
     settingsLibrary.insert("menubarenabled", {false, {}});
