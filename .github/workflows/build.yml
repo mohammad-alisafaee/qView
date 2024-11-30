@@ -7,13 +7,9 @@ on:
       isRelease:
         type: boolean
         description: 'Is this a release build?'
-        required: false
-        default: false
       appleNotarize:
         type: boolean
         description: 'Notarize with Apple?'
-        required: false
-        default: false
 jobs:
   build:
     strategy:
@@ -76,7 +72,7 @@ jobs:
 
       - name: Deploy qView
         env:
-          APPLE_NOTARIZE_REQUESTED: ${{ inputs.appleNotarize == 'true' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/') }}
+          APPLE_NOTARIZE_REQUESTED: ${{ inputs.appleNotarize || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/') }}
           APPLE_DEVID_APP_CERT_DATA: ${{ secrets.APPLE_DEVID_APP_CERT_DATA }}
           APPLE_DEVID_APP_CERT_PASS: ${{ secrets.APPLE_DEVID_APP_CERT_PASS }}
           APPLE_ID_USER: ${{ secrets.APPLE_ID_USER }}
