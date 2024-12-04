@@ -51,6 +51,13 @@ if ($qtVersion -ge [version]'6.8.1') {
     Copy-Item -Path "dist\win\fonts\Segoe Fluent Icons.ttf" -Destination "bin\fonts"
 }
 
+$imfDir = "bin\imageformats"
+if ((Test-Path "$imfDir\kimg_tga.dll") -and (Test-Path "$imfDir\qtga.dll")) {
+    # Prefer kimageformats TGA plugin which supports more formats
+    Write-Output "Removing duplicate TGA plugin"
+    Remove-Item "$imfDir\qtga.dll"
+}
+
 if ($NightlyVersion -eq '') {
     # Call innomake if we are not building a nightly version (no version passed)
     & "dist/scripts/innomake.ps1"

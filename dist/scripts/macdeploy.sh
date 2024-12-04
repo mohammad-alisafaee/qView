@@ -36,6 +36,14 @@ if [[ (-f "$IMF_DIR/kimg_heif.dylib" || -f "$IMF_DIR/kimg_heif.so") && -f "$IMF_
     echo "Removing duplicate HEIF plugin"
     rm "$IMF_DIR/libqmacheif.dylib"
 fi
+if [[ (-f "$IMF_DIR/kimg_tga.dylib" || -f "$IMF_DIR/kimg_tga.so") && -f "$IMF_DIR/libqtga.dylib" ]]; then
+    # Prefer kimageformats TGA plugin which supports more formats
+    echo "Removing duplicate TGA plugin"
+    rm "$IMF_DIR/libqtga.dylib"
+fi
+
+# OpenSSL isn't needed since we use platform-native TLS
+rm -f qView.app/Contents/PlugIns/tls/libqopensslbackend.dylib
 
 echo "Running codesign"
 if [[ "$APPLE_NOTARIZE_REQUESTED" == "true" ]]; then
