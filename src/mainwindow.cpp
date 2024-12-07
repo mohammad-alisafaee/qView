@@ -222,8 +222,10 @@ void MainWindow::showEvent(QShowEvent *event)
 
     if (!sessionStateToLoad.isEmpty())
     {
-        loadSessionState(sessionStateToLoad, false);
-        sessionStateToLoad = {};
+        QTimer::singleShot(0, this, [this]() {
+            loadSessionState(sessionStateToLoad, false);
+            sessionStateToLoad = {};
+        });
     }
 
     qvApp->addToActiveWindows(this);
