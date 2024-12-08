@@ -693,7 +693,7 @@ void MainWindow::setTitlebarHidden(const bool shouldHide)
     graphicsView->fitOrConstrainImage();
 }
 
-void MainWindow::setWindowSize()
+void MainWindow::setWindowSize(const bool isFromTransform)
 {
     if (!getCurrentFileDetails().isPixmapLoaded)
         return;
@@ -732,7 +732,7 @@ void MainWindow::setWindowSize()
     const QSize screenSize = currentScreen->size();
     const QSize minWindowSize = (screenSize * minWindowResizedPercentage).boundedTo(hardLimitSize);
     const QSize maxWindowSize = (screenSize * maxWindowResizedPercentage).boundedTo(hardLimitSize);
-    const bool isZoomFixed = !graphicsView->getNavigationResetsZoom() && !graphicsView->getCalculatedZoomMode().has_value();
+    const bool isZoomFixed = (!graphicsView->getNavigationResetsZoom() || isFromTransform) && !graphicsView->getCalculatedZoomMode().has_value();
     const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);
@@ -1187,12 +1187,14 @@ void MainWindow::rotateRight()
 {
     graphicsView->rotateImage(90);
     graphicsView->fitOrConstrainImage();
+    setWindowSize(true);
 }
 
 void MainWindow::rotateLeft()
 {
     graphicsView->rotateImage(-90);
     graphicsView->fitOrConstrainImage();
+    setWindowSize(true);
 }
 
 void MainWindow::mirror()
@@ -1211,6 +1213,7 @@ void MainWindow::resetTransformation()
 {
     graphicsView->resetTransformation();
     graphicsView->fitOrConstrainImage();
+    setWindowSize(true);
 }
 
 void MainWindow::firstFile()
