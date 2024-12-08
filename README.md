@@ -8,19 +8,20 @@
 * Option to disable smooth scaling above a specified zoom level.
 * Menu toggle to preserve zoom level when changing between images.
 * "Fill Window" zoom option.
-* Ctrl/Cmd double-click viewport to hide the titlebar, Ctrl/Cmd drag viewport to move the window.
+* Ability to hide the titlebar (via menu item, keyboard, or mouse shortcut).
+* Ability to drag window via its viewport (Ctrl/Cmd + drag by default; customizable).
 * Random file navigation (Go -> Random File, or "r" keyboard shortcut) to browse randomly without changing sort mode.
 * Navigate between images when scrolling sideways (e.g. two finger swipe).
 * Customizable mouse actions (e.g. change what double clicking or middle clicking does).
 * Option to ignore certain file extensions when navigating through a folder.
 * Show image loading errors inside viewport instead of as modal dialog.
+* Ability to keep window on top (via menu item + keyboard shortcut, and option to toggle on automatically during slideshow).
 * Improved performance during rapid image navigation when holding down the previous/next file shortcut keys, and configurable speed no longer linked to key repeat rate.
 * Windows: New style which supports dark mode.
 * macOS: Option to reuse existing window when launching with image.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
 * Option to hide mouse cursor in fullscreen mode.
-* Option to keep window on top during slideshow.
 * Option for checkerboard background.
 * Option to disable icons in "Open Recent" and "Open With" submenus.
 ## Screenshot
