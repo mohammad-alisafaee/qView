@@ -18,42 +18,30 @@ int main(int argc, char *argv[])
     SettingsManager::migrateOldSettings();
 
     QString defaultStyleName;
-    QStringList fontsToInstall;
-
-#ifdef Q_OS_WIN
-#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) && QT_VERSION <= QT_VERSION_CHECK(6, 7, 2)
-    defaultStyleName = "windowsvista"; // windows11 style was buggy for a while after it was introduced
-#elif QT_VERSION >= QT_VERSION_CHECK(6, 8, 1)
+#if defined Q_OS_WIN && QT_VERSION >= QT_VERSION_CHECK(6, 8, 1)
+    // windows11 style works on Windows 10 too if the right font is available
     if (QOperatingSystemVersion::current() < QOperatingSystemVersion::Windows11)
-    {
-        // Qt's windows11 style can work on Windows 10, but it isn't enabled by default because the required
-        // font isn't included with Windows 10. If we can locate and install the font, use windows11 style.
-        const QString windows11StyleFontPath = QDir(QApplication::applicationDirPath()).filePath("fonts/Segoe Fluent Icons.ttf");
-        if (QFile::exists(windows11StyleFontPath))
-        {
-            defaultStyleName = "windows11";
-            fontsToInstall.append(windows11StyleFontPath);
-        }
-    }
+        defaultStyleName = "windows11";
 #endif
-#endif
-
+    // Convenient way to set a default style but still allow the user to customize it
     if (!defaultStyleName.isEmpty() && qEnvironmentVariableIsEmpty("QT_STYLE_OVERRIDE"))
-    {
-        // The docs recommend calling QApplication's static setStyle before its constructor, one reason
-        // being that this allows styles to be set via command line arguments. Unfortunately it seems
-        // that after running windeployqt, some styles such as windowsvista and windows11 aren't yet
-        // loaded/available until the constructor runs. So we'll use this environment variable instead,
-        // which Qt uses as a fallback override mechanism if a style wasn't specified via command line.
         qputenv("QT_STYLE_OVERRIDE", defaultStyleName.toLocal8Bit());
-    }
 
     QVApplication app(argc, argv);
 
-    for (const QString &font : fontsToInstall)
+#if defined Q_OS_WIN && QT_VERSION >= QT_VERSION_CHECK(6, 8, 1)
+    // For windows11 style on Windows 10, make sure we have the font it needs, otherwise change style
+    if (QOperatingSystemVersion::current() < QOperatingSystemVersion::Windows11 &&
+        QApplication::style()->name() == "windows11" &&
+        !QFontDatabase::families().contains("Segoe Fluent Icons"))
     {
-        QFontDatabase::addApplicationFont(font);
+        const QString fontPath = QDir(QApplication::applicationDirPath()).filePath("fonts/Segoe Fluent Icons.ttf");
+        if (QFile::exists(fontPath))
+            QFontDatabase::addApplicationFont(fontPath);
+        else
+            QApplication::setStyle("windowsvista");
     }
+#endif
 
     QCommandLineParser parser;
     parser.addHelpOption();
