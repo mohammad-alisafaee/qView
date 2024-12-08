@@ -218,12 +218,12 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("onetoonepixelsizing", {true, {}});
 #endif
     settingsLibrary.insert("calculatedzoommode", {static_cast<int>(Qv::CalculatedZoomMode::ZoomToFit), {}});
-    settingsLibrary.insert("originalsizeastoggle", {false, {}});
     settingsLibrary.insert("fitzoomlimitenabled", {false, {}});
     settingsLibrary.insert("fitzoomlimitpercent", {100, {}});
     settingsLibrary.insert("fitoverscan", {0, {}});
     settingsLibrary.insert("constrainimageposition", {true, {}});
     settingsLibrary.insert("constraincentersmallimage", {true, {}});
+    settingsLibrary.insert("originalsizeastoggle", {false, {}});
     settingsLibrary.insert("colorspaceconversion", {static_cast<int>(Qv::ColorSpaceConversion::AutoDetect), {}});
     // Miscellaneous
     settingsLibrary.insert("language", {"system", {}});

@@ -1317,6 +1317,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="unfinished">Zentriert halten, wenn kleiner</translation>
     </message>
     <message>
+        <location filename="../src/qvoptionsdialog.ui" line="649"/>
+        <source>Original Size functions as toggle</source>
+        <translation type="unfinished">Originalgröße als Umschaltfunktion</translation>
+    </message>
+    <message>
         <location filename="../src/qvoptionsdialog.ui" line="662"/>
         <source>Color space conversion:</source>
         <translation type="unfinished">Farbraumkonvertierung:</translation>

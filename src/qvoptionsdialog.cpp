@@ -230,6 +230,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     constrainImagePositionCheckboxStateChanged(ui->constrainImagePositionCheckbox->checkState());
     // constraincentersmallimage
     syncCheckbox(ui->constrainCentersSmallImageCheckbox, "constraincentersmallimage", defaults, makeConnections);
+    // originalsizeastoggle
+    syncCheckbox(ui->originalSizeAsToggleCheckbox, "originalsizeastoggle", defaults, makeConnections);
     // colorspaceconversion
     syncComboBox(ui->colorSpaceConversionComboBox, "colorspaceconversion", defaults, makeConnections);
     // language
