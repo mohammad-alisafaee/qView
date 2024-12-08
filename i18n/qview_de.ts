@@ -200,6 +200,11 @@
     </message>
     <message>
         <location filename="../src/actionmanager.cpp" line="826"/>
+        <source>Window On To&amp;p</source>
+        <translation type="unfinished">Fenster im Vordergrund</translation>
+    </message>
+    <message>
+        <location filename="../src/actionmanager.cpp" line="826"/>
         <source>Hide Title&amp;bar</source>
         <translation type="unfinished">Titelleiste ausblenden</translation>
     </message>
@@ -1880,6 +1885,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <location filename="../src/shortcutmanager.cpp" line="96"/>
         <source>Reset Transformation</source>
         <translation type="unfinished">Transformation zurücksetzen</translation>
+    </message>
+    <message>
+        <location filename="../src/shortcutmanager.cpp" line="97"/>
+        <source>Window On Top</source>
+        <translation type="unfinished">Fenster im Vordergrund</translation>
     </message>
     <message>
         <location filename="../src/shortcutmanager.cpp" line="97"/>

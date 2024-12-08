@@ -57,6 +57,8 @@ public:
 
     bool foundLoadedImage() const;
 
+    bool foundOnTopWindow() const;
+
     void openOptionsDialog(QWidget *parent = nullptr);
 
     void openWelcomeDialog(QWidget *parent = nullptr);
@@ -92,8 +94,6 @@ public:
 
     bool getShowSubmenuIcons() const { return showSubmenuIcons; }
 
-    bool getSlideshowKeepsWindowOnTop() const { return slideshowKeepsWindowOnTop; }
-
     void ensureFontLoaded(const QString &path);
 
     static QIcon iconFromFont(const QString &fontFamily, const QChar &codePoint, const int pixelSize, const qreal pixelRatio);
@@ -115,6 +115,9 @@ public:
     bool isSessionStateSaveRequested() const;
 
     void addClosedWindowSessionState(const QJsonObject &state, const qint64 lastActivatedTimestamp);
+
+signals:
+    void windowOnTopChanged();
 
 protected slots:
     void onCommitDataRequest(QSessionManager &manager);
@@ -145,7 +148,6 @@ private:
     QPointer<QVAboutDialog> aboutDialog;
 
     bool showSubmenuIcons {true};
-    bool slideshowKeepsWindowOnTop {false};
 
     UpdateChecker updateChecker;
 

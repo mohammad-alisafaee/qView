@@ -30,6 +30,8 @@ public:
 protected:
     void done(int r) override;
 
+    void showEvent(QShowEvent *event) override;
+
     void changeEvent(QEvent *event) override;
 
     void modifySetting(QString key, QVariant value);

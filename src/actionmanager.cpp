@@ -281,6 +281,7 @@ QMenu *ActionManager::buildViewMenu(bool addIcon, QWidget *parent)
     addCloneOfAction(viewMenu, "flip");
     addCloneOfAction(viewMenu, "resettransformation");
     viewMenu->addSeparator();
+    addCloneOfAction(viewMenu, "windowontop");
     addCloneOfAction(viewMenu, "toggletitlebar");
     addCloneOfAction(viewMenu, "fullscreen");
 
@@ -665,6 +666,8 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->flip();
     } else if (key == "resettransformation") {
         relevantWindow->resetTransformation();
+    } else if (key == "windowontop") {
+        relevantWindow->toggleWindowOnTop();
     } else if (key == "toggletitlebar") {
         relevantWindow->toggleTitlebarHidden();
     } else if (key == "fullscreen") {
@@ -822,6 +825,11 @@ void ActionManager::initializeActionLibrary()
     auto *resetTransformationAction = new QAction(tr("Reset &Transformation"));
     resetTransformationAction->setData({"disable"});
     actionLibrary.insert("resettransformation", resetTransformationAction);
+
+    auto *windowOnTopAction = new QAction(tr("Window On To&p"));
+    windowOnTopAction->setData({"windowdisable"});
+    windowOnTopAction->setCheckable(true);
+    actionLibrary.insert("windowontop", windowOnTopAction);
 
     auto *toggleTitlebarAction = new QAction(tr("Hide Title&bar"));
     toggleTitlebarAction->setData({"windowdisable"});

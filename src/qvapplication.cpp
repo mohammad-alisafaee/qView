@@ -35,7 +35,6 @@ QVApplication::QVApplication(int &argc, char **argv) : QApplication(argc, argv)
         updateChecker.check();
 
     showSubmenuIcons = getSettingsManager().getBoolean("submenuicons");
-    slideshowKeepsWindowOnTop = getSettingsManager().getBoolean("slideshowkeepswindowontop");
 
     // Block any erroneous icons from showing up on mac and windows
     // (this is overridden in some cases)
@@ -225,9 +224,19 @@ void QVApplication::deleteFromActiveWindows(MainWindow *window)
 
 bool QVApplication::foundLoadedImage() const
 {
-    for (MainWindow *window : std::as_const(activeWindows))
+    for (const MainWindow *window : activeWindows)
     {
         if (window->getIsPixmapLoaded())
+            return true;
+    }
+    return false;
+}
+
+bool QVApplication::foundOnTopWindow() const
+{
+    for (const MainWindow *window : activeWindows)
+    {
+        if (window->getWindowOnTop())
             return true;
     }
     return false;
@@ -239,7 +248,6 @@ void QVApplication::openOptionsDialog(QWidget *parent)
     // On macOS, the dialog should not be dependent on any window
     parent = nullptr;
 #endif
-
 
     if (optionsDialog)
     {

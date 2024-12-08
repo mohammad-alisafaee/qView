@@ -639,6 +639,12 @@ void MainWindow::updateMenuBarVisible()
     menuBar()->setVisible(alwaysVisible || (menuBarEnabled && !(hideWhenImmersive && isImmersive())));
 }
 
+bool MainWindow::getWindowOnTop() const
+{
+    const QWindow *winHandle = windowHandle();
+    return winHandle && winHandle->flags().testFlag(Qt::WindowStaysOnTopHint);
+}
+
 bool MainWindow::getTitlebarHidden() const
 {
     if (!windowHandle())
@@ -806,6 +812,8 @@ const QJsonObject MainWindow::getSessionState() const
 
     state["geometry"] = QString(saveGeometry().toBase64());
 
+    state["windowOnTop"] = getWindowOnTop();
+
     state["titlebarHidden"] = getTitlebarHidden();
 
     if (getCurrentFileDetails().isPixmapLoaded)
@@ -826,6 +834,9 @@ void MainWindow::loadSessionState(const QJsonObject &state, const bool isInitial
 
         return;
     }
+
+    if (state["windowOnTop"].toBool() != getWindowOnTop())
+        toggleWindowOnTop();
 
     if (state["titlebarHidden"].toBool() != getTitlebarHidden())
         toggleTitlebarHidden();
@@ -1298,8 +1309,17 @@ void MainWindow::toggleSlideshow()
         slideshowAction->setText(isStarting ? tr("Stop S&lideshow") : tr("Start S&lideshow"));
         slideshowAction->setIcon(QIcon::fromTheme(isStarting ? "media-playback-stop" : "media-playback-start"));
     }
-    if (qvApp->getSlideshowKeepsWindowOnTop())
-        windowHandle()->setFlag(Qt::WindowStaysOnTopHint, isStarting);
+    if (isStarting)
+    {
+        slideshowSetOnTopFlag = qvApp->getSettingsManager().getBoolean("slideshowkeepswindowontop") && !getWindowOnTop();
+        if (slideshowSetOnTopFlag)
+            toggleWindowOnTop();
+    }
+    else
+    {
+        if (slideshowSetOnTopFlag && getWindowOnTop())
+            toggleWindowOnTop();
+    }
 }
 
 void MainWindow::cancelSlideshow()
@@ -1374,6 +1394,19 @@ void MainWindow::toggleFullScreen()
     }
 
     setUpdatesEnabled(true);
+}
+
+void MainWindow::toggleWindowOnTop()
+{
+    if (!windowHandle())
+        return;
+
+    const bool targetValue = !getWindowOnTop();
+    windowHandle()->setFlag(Qt::WindowStaysOnTopHint, targetValue);
+    for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("windowontop", this))
+       action->setChecked(targetValue);
+
+    emit qvApp->windowOnTopChanged();
 }
 
 void MainWindow::toggleTitlebarHidden()

@@ -6,6 +6,7 @@
 #include <QScreen>
 #include <QMessageBox>
 #include <QSettings>
+#include <QWindow>
 
 #include <QDebug>
 
@@ -27,7 +28,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->shortcutsTable, &QTableWidget::cellDoubleClicked, this, &QVOptionsDialog::shortcutCellDoubleClicked);
     connect(ui->bgColorCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::bgColorCheckboxStateChanged);
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
-    connect(ui->slideshowKeepsWindowOnTopCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("slideshowkeepswindowontop", state); });
     connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
@@ -47,22 +47,17 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     populateComboBoxes();
     populateLanguages();
 
+    // Platform specific behaviors
 #ifdef Q_OS_MACOS
-    if (qvApp->getSlideshowKeepsWindowOnTop())
-        setWindowModality(Qt::ApplicationModal);
+    restoreGeometry(settings.value("optionsgeometry").toByteArray());
+
+    if (QOperatingSystemVersion::current() < QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 13))
+        setWindowTitle(tr("Preferences"));
 #else
     setWindowModality(Qt::WindowModal);
 #endif
 
-#ifdef Q_OS_MACOS
-    // Load window geometry
-    restoreGeometry(settings.value("optionsgeometry").toByteArray());
-#endif
-
-    if (QOperatingSystemVersion::current() < QOperatingSystemVersion(QOperatingSystemVersion::MacOS, 13))
-        setWindowTitle(tr("Preferences"));
-
-// Platform specific settings
+    // Platform specific settings
 #ifdef Q_OS_MACOS
     ui->menubarCheckbox->hide();
 #else
@@ -103,6 +98,20 @@ void QVOptionsDialog::done(int r)
     settings.setValue("optionstab", ui->categoryList->currentRow());
 
     QDialog::done(r);
+}
+
+void QVOptionsDialog::showEvent(QShowEvent *event)
+{
+#ifdef Q_OS_MACOS
+    // On macOS, we don't make this dialog modal, so make sure it doesn't get covered by on top windows
+    const auto updateWindowOnTop = [this]() {
+        windowHandle()->setFlag(Qt::WindowStaysOnTopHint, qvApp->foundOnTopWindow());
+    };
+    updateWindowOnTop();
+    connect(qvApp, &QVApplication::windowOnTopChanged, this, updateWindowOnTop);
+#endif
+
+    QDialog::showEvent(event);
 }
 
 void QVOptionsDialog::changeEvent(QEvent *event)

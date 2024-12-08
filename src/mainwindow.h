@@ -41,6 +41,8 @@ public:
 
     void updateMenuBarVisible();
 
+    bool getWindowOnTop() const;
+
     bool getTitlebarHidden() const;
 
     void setTitlebarHidden(const bool shouldHide);
@@ -129,6 +131,8 @@ public:
 
     void toggleFullScreen();
 
+    void toggleWindowOnTop();
+
     void toggleTitlebarHidden();
 
     int getTitlebarOverlap() const;
@@ -201,6 +205,7 @@ private:
 
     Qt::WindowStates storedWindowState {Qt::WindowNoState};
     bool storedTitlebarHidden {false};
+    bool slideshowSetOnTopFlag {false};
 
     QNetworkAccessManager networkAccessManager;
 
