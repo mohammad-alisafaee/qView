@@ -1,10 +1,8 @@
 #!/usr/bin/bash
 
-if [[ -n "$1" ]]; then
-    VERSION=$0
-else
-    VERSION=$(LC_ALL=C sed -n -e '/^VERSION/p' qView.pro)
-    VERSION=${VERSION: -3}
+if [[ -z "$1" ]]; then
+    RELEASE_VER=$(LC_ALL=C sed -n -e '/^VERSION/p' qView.pro)
+    RELEASE_VER=${RELEASE_VER: -3}
 fi
 
 if [[ -n "$APPLE_DEVID_APP_CERT_DATA" ]]; then
@@ -61,9 +59,9 @@ if [[ -n "$1" ]]; then
     hdiutil convert "qView.sparsebundle" -format ULFO -o "$DMG_FILENAME"
     rm -r qView.sparsebundle
 else
-    DMG_FILENAME=qView-JDP-$VERSION.dmg
+    DMG_FILENAME=qView-JDP-$RELEASE_VER.dmg
     brew install create-dmg
-    create-dmg --volname "qView-JDP $VERSION" --filesystem APFS --format ULFO --window-size 660 400 --icon-size 160 --icon "qView.app" 180 170 --hide-extension qView.app --app-drop-link 480 170 "$DMG_FILENAME" "qView.app"
+    create-dmg --volname "qView-JDP $RELEASE_VER" --filesystem APFS --format ULFO --window-size 660 400 --icon-size 160 --icon "qView.app" 180 170 --hide-extension qView.app --app-drop-link 480 170 "$DMG_FILENAME" "qView.app"
 fi
 if [[ "$APPLE_NOTARIZE_REQUESTED" == "true" ]]; then
     codesign --sign "$CODESIGN_CERT_NAME" --timestamp --identifier "$APP_IDENTIFIER.dmg" "$DMG_FILENAME"

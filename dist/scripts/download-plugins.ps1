@@ -2,8 +2,8 @@
 
 # This script will download binary plugins from the kimageformats-binaries repository using Github's API.
 
-$qtVersion = [version]((qmake --version -split '\n')[1] -split ' ')[3]
-Write-Host "Detected Qt Version $qtVersion"
+$qtVersion = [version](qmake -query QT_VERSION)
+Write-Host "Detected Qt version $qtVersion"
 
 $osName =
     $IsWindows ? 'Windows' :
@@ -67,7 +67,7 @@ if ($pluginNames -contains 'KImageFormats') {
     $kfMajorVer = $qtVersion -ge [version]'6.5.0' ? 6 : 5
     if ($IsWindows) {
         mv KImageFormats/KImageFormats/output/kimg_*.dll "$out_imf/"
-        CopyFrameworkDlls "KF$($kfMajorVer)Archive.dll" @("zlib1.dll")
+        CopyFrameworkDlls "KF${kfMajorVer}Archive.dll" @("zlib1.dll")
         CopyFrameworkDlls "avif.dll" @("dav1d.dll", "jpeg62.dll", "libyuv.dll")
         CopyFrameworkDlls "heif.dll" @("libde265.dll")
         CopyFrameworkDlls "raw.dll" @("lcms2.dll", "zlib1.dll")

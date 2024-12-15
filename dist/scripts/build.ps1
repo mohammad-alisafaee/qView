@@ -4,8 +4,8 @@ param (
     $Prefix = "/usr"
 )
 
-$qtVersion = [version]((qmake --version -split '\n')[1] -split ' ')[3]
-Write-Host "Detected Qt Version $qtVersion"
+$qtVersion = [version](qmake -query QT_VERSION)
+Write-Host "Detected Qt version $qtVersion"
 
 if ($IsWindows) {
     dist/scripts/vcvars.ps1

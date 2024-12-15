@@ -2,12 +2,8 @@ param (
     $NightlyVersion = ""
 )
 
-$qtVersion = [version]((qmake --version -split '\n')[1] -split ' ')[3]
-Write-Host "Detected Qt Version $qtVersion"
-
-if ($env:buildArch -eq 'Arm64') {
-    $env:QT_HOST_PATH = [System.IO.Path]::GetFullPath("$env:QT_ROOT_DIR\..\$((Split-Path -Path $env:QT_ROOT_DIR -Leaf) -replace '_arm64', '_64')")
-}
+$qtVersion = [version](qmake -query QT_VERSION)
+Write-Host "Detected Qt version $qtVersion"
 
 # Ship OpenSSL for older Qt versions. Starting 6.8, windeployqt doesn't deploy the OpenSSL backend
 # by default; although it's easy to opt in, the Schannel backend seems solid enough at this point.
@@ -29,21 +25,19 @@ if ($qtVersion -lt [version]'6.8' -and $env:buildArch -ne 'Arm64') {
 
     # Copy to output dir
     if ($env:buildArch -eq 'X86') {
-        copy "openssl\$($openSslSubfolder)x86\bin\libssl-$openSslFilenameVersion.dll" bin
-        copy "openssl\$($openSslSubfolder)x86\bin\libcrypto-$openSslFilenameVersion.dll" bin
+        copy "openssl\${openSslSubfolder}x86\bin\libssl-$openSslFilenameVersion.dll" bin
+        copy "openssl\${openSslSubfolder}x86\bin\libcrypto-$openSslFilenameVersion.dll" bin
     } else {
-        copy "openssl\$($openSslSubfolder)x64\bin\libssl-$openSslFilenameVersion-x64.dll" bin
-        copy "openssl\$($openSslSubfolder)x64\bin\libcrypto-$openSslFilenameVersion-x64.dll" bin
+        copy "openssl\${openSslSubfolder}x64\bin\libssl-$openSslFilenameVersion-x64.dll" bin
+        copy "openssl\${openSslSubfolder}x64\bin\libcrypto-$openSslFilenameVersion-x64.dll" bin
     }
 }
 
-if ($env:buildArch -eq 'Arm64') {
-    # Run windeployqt in cross-compilation mode
-    & "$env:QT_HOST_PATH\bin\windeployqt" "--qmake=$env:QT_ROOT_DIR\bin\qmake.bat" --no-compiler-runtime bin\qView.exe
-} else {
-    # Run windeployqt which should be in path
-    windeployqt --no-compiler-runtime bin\qView.exe
-}
+# Run windeployqt
+$isCrossCompile = $env:buildArch -eq 'Arm64'
+$winDeployQt = $isCrossCompile ? "$env:QT_HOST_PATH\bin\windeployqt" : "windeployqt"
+$argQtPaths = $isCrossCompile ? "--qtpaths=$env:QT_ROOT_DIR\bin\qtpaths.bat" : $null
+& $winDeployQt $argQtPaths --no-compiler-runtime "bin\qView.exe"
 
 if ($qtVersion -ge [version]'6.8.1') {
     # Copy font so windows11 style can work on Windows 10

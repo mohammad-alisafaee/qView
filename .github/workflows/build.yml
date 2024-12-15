@@ -59,7 +59,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+        uses: jdpurcell/install-qt-action@v4
         with:
           version: ${{ matrix.qtVersion }}
           arch: ${{ matrix.qtArch }}
@@ -90,7 +90,7 @@ jobs:
             bash dist/scripts/linuxdeployqt.sh ${{ env.buildNumString }}
           }
 
-      - name: 'Upload Artifact'
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: qView-JDP${{ env.buildNumString != '' && '-' || '' }}${{ env.buildNumString }}-${{ runner.os }}${{ matrix.osSuffix }}
