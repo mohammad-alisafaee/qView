@@ -49,11 +49,6 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     constrainBoundsTimer->setInterval(500);
     connect(constrainBoundsTimer, &QTimer::timeout, this, [this]{scrollHelper->constrain();});
 
-    emitZoomLevelChangedTimer = new QTimer(this);
-    emitZoomLevelChangedTimer->setSingleShot(true);
-    emitZoomLevelChangedTimer->setInterval(50);
-    connect(emitZoomLevelChangedTimer, &QTimer::timeout, this, [this]{emit zoomLevelChanged();});
-
     hideCursorTimer = new QTimer(this);
     hideCursorTimer->setSingleShot(true);
     hideCursorTimer->setInterval(1000);
@@ -612,7 +607,7 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
 
     handleSmoothScalingChange();
 
-    emitZoomLevelChangedTimer->start();
+    emit zoomLevelChanged();
 }
 
 const std::optional<Qv::CalculatedZoomMode> &QVGraphicsView::getCalculatedZoomMode() const

@@ -206,7 +206,6 @@ private:
 
     QTimer *expensiveScaleTimer;
     QTimer *constrainBoundsTimer;
-    QTimer *emitZoomLevelChangedTimer;
     QTimer *hideCursorTimer;
 
     ScrollHelper *scrollHelper;
