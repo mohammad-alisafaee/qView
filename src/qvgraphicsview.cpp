@@ -30,13 +30,14 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     scrollHelper = new ScrollHelper(this,
         [this](ScrollHelper::Parameters &p)
         {
-            p.contentRect = getContentRect().toRect();
+            p.contentRect = getContentRect();
             p.usableViewportRect = getUsableViewportRect();
             p.shouldConstrain = isConstrainedPositioningEnabled;
             p.shouldCenter = isConstrainedSmallCenteringEnabled;
         });
 
     connect(&imageCore, &QVImageCore::animatedFrameChanged, this, &QVGraphicsView::animatedFrameChanged);
+    connect(&imageCore, &QVImageCore::fileChanging, this, &QVGraphicsView::beforeLoad);
     connect(&imageCore, &QVImageCore::fileChanged, this, &QVGraphicsView::postLoad);
 
     expensiveScaleTimer = new QTimer(this);
@@ -495,13 +496,16 @@ void QVGraphicsView::reloadFile()
     imageCore.loadFile(getCurrentFileDetails().fileInfo.absoluteFilePath(), true);
 }
 
-void QVGraphicsView::postLoad()
+void QVGraphicsView::beforeLoad()
 {
-    scrollHelper->cancelAnimation();
-
     // If a prior pixmap is still loaded, capture its content rect
     if (!loadedPixmapItem->pixmap().isNull())
         lastImageContentRect = getContentRect();
+}
+
+void QVGraphicsView::postLoad()
+{
+    scrollHelper->cancelAnimation();
 
     // Set the pixmap to the new image and reset the transform's scale to a known value
     removeExpensiveScaling();
@@ -766,7 +770,7 @@ void QVGraphicsView::recalculateZoom()
 void QVGraphicsView::centerImage()
 {
     const QRect viewRect = getUsableViewportRect();
-    const QRect contentRect = getContentRect().toRect();
+    const QRect contentRect = getContentRect();
     const int hOffset = isRightToLeft() ?
         horizontalScrollBar()->minimum() + horizontalScrollBar()->maximum() - contentRect.left() :
         contentRect.left();
@@ -892,9 +896,9 @@ bool QVGraphicsView::isExpensiveScalingRequested() const
     if (!isSmoothScalingRequested() || smoothScalingMode != Qv::SmoothScalingMode::Expensive || !getCurrentFileDetails().isPixmapLoaded)
         return false;
 
-    // If we are above maximum scaling size
-    const QSize contentSize = getContentRect().size().toSize();
-    const QSize maxSize = getUsableViewportRect(true).size() * (expensiveScalingAboveWindowSize ? 3 : 1) + QSize(1, 1);
+    // Don't go over the maximum scaling size (a small tolerance is added to cover rounding errors)
+    const QSize contentSize = getContentRect().size();
+    const QSize maxSize = getUsableViewportRect(true).size() * (expensiveScalingAboveWindowSize ? 3 : 1) + QSize(2, 2);
     return contentSize.width() <= maxSize.width() && contentSize.height() <= maxSize.height();
 }
 
@@ -903,15 +907,22 @@ QSizeF QVGraphicsView::getEffectiveOriginalSize() const
     return getTransformWithNoScaling().mapRect(QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize)).size() * getDpiAdjustment();
 }
 
-void QVGraphicsView::matchContentCenter(const QRectF target)
+void QVGraphicsView::matchContentCenter(const QRect target)
 {
-    const QPointF delta = getContentRect().center() - target.center();
+    const QPointF delta = QRectF(getContentRect()).center() - QRectF(target).center();
     scrollHelper->move(QPointF(delta.x() * (isRightToLeft() ? -1 : 1), delta.y()));
 }
 
-QRectF QVGraphicsView::getContentRect() const
+QRect QVGraphicsView::getContentRect() const
 {
-    return transform().mapRect(loadedPixmapItem->boundingRect());
+    // Avoid using loadedPixmapItem and the active transform because the pixmap may have expensive scaling applied
+    // which introduces a rounding error to begin with, and even worse, the error will be magnified if we're in the
+    // the process of zooming in and haven't re-applied the expensive scaling yet. If that's the case, callers need
+    // to know what the content rect will be once the dust settles rather than what's being temporarily displayed.
+    const QRectF loadedPixmapBoundingRect = QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize);
+    const qreal effectiveTransformScale = zoomLevel * appliedDpiAdjustment;
+    const QTransform effectiveTransform = getTransformWithNoScaling().scale(effectiveTransformScale, effectiveTransformScale);
+    return effectiveTransform.mapRect(loadedPixmapBoundingRect).toRect();
 }
 
 QRect QVGraphicsView::getUsableViewportRect(const bool addOverscan) const
@@ -1090,7 +1101,7 @@ void QVGraphicsView::setSpeed(const int &desiredSpeed)
 
 void QVGraphicsView::rotateImage(const int relativeAngle)
 {
-    const QRectF oldRect = getContentRect();
+    const QRect oldRect = getContentRect();
     const QTransform t = transform();
     const bool isMirroredOrFlipped = t.isRotating() ? (t.m12() < 0 == t.m21() < 0) : (t.m11() < 0 != t.m22() < 0);
     rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1));
@@ -1099,7 +1110,7 @@ void QVGraphicsView::rotateImage(const int relativeAngle)
 
 void QVGraphicsView::mirrorImage()
 {
-    const QRectF oldRect = getContentRect();
+    const QRect oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
     scale(-1 * rotateCorrection, 1 * rotateCorrection);
     matchContentCenter(oldRect);
@@ -1107,7 +1118,7 @@ void QVGraphicsView::mirrorImage()
 
 void QVGraphicsView::flipImage()
 {
-    const QRectF oldRect = getContentRect();
+    const QRect oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
     scale(1 * rotateCorrection, -1 * rotateCorrection);
     matchContentCenter(oldRect);
@@ -1115,7 +1126,7 @@ void QVGraphicsView::flipImage()
 
 void QVGraphicsView::resetTransformation()
 {
-    const QRectF oldRect = getContentRect();
+    const QRect oldRect = getContentRect();
     const QTransform t = transform();
     const qreal scale = qFabs(t.isRotating() ? t.m21() : t.m11());
     setTransform(QTransform::fromScale(scale, scale));

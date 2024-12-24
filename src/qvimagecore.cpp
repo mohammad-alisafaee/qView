@@ -184,6 +184,8 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
 
 void QVImageCore::loadPixmap(const ReadData &readData)
 {
+    emit fileChanging();
+
     if (readData.errorData.has_value())
     {
         currentFileDetails = getEmptyFileDetails();
@@ -253,6 +255,7 @@ void QVImageCore::loadPixmap(const ReadData &readData)
 
 void QVImageCore::closeImage()
 {
+    emit fileChanging();
     currentFileDetails = getEmptyFileDetails();
     loadEmptyPixmap();
 }

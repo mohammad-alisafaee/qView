@@ -135,9 +135,9 @@ protected:
 
     bool isExpensiveScalingRequested() const;
 
-    void matchContentCenter(const QRectF target);
+    void matchContentCenter(const QRect target);
 
-    QRectF getContentRect() const;
+    QRect getContentRect() const;
 
     QRect getUsableViewportRect(const bool addOverscan = false) const;
 
@@ -157,6 +157,8 @@ protected:
 
 private slots:
     void animatedFrameChanged(QRect rect);
+
+    void beforeLoad();
 
     void postLoad();
 
@@ -200,7 +202,7 @@ private:
     QPointF lastZoomRoundingError;
     bool isCursorAutoHideFullscreenEnabled {true};
     bool isCursorVisible {true};
-    QRectF lastImageContentRect;
+    QRect lastImageContentRect;
 
     QVImageCore imageCore {this};
 

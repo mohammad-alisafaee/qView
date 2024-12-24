@@ -91,6 +91,8 @@ public:
 signals:
     void animatedFrameChanged(QRect rect);
 
+    void fileChanging();
+
     void fileChanged();
 
 protected:
