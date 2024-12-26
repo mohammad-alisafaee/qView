@@ -743,14 +743,28 @@ void MainWindow::setWindowSize(const bool isFromTransform)
     const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);
+    const qreal logicalPixelScale = graphicsView->devicePixelRatioF();
 
-    QSize targetSize = imageSize.toSize() - fitOverscanSize;
+    const auto gvRoundSizeF = [logicalPixelScale](const QSizeF value) {
+        return QSize(
+            QVGraphicsView::roundToCompleteLogicalPixel(value.width(), logicalPixelScale),
+            QVGraphicsView::roundToCompleteLogicalPixel(value.height(), logicalPixelScale)
+        );
+    };
+    const auto gvReverseRoundSize = [logicalPixelScale](const QSize value) {
+        return QSizeF(
+            QVGraphicsView::reverseLogicalPixelRounding(value.width(), logicalPixelScale),
+            QVGraphicsView::reverseLogicalPixelRounding(value.height(), logicalPixelScale)
+        );
+    };
+
+    QSize targetSize = gvRoundSizeF(imageSize) - fitOverscanSize;
 
     if (targetSize.width() > maxWindowSize.width() || targetSize.height() > maxWindowSize.height())
     {
-        const QSizeF viewSize = maxWindowSize + fitOverscanSize;
-        const qreal fitRatio = qMin(viewSize.width() / imageSize.width(), viewSize.height() / imageSize.height());
-        targetSize = (imageSize * fitRatio).toSize() - fitOverscanSize;
+        const QSizeF enforcedSize = gvReverseRoundSize(maxWindowSize) + fitOverscanSize;
+        const qreal fitRatio = qMin(enforcedSize.width() / imageSize.width(), enforcedSize.height() / imageSize.height());
+        targetSize = gvRoundSizeF(imageSize * fitRatio) - fitOverscanSize;
     }
 
     targetSize = targetSize.expandedTo(minWindowSize).boundedTo(maxWindowSize);
