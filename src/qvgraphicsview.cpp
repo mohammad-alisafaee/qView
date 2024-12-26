@@ -72,6 +72,9 @@ void QVGraphicsView::resizeEvent(QResizeEvent *event)
             return;
 
     QGraphicsView::resizeEvent(event);
+
+    const QPoint sizeDelta = QRect(QPoint(), event->size()).bottomRight() - QRect(QPoint(), event->oldSize()).bottomRight();
+    scrollHelper->move(QPointF(sizeDelta) / -2.0);
     fitOrConstrainImage();
 }
 
