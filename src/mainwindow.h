@@ -26,6 +26,12 @@ public:
         QString previousPath;
     };
 
+    struct ViewportPosition
+    {
+        int widgetY;
+        int obscuredHeight;
+    };
+
     explicit MainWindow(QWidget *parent = nullptr, const QJsonObject &windowSessionState = {});
     ~MainWindow() override;
 
@@ -136,6 +142,8 @@ public:
     void toggleTitlebarHidden();
 
     int getTitlebarOverlap() const;
+
+    ViewportPosition getViewportPosition() const;
 
     const QVImageCore::FileDetails& getCurrentFileDetails() const { return graphicsView->getCurrentFileDetails(); }
 

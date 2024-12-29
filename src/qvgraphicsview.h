@@ -4,6 +4,7 @@
 #include "qvnamespace.h"
 #include "qvimagecore.h"
 #include "axislocker.h"
+#include "logicalpixelfitter.h"
 #include "scrollhelper.h"
 #include <optional>
 #include <QGraphicsView>
@@ -80,16 +81,14 @@ public:
 
     QSizeF getEffectiveOriginalSize() const;
 
+    LogicalPixelFitter getPixelFitter() const;
+
     const QVImageCore::FileDetails& getCurrentFileDetails() const { return imageCore.getCurrentFileDetails(); }
     const QPixmap& getLoadedPixmap() const { return imageCore.getLoadedPixmap(); }
     const QMovie& getLoadedMovie() const { return imageCore.getLoadedMovie(); }
     qreal getZoomLevel() const { return zoomLevel; }
 
     int getFitOverscan() const { return fitOverscan; }
-
-    static int roundToCompleteLogicalPixel(const qreal value, const qreal logicalScale);
-
-    static qreal reverseLogicalPixelRounding(const int value, const qreal logicalScale);
 
 signals:
     void cancelSlideshow();

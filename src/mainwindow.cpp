@@ -284,9 +284,10 @@ void MainWindow::paintEvent(QPaintEvent *event)
 
     QPainter painter(this);
 
-    const int viewportY = qMax(getTitlebarOverlap(), graphicsView->mapTo(this, QPoint()).y());
-    const QRect headerRect = QRect(0, 0, width(), viewportY);
-    const QRect viewportRect = rect().adjusted(0, viewportY, 0, 0);
+    const ViewportPosition viewportPos = getViewportPosition();
+    const int adjustedViewportY = viewportPos.widgetY + viewportPos.obscuredHeight;
+    const QRect headerRect = QRect(0, 0, width(), adjustedViewportY);
+    const QRect viewportRect = rect().adjusted(0, adjustedViewportY, 0, 0);
 
     if (headerRect.isValid())
     {
@@ -743,28 +744,15 @@ void MainWindow::setWindowSize(const bool isFromTransform)
     const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);
-    const qreal logicalPixelScale = graphicsView->devicePixelRatioF();
+    const LogicalPixelFitter fitter = graphicsView->getPixelFitter();
 
-    const auto gvRoundSizeF = [logicalPixelScale](const QSizeF value) {
-        return QSize(
-            QVGraphicsView::roundToCompleteLogicalPixel(value.width(), logicalPixelScale),
-            QVGraphicsView::roundToCompleteLogicalPixel(value.height(), logicalPixelScale)
-        );
-    };
-    const auto gvReverseRoundSize = [logicalPixelScale](const QSize value) {
-        return QSizeF(
-            QVGraphicsView::reverseLogicalPixelRounding(value.width(), logicalPixelScale),
-            QVGraphicsView::reverseLogicalPixelRounding(value.height(), logicalPixelScale)
-        );
-    };
-
-    QSize targetSize = gvRoundSizeF(imageSize) - fitOverscanSize;
+    QSize targetSize = fitter.snapSize(imageSize) - fitOverscanSize;
 
     if (targetSize.width() > maxWindowSize.width() || targetSize.height() > maxWindowSize.height())
     {
-        const QSizeF enforcedSize = gvReverseRoundSize(maxWindowSize) + fitOverscanSize;
+        const QSizeF enforcedSize = fitter.unsnapSize(maxWindowSize) + fitOverscanSize;
         const qreal fitRatio = qMin(enforcedSize.width() / imageSize.width(), enforcedSize.height() / imageSize.height());
-        targetSize = gvRoundSizeF(imageSize * fitRatio) - fitOverscanSize;
+        targetSize = fitter.snapSize(imageSize * fitRatio) - fitOverscanSize;
     }
 
     targetSize = targetSize.expandedTo(minWindowSize).boundedTo(maxWindowSize);
@@ -1449,4 +1437,16 @@ int MainWindow::getTitlebarOverlap() const
 #endif
 
     return 0;
+}
+
+MainWindow::ViewportPosition MainWindow::getViewportPosition() const
+{
+    ViewportPosition result;
+    // This accounts for anything that may be above the viewport such as the menu bar (if it's inside
+    // the window) and/or the label that displays titlebar text in full screen mode.
+    result.widgetY = windowHandle() ? graphicsView->mapTo(this, QPoint()).y() : 0;
+    // On macOS, part of the viewport may be additionally covered with the window's translucent
+    // titlebar due to full size content view.
+    result.obscuredHeight = qMax(getTitlebarOverlap() - result.widgetY, 0);
+    return result;
 }

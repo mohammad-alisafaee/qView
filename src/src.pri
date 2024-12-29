@@ -1,5 +1,4 @@
 SOURCES += \
-    $$PWD/axislocker.cpp \
     $$PWD/main.cpp \
     $$PWD/mainwindow.cpp \
     $$PWD/openwith.cpp \
@@ -14,6 +13,8 @@ SOURCES += \
     $$PWD/qvimagecore.cpp \
     $$PWD/qvshortcutdialog.cpp \
     $$PWD/actionmanager.cpp \
+    $$PWD/axislocker.cpp \
+    $$PWD/logicalpixelfitter.cpp \
     $$PWD/scrollhelper.cpp \
     $$PWD/settingsmanager.cpp \
     $$PWD/shortcutmanager.cpp \
@@ -24,7 +25,6 @@ win32:!CONFIG(NO_WIN32):SOURCES += $$PWD/qvwin32functions.cpp
 linux:!CONFIG(NO_X11):SOURCES += $$PWD/qvlinuxx11functions.cpp
 
 HEADERS += \
-    $$PWD/axislocker.h \
     $$PWD/mainwindow.h \
     $$PWD/openwith.h \
     $$PWD/qvfileenumerator.h \
@@ -39,6 +39,8 @@ HEADERS += \
     $$PWD/qvimagecore.h \
     $$PWD/qvshortcutdialog.h \
     $$PWD/actionmanager.h \
+    $$PWD/axislocker.h \
+    $$PWD/logicalpixelfitter.h \
     $$PWD/scrollhelper.h \
     $$PWD/settingsmanager.h \
     $$PWD/shortcutmanager.h \
@@ -49,7 +51,7 @@ win32:!CONFIG(NO_WIN32):HEADERS += $$PWD/qvwin32functions.h
 linux:!CONFIG(NO_X11):HEADERS += $$PWD/qvlinuxx11functions.h
 
 FORMS += \
-        $$PWD/mainwindow.ui \
+    $$PWD/mainwindow.ui \
     $$PWD/qvopenwithdialog.ui \
     $$PWD/qvoptionsdialog.ui \
     $$PWD/qvaboutdialog.ui \
