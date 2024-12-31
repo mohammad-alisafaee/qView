@@ -53,8 +53,8 @@ void ScrollHelper::move(QPointF delta)
         scrollDeltaY = calculateScrollDelta(scrollLocation.y(), vMin, vMax, scrollDeltaY);
     }
     scrollLocation += QPointF(scrollDeltaX, scrollDeltaY);
-    int scrollValueX = qRound(scrollLocation.x());
-    int scrollValueY = qRound(scrollLocation.y());
+    int scrollValueX = qAbs(scrollLocation.x()) == 0.5 ? 0 : qRound(scrollLocation.x());
+    int scrollValueY = qAbs(scrollLocation.y()) == 0.5 ? 0 : qRound(scrollLocation.y());
     lastMoveRoundingError = QPointF(scrollLocation.x() - scrollValueX, scrollLocation.y() - scrollValueY);
     int overscrollDistanceX =
         p.shouldConstrain && scrollValueX < hMin ? scrollValueX - hMin :
