@@ -73,9 +73,12 @@ void QVGraphicsView::resizeEvent(QResizeEvent *event)
 
     QGraphicsView::resizeEvent(event);
 
-    const QPoint sizeDelta = QRect(QPoint(), event->size()).bottomRight() - QRect(QPoint(), event->oldSize()).bottomRight();
-    scrollHelper->move(QPointF(sizeDelta) / -2.0);
-    fitOrConstrainImage();
+    if (getCurrentFileDetails().isPixmapLoaded)
+    {
+        const QPoint sizeDelta = QRect(QPoint(), event->size()).bottomRight() - QRect(QPoint(), event->oldSize()).bottomRight();
+        scrollHelper->move(QPointF(sizeDelta) / -2.0);
+        fitOrConstrainImage();
+    }
 }
 
 void QVGraphicsView::paintEvent(QPaintEvent *event)
@@ -509,7 +512,7 @@ void QVGraphicsView::reloadFile()
 void QVGraphicsView::beforeLoad()
 {
     // If a prior pixmap is still loaded, capture its content rect
-    if (!loadedPixmapItem->pixmap().isNull())
+    if (getCurrentFileDetails().isPixmapLoaded)
         lastImageContentRect = getContentRect();
 }
 
