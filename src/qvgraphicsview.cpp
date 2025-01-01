@@ -385,6 +385,13 @@ void QVGraphicsView::executeDragAction(const Qv::ViewportDragAction action, cons
     }
     else if (action == Qv::ViewportDragAction::MoveWindow)
     {
+        const auto windowState = window()->windowState();
+#ifndef Q_OS_MACOS
+        if (windowState.testFlag(Qt::WindowMaximized))
+            return;
+#endif
+        if (windowState.testFlag(Qt::WindowFullScreen))
+            return;
         window()->move(window()->pos() + delta);
         isMovingWindow = true;
     }
