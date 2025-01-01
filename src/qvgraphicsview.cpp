@@ -773,7 +773,7 @@ void QVGraphicsView::recalculateZoom()
             targetRatio = qMax(fitXRatio, fitYRatio);
         }
         break;
-    case Qv::CalculatedZoomMode::OriginalSize:
+    default:
         targetRatio = 1.0;
         break;
     }
@@ -1127,7 +1127,7 @@ void QVGraphicsView::rotateImage(const int relativeAngle)
 {
     const QRect oldRect = getContentRect();
     const QTransform t = transform();
-    const bool isMirroredOrFlipped = t.isRotating() ? (t.m12() < 0 == t.m21() < 0) : (t.m11() < 0 != t.m22() < 0);
+    const bool isMirroredOrFlipped = t.isRotating() ? ((t.m12() < 0) == (t.m21() < 0)) : ((t.m11() < 0) != (t.m22() < 0));
     rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1));
     matchContentCenter(oldRect);
 }
