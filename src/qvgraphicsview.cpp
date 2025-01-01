@@ -337,7 +337,7 @@ void QVGraphicsView::keyPressEvent(QKeyEvent *event)
     if (scrollXSmallSteps != 0 || scrollYSmallSteps != 0 || scrollYLargeSteps != 0)
     {
         const QPoint delta {
-            (horizontalScrollBar()->singleStep() * scrollXSmallSteps) * (isRightToLeft() ? -1 : 1),
+            (horizontalScrollBar()->singleStep() * scrollXSmallSteps) * getRtlFlip(),
             (verticalScrollBar()->singleStep() * scrollYSmallSteps) + (verticalScrollBar()->pageStep() * scrollYLargeSteps)
         };
         scrollHelper->move(delta);
@@ -384,7 +384,7 @@ void QVGraphicsView::executeDragAction(const Qv::ViewportDragAction action, cons
 {
     if (action == Qv::ViewportDragAction::Pan)
     {
-        scrollHelper->move(QPointF(-delta.x() * (isRightToLeft() ? -1 : 1), -delta.y()));
+        scrollHelper->move(QPointF(-delta.x() * getRtlFlip(), -delta.y()));
     }
     else if (action == Qv::ViewportDragAction::MoveWindow)
     {
@@ -403,7 +403,7 @@ void QVGraphicsView::executeDragAction(const Qv::ViewportDragAction action, cons
 void QVGraphicsView::executeScrollAction(const Qv::ViewportScrollAction action, const QPoint delta, const QPoint mousePos, const bool hasShiftModifier)
 {
     const int deltaPerWheelStep = 120;
-    const int rtlFlip = isRightToLeft() ? -1 : 1;
+    const int rtlFlip = getRtlFlip();
 
     const auto getUniAxisDelta = [delta, rtlFlip]() {
         return
@@ -612,7 +612,7 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
     if (pos.has_value())
     {
         const QPointF move = mapFromScene(scenePos) - pos.value();
-        horizontalScrollBar()->setValue(horizontalScrollBar()->value() + (move.x() * (isRightToLeft() ? -1 : 1)));
+        horizontalScrollBar()->setValue(horizontalScrollBar()->value() + (move.x() * getRtlFlip()));
         verticalScrollBar()->setValue(verticalScrollBar()->value() + move.y());
         lastZoomRoundingError = mapToScene(pos.value()) - scenePos;
         constrainBoundsTimer->start();
@@ -834,7 +834,7 @@ const QJsonObject QVGraphicsView::getSessionState() const
 {
     QJsonObject state;
 
-    const QTransform transform = getTransformWithNoScaling();
+    const QTransform transform = getUnspecializedTransform();
     const QJsonArray transformValues {
         static_cast<int>(transform.m11()),
         static_cast<int>(transform.m22()),
@@ -924,7 +924,7 @@ bool QVGraphicsView::isExpensiveScalingRequested() const
 
 QSizeF QVGraphicsView::getEffectiveOriginalSize() const
 {
-    return getTransformWithNoScaling().mapRect(QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize)).size() * getDpiAdjustment();
+    return getUnspecializedTransform().mapRect(QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize)).size() * getDpiAdjustment();
 }
 
 LogicalPixelFitter QVGraphicsView::getPixelFitter() const
@@ -936,7 +936,7 @@ LogicalPixelFitter QVGraphicsView::getPixelFitter() const
 void QVGraphicsView::matchContentCenter(const QRect target)
 {
     const QPointF delta = QRectF(getContentRect()).center() - QRectF(target).center();
-    scrollHelper->move(QPointF(delta.x() * (isRightToLeft() ? -1 : 1), delta.y()));
+    scrollHelper->move(QPointF(delta.x() * getRtlFlip(), delta.y()));
 }
 
 QRect QVGraphicsView::getContentRect() const
@@ -945,18 +945,12 @@ QRect QVGraphicsView::getContentRect() const
     // which introduces a rounding error to begin with, and even worse, the error will be magnified if we're in the
     // the process of zooming in and haven't re-applied the expensive scaling yet. If that's the case, callers need
     // to know what the content rect will be once the dust settles rather than what's being temporarily displayed.
-    const QRectF loadedPixmapBoundingRect = QRectF(QPoint(), getCurrentFileDetails().loadedPixmapSize);
-    const qreal effectiveTransformScale = zoomLevel * appliedDpiAdjustment;
-    const QTransform effectiveTransform = getTransformWithNoScaling().scale(effectiveTransformScale, effectiveTransformScale);
-    const QRectF contentRect = effectiveTransform.mapRect(loadedPixmapBoundingRect);
-    const QSize snappedSize = getPixelFitter().snapSize(contentRect.size());
-    const bool isHorizontalReversed = effectiveTransform.m11() < 0 || effectiveTransform.m21() < 0;
-    const bool isVerticalReversed = effectiveTransform.m22() < 0 || effectiveTransform.m12() < 0;
-    const QPointF topLeftCorrection = QPointF(
-        isHorizontalReversed ? contentRect.width() - snappedSize.width() : 0,
-        isVerticalReversed ? contentRect.height() - snappedSize.height() : 0
-    );
-    return QRect((contentRect.topLeft() + topLeftCorrection).toPoint(), snappedSize);
+    const QSizeF pixmapSize = getCurrentFileDetails().loadedPixmapSize;
+    const QRectF pixmapBoundingRect = QRectF(QPoint(), pixmapSize);
+    const qreal pixmapScale = zoomLevel * appliedDpiAdjustment;
+    const QTransform pixmapTransform = normalizeTransformOrigin(getUnspecializedTransform().scale(pixmapScale, pixmapScale), pixmapSize);
+    const QRectF contentRect = pixmapTransform.mapRect(pixmapBoundingRect);
+    return QRect(contentRect.topLeft().toPoint(), getPixelFitter().snapSize(contentRect.size()));
 }
 
 QRect QVGraphicsView::getUsableViewportRect(const bool addOverscan) const
@@ -968,22 +962,37 @@ QRect QVGraphicsView::getUsableViewportRect(const bool addOverscan) const
     return rect;
 }
 
-void QVGraphicsView::setTransformScale(qreal value)
+void QVGraphicsView::setTransformScale(const qreal value)
 {
-    setTransform(getTransformWithNoScaling().scale(value, value));
+    setTransformWithNormalization(getUnspecializedTransform().scale(value, value));
 }
 
-QTransform QVGraphicsView::getTransformWithNoScaling() const
+void QVGraphicsView::setTransformWithNormalization(const QTransform &matrix)
 {
+    setTransform(normalizeTransformOrigin(matrix, loadedPixmapItem->boundingRect().size()));
+}
+
+QTransform QVGraphicsView::getUnspecializedTransform() const
+{
+    // Returns a transform that represents the currently applied mirroring, flipping, and rotation
+    // (only in increments of 90 degrees) operations, but with no scaling or translation.
     const QTransform t = transform();
-    // Only intended to handle combinations of scaling, mirroring, flipping, and rotation
-    // in increments of 90 degrees. A seemingly simpler approach would be to scale the
-    // transform by the inverse of its scale factor, but the resulting scale factor may
-    // not exactly equal 1 due to floating point rounding errors.
     if (t.type() == QTransform::TxRotate)
         return { 0, t.m12() < 0 ? -1.0 : 1.0, t.m21() < 0 ? -1.0 : 1.0, 0, 0, 0 };
     else
         return { t.m11() < 0 ? -1.0 : 1.0, 0, 0, t.m22() < 0 ? -1.0 : 1.0, 0, 0 };
+}
+
+QTransform QVGraphicsView::normalizeTransformOrigin(const QTransform &matrix, const QSizeF &pixmapSize) const
+{
+    // This applies translation to compensate for mirroring, flipping, and rotation to ensure that
+    // a pixmap will have its resulting top left at 0, 0. In theory this shouldn't matter, but it
+    // works around a glitch where Qt sometimes won't paint the last pixel on the right of the
+    // viewport if an image is rotated 90 degrees and just touching the right edge.
+    const int horizontalFactor = matrix.m11() < 0 ? -1 * getRtlFlip() : matrix.m12() < 0 ? -1 : 0;
+    const int verticalFactor = matrix.m22() < 0 ? -1 : matrix.m21() < 0 ? -1 * getRtlFlip() : 0;
+    QTransform t { matrix.m11(), matrix.m12(), matrix.m21(), matrix.m22(), 0, 0 };
+    return t.translate(pixmapSize.width() * horizontalFactor, pixmapSize.height() * verticalFactor);
 }
 
 qreal QVGraphicsView::getDpiAdjustment() const
@@ -1015,6 +1024,11 @@ void QVGraphicsView::handleSmoothScalingChange()
         expensiveScaleTimer->start();
     else if (appliedExpensiveScaleZoomLevel != 0.0)
         removeExpensiveScaling();
+}
+
+int QVGraphicsView::getRtlFlip() const
+{
+    return isRightToLeft() ? -1 : 1;
 }
 
 void QVGraphicsView::cancelTurboNav()
@@ -1131,7 +1145,7 @@ void QVGraphicsView::rotateImage(const int relativeAngle)
     const QRect oldRect = getContentRect();
     const QTransform t = transform();
     const bool isMirroredOrFlipped = t.isRotating() ? ((t.m12() < 0) == (t.m21() < 0)) : ((t.m11() < 0) != (t.m22() < 0));
-    rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1));
+    setTransformWithNormalization(transform().rotate(relativeAngle * (isMirroredOrFlipped ? -1 : 1)));
     matchContentCenter(oldRect);
 }
 
@@ -1139,7 +1153,7 @@ void QVGraphicsView::mirrorImage()
 {
     const QRect oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
-    scale(-1 * rotateCorrection, 1 * rotateCorrection);
+    setTransformWithNormalization(transform().scale(-1 * rotateCorrection, 1 * rotateCorrection));
     matchContentCenter(oldRect);
 }
 
@@ -1147,7 +1161,7 @@ void QVGraphicsView::flipImage()
 {
     const QRect oldRect = getContentRect();
     const int rotateCorrection = transform().isRotating() ? -1 : 1;
-    scale(1 * rotateCorrection, -1 * rotateCorrection);
+    setTransformWithNormalization(transform().scale(1 * rotateCorrection, -1 * rotateCorrection));
     matchContentCenter(oldRect);
 }
 
@@ -1156,6 +1170,6 @@ void QVGraphicsView::resetTransformation()
     const QRect oldRect = getContentRect();
     const QTransform t = transform();
     const qreal scale = qFabs(t.isRotating() ? t.m21() : t.m11());
-    setTransform(QTransform::fromScale(scale, scale));
+    setTransformWithNormalization(QTransform::fromScale(scale, scale));
     matchContentCenter(oldRect);
 }
