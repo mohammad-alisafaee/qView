@@ -5,6 +5,8 @@ QT += core gui network widgets
 
 TEMPLATE = app
 
+QMAKE_PROJECT_DEPTH = 0
+
 # allows use of version variable elsewhere
 DEFINES += "VERSION=$$VERSION"
 
