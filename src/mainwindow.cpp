@@ -213,7 +213,7 @@ void MainWindow::showEvent(QShowEvent *event)
 {
 #ifdef COCOA_LOADED
     QTimer::singleShot(0, this, [this]() {
-        QVCocoaFunctions::setFullSizeContentView(windowHandle(), true);
+        QVCocoaFunctions::setFullSizeContentView(this, true);
     });
 #endif
 
@@ -244,7 +244,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     isClosing = true;
 
 #ifdef COCOA_LOADED
-    QVCocoaFunctions::setFullSizeContentView(windowHandle(), false);
+    QVCocoaFunctions::setFullSizeContentView(this, false);
 #endif
 
 #if defined COCOA_LOADED && QT_VERSION == QT_VERSION_CHECK(6, 8, 1)
@@ -659,7 +659,7 @@ bool MainWindow::getTitlebarHidden() const
         return false;
 
 #if defined COCOA_LOADED && QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    return QVCocoaFunctions::getTitlebarHidden(windowHandle());
+    return QVCocoaFunctions::getTitlebarHidden(this);
 #else
     return !windowFlags().testFlag(Qt::WindowTitleHint);
 #endif
@@ -670,18 +670,15 @@ void MainWindow::setTitlebarHidden(const bool shouldHide)
     if (!windowHandle())
         return;
 
-    auto customizeWindowFlags = [this](const Qt::WindowFlags flagsToChange, const bool on) {
+    const auto customizeWindowFlags = [this](const Qt::WindowFlags flagsToChange, const bool on) {
         Qt::WindowFlags newFlags = windowFlags() | Qt::CustomizeWindowHint;
-        if (on)
-            newFlags |= flagsToChange;
-        else
-            newFlags &= ~flagsToChange;
+        newFlags = on ? (newFlags | flagsToChange) : (newFlags & ~flagsToChange);
         overrideWindowFlags(newFlags);
         windowHandle()->setFlags(newFlags);
     };
 
 #if defined COCOA_LOADED && QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    QVCocoaFunctions::setTitlebarHidden(windowHandle(), shouldHide);
+    QVCocoaFunctions::setTitlebarHidden(this, shouldHide);
     customizeWindowFlags(Qt::WindowCloseButtonHint | Qt::WindowMinMaxButtonsHint | Qt::WindowFullscreenButtonHint, !shouldHide);
 #elif defined WIN32_LOADED
     customizeWindowFlags(Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint, !shouldHide);

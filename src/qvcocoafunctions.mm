@@ -64,33 +64,39 @@ void QVCocoaFunctions::setUserDefaults()
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"NSFullScreenMenuItemEverywhere"];
 }
 
-// This function should only be called once because it sets observers
-void QVCocoaFunctions::setFullSizeContentView(QWindow *window, const bool shouldEnable)
+// This function should only be enabled once because it sets observers
+void QVCocoaFunctions::setFullSizeContentView(QWidget *window, const bool enable)
 {
     auto *view = reinterpret_cast<NSView*>(window->winId());
 
-    const bool isAlreadyEnabled = view.window.styleMask & NSWindowStyleMaskFullSizeContentView;
-    if (shouldEnable == isAlreadyEnabled || (shouldEnable && !view.wantsLayer))
+    // Make sure the requested state isn't already in effect
+    if (enable == (view.window.styleMask & NSWindowStyleMaskFullSizeContentView))
         return;
 
+    // Enable only if this Qt and macOS version combination is already using layer-backed view
+    if (enable && !view.wantsLayer)
+        return;
+
+    // Changing the style mask causes the window to resize, so snapshot the original size
     NSRect originalFrame = view.window.frame;
-    if (shouldEnable)
-    {
+
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    Qt::WindowFlags newFlags = window->windowFlags().setFlag(Qt::ExpandedClientAreaHint, enable);
+    window->windowHandle()->setFlags(newFlags);
+    window->overrideWindowFlags(newFlags);
+#else
+    if (enable)
         view.window.styleMask |= NSWindowStyleMaskFullSizeContentView;
-    }
     else
-    {
-        int titlebarOverlap = view.window.contentView.frame.size.height - view.window.contentLayoutRect.size.height;
-        NSRect adjustedFrame = originalFrame;
-        adjustedFrame.size.height -= titlebarOverlap;
-        [view.window setFrame:adjustedFrame display:NO];
         view.window.styleMask &= ~NSWindowStyleMaskFullSizeContentView;
-    }
+#endif
+
+    // Restore original size after style mask change
     [view.window setFrame:originalFrame display:YES];
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 2, 0)
     // workaround for QTBUG-69975
-    if (shouldEnable)
+    if (enable)
     {
         [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidExitFullScreenNotification object:view.window queue:nil usingBlock:^(NSNotification *notification){
             auto *window = reinterpret_cast<NSWindow*>(notification.object);
@@ -105,17 +111,27 @@ void QVCocoaFunctions::setFullSizeContentView(QWindow *window, const bool should
 #endif
 }
 
-bool QVCocoaFunctions::getTitlebarHidden(QWindow *window)
+bool QVCocoaFunctions::getTitlebarHidden(const QWidget *window)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    return window->windowFlags().testFlags(Qt::NoTitleBarBackgroundHint);
+#else
     auto *view = reinterpret_cast<NSView*>(window->winId());
     return view.window.titleVisibility == NSWindowTitleHidden;
+#endif
 }
 
-void QVCocoaFunctions::setTitlebarHidden(QWindow *window, const bool shouldHide)
+void QVCocoaFunctions::setTitlebarHidden(QWidget *window, const bool hide)
 {
     auto *view = reinterpret_cast<NSView*>(window->winId());
-    view.window.titleVisibility = shouldHide ? NSWindowTitleHidden : NSWindowTitleVisible;
-    view.window.titlebarAppearsTransparent = shouldHide;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
+    Qt::WindowFlags newFlags = window->windowFlags().setFlag(Qt::NoTitleBarBackgroundHint, hide);
+    window->windowHandle()->setFlags(newFlags);
+    window->overrideWindowFlags(newFlags);
+#else
+    view.window.titlebarAppearsTransparent = hide;
+#endif
+    view.window.titleVisibility = hide ? NSWindowTitleHidden : NSWindowTitleVisible;
 }
 
 void QVCocoaFunctions::setVibrancy(bool alwaysDark, QWindow *window)
