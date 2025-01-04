@@ -796,12 +796,12 @@ void ActionManager::initializeActionLibrary()
     zoomToFitAction->setCheckable(true);
     actionLibrary.insert("zoomtofit", zoomToFitAction);
 
-    auto *fillWindowAction = new QAction(QIcon::fromTheme("zoom-fit-best"), tr("Fill &Window"));
+    auto *fillWindowAction = new QAction(QIcon::fromTheme("zoom-fit-width"), tr("Fill &Window"));
     fillWindowAction->setData({"disable"});
     fillWindowAction->setCheckable(true);
     actionLibrary.insert("fillwindow", fillWindowAction);
 
-    auto *navigationResetsZoomAction = new QAction(tr("&Navigation Resets Zoom"));
+    auto *navigationResetsZoomAction = new QAction(QIcon::fromTheme("distribute-horizontal"), tr("&Navigation Resets Zoom"));
     navigationResetsZoomAction->setData({"disable"});
     navigationResetsZoomAction->setCheckable(true);
     actionLibrary.insert("navresetszoom", navigationResetsZoomAction);
@@ -822,16 +822,16 @@ void ActionManager::initializeActionLibrary()
     flipAction->setData({"disable"});
     actionLibrary.insert("flip", flipAction);
 
-    auto *resetTransformationAction = new QAction(tr("Reset &Transformation"));
+    auto *resetTransformationAction = new QAction(QIcon::fromTheme("edit-reset"), tr("Reset &Transformation"));
     resetTransformationAction->setData({"disable"});
     actionLibrary.insert("resettransformation", resetTransformationAction);
 
-    auto *windowOnTopAction = new QAction(tr("Window On To&p"));
+    auto *windowOnTopAction = new QAction(QIcon::fromTheme("window-keep-above"), tr("Window On To&p"));
     windowOnTopAction->setData({"windowdisable"});
     windowOnTopAction->setCheckable(true);
     actionLibrary.insert("windowontop", windowOnTopAction);
 
-    auto *toggleTitlebarAction = new QAction(tr("Hide Title&bar"));
+    auto *toggleTitlebarAction = new QAction(QIcon::fromTheme("format-align-vertical-top"), tr("Hide Title&bar"));
     toggleTitlebarAction->setData({"windowdisable"});
     actionLibrary.insert("toggletitlebar", toggleTitlebarAction);
 
