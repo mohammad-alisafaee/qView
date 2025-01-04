@@ -1408,7 +1408,12 @@ void MainWindow::toggleWindowOnTop()
         return;
 
     const bool targetValue = !getWindowOnTop();
+
     Qv::alterWindowFlags(this, [&](Qt::WindowFlags f) { return f.setFlag(Qt::WindowStaysOnTopHint, targetValue); });
+
+    if (info->windowHandle())
+        Qv::alterWindowFlags(info, [&](Qt::WindowFlags f) { return f.setFlag(Qt::WindowStaysOnTopHint, targetValue); });
+
     for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("windowontop", this))
        action->setChecked(targetValue);
 
