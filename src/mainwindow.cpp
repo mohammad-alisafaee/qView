@@ -671,10 +671,7 @@ void MainWindow::setTitlebarHidden(const bool shouldHide)
         return;
 
     const auto customizeWindowFlags = [this](const Qt::WindowFlags flagsToChange, const bool on) {
-        Qt::WindowFlags newFlags = windowFlags() | Qt::CustomizeWindowHint;
-        newFlags = on ? (newFlags | flagsToChange) : (newFlags & ~flagsToChange);
-        overrideWindowFlags(newFlags);
-        windowHandle()->setFlags(newFlags);
+        Qv::alterWindowFlags(this, [&](Qt::WindowFlags f) { return (on ? (f | flagsToChange) : (f & ~flagsToChange)) | Qt::CustomizeWindowHint; });
     };
 
 #if defined COCOA_LOADED && QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
@@ -1411,7 +1408,7 @@ void MainWindow::toggleWindowOnTop()
         return;
 
     const bool targetValue = !getWindowOnTop();
-    windowHandle()->setFlag(Qt::WindowStaysOnTopHint, targetValue);
+    Qv::alterWindowFlags(this, [&](Qt::WindowFlags f) { return f.setFlag(Qt::WindowStaysOnTopHint, targetValue); });
     for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("windowontop", this))
        action->setChecked(targetValue);
 

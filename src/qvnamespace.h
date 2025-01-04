@@ -4,6 +4,8 @@
 #include <QColor>
 #include <QSet>
 #include <QString>
+#include <QWidget>
+#include <QWindow>
 
 namespace Qv
 {
@@ -169,6 +171,13 @@ namespace Qv
     inline qreal getPerceivedBrightness(const QColor &color)
     {
         return (color.red() * 0.299 + color.green() * 0.587 + color.blue() * 0.114) / 255.0;
+    }
+
+    inline void alterWindowFlags(QWidget *window, std::function<Qt::WindowFlags(Qt::WindowFlags)> alterFlags)
+    {
+        const Qt::WindowFlags newFlags = alterFlags(window->windowFlags());
+        window->overrideWindowFlags(newFlags);
+        window->windowHandle()->setFlags(newFlags);
     }
 }
 

@@ -81,9 +81,7 @@ void QVCocoaFunctions::setFullSizeContentView(QWidget *window, const bool enable
     NSRect originalFrame = view.window.frame;
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
-    Qt::WindowFlags newFlags = window->windowFlags().setFlag(Qt::ExpandedClientAreaHint, enable);
-    window->windowHandle()->setFlags(newFlags);
-    window->overrideWindowFlags(newFlags);
+    Qv::alterWindowFlags(window, [&](Qt::WindowFlags f) { return f.setFlag(Qt::ExpandedClientAreaHint, enable); });
 #else
     if (enable)
         view.window.styleMask |= NSWindowStyleMaskFullSizeContentView;
@@ -125,9 +123,7 @@ void QVCocoaFunctions::setTitlebarHidden(QWidget *window, const bool hide)
 {
     auto *view = reinterpret_cast<NSView*>(window->winId());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
-    Qt::WindowFlags newFlags = window->windowFlags().setFlag(Qt::NoTitleBarBackgroundHint, hide);
-    window->windowHandle()->setFlags(newFlags);
-    window->overrideWindowFlags(newFlags);
+    Qv::alterWindowFlags(window, [&](Qt::WindowFlags f) { return f.setFlag(Qt::NoTitleBarBackgroundHint, hide); });
 #else
     view.window.titlebarAppearsTransparent = hide;
 #endif
