@@ -130,6 +130,14 @@ void QVCocoaFunctions::setTitlebarHidden(QWidget *window, const bool hide)
     view.window.titleVisibility = hide ? NSWindowTitleHidden : NSWindowTitleVisible;
 }
 
+void QVCocoaFunctions::setWindowCollectionBehaviorManaged(QWidget *window)
+{
+    auto *view = reinterpret_cast<NSView*>(window->winId());
+    view.window.collectionBehavior =
+        (view.window.collectionBehavior | NSWindowCollectionBehaviorManaged) &
+        ~(NSWindowCollectionBehaviorTransient | NSWindowCollectionBehaviorStationary);
+}
+
 void QVCocoaFunctions::setVibrancy(bool alwaysDark, QWindow *window)
 {
     auto *view = reinterpret_cast<NSView*>(window->winId());

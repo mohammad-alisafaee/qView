@@ -1412,6 +1412,11 @@ void MainWindow::toggleWindowOnTop()
     for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("windowontop", this))
        action->setChecked(targetValue);
 
+#ifdef COCOA_LOADED
+    // Make sure window still participates in Mission Control
+    QVCocoaFunctions::setWindowCollectionBehaviorManaged(this);
+#endif
+
     emit qvApp->windowOnTopChanged();
 }
 

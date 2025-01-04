@@ -19,6 +19,8 @@ public:
 
     static void setTitlebarHidden(QWidget *window, const bool hide);
 
+    static void setWindowCollectionBehaviorManaged(QWidget *window);
+
     static void setVibrancy(bool alwaysDark, QWindow *window);
 
     static int getObscuredHeight(QWindow *window);
