@@ -29,23 +29,11 @@ QVImageCore::QVImageCore(QObject *parent) : QObject(parent)
         loadPixmap(loadFutureWatcher.result());
     });
 
-    const auto screenList = QGuiApplication::screens();
-    for (auto const &screen : screenList)
+    for (auto const &screen : QGuiApplication::screens())
     {
-        int largerDimension;
-        if (screen->size().height() > screen->size().width())
-        {
-            largerDimension = screen->size().height();
-        }
-        else
-        {
-            largerDimension = screen->size().width();
-        }
-
+        const int largerDimension = qMax(screen->size().width(), screen->size().height());
         if (largerDimension > largestDimension)
-        {
             largestDimension = largerDimension;
-        }
     }
 
     // Connect to settings signal

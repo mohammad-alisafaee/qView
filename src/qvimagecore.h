@@ -118,7 +118,7 @@ private:
     QSet<QString> preloadsInProgress;
     QString waitingOnPreloadPath;
 
-    int largestDimension {0};
+    int largestDimension {1920};
 
     bool waitingOnLoad {false};
 };
