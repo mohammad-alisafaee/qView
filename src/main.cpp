@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "qvapplication.h"
-#include "qvwin32functions.h"
 
 #include <QCommandLineParser>
 #include <QFontDatabase>
@@ -48,12 +47,7 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addPositionalArgument(QObject::tr("file"), QObject::tr("The file to open."));
-#if defined Q_OS_WIN && WIN32_LOADED && QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
-    // Workaround for QTBUG-125380
-    parser.process(QVWin32Functions::getCommandLineArgs());
-#else
     parser.process(app);
-#endif
 
     if (!parser.positionalArguments().isEmpty())
     {

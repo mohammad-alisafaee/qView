@@ -20,8 +20,6 @@ public:
 
     static bool showInExplorer(const QString &path);
 
-    static QStringList getCommandLineArgs();
-
     static QByteArray getIccProfileForWindow(const QWindow *window);
 };
 
