@@ -88,7 +88,7 @@ void UpdateChecker::onError(QString msg)
 QDateTime UpdateChecker::getLastCheckTime()
 {
     qint64 secsSinceEpoch = QSettings().value("lastupdatecheck").toLongLong();
-    return secsSinceEpoch == 0 ? QDateTime() : QDateTime::fromSecsSinceEpoch(secsSinceEpoch, Qt::UTC);
+    return secsSinceEpoch == 0 ? QDateTime() : QDateTime::fromSecsSinceEpoch(secsSinceEpoch, QTimeZone::utc());
 }
 
 void UpdateChecker::setLastCheckTime(QDateTime value)
