@@ -30,6 +30,7 @@ public:
     {
         QFileInfo fileInfo;
         QList<QVFileEnumerator::CompatibleFile> folderFileInfoList;
+        QStack<int> previousRandomFileIndexes;
         int loadedIndexInFolder = -1;
         bool isLoadRequested = false;
         bool isPixmapLoaded = false;

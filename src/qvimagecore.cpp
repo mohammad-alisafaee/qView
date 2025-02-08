@@ -277,6 +277,8 @@ QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, c
 {
     GoToFileResult result;
     bool shouldRetryFolderInfoUpdate = false;
+    bool gotoPreviousRandom = false;
+    bool storeRandomIndex = false;
 
     // Update folder info only after a little idle time as an optimization for when
     // the user is rapidly navigating through files.
@@ -352,19 +354,42 @@ QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, c
             newIndex = randomIndex + (randomIndex >= newIndex ? 1 : 0);
         }
         searchDirection = 1;
+        storeRandomIndex = true;
+        break;
+    }
+    case Qv::GoToFileMode::PreviousRandom:
+    {
+        if (!previousRandomFileIndexes.isEmpty())
+        {
+            newIndex = previousRandomFileIndexes.pop();
+        }
+        gotoPreviousRandom = true;
         break;
     }
     }
 
-    while (searchDirection == 1 && newIndex < fileList.size()-1 && !QFile::exists(fileList.value(newIndex).absoluteFilePath))
-        newIndex++;
-    while (searchDirection == -1 && newIndex > 0 && !QFile::exists(fileList.value(newIndex).absoluteFilePath))
-        newIndex--;
+    if (gotoPreviousRandom)
+    {
+        while (!previousRandomFileIndexes.isEmpty() && !QFile::exists(fileList.value(newIndex).absoluteFilePath))
+            newIndex = previousRandomFileIndexes.pop();
+    }
+    else {
+        while (searchDirection == 1 && newIndex < fileList.size()-1 && !QFile::exists(fileList.value(newIndex).absoluteFilePath))
+            newIndex++;
+        while (searchDirection == -1 && newIndex > 0 && !QFile::exists(fileList.value(newIndex).absoluteFilePath))
+            newIndex--;
+    }
 
     const QString nextImageFilePath = fileList.value(newIndex).absoluteFilePath;
 
     if (!QFile::exists(nextImageFilePath) || nextImageFilePath == currentFileDetails.fileInfo.absoluteFilePath())
         return result;
+
+    if (storeRandomIndex)
+    {
+        int currentIndex = currentFileDetails.loadedIndexInFolder
+        previousRandomFileIndexes.push(currentIndex);
+    }
 
     if (shouldRetryFolderInfoUpdate)
     {
