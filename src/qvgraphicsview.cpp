@@ -119,12 +119,14 @@ void QVGraphicsView::dragLeaveEvent(QDragLeaveEvent *event)
 
 void QVGraphicsView::mousePressEvent(QMouseEvent *event)
 {
-    const auto initializeDrag = [this, event]() {
+    const auto initializeDrag = [this, event](const bool delayStart = false) {
         pressedMouseButton = event->button();
         mousePressModifiers = event->modifiers();
-        setCursorVisible(true);
-        viewport()->setCursor(Qt::ClosedHandCursor);
+        isDelayingDrag = delayStart;
+        if (!isDelayingDrag)
+            viewport()->setCursor(Qt::ClosedHandCursor);
         lastMousePos = event->pos();
+        setCursorVisible(true);
     };
 
     if (event->button() == Qt::LeftButton)
@@ -132,7 +134,8 @@ void QVGraphicsView::mousePressEvent(QMouseEvent *event)
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
         if ((isAltAction ? altDragAction : dragAction) != Qv::ViewportDragAction::None)
         {
-            initializeDrag();
+            const bool delayDragStart = !isAltAction && enableNavigationRegions && getNavigationRegion(event->pos()).has_value();
+            initializeDrag(delayDragStart);
         }
         return;
     }
@@ -168,10 +171,17 @@ void QVGraphicsView::mouseReleaseEvent(QMouseEvent *event)
 {
     if (pressedMouseButton != Qt::NoButton)
     {
+        if (isDelayingDrag && pressedMouseButton == Qt::LeftButton)
+        {
+            const std::optional<Qv::GoToFileMode> navRegion = getNavigationRegion(lastMousePos);
+            if (navRegion.has_value())
+                goToFile(navRegion.value());
+        }
         pressedMouseButton = Qt::NoButton;
         mousePressModifiers = Qt::NoModifier;
-        setCursorVisible(true);
+        isDelayingDrag = false;
         viewport()->setCursor(Qt::ArrowCursor);
+        setCursorVisible(true);
         scrollHelper->constrain();
         return;
     }
@@ -185,12 +195,19 @@ void QVGraphicsView::mouseMoveEvent(QMouseEvent *event)
 
     if (pressedMouseButton != Qt::NoButton)
     {
+        const QPoint delta = event->pos() - lastMousePos;
+        if (isDelayingDrag)
+        {
+            if (qMax(qAbs(delta.x()), qAbs(delta.y())) < startDragDistance)
+                return;
+            isDelayingDrag = false;
+            viewport()->setCursor(Qt::ClosedHandCursor);
+        }
         const bool isAltAction = mousePressModifiers.testFlag(Qt::ControlModifier);
         const Qv::ViewportDragAction targetAction =
             pressedMouseButton == Qt::LeftButton ? (isAltAction ? altDragAction : dragAction) :
             pressedMouseButton == Qt::MiddleButton ? (isAltAction ? altMiddleDragAction : middleDragAction) :
             Qv::ViewportDragAction::None;
-        const QPoint delta = event->pos() - lastMousePos;
         bool isMovingWindow = false;
         executeDragAction(targetAction, delta, isMovingWindow);
         if (!isMovingWindow)
@@ -206,6 +223,16 @@ void QVGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
     if (event->button() == Qt::MouseButton::LeftButton)
     {
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
+        if (!isAltAction && enableNavigationRegions)
+        {
+            // Special case for rapid clicking in the navigation region
+            const std::optional<Qv::GoToFileMode> navRegion = getNavigationRegion(lastMousePos);
+            if (navRegion.has_value())
+            {
+                goToFile(navRegion.value());
+                return;
+            }
+        }
         executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
         return;
     }
@@ -939,6 +966,16 @@ void QVGraphicsView::matchContentCenter(const QRect target)
     scrollHelper->move(QPointF(delta.x() * getRtlFlip(), delta.y()));
 }
 
+std::optional<Qv::GoToFileMode> QVGraphicsView::getNavigationRegion(const QPoint mousePos) const
+{
+    const int regionWidth = qMin(width() / 3, 200);
+    if (mousePos.x() < regionWidth)
+        return isRightToLeft() ? Qv::GoToFileMode::Next : Qv::GoToFileMode::Previous;
+    if (mousePos.x() >= width() - regionWidth)
+        return isRightToLeft() ? Qv::GoToFileMode::Previous : Qv::GoToFileMode::Next;
+    return {};
+}
+
 QRect QVGraphicsView::getContentRect() const
 {
     // Avoid using loadedPixmapItem and the active transform because the pixmap may have expensive scaling applied
@@ -1090,6 +1127,7 @@ void QVGraphicsView::settingsUpdated()
     turboNavInterval = settingsManager.getInteger("navspeed");
 
     //mouse actions
+    enableNavigationRegions = settingsManager.getBoolean("navigationregionsenabled");
     doubleClickAction = settingsManager.getEnum<Qv::ViewportClickAction>("viewportdoubleclickaction");
     altDoubleClickAction = settingsManager.getEnum<Qv::ViewportClickAction>("viewportaltdoubleclickaction");
     dragAction = settingsManager.getEnum<Qv::ViewportDragAction>("viewportdragaction");

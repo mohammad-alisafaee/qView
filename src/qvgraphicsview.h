@@ -140,6 +140,8 @@ protected:
 
     void matchContentCenter(const QRect target);
 
+    std::optional<Qv::GoToFileMode> getNavigationRegion(const QPoint mousePos) const;
+
     QRect getContentRect() const;
 
     QRect getUsableViewportRect(const bool addOverscan = false) const;
@@ -186,6 +188,7 @@ private:
     Qv::CalculatedZoomMode defaultCalculatedZoomMode {Qv::CalculatedZoomMode::ZoomToFit};
     qreal zoomMultiplier {1.25};
 
+    bool enableNavigationRegions {false};
     Qv::ViewportClickAction doubleClickAction {Qv::ViewportClickAction::None};
     Qv::ViewportClickAction altDoubleClickAction {Qv::ViewportClickAction::None};
     Qv::ViewportDragAction dragAction {Qv::ViewportDragAction::None};
@@ -223,6 +226,7 @@ private:
     AxisLocker scrollAxisLocker;
     Qt::MouseButton pressedMouseButton {Qt::MouseButton::NoButton};
     Qt::KeyboardModifiers mousePressModifiers {Qt::KeyboardModifier::NoModifier};
+    bool isDelayingDrag {false};
     QPoint lastMousePos;
 
     std::optional<Qv::GoToFileMode> turboNavMode;
@@ -231,6 +235,8 @@ private:
     QElapsedTimer lastTurboNav;
     QElapsedTimer lastTurboNavKeyPress;
     int turboNavInterval {0};
+
+    const int startDragDistance {3};
 };
 Q_DECLARE_METATYPE(QVGraphicsView::SwipeData)
 #endif // QVGRAPHICSVIEW_H

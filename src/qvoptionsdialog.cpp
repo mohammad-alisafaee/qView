@@ -264,6 +264,7 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->updateCheckbox, "updatenotifications", defaults, makeConnections);
 
     // mouse actions
+    syncCheckbox(ui->navigationRegionsCheckbox, "navigationregionsenabled", defaults, makeConnections);
     syncComboBox(ui->doubleClickComboBox, "viewportdoubleclickaction", defaults, makeConnections);
     syncComboBox(ui->altDoubleClickComboBox, "viewportaltdoubleclickaction", defaults, makeConnections);
     syncComboBox(ui->dragComboBox, "viewportdragaction", defaults, makeConnections);

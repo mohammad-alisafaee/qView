@@ -1138,6 +1138,16 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation type="unfinished">Ziehen:</translation>
     </message>
     <message>
+        <location filename="../src/qvoptionsdialog.ui" line="1117"/>
+        <source>Navigate when clicking on the left/right edges of the viewport</source>
+        <translation type="unfinished">Navigieren beim Klicken auf die linken/rechten Ränder des Viewports</translation>
+    </message>
+    <message>
+        <location filename="../src/qvoptionsdialog.ui" line="1120"/>
+        <source>Side navigation regions</source>
+        <translation type="unfinished">Seitliche Navigationsbereiche</translation>
+    </message>
+    <message>
         <location filename="../src/qvoptionsdialog.ui" line="1123"/>
         <source>Middle Button</source>
         <translation type="unfinished">Mittlere Taste</translation>

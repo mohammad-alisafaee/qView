@@ -243,6 +243,7 @@ void SettingsManager::initializeSettingsLibrary()
     // Formats
     settingsLibrary.insert("disabledfileextensions", {"", {}});
     // Mouse
+    settingsLibrary.insert("navigationregionsenabled", {false, {}});
     settingsLibrary.insert("viewportdoubleclickaction", {static_cast<int>(Qv::ViewportClickAction::ToggleFullScreen), {}});
     settingsLibrary.insert("viewportaltdoubleclickaction", {static_cast<int>(Qv::ViewportClickAction::ToggleTitlebarHidden), {}});
     settingsLibrary.insert("viewportdragaction", {static_cast<int>(Qv::ViewportDragAction::Pan), {}});
