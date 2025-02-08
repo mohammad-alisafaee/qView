@@ -1234,6 +1234,11 @@ void MainWindow::lastFile()
     graphicsView->goToFile(Qv::GoToFileMode::Last);
 }
 
+void MainWindow::previousRandomFile()
+{
+    graphicsView->goToFile(Qv::GoToFileMode::PreviousRandom);
+}
+
 void MainWindow::randomFile()
 {
     graphicsView->goToFile(Qv::GoToFileMode::Random);
@@ -1341,6 +1346,9 @@ void MainWindow::slideshowAction()
         break;
     case Qv::SlideshowDirection::Random:
         randomFile();
+        break;
+    case Qv::SlideshowDirection::PreviousRandom:
+        previousRandomFile();
         break;
     }
 }

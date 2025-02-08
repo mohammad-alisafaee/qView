@@ -121,6 +121,8 @@ public:
 
     void lastFile();
 
+    void previousRandomFile();
+
     void randomFile();
 
     void saveFrameAs();

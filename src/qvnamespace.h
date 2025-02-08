@@ -132,7 +132,8 @@ namespace Qv
         Previous,
         Next,
         Last,
-        Random
+        Random,
+        PreviousRandom
     };
 
     // Helper functions
