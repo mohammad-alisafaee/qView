@@ -128,6 +128,10 @@ protected:
 
     bool event(QEvent *event) override;
 
+    void focusInEvent(QFocusEvent *event) override;
+
+    void focusOutEvent(QFocusEvent *event) override;
+
     void executeClickAction(const Qv::ViewportClickAction action);
 
     void executeDragAction(const Qv::ViewportDragAction action, const QPoint delta, bool &isMovingWindow);
@@ -228,6 +232,7 @@ private:
     Qt::KeyboardModifiers mousePressModifiers {Qt::KeyboardModifier::NoModifier};
     bool isDelayingDrag {false};
     QPoint lastMousePos;
+    QElapsedTimer lastFocusIn;
 
     std::optional<Qv::GoToFileMode> turboNavMode;
     QList<QKeySequence> navPrevShortcuts;

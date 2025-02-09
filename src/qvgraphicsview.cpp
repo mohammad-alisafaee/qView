@@ -134,7 +134,8 @@ void QVGraphicsView::mousePressEvent(QMouseEvent *event)
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
         if ((isAltAction ? altDragAction : dragAction) != Qv::ViewportDragAction::None)
         {
-            const bool delayDragStart = !isAltAction && enableNavigationRegions && getNavigationRegion(event->pos()).has_value();
+            const bool justGotFocus = lastFocusIn.isValid() && lastFocusIn.elapsed() < 100;
+            const bool delayDragStart = !isAltAction && enableNavigationRegions && !justGotFocus && getNavigationRegion(event->pos()).has_value();
             initializeDrag(delayDragStart);
         }
         return;
@@ -283,12 +284,22 @@ bool QVGraphicsView::event(QEvent *event)
             cancelTurboNav();
         }
     }
-    else if (event->type() == QEvent::FocusOut)
-    {
-        cancelTurboNav();
-    }
 
     return QGraphicsView::event(event);
+}
+
+void QVGraphicsView::focusInEvent(QFocusEvent *event)
+{
+    lastFocusIn.start();
+
+    QGraphicsView::focusInEvent(event);
+}
+
+void QVGraphicsView::focusOutEvent(QFocusEvent *event)
+{
+    cancelTurboNav();
+
+    QGraphicsView::focusOutEvent(event);
 }
 
 void QVGraphicsView::wheelEvent(QWheelEvent *event)
