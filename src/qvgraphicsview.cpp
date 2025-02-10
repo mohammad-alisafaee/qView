@@ -224,24 +224,19 @@ void QVGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
     if (event->button() == Qt::MouseButton::LeftButton)
     {
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
-        if (!isAltAction && enableNavigationRegions)
+        if (!isAltAction && enableNavigationRegions && getNavigationRegion(lastMousePos).has_value())
         {
             // Special case for rapid clicking in the navigation region
-            const std::optional<Qv::GoToFileMode> navRegion = getNavigationRegion(lastMousePos);
-            if (navRegion.has_value())
-            {
-                goToFile(navRegion.value());
-                return;
-            }
+            mousePressEvent(event);
+            return;
         }
         executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
         return;
     }
     else if (event->button() == Qt::MouseButton::MiddleButton && middleButtonMode == Qv::ClickOrDrag::Click)
     {
-        // We don't have double middle click actions, but process the normal click action here to allow rapid clicking
-        const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
-        executeClickAction(isAltAction ? altMiddleClickAction : middleClickAction);
+        // Special case for rapid clicking the middle button
+        mousePressEvent(event);
         return;
     }
 
