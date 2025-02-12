@@ -100,6 +100,8 @@ public:
 
     static qreal keyboardAutoRepeatInterval();
 
+    static bool isMouseEventSynthesized(const QMouseEvent *event);
+
     static bool supportsSessionPersistence();
 
     static bool tryRestoreLastSession();

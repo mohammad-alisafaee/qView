@@ -231,6 +231,7 @@ private:
     Qt::MouseButton pressedMouseButton {Qt::MouseButton::NoButton};
     Qt::KeyboardModifiers mousePressModifiers {Qt::KeyboardModifier::NoModifier};
     bool isDelayingDrag {false};
+    bool isLastMousePosDubious {false};
     QPoint lastMousePos;
     QElapsedTimer lastFocusIn;
 

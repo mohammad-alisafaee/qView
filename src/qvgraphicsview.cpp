@@ -125,6 +125,7 @@ void QVGraphicsView::mousePressEvent(QMouseEvent *event)
         isDelayingDrag = delayStart;
         if (!isDelayingDrag)
             viewport()->setCursor(Qt::ClosedHandCursor);
+        isLastMousePosDubious = event->type() == QEvent::MouseButtonDblClick && QVApplication::isMouseEventSynthesized(event);
         lastMousePos = event->pos();
         setCursorVisible(true);
     };
@@ -199,6 +200,14 @@ void QVGraphicsView::mouseMoveEvent(QMouseEvent *event)
         const QPoint delta = event->pos() - lastMousePos;
         if (isDelayingDrag)
         {
+            if (isLastMousePosDubious)
+            {
+                // On the second press of a double tap on a touch screen, the position may
+                // have been copied from the first press, so we can't rely on it
+                isLastMousePosDubious = false;
+                lastMousePos = event->pos();
+                return;
+            }
             if (qMax(qAbs(delta.x()), qAbs(delta.y())) < startDragDistance)
                 return;
             isDelayingDrag = false;
@@ -224,23 +233,17 @@ void QVGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
     if (event->button() == Qt::MouseButton::LeftButton)
     {
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
-        if (!isAltAction && enableNavigationRegions && getNavigationRegion(lastMousePos).has_value())
+        const bool isInNavRegion = !isAltAction && enableNavigationRegions && getNavigationRegion(lastMousePos).has_value();
+        if (!isInNavRegion)
         {
-            // Special case for rapid clicking in the navigation region
-            mousePressEvent(event);
+            executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
             return;
         }
-        executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
-        return;
-    }
-    else if (event->button() == Qt::MouseButton::MiddleButton && middleButtonMode == Qv::ClickOrDrag::Click)
-    {
-        // Special case for rapid clicking the middle button
-        mousePressEvent(event);
-        return;
     }
 
-    QGraphicsView::mouseDoubleClickEvent(event);
+    // Pass unhandled events to QWidget instead of QGraphicsView otherwise we won't
+    // receive a press event for the second click of a double click
+    QWidget::mouseDoubleClickEvent(event);
 }
 
 bool QVGraphicsView::event(QEvent *event)
@@ -974,7 +977,7 @@ void QVGraphicsView::matchContentCenter(const QRect target)
 
 std::optional<Qv::GoToFileMode> QVGraphicsView::getNavigationRegion(const QPoint mousePos) const
 {
-    const int regionWidth = qMin(width() / 3, 200);
+    const int regionWidth = qMin(width() / 3, 175);
     if (mousePos.x() < regionWidth)
         return isRightToLeft() ? Qv::GoToFileMode::Next : Qv::GoToFileMode::Previous;
     if (mousePos.x() >= width() - regionWidth)

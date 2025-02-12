@@ -426,6 +426,15 @@ qreal QVApplication::keyboardAutoRepeatInterval()
 #endif
 }
 
+bool QVApplication::isMouseEventSynthesized(const QMouseEvent *event)
+{
+#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+    return event->source() != Qt::MouseEventNotSynthesized;
+#else
+    return event->deviceType() != QInputDevice::DeviceType::Mouse;
+#endif
+}
+
 bool QVApplication::supportsSessionPersistence()
 {
 #if defined(Q_OS_MACOS)
