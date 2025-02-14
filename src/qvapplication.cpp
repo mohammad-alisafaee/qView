@@ -361,6 +361,10 @@ void QVApplication::defineFilterLists()
             addExtension(".heifs");
             addExtension(".hif");
         }
+        else if (fileExtension == ".j2k")
+        {
+            addExtension(".j2c");
+        }
     }
 
     // Build mime type list

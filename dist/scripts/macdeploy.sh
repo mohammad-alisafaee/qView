@@ -39,6 +39,11 @@ if [[ (-f "$IMF_DIR/kimg_tga.dylib" || -f "$IMF_DIR/kimg_tga.so") && -f "$IMF_DI
     echo "Removing duplicate TGA plugin"
     rm "$IMF_DIR/libqtga.dylib"
 fi
+if [[ (-f "$IMF_DIR/kimg_jp2.dylib" || -f "$IMF_DIR/kimg_jp2.so") && -f "$IMF_DIR/libqmacjp2.dylib" ]]; then
+    # Prefer kimageformats JPEG 2000 plugin
+    echo "Removing duplicate JPEG 2000 plugin"
+    rm "$IMF_DIR/libqmacjp2.dylib"
+fi
 
 # OpenSSL isn't needed since we use platform-native TLS
 rm -f qView.app/Contents/PlugIns/tls/libqopensslbackend.dylib

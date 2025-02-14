@@ -73,6 +73,7 @@ if ($pluginNames -contains 'KImageFormats') {
         CopyFrameworkDlls "raw.dll" @("lcms2-2.dll", "zlib1.dll")
         CopyFrameworkDlls "jxl.dll" @("brotlicommon.dll", "brotlidec.dll", "brotlienc.dll", "hwy.dll", "jxl_cms.dll", "jxl_threads.dll", "lcms2-2.dll")
         CopyFrameworkDlls "OpenEXR-3_3.dll" @("deflate.dll", "Iex-3_3.dll", "IlmThread-3_3.dll", "Imath-3_1.dll", "OpenEXRCore-3_3.dll")
+        CopyFrameworkDlls "openjp2.dll" @()
     } elseif ($IsMacOS) {
         cp KImageFormats/KImageFormats/output/kimg_*.* "$out_imf/"
         cp KImageFormats/KImageFormats/output/libKF?Archive.?.dylib "$out_frm/"
