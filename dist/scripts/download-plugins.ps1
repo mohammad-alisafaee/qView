@@ -1,7 +1,5 @@
 #!/usr/bin/env pwsh
 
-# This script will download binary plugins from the kimageformats-binaries repository using Github's API.
-
 $qtVersion = [version](qmake -query QT_VERSION)
 Write-Host "Detected Qt version $qtVersion"
 
@@ -15,22 +13,18 @@ $binaryBaseUrl = "https://github.com/jdpurcell/kimageformats-binaries/releases/d
 
 $pluginNames = @('QtApng', 'KImageFormats')
 
-if ($pluginNames.count -eq 0) {
-    Write-Host "the pluginNames array is empty."
-}
-
 foreach ($pluginName in $pluginNames) {
     $artifactName = "$pluginName-$osName-$qtVersion-$env:buildArch.zip"
     $downloadUrl = "$binaryBaseUrl/$artifactName"
 
     Write-Host "Downloading $downloadUrl"
-    Invoke-WebRequest -URI $downloadUrl -OutFile $artifactName
-    Expand-Archive $artifactName -DestinationPath $pluginName
+    Invoke-WebRequest -Uri $downloadUrl -OutFile $artifactName
+    Expand-Archive $artifactName -DestinationPath "."
     Remove-Item $artifactName
 }
 
 if ($IsWindows) {
-    $out_frm = "bin/"
+    $out_frm = "bin"
     $out_imf = "bin/imageformats"
 } elseif ($IsMacOS) {
     $out_frm = "bin/qView.app/Contents/Frameworks"
@@ -40,45 +34,16 @@ if ($IsWindows) {
     $out_imf = "bin/appdir/usr/plugins/imageformats"
 }
 
-New-Item -Type Directory -Path "$out_frm" -ErrorAction SilentlyContinue
-New-Item -Type Directory -Path "$out_imf" -ErrorAction SilentlyContinue
+New-Item -Type Directory -Path $out_frm -Force
+New-Item -Type Directory -Path $out_imf -Force
 
-# Copy QtApng
+# Move QtApng library
 if ($pluginNames -contains 'QtApng') {
-    if ($IsWindows) {
-        cp QtApng/QtApng/output/qapng.dll "$out_imf/"
-    } elseif ($IsMacOS) {
-        cp QtApng/QtApng/output/libqapng.* "$out_imf/"
-    } else {
-        cp QtApng/QtApng/output/libqapng.so "$out_imf/"
-    }
+    mv QtApng/output/* "$out_imf"
 }
 
-function CopyFrameworkDlls($mainDll, $otherDlls) {
-    if (-not (Test-Path -Path KImageFormats/KImageFormats/output/$mainDll -PathType Leaf)) {
-        return
-    }
-    foreach ($dll in @($mainDll) + $otherDlls) {
-        cp KImageFormats/KImageFormats/output/$dll "$out_frm/"
-    }
-}
-
+# Move KImageFormats libraries
 if ($pluginNames -contains 'KImageFormats') {
-    $kfMajorVer = $qtVersion -ge [version]'6.5.0' ? 6 : 5
-    if ($IsWindows) {
-        mv KImageFormats/KImageFormats/output/kimg_*.dll "$out_imf/"
-        CopyFrameworkDlls "KF${kfMajorVer}Archive.dll" @("zlib1.dll")
-        CopyFrameworkDlls "avif.dll" @("dav1d.dll", "jpeg62.dll", "libyuv.dll")
-        CopyFrameworkDlls "heif.dll" @("libde265.dll")
-        CopyFrameworkDlls "raw.dll" @("lcms2-2.dll", "zlib1.dll")
-        CopyFrameworkDlls "jxl.dll" @("brotlicommon.dll", "brotlidec.dll", "brotlienc.dll", "hwy.dll", "jxl_cms.dll", "jxl_threads.dll", "lcms2-2.dll")
-        CopyFrameworkDlls "OpenEXR-3_3.dll" @("deflate.dll", "Iex-3_3.dll", "IlmThread-3_3.dll", "Imath-3_1.dll", "OpenEXRCore-3_3.dll")
-        CopyFrameworkDlls "openjp2.dll" @()
-    } elseif ($IsMacOS) {
-        cp KImageFormats/KImageFormats/output/kimg_*.* "$out_imf/"
-        cp KImageFormats/KImageFormats/output/libKF?Archive.?.dylib "$out_frm/"
-    } else {
-        cp KImageFormats/KImageFormats/output/kimg_*.so "$out_imf/"
-        cp KImageFormats/KImageFormats/output/libKF?Archive.so.? "$out_frm/"
-    }
+    mv KImageFormats/output/kimg_* "$out_imf"
+    mv KImageFormats/output/* "$out_frm"
 }
