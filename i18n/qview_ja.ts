@@ -37,7 +37,7 @@
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"></translation>
+        <translation>空</translation>
     </message>
     <message>
         <source>Open With</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation type="unfinished"></translation>
+        <translation>元のサイズ</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
@@ -201,7 +201,7 @@
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation type="unfinished"></translation>
+        <translation>最初のファイル</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
@@ -213,7 +213,7 @@
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation type="unfinished"></translation>
+        <translation>最後のファイルを表示</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
@@ -221,27 +221,27 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation type="unfinished"></translation>
+        <translation>フレームを保存...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
-        <translation>休止</translation>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>次のフレーム</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度低下</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度をリセット</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度を上げる</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
@@ -272,7 +272,7 @@
     </message>
     <message>
         <source>&amp;Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>ようこそ</translation>
     </message>
     <message>
         <source>Clear &amp;Menu</source>
@@ -282,7 +282,7 @@
     <message>
         <source>Other Application...</source>
         <extracomment>Open with other program for unix non-mac</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>他のアプリケーション...</translation>
     </message>
     <message>
         <source>Choose another app</source>
@@ -292,7 +292,7 @@
     <message>
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>その他...</translation>
     </message>
 </context>
 <context>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <source>Open URL...</source>
-        <translation type="unfinished"></translation>
+        <translation>URLから開く...</translation>
     </message>
     <message>
         <source>Error </source>
@@ -397,11 +397,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Res&amp;ume</source>
-        <translation type="unfinished"></translation>
+        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation>休止</translation>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -630,7 +630,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Changes the amount of information displayed in the titlebar</source>
-        <translation type="unfinished"></translation>
+        <translation>タイトルバーに表示されるテキストの量を調整します</translation>
     </message>
     <message>
         <source>Titlebar text:</source>
@@ -648,11 +648,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Control when the window should resize to fit the image&apos;s actual size</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の実際のサイズに合わせてウィンドウのサイズをいつ変更するかを制御する</translation>
     </message>
     <message>
         <source>Window matches image size:</source>
-        <translation type="unfinished"></translation>
+        <translation>ウィンドウを画像サイズと合わせる:</translation>
     </message>
     <message>
         <source>After maching image size:</source>
@@ -660,15 +660,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Minimum size:</source>
-        <translation type="unfinished"></translation>
+        <translation>最小サイズ:</translation>
     </message>
     <message>
         <source>Control the minimum size that the window should reach when matching the image&apos;s actual size</source>
-        <translation type="unfinished"></translation>
+        <translation>画像の実際のサイズに合わせる際に、ウィンドウが到達すべき最小サイズを制御する</translation>
     </message>
     <message>
         <source>% of screen size</source>
-        <translation type="unfinished"></translation>
+        <translation>% のスクリーンサイズ</translation>
     </message>
     <message>
         <source>Control the maximum size that the window should reach when matching the image&apos;s actual size</source>
@@ -688,7 +688,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show titlebar text in fullscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>全画面モードでもタイトルバーのテキストを表示する</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
@@ -716,7 +716,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
-        <translation type="unfinished"></translation>
+        <translation>最後にウィンドウを閉じたときに終了する</translation>
     </message>
     <message>
         <source>Persist session across app restarts</source>
@@ -744,19 +744,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>The amount to zoom every scroll wheel click</source>
-        <translation type="unfinished"></translation>
+        <translation>ズームする量を設定します</translation>
     </message>
     <message>
         <source>Zoom amount:</source>
-        <translation type="unfinished"></translation>
+        <translation>拡大量</translation>
     </message>
     <message>
         <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>拡大率が100%でない時に拡大または縮小した際、カーソルに向かって拡大します</translation>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>カーソルに向けて拡大</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
@@ -792,27 +792,27 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"></translation>
+        <translation>言語:</translation>
     </message>
     <message>
         <source>Sort files by:</source>
-        <translation type="unfinished"></translation>
+        <translation>並び順:</translation>
     </message>
     <message>
         <source>A&amp;scending</source>
-        <translation type="unfinished"></translation>
+        <translation>昇順</translation>
     </message>
     <message>
         <source>D&amp;escending</source>
-        <translation type="unfinished"></translation>
+        <translation>降順</translation>
     </message>
     <message>
         <source>Controls the amount of images preloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>プリロードされる画像の量を制御します</translation>
     </message>
     <message>
         <source>Preloading:</source>
-        <translation type="unfinished"></translation>
+        <translation>画像プリロード:</translation>
     </message>
     <message>
         <source>Navigation speed:</source>
@@ -824,31 +824,31 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Controls whether or not qView should go back to the first item after reaching the end of a folder</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダーの最後に到達した後に qView が最初の項目に戻るかどうかを制御します</translation>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
-        <translation type="unfinished"></translation>
+        <translation>フォルダー内をループ</translation>
     </message>
     <message>
         <source>Slideshow direction:</source>
-        <translation type="unfinished"></translation>
+        <translation>スライドショーの方向</translation>
     </message>
     <message>
         <source>Slideshow timer:</source>
-        <translation type="unfinished"></translation>
+        <translation>スライドショーを進める時間</translation>
     </message>
     <message>
         <source> sec</source>
-        <translation type="unfinished"></translation>
+        <translation> 秒</translation>
     </message>
     <message>
         <source>After deletion:</source>
-        <translation type="unfinished"></translation>
+        <translation>削除後の挙動:</translation>
     </message>
     <message>
         <source>&amp;Ask before deleting files</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルを削除する前に確認</translation>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
@@ -868,20 +868,20 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save &amp;recent files</source>
-        <translation type="unfinished"></translation>
+        <translation>最近使用したファイルを記憶</translation>
     </message>
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>アップデート時に通知を表示</translation>
     </message>
     <message>
         <source>Action</source>
-        <translation type="unfinished"></translation>
+        <translation>アクション</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <source>Left Button</source>
@@ -969,7 +969,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">環境設定</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -997,7 +997,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation type="unfinished"></translation>
+        <translation>再起動が必要</translation>
     </message>
     <message>
         <source>You must restart qView to change this setting.</source>
@@ -1013,7 +1013,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Miscellaneous</source>
-        <translation type="unfinished"></translation>
+        <translation>その他</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -1025,23 +1025,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>System Language</source>
-        <translation type="unfinished"></translation>
+        <translation>システム言語</translation>
     </message>
     <message>
         <source>You must restart qView to change the language.</source>
-        <translation type="unfinished"></translation>
+        <translation>言語を変更するには、qViewを再起動する必要があります</translation>
     </message>
     <message>
         <source>Move Back</source>
-        <translation type="unfinished"></translation>
+        <translation>前に戻る</translation>
     </message>
     <message>
         <source>Do Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>何もしない</translation>
     </message>
     <message>
         <source>Move Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>次に移動</translation>
     </message>
     <message>
         <source>Avoid repositioning</source>
@@ -1065,11 +1065,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">オリジナルのサイズ</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>無効</translation>
     </message>
     <message>
         <source>Auto-detect</source>
@@ -1085,23 +1085,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Adjacent</source>
-        <translation type="unfinished"></translation>
+        <translation>隣接</translation>
     </message>
     <message>
         <source>Extended</source>
-        <translation type="unfinished"></translation>
+        <translation>拡張</translation>
     </message>
     <message>
         <source>Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>前</translation>
     </message>
     <message>
         <source>Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>後ろ</translation>
     </message>
     <message>
         <source>Random</source>
-        <translation type="unfinished"></translation>
+        <translation>ランダム</translation>
     </message>
     <message>
         <source>Bilinear</source>
@@ -1113,7 +1113,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Date Modified</source>
@@ -1125,11 +1125,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルサイズ</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイルの種類</translation>
     </message>
     <message>
         <source>Basic</source>
@@ -1153,15 +1153,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"></translation>
+        <translation>無効</translation>
     </message>
     <message>
         <source>When launching</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時</translation>
     </message>
     <message>
         <source>When opening images</source>
-        <translation type="unfinished"></translation>
+        <translation>画像を開いた時</translation>
     </message>
     <message>
         <source>None</source>
@@ -1200,11 +1200,11 @@ No write permission or file is read-only.</source>
     <name>QVRenameDialog</name>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更...</translation>
     </message>
     <message>
         <source>File name:</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル名</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1213,57 +1213,59 @@ No write permission or file is read-only.</source>
     <message>
         <source>Could not rename %1:
 No write permission or file is read-only.</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更できません %1:
+書き込み権限がないか、ファイルが読み取り専用です。</translation>
     </message>
     <message>
         <source>Could not rename %1:
 (Check that all characters are valid)</source>
-        <translation type="unfinished"></translation>
+        <translation>名前を変更できません %1:
+(すべての文字が有効であることを確認してください)</translation>
     </message>
 </context>
 <context>
     <name>QVShortcutDialog</name>
     <message>
         <source>Modify Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットを変更</translation>
     </message>
     <message>
         <source>Shortcut Already Used</source>
-        <translation type="unfinished"></translation>
+        <translation>ショートカットはすでに使用されています</translation>
     </message>
     <message>
         <source>&quot;%1&quot; is already bound to &quot;%2&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; は既に &quot;%2&quot; にバインドされています</translation>
     </message>
 </context>
 <context>
     <name>QVWelcomeDialog</name>
     <message>
         <source>Welcome</source>
-        <translation type="unfinished"></translation>
+        <translation>ようこそ</translation>
     </message>
     <message>
         <source>&amp;Enable update notifications on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時に更新通知を有効にする</translation>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>
-        <translation type="unfinished"></translation>
+        <translation>qViewをダウンロードしていただきありがとうございます。&lt;br&gt;始めるためのヒントをいくつか紹介します:</translation>
     </message>
     <message>
         <source>&lt;ul&gt;&lt;li&gt;Right click to access the main menu&lt;/li&gt;&lt;li&gt;Drag the image to reposition it&lt;/li&gt;&lt;li&gt;Scroll to zoom in and out&lt;/li&gt;&lt;li&gt;Use arrow keys to switch files&lt;/li&gt;&lt;/ul&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;ul&gt;&lt;li&gt;右クリックしてメインメニューにアクセスします&lt;/li&gt;&lt;li&gt;画像をドラッグして位置を変更します&lt;/li&gt;&lt;li&gt;スクロールで画像を拡大・縮小します&lt;/li&gt;&lt;li&gt;矢印キーを使用してファイルを切り替えます&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
 </context>
 <context>
     <name>ShortcutManager</name>
     <message>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>開く</translation>
     </message>
     <message>
         <source>Open URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URLから開く</translation>
     </message>
     <message>
         <source>Reload File</source>
@@ -1271,47 +1273,47 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>格納フォルダを開く</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
-        <translation type="unfinished"></translation>
+        <translation>エクスプローラーで開く</translation>
     </message>
     <message>
         <source>Show in Finder</source>
-        <translation type="unfinished"></translation>
+        <translation>Finderで開く</translation>
     </message>
     <message>
         <source>Show File Info</source>
-        <translation type="unfinished"></translation>
+        <translation>ファイル情報を表示</translation>
     </message>
     <message>
         <source>Restore from Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>ゴミ箱から復元</translation>
     </message>
     <message>
         <source>Undo Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>削除を取り消す</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>名前の変更</translation>
     </message>
     <message>
         <source>Move to Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>ゴミ箱へ移動</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
@@ -1319,19 +1321,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>First File</source>
-        <translation type="unfinished"></translation>
+        <translation>最初のファイル</translation>
     </message>
     <message>
         <source>Previous File</source>
-        <translation type="unfinished"></translation>
+        <translation>前のファイル</translation>
     </message>
     <message>
         <source>Next File</source>
-        <translation type="unfinished"></translation>
+        <translation>次のファイル</translation>
     </message>
     <message>
         <source>Last File</source>
-        <translation type="unfinished"></translation>
+        <translation>最後のファイル</translation>
     </message>
     <message>
         <source>Random File</source>
@@ -1339,15 +1341,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation type="unfinished"></translation>
+        <translation>拡大</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation type="unfinished"></translation>
+        <translation>縮小</translation>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished"></translation>
+        <translation>オリジナルのサイズ</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
@@ -1363,19 +1365,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Rotate Right</source>
-        <translation type="unfinished"></translation>
+        <translation>右に回転</translation>
     </message>
     <message>
         <source>Rotate Left</source>
-        <translation type="unfinished"></translation>
+        <translation>左に回転</translation>
     </message>
     <message>
         <source>Mirror</source>
-        <translation type="unfinished"></translation>
+        <translation>左右反転</translation>
     </message>
     <message>
         <source>Flip</source>
-        <translation type="unfinished"></translation>
+        <translation>上下反転</translation>
     </message>
     <message>
         <source>Reset Transformation</source>
@@ -1391,35 +1393,35 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>全画面表示</translation>
     </message>
     <message>
         <source>Save Frame As</source>
-        <translation type="unfinished"></translation>
+        <translation>フレームを保存</translation>
     </message>
     <message>
         <source>Pause</source>
-        <translation type="unfinished">休止</translation>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>Next Frame</source>
-        <translation type="unfinished"></translation>
+        <translation>次のフレーム</translation>
     </message>
     <message>
         <source>Decrease Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度を下げる</translation>
     </message>
     <message>
         <source>Reset Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度をリセット</translation>
     </message>
     <message>
         <source>Increase Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>速度を上げる</translation>
     </message>
     <message>
         <source>Toggle Slideshow</source>
-        <translation type="unfinished"></translation>
+        <translation>スライドショーの切り替え</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1427,27 +1429,27 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>環境設定</translation>
     </message>
     <message>
         <source>New Window</source>
-        <translation type="unfinished">新しいウィンドウ</translation>
+        <translation>新しいウインドウ</translation>
     </message>
     <message>
         <source>Close Window</source>
-        <translation type="unfinished">ウインドウを閉じる</translation>
+        <translation>ウインドウを閉じる</translation>
     </message>
     <message>
         <source>Close All</source>
-        <translation type="unfinished">すべてのウィンドウを閉じる</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>終了</translation>
     </message>
     <message>
         <source>Exit</source>
-        <translation type="unfinished">終了</translation>
+        <translation>終了</translation>
     </message>
 </context>
 <context>
@@ -1462,7 +1464,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>qView Update Available</source>
-        <translation type="unfinished"></translation>
+        <translation>qViewの更新が利用可能</translation>
     </message>
     <message>
         <source>A newer version is available to download.</source>
@@ -1474,7 +1476,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>ダウンロード</translation>
     </message>
     <message>
         <source>&amp;Disable Checking</source>
@@ -1482,12 +1484,13 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>qView Update Checking Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>qViewアップデートの確認が無効です</translation>
     </message>
     <message>
         <source>Update notifications on startup have been disabled.
 You can reenable them in the options dialog.</source>
-        <translation type="unfinished"></translation>
+        <translation>起動時のアップデート通知が無効になりました。
+オプションで再度有効にすることができます。</translation>
     </message>
 </context>
 </TS>

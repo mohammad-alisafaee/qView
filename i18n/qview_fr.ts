@@ -82,7 +82,7 @@
     </message>
     <message>
         <source>Re&amp;load File</source>
-        <translation type="unfinished"></translation>
+        <translation>Recharger le fichier</translation>
     </message>
     <message>
         <source>Close Window</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer définitivement</translation>
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
@@ -250,7 +250,7 @@
     <message>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Preference&amp;s...</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Setting&amp;s...</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres...</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -282,12 +282,12 @@
     <message>
         <source>Other Application...</source>
         <extracomment>Open with other program for unix non-mac</extracomment>
-        <translation>Autres applications...</translation>
+        <translation>Autre application...</translation>
     </message>
     <message>
         <source>Choose another app</source>
         <extracomment>Open with other program for windows</extracomment>
-        <translation>Choisir une autre appli.</translation>
+        <translation>Choisir une autre appli</translation>
     </message>
     <message>
         <source>Other...</source>
@@ -301,7 +301,9 @@
         <source>Error occurred opening
 %3
 %2 (Error %1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Une erreur est survenue en ouvrant
+%3
+%2 (Erreur %1)</translation>
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
@@ -309,7 +311,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Activer le plein écran</translation>
+        <translation>Passer en plein écran</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -354,8 +356,8 @@
     <message>
         <source>Can&apos;t delete %1:
 No write permission or file is read-only.</source>
-        <translation type="unfinished">Impossible de supprimer %1:
-Le fichier est en lecture seule ou la permission en écriture est absente.</translation>
+        <translation>Impossible de supprimer %1:
+Pas de perission d&apos;écriture ou fichier en lecture seule.</translation>
     </message>
     <message>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
@@ -363,32 +365,33 @@ Le fichier est en lecture seule ou la permission en écriture est absente.</tran
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
-        <translation type="unfinished"></translation>
+        <translation>Êtes-vous sûr de vouloir déplacer %1 dans la corbeille ?</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Trash?</source>
-        <translation type="unfinished"></translation>
+        <translation>Êtes-vous sûr de vouloir déplacer %1 vers la corbeille&#x202f;?</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Do not ask again</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne plus redemander</translation>
     </message>
     <message>
         <source>Can&apos;t delete %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de supprimer %1.</translation>
     </message>
     <message>
         <source>Can&apos;t undo deletion of %1:
 No write permission or file is read-only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;annuler la suppression de %1&#x202f;:
+Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</translation>
     </message>
     <message>
         <source>Failed undoing deletion of %1.</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de l&apos;annulation de la suppression de %1.</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -415,15 +418,15 @@ No write permission or file is read-only.</source>
     <name>OpenWith</name>
     <message>
         <source>All Applications (*.app)</source>
-        <translation type="unfinished"></translation>
+        <translation>Toutes les applications (*.app)</translation>
     </message>
     <message>
         <source>Programs (*.exe *.pif *.com *.bat *.cmd)</source>
-        <translation type="unfinished"></translation>
+        <translation>Exécutables (*.exe *.pif *.com *.bat *.cmd)</translation>
     </message>
     <message>
         <source>All Files (*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Tous les fichiers (*)</translation>
     </message>
 </context>
 <context>
@@ -489,7 +492,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Supported Images</source>
-        <translation type="unfinished"></translation>
+        <translation>Formats d&apos;images supportés</translation>
     </message>
     <message>
         <source>All Files</source>
@@ -500,7 +503,7 @@ No write permission or file is read-only.</source>
     <name>QVCocoaFunctions</name>
     <message>
         <source> (default)</source>
-        <translation type="unfinished"></translation>
+        <translation> (par défaut)</translation>
     </message>
 </context>
 <context>
@@ -562,62 +565,62 @@ No write permission or file is read-only.</source>
     <name>QVOpenWithDialog</name>
     <message>
         <source>Choose Application</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir une application</translation>
     </message>
     <message>
         <source>Development</source>
-        <translation type="unfinished"></translation>
+        <translation>Développement</translation>
     </message>
     <message>
         <source>Education</source>
-        <translation type="unfinished"></translation>
+        <translation>Éducation</translation>
     </message>
     <message>
         <source>Games</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeux</translation>
     </message>
     <message>
         <source>Graphics</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphisme</translation>
     </message>
     <message>
         <source>Internet</source>
-        <translation type="unfinished"></translation>
+        <translation>Internet</translation>
     </message>
     <message>
         <source>Multimedia</source>
-        <translation type="unfinished"></translation>
+        <translation>Multimédia</translation>
     </message>
     <message>
         <source>Office</source>
-        <translation type="unfinished"></translation>
+        <translation>Bureautique</translation>
     </message>
     <message>
         <source>Science</source>
-        <translation type="unfinished"></translation>
+        <translation>Sciences</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"></translation>
+        <translation>Système</translation>
     </message>
     <message>
         <source>Utilities</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilitaires</translation>
     </message>
     <message>
         <source>Other</source>
-        <translation type="unfinished"></translation>
+        <translation>Autre</translation>
     </message>
 </context>
 <context>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
@@ -715,7 +718,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter à la fermeture de la dernière fenêtre</translation>
     </message>
     <message>
         <source>Persist session across app restarts</source>
@@ -787,7 +790,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Color space conversion:</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversion d&apos;espace de couleur :</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -843,19 +846,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>After deletion:</source>
-        <translation type="unfinished"></translation>
+        <translation>Après suppression&#x202f;:</translation>
     </message>
     <message>
         <source>&amp;Ask before deleting files</source>
-        <translation type="unfinished"></translation>
+        <translation>Demander avant de supprimer des fichiers</translation>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
-        <translation type="unfinished"></translation>
+        <translation>Détecte les fichiers supportés dans un dossier même avec une extension non reconnue (peut être lent pour un dossier volumineux ou en réseau)</translation>
     </message>
     <message>
         <source>Allow &amp;MIME content detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Autoriser la détection du contenu MIME</translation>
     </message>
     <message>
         <source>May be slow with network folders</source>
@@ -863,7 +866,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Skip hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauter les fichiers cachés</translation>
     </message>
     <message>
         <source>Save &amp;recent files</source>
@@ -1032,15 +1035,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Move Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Revenir en arrière</translation>
     </message>
     <message>
         <source>Do Nothing</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne rien faire</translation>
     </message>
     <message>
         <source>Move Forward</source>
-        <translation type="unfinished"></translation>
+        <translation>Aller en avant</translation>
     </message>
     <message>
         <source>Avoid repositioning</source>
@@ -1072,7 +1075,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Auto-detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatique</translation>
     </message>
     <message>
         <source>sRGB</source>
@@ -1116,11 +1119,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Date Modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Date de modification</translation>
     </message>
     <message>
         <source>Date Created</source>
-        <translation type="unfinished"></translation>
+        <translation>Date de création</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1199,25 +1202,27 @@ No write permission or file is read-only.</source>
     <name>QVRenameDialog</name>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished">Renommer...</translation>
+        <translation>Renommer...</translation>
     </message>
     <message>
         <source>File name:</source>
-        <translation type="unfinished">Nom du fichier :</translation>
+        <translation>Nom du fichier&#x202f;:</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Erreur</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Could not rename %1:
 No write permission or file is read-only.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de renommer %1&#x202f;:
+Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</translation>
     </message>
     <message>
         <source>Could not rename %1:
 (Check that all characters are valid)</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de renommer %1.
+(Vérifier que tous les caractères sont valides)</translation>
     </message>
 </context>
 <context>
@@ -1266,7 +1271,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Reload File</source>
-        <translation type="unfinished"></translation>
+        <translation>Recharger le fichier</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -1286,11 +1291,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Restore from Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurer depuis la corbeille</translation>
     </message>
     <message>
         <source>Undo Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler la suppression</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1306,15 +1311,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Move to Trash</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer dans la corbeille</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Supprimer définitivement</translation>
     </message>
     <message>
         <source>First File</source>
@@ -1422,7 +1427,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Preferences</source>
