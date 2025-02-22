@@ -45,19 +45,19 @@
     </message>
     <message>
         <source>Remember Session?</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить сеанс?</translation>
     </message>
     <message>
         <source>Would you like to remember your opened images and re-open them at next launch?</source>
-        <translation type="unfinished"></translation>
+        <translation>Хотите запомнить открытые изображения и открыть их снова при следующем запуске?</translation>
     </message>
     <message>
         <source>&amp;Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>Запомнить</translation>
     </message>
     <message>
         <source>&amp;End Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Завершить сеанс</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -82,7 +82,7 @@
     </message>
     <message>
         <source>Re&amp;load File</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезагрузить файл</translation>
     </message>
     <message>
         <source>Close Window</source>
@@ -121,7 +121,7 @@
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить навсегда</translation>
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
@@ -157,15 +157,15 @@
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабировать по размеру окна</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Заполнить окно</translation>
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Навигация сбрасывает масштаб</translation>
     </message>
     <message>
         <source>Rotate &amp;Right</source>
@@ -185,15 +185,15 @@
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить трансформацию</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно поверх других</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть заголовок</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
@@ -217,7 +217,7 @@
     </message>
     <message>
         <source>&amp;Random File</source>
-        <translation type="unfinished"></translation>
+        <translation>Случайный файл</translation>
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
@@ -301,7 +301,9 @@
         <source>Error occurred opening
 %3
 %2 (Error %1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Произошла ошибка при открытии
+%3
+%2 (Ошибка %1)</translation>
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
@@ -313,11 +315,11 @@
     </message>
     <message>
         <source>Show Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Показать заголовок</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть заголовок</translation>
     </message>
     <message>
         <source>Error</source>
@@ -359,7 +361,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены, что хотите навсегда удалить %1? Это действие нельзя отменить.</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
@@ -446,23 +448,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Проверить обновления</translation>
     </message>
     <message>
         <source>Unofficial Fork (jdpurcell)</source>
-        <translation type="unfinished"></translation>
+        <translation>Неофициальный форк (jdpurcell)</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия %1</translation>
     </message>
     <message>
         <source>Unspecified Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Неуказанная версия</translation>
     </message>
     <message>
         <source>Built with Qt %1 (%2)&lt;br&gt;Licensed under the GNU GPLv3&lt;br&gt;Derivative of official qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Website&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Icon glyph created by Guilhem from the Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell, and qView contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Создано с Qt %1 (%2)&lt;br&gt;Лицензировано под GNU GPLv3&lt;br&gt;Производная от официального qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Сайт&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Значок создан Guilhem из Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell и участники qView</translation>
     </message>
 </context>
 <context>
@@ -478,15 +480,16 @@ No write permission or file is read-only.</source>
     <message>
         <source>Error checking for updates:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка при проверке обновлений:
+%1</translation>
     </message>
     <message>
         <source>No Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет обновлений</translation>
     </message>
     <message>
         <source>You already have the latest version.</source>
-        <translation type="unfinished"></translation>
+        <translation>У вас уже установлена последняя версия.</translation>
     </message>
     <message>
         <source>Supported Images</source>
@@ -626,7 +629,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Шахматный фон при загрузке изображения</translation>
     </message>
     <message>
         <source>Changes the amount of information displayed in the titlebar</source>
@@ -644,7 +647,13 @@ No write permission or file is read-only.</source>
 %w - Image Width
 %h - Image Height
 %z - Zoom Level</source>
-        <translation type="unfinished"></translation>
+        <translation>%n - Имя файла
+%i - Индекс изображения в папке
+%c - Количество изображений в папке
+%s - Размер файла
+%w - Ширина изображения
+%h - Высота изображения
+%z - Уровень масштабирования</translation>
     </message>
     <message>
         <source>Control when the window should resize to fit the image&apos;s actual size</source>
@@ -655,8 +664,8 @@ No write permission or file is read-only.</source>
         <translation>Окно соответствует размеру изображения:</translation>
     </message>
     <message>
-        <source>After maching image size:</source>
-        <translation type="unfinished"></translation>
+        <source>After matching image size:</source>
+        <translation>После подгонки размера изображения:</translation>
     </message>
     <message>
         <source>Minimum size:</source>
@@ -692,19 +701,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать значки в подменю «Открыть недавние» и «Открыть с помощью»</translation>
     </message>
     <message>
         <source>Show icons in submenus</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать значки в подменю</translation>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation type="unfinished"></translation>
+        <translation>Держать окно поверх других во время слайд-шоу</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать окно повторно при открытии изображения</translation>
     </message>
     <message>
         <source>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</source>
@@ -720,27 +729,27 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Persist session across app restarts</source>
-        <translation type="unfinished"></translation>
+        <translation>Сохранять сеанс при перезапуске приложения</translation>
     </message>
     <message>
         <source>Smooth scaling:</source>
-        <translation type="unfinished"></translation>
+        <translation>Плавное масштабирование:</translation>
     </message>
     <message>
         <source>Use expensive scaling when zooming above the window size (can be laggier with large images)</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать ресурсоёмкое масштабирование при увеличении изображения больше размеров окна (может вызывать задержки с большими изображениями)</translation>
     </message>
     <message>
         <source>Expensive scaling above window size</source>
-        <translation type="unfinished"></translation>
+        <translation>Ресурсоёмкое масштабирование при превышении размера окна</translation>
     </message>
     <message>
         <source>Disable above:</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить при значении выше:</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>The amount to zoom every scroll wheel click</source>
@@ -751,44 +760,40 @@ No write permission or file is read-only.</source>
         <translation>Шаг увеличения:</translation>
     </message>
     <message>
-        <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation>Будет ли увеличение и уменьшение масштаба выше 100% масштабирования приближаться к курсору</translation>
-    </message>
-    <message>
         <source>Zoom &amp;towards cursor</source>
         <translation>Масштабирование в направлении курсора</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Уровень зума относительно пикселей экрана</translation>
     </message>
     <message>
         <source>Zoom default:</source>
-        <translation type="unfinished"></translation>
+        <translation>Зум по умолчанию:</translation>
     </message>
     <message>
         <source>Limit fit/fill zoom:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ограничение зума подгонки/заполнения:</translation>
     </message>
     <message>
         <source> pixel overscan</source>
-        <translation type="unfinished"></translation>
+        <translation> пикселей оверсскана</translation>
     </message>
     <message>
         <source>&amp;Constrain image position</source>
-        <translation type="unfinished"></translation>
+        <translation>Ограничить позицию изображения</translation>
     </message>
     <message>
         <source>Keep ce&amp;ntered if smaller</source>
-        <translation type="unfinished"></translation>
+        <translation>Держать по центру, если меньше</translation>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>Оригинальный размер работает как переключатель</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
-        <translation type="unfinished"></translation>
+        <translation>Конверсия цветового пространства:</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -816,11 +821,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Navigation speed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Скорость навигации:</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> мс</translation>
     </message>
     <message>
         <source>Controls whether or not qView should go back to the first item after reaching the end of a folder</source>
@@ -852,19 +857,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
-        <translation type="unfinished"></translation>
+        <translation>Обнаруживать поддерживаемые файлы в папке, даже если расширение не распознано (может замедлить работу с большими/сетевыми папками)</translation>
     </message>
     <message>
         <source>Allow &amp;MIME content detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Разрешить обнаружение MIME-контента</translation>
     </message>
     <message>
         <source>May be slow with network folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Может работать медленно с сетевыми папками</translation>
     </message>
     <message>
         <source>Skip hidden files</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропускать скрытые файлы</translation>
     </message>
     <message>
         <source>Save &amp;recent files</source>
@@ -885,87 +890,87 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Left Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Левая кнопка</translation>
     </message>
     <message>
         <source>Double Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>Двойной клик:</translation>
     </message>
     <message>
         <source>Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Перетаскивание:</translation>
     </message>
     <message>
         <source>Navigate when clicking on the left/right edges of the viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>Навигация при клике по левому/правому краю области просмотра</translation>
     </message>
     <message>
         <source>Side navigation regions</source>
-        <translation type="unfinished"></translation>
+        <translation>Области боковой навигации</translation>
     </message>
     <message>
         <source>Middle Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Средняя кнопка</translation>
     </message>
     <message>
         <source>Mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Режим:</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Клик</translation>
     </message>
     <message>
         <source>Drag</source>
-        <translation type="unfinished"></translation>
+        <translation>Перетаскивание</translation>
     </message>
     <message>
         <source>Middle Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>Средний клик:</translation>
     </message>
     <message>
         <source>Middle Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Среднее перетаскивание:</translation>
     </message>
     <message>
         <source>Scroll Wheel / Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Колесо прокрутки / тачпад</translation>
     </message>
     <message>
         <source>Vertical Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>Вертикальная прокрутка:</translation>
     </message>
     <message>
         <source>Horizontal Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>Горизонтальная прокрутка:</translation>
     </message>
     <message>
         <source>Useful for touchpads, to prevent a single swipe from triggering multiple navigations, for example</source>
-        <translation type="unfinished"></translation>
+        <translation>Полезно для тачпадов, чтобы предотвратить многократную навигацию при одном движении</translation>
     </message>
     <message>
         <source>Cooldown for discrete actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Задержка для дискретных действий</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Курсор</translation>
     </message>
     <message>
         <source>Auto-hide in fullscreen:</source>
-        <translation type="unfinished"></translation>
+        <translation>Авто-скрытие в полноэкранном режиме:</translation>
     </message>
     <message>
         <source> sec delay</source>
-        <translation type="unfinished"></translation>
+        <translation> сек. задержка</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished"></translation>
+        <translation>Расширение</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Включено</translation>
     </message>
     <message>
         <source>Preferences</source>
@@ -973,27 +978,27 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>%1 + Double Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Двойной клик:</translation>
     </message>
     <message>
         <source>%1 + Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Перетаскивание:</translation>
     </message>
     <message>
         <source>%1 + Middle Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Средний клик:</translation>
     </message>
     <message>
         <source>%1 + Middle Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Перетаскивание средней кнопкой:</translation>
     </message>
     <message>
         <source>%1 + Vertical Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Вертикальная прокрутка:</translation>
     </message>
     <message>
         <source>%1 + Horizontal Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Горизонтальная прокрутка:</translation>
     </message>
     <message>
         <source>Restart Required</source>
@@ -1001,7 +1006,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>You must restart qView to change this setting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Необходимо перезапустить qView, чтобы применить этот параметр.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1017,11 +1022,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Мышь</translation>
     </message>
     <message>
         <source>Formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Форматы</translation>
     </message>
     <message>
         <source>System Language</source>
@@ -1045,23 +1050,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Avoid repositioning</source>
-        <translation type="unfinished"></translation>
+        <translation>Избегать перемещения</translation>
     </message>
     <message>
         <source>Center relative to previous image</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрировать относительно предыдущего изображения</translation>
     </message>
     <message>
         <source>Center relative to screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрировать относительно экрана</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабировать по размеру окна</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Заполнить окно</translation>
     </message>
     <message>
         <source>Original Size</source>
@@ -1073,15 +1078,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Auto-detect</source>
-        <translation type="unfinished"></translation>
+        <translation>Автоопределение</translation>
     </message>
     <message>
         <source>sRGB</source>
-        <translation type="unfinished"></translation>
+        <translation>sRGB</translation>
     </message>
     <message>
         <source>Display P3</source>
-        <translation type="unfinished"></translation>
+        <translation>Display P3</translation>
     </message>
     <message>
         <source>Adjacent</source>
@@ -1105,11 +1110,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Bilinear</source>
-        <translation type="unfinished"></translation>
+        <translation>Билинейный</translation>
     </message>
     <message>
         <source>Expensive</source>
-        <translation type="unfinished"></translation>
+        <translation>Ресурсоемкий</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1117,11 +1122,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Date Modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата изменения</translation>
     </message>
     <message>
         <source>Date Created</source>
-        <translation type="unfinished"></translation>
+        <translation>Дата создания</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1133,23 +1138,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>Базовый</translation>
     </message>
     <message>
         <source>Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>Минимальный</translation>
     </message>
     <message>
         <source>Practical</source>
-        <translation type="unfinished"></translation>
+        <translation>Практичный</translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробный</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Пользовательский</translation>
     </message>
     <message>
         <source>Never</source>
@@ -1165,35 +1170,35 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Нет</translation>
     </message>
     <message>
         <source>Center Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Центрировать изображение</translation>
     </message>
     <message>
         <source>Toggle Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Переключить полноэкранный режим</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть/показать заголовок окна</translation>
     </message>
     <message>
         <source>Pan</source>
-        <translation type="unfinished"></translation>
+        <translation>Перемещение</translation>
     </message>
     <message>
         <source>Move Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Переместить окно</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабирование</translation>
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Навигация</translation>
     </message>
 </context>
 <context>
@@ -1269,7 +1274,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Reload File</source>
-        <translation type="unfinished"></translation>
+        <translation>Перезагрузить файл</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -1317,7 +1322,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить навсегда</translation>
     </message>
     <message>
         <source>First File</source>
@@ -1337,7 +1342,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Random File</source>
-        <translation type="unfinished"></translation>
+        <translation>Случайный файл</translation>
     </message>
     <message>
         <source>Zoom In</source>
@@ -1353,15 +1358,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Масштабировать по размеру окна</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Заполнить окно</translation>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Навигация сбрасывает масштаб</translation>
     </message>
     <message>
         <source>Rotate Right</source>
@@ -1381,15 +1386,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Reset Transformation</source>
-        <translation type="unfinished"></translation>
+        <translation>Сбросить трансформацию</translation>
     </message>
     <message>
         <source>Window On Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Окно поверх других</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Скрыть/показать заголовок окна</translation>
     </message>
     <message>
         <source>Full Screen</source>
@@ -1456,11 +1461,11 @@ No write permission or file is read-only.</source>
     <name>UpdateChecker</name>
     <message>
         <source>This build is not configured for update checking.</source>
-        <translation type="unfinished"></translation>
+        <translation>Эта сборка не настроена для проверки обновлений.</translation>
     </message>
     <message>
         <source>Received null JSON.</source>
-        <translation type="unfinished"></translation>
+        <translation>Получен пустой JSON.</translation>
     </message>
     <message>
         <source>qView Update Available</source>
@@ -1468,11 +1473,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>A newer version is available to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>Доступна новая версия для загрузки.</translation>
     </message>
     <message>
         <source>Skip Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Пропустить версию</translation>
     </message>
     <message>
         <source>Download</source>
@@ -1480,7 +1485,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Disable Checking</source>
-        <translation type="unfinished"></translation>
+        <translation>Отключить проверку</translation>
     </message>
     <message>
         <source>qView Update Checking Disabled</source>

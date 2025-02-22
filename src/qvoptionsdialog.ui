@@ -216,7 +216,7 @@
           <item row="7" column="0">
            <widget class="QLabel" name="afterMatchingSizeLabel">
             <property name="text">
-             <string>After maching image size:</string>
+             <string>After matching image size:</string>
             </property>
            </widget>
           </item>
@@ -514,9 +514,6 @@
           </item>
           <item row="5" column="1">
            <widget class="QCheckBox" name="cursorZoomCheckbox">
-            <property name="toolTip">
-             <string>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</string>
-            </property>
             <property name="text">
              <string>Zoom &amp;towards cursor</string>
             </property>

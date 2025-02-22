@@ -45,19 +45,19 @@
     </message>
     <message>
         <source>Remember Session?</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir de la session ?</translation>
     </message>
     <message>
         <source>Would you like to remember your opened images and re-open them at next launch?</source>
-        <translation type="unfinished"></translation>
+        <translation>Souhaitez-vous mémoriser vos images ouvertes et les rouvrir au prochain lancement ?</translation>
     </message>
     <message>
         <source>&amp;Remember</source>
-        <translation type="unfinished"></translation>
+        <translation>Se souvenir</translation>
     </message>
     <message>
         <source>&amp;End Session</source>
-        <translation type="unfinished"></translation>
+        <translation>Terminer la session</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
@@ -157,15 +157,15 @@
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuster à la taille de la fenêtre</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplir la fenêtre</translation>
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>La navigation réinitialise le zoom</translation>
     </message>
     <message>
         <source>Rotate &amp;Right</source>
@@ -185,15 +185,15 @@
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser la transformation</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre toujours au premier plan</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer la barre de titre</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
@@ -217,7 +217,7 @@
     </message>
     <message>
         <source>&amp;Random File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier aléatoire</translation>
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
@@ -315,11 +315,11 @@
     </message>
     <message>
         <source>Show Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher la barre de titre</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer la barre de titre</translation>
     </message>
     <message>
         <source>Error</source>
@@ -361,7 +361,7 @@ Pas de perission d&apos;écriture ou fichier en lecture seule.</translation>
     </message>
     <message>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
-        <translation type="unfinished"></translation>
+        <translation>Êtes-vous sûr de vouloir supprimer définitivement %1 ? Cette action est irréversible.</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
@@ -369,7 +369,7 @@ Pas de perission d&apos;écriture ou fichier en lecture seule.</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Trash?</source>
-        <translation>Êtes-vous sûr de vouloir déplacer %1 vers la corbeille&#x202f;?</translation>
+        <translation>Êtes-vous sûr de vouloir déplacer %1 vers la corbeille ?</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -386,7 +386,7 @@ Pas de perission d&apos;écriture ou fichier en lecture seule.</translation>
     <message>
         <source>Can&apos;t undo deletion of %1:
 No write permission or file is read-only.</source>
-        <translation>Impossible d&apos;annuler la suppression de %1&#x202f;:
+        <translation>Impossible d&apos;annuler la suppression de %1 :
 Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</translation>
     </message>
     <message>
@@ -448,23 +448,23 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérifier les mises à jour</translation>
     </message>
     <message>
         <source>Unofficial Fork (jdpurcell)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fork non officiel (jdpurcell)</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version %1</translation>
     </message>
     <message>
         <source>Unspecified Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version non spécifiée</translation>
     </message>
     <message>
         <source>Built with Qt %1 (%2)&lt;br&gt;Licensed under the GNU GPLv3&lt;br&gt;Derivative of official qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Website&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Icon glyph created by Guilhem from the Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell, and qView contributors</source>
-        <translation type="unfinished"></translation>
+        <translation>Construit avec Qt %1 (%2)&lt;br&gt;Licencié sous la GNU GPLv3&lt;br&gt;Dérivé de qView officiel : &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Site web&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Icône créée par Guilhem du Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell et les contributeurs de qView</translation>
     </message>
 </context>
 <context>
@@ -480,15 +480,16 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Error checking for updates:
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur lors de la vérification des mises à jour :
+%1</translation>
     </message>
     <message>
         <source>No Updates</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucune mise à jour</translation>
     </message>
     <message>
         <source>You already have the latest version.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous avez déjà la dernière version.</translation>
     </message>
     <message>
         <source>Supported Images</source>
@@ -628,7 +629,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Damier lorsque l&apos;image est chargée</translation>
     </message>
     <message>
         <source>Changes the amount of information displayed in the titlebar</source>
@@ -646,7 +647,13 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
 %w - Image Width
 %h - Image Height
 %z - Zoom Level</source>
-        <translation type="unfinished"></translation>
+        <translation>%n - Nom du fichier
+%i - Index de l&apos;image dans le dossier
+%c - Nombre d&apos;images dans le dossier
+%s - Taille du fichier
+%w - Largeur de l&apos;image
+%h - Hauteur de l&apos;image
+%z - Niveau de zoom</translation>
     </message>
     <message>
         <source>Control when the window should resize to fit the image&apos;s actual size</source>
@@ -657,8 +664,8 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation>La fenêtre s&apos;ajuste à la taille de l&apos;image :</translation>
     </message>
     <message>
-        <source>After maching image size:</source>
-        <translation type="unfinished"></translation>
+        <source>After matching image size:</source>
+        <translation>Après l&apos;ajustement de la taille de l&apos;image :</translation>
     </message>
     <message>
         <source>Minimum size:</source>
@@ -694,19 +701,19 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les icônes dans les sous-menus &quot;Ouvrir récemment&quot; et &quot;Ouvrir avec&quot;</translation>
     </message>
     <message>
         <source>Show icons in submenus</source>
-        <translation type="unfinished"></translation>
+        <translation>Afficher les icônes dans les sous-menus</translation>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation type="unfinished"></translation>
+        <translation>Garder la fenêtre au premier plan pendant le diaporama</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
-        <translation type="unfinished"></translation>
+        <translation>Réutiliser la fenêtre lors du lancement avec une image</translation>
     </message>
     <message>
         <source>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</source>
@@ -722,27 +729,27 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Persist session across app restarts</source>
-        <translation type="unfinished"></translation>
+        <translation>Conserver la session après un redémarrage de l&apos;application</translation>
     </message>
     <message>
         <source>Smooth scaling:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mise à l&apos;échelle fluide :</translation>
     </message>
     <message>
         <source>Use expensive scaling when zooming above the window size (can be laggier with large images)</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser une mise à l&apos;échelle intensive au-delà de la taille de la fenêtre (peut être plus lent avec de grandes images)</translation>
     </message>
     <message>
         <source>Expensive scaling above window size</source>
-        <translation type="unfinished"></translation>
+        <translation>Mise à l&apos;échelle intensive au-delà de la fenêtre</translation>
     </message>
     <message>
         <source>Disable above:</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver au-dessus de :</translation>
     </message>
     <message>
         <source>%</source>
-        <translation type="unfinished"></translation>
+        <translation>%</translation>
     </message>
     <message>
         <source>The amount to zoom every scroll wheel click</source>
@@ -753,40 +760,36 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation>Facteur de zoom :</translation>
     </message>
     <message>
-        <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation>Choisissez si le zoom avant et arrière au-dessus du zoom de 100 % fera ou non un zoom vers le curseur</translation>
-    </message>
-    <message>
         <source>Zoom &amp;towards cursor</source>
         <translation>Zoom vers le curseur</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
-        <translation type="unfinished"></translation>
+        <translation>Le niveau de zoom est relatif aux pixels de l&apos;écran</translation>
     </message>
     <message>
         <source>Zoom default:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoom par défaut :</translation>
     </message>
     <message>
         <source>Limit fit/fill zoom:</source>
-        <translation type="unfinished"></translation>
+        <translation>Limiter le zoom ajusté/rempli :</translation>
     </message>
     <message>
         <source> pixel overscan</source>
-        <translation type="unfinished"></translation>
+        <translation> pixel de surbalayage</translation>
     </message>
     <message>
         <source>&amp;Constrain image position</source>
-        <translation type="unfinished"></translation>
+        <translation>Limiter la position de l&apos;image</translation>
     </message>
     <message>
         <source>Keep ce&amp;ntered if smaller</source>
-        <translation type="unfinished"></translation>
+        <translation>Garder centré si plus petit</translation>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation type="unfinished"></translation>
+        <translation>La taille originale fonctionne comme un bascule</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
@@ -818,11 +821,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Navigation speed:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vitesse de navigation :</translation>
     </message>
     <message>
         <source> ms</source>
-        <translation type="unfinished"></translation>
+        <translation> ms</translation>
     </message>
     <message>
         <source>Controls whether or not qView should go back to the first item after reaching the end of a folder</source>
@@ -846,7 +849,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>After deletion:</source>
-        <translation>Après suppression&#x202f;:</translation>
+        <translation>Après suppression :</translation>
     </message>
     <message>
         <source>&amp;Ask before deleting files</source>
@@ -862,7 +865,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>May be slow with network folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Peut être lent avec les dossiers réseau</translation>
     </message>
     <message>
         <source>Skip hidden files</source>
@@ -887,87 +890,87 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Left Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouton gauche</translation>
     </message>
     <message>
         <source>Double Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>Double-clic :</translation>
     </message>
     <message>
         <source>Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Glisser :</translation>
     </message>
     <message>
         <source>Navigate when clicking on the left/right edges of the viewport</source>
-        <translation type="unfinished"></translation>
+        <translation>Naviguer en cliquant sur les bords gauche/droit de la fenêtre</translation>
     </message>
     <message>
         <source>Side navigation regions</source>
-        <translation type="unfinished"></translation>
+        <translation>Régions de navigation latérales</translation>
     </message>
     <message>
         <source>Middle Button</source>
-        <translation type="unfinished"></translation>
+        <translation>Bouton du milieu</translation>
     </message>
     <message>
         <source>Mode:</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode :</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Clic</translation>
     </message>
     <message>
         <source>Drag</source>
-        <translation type="unfinished"></translation>
+        <translation>Glisser</translation>
     </message>
     <message>
         <source>Middle Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>Clic du milieu :</translation>
     </message>
     <message>
         <source>Middle Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Glisser du milieu :</translation>
     </message>
     <message>
         <source>Scroll Wheel / Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Molette de défilement / Pavé tactile</translation>
     </message>
     <message>
         <source>Vertical Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>Défilement vertical :</translation>
     </message>
     <message>
         <source>Horizontal Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>Défilement horizontal :</translation>
     </message>
     <message>
         <source>Useful for touchpads, to prevent a single swipe from triggering multiple navigations, for example</source>
-        <translation type="unfinished"></translation>
+        <translation>Utile pour les pavés tactiles, afin d&apos;éviter qu&apos;un seul balayage ne déclenche plusieurs navigations, par exemple</translation>
     </message>
     <message>
         <source>Cooldown for discrete actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Temps de récupération pour les actions discrètes</translation>
     </message>
     <message>
         <source>Cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Curseur</translation>
     </message>
     <message>
         <source>Auto-hide in fullscreen:</source>
-        <translation type="unfinished"></translation>
+        <translation>Masquer automatiquement en plein écran :</translation>
     </message>
     <message>
         <source> sec delay</source>
-        <translation type="unfinished"></translation>
+        <translation> sec de délai</translation>
     </message>
     <message>
         <source>Extension</source>
-        <translation type="unfinished"></translation>
+        <translation>Extension</translation>
     </message>
     <message>
         <source>Enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Activé</translation>
     </message>
     <message>
         <source>Preferences</source>
@@ -975,27 +978,27 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>%1 + Double Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Double-clic :</translation>
     </message>
     <message>
         <source>%1 + Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Glisser :</translation>
     </message>
     <message>
         <source>%1 + Middle Click:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Clic du milieu :</translation>
     </message>
     <message>
         <source>%1 + Middle Drag:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Glisser du milieu :</translation>
     </message>
     <message>
         <source>%1 + Vertical Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Défilement vertical :</translation>
     </message>
     <message>
         <source>%1 + Horizontal Scroll:</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 + Défilement horizontal :</translation>
     </message>
     <message>
         <source>Restart Required</source>
@@ -1003,7 +1006,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>You must restart qView to change this setting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous devez redémarrer qView pour appliquer ce paramètre.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1019,11 +1022,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"></translation>
+        <translation>Souris</translation>
     </message>
     <message>
         <source>Formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Formats</translation>
     </message>
     <message>
         <source>System Language</source>
@@ -1047,23 +1050,23 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Avoid repositioning</source>
-        <translation type="unfinished"></translation>
+        <translation>Éviter le repositionnement</translation>
     </message>
     <message>
         <source>Center relative to previous image</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer par rapport à l&apos;image précédente</translation>
     </message>
     <message>
         <source>Center relative to screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer par rapport à l&apos;écran</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuster à la taille de la fenêtre</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplir la fenêtre</translation>
     </message>
     <message>
         <source>Original Size</source>
@@ -1079,11 +1082,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>sRGB</source>
-        <translation type="unfinished"></translation>
+        <translation>sRGB</translation>
     </message>
     <message>
         <source>Display P3</source>
-        <translation type="unfinished"></translation>
+        <translation>Display P3</translation>
     </message>
     <message>
         <source>Adjacent</source>
@@ -1107,11 +1110,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Bilinear</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilinéraire</translation>
     </message>
     <message>
         <source>Expensive</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensif</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1135,23 +1138,23 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Basic</source>
-        <translation type="unfinished"></translation>
+        <translation>De base</translation>
     </message>
     <message>
         <source>Minimal</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimal</translation>
     </message>
     <message>
         <source>Practical</source>
-        <translation type="unfinished"></translation>
+        <translation>Pratique</translation>
     </message>
     <message>
         <source>Verbose</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbeux</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"></translation>
+        <translation>Personnalisé</translation>
     </message>
     <message>
         <source>Never</source>
@@ -1167,35 +1170,35 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun</translation>
     </message>
     <message>
         <source>Center Image</source>
-        <translation type="unfinished"></translation>
+        <translation>Centrer l&apos;image</translation>
     </message>
     <message>
         <source>Toggle Full Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Basculer en plein écran</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Basculer la barre de titre cachée</translation>
     </message>
     <message>
         <source>Pan</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer</translation>
     </message>
     <message>
         <source>Move Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Déplacer la fenêtre</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoomer</translation>
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished"></translation>
+        <translation>Naviguer</translation>
     </message>
 </context>
 <context>
@@ -1206,7 +1209,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>File name:</source>
-        <translation>Nom du fichier&#x202f;:</translation>
+        <translation>Nom du fichier :</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1215,13 +1218,13 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Could not rename %1:
 No write permission or file is read-only.</source>
-        <translation>Impossible de renommer %1&#x202f;:
+        <translation>Impossible de renommer %1 :
 Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</translation>
     </message>
     <message>
         <source>Could not rename %1:
 (Check that all characters are valid)</source>
-        <translation>Impossible de renommer %1.
+        <translation>Impossible de renommer %1 :
 (Vérifier que tous les caractères sont valides)</translation>
     </message>
 </context>
@@ -1339,7 +1342,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Random File</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier aléatoire</translation>
     </message>
     <message>
         <source>Zoom In</source>
@@ -1355,15 +1358,15 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuster à la taille de la fenêtre</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplir la fenêtre</translation>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>
-        <translation type="unfinished"></translation>
+        <translation>La navigation réinitialise le zoom</translation>
     </message>
     <message>
         <source>Rotate Right</source>
@@ -1383,15 +1386,15 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Reset Transformation</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser la transformation</translation>
     </message>
     <message>
         <source>Window On Top</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtre toujours au premier plan</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished"></translation>
+        <translation>Basculer la barre de titre cachée</translation>
     </message>
     <message>
         <source>Full Screen</source>
@@ -1458,11 +1461,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <name>UpdateChecker</name>
     <message>
         <source>This build is not configured for update checking.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cette version n&apos;est pas configurée pour la vérification des mises à jour.</translation>
     </message>
     <message>
         <source>Received null JSON.</source>
-        <translation type="unfinished"></translation>
+        <translation>JSON nul reçu.</translation>
     </message>
     <message>
         <source>qView Update Available</source>
@@ -1470,11 +1473,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>A newer version is available to download.</source>
-        <translation type="unfinished"></translation>
+        <translation>Une nouvelle version est disponible au téléchargement.</translation>
     </message>
     <message>
         <source>Skip Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignorer la version</translation>
     </message>
     <message>
         <source>Download</source>
@@ -1482,7 +1485,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>&amp;Disable Checking</source>
-        <translation type="unfinished"></translation>
+        <translation>Désactiver la vérification</translation>
     </message>
     <message>
         <source>qView Update Checking Disabled</source>

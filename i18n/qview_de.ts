@@ -664,7 +664,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation>Fenster an Bildgröße anpassen:</translation>
     </message>
     <message>
-        <source>After maching image size:</source>
+        <source>After matching image size:</source>
         <translation>Nach Anpassung der Bildgröße:</translation>
     </message>
     <message>
@@ -758,10 +758,6 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>Zoom amount:</source>
         <translation>Zoomfaktor:</translation>
-    </message>
-    <message>
-        <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation>Legt fest, ob beim Zoomen über 100 % in Richtung Mauszeiger gezoomt wird</translation>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>

@@ -653,7 +653,7 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>After maching image size:</source>
+        <source>After matching image size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -746,10 +746,6 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom amount:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
