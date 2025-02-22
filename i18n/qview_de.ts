@@ -91,7 +91,7 @@
     <message>
         <source>Close All</source>
         <extracomment>Close all windows, that is</extracomment>
-        <translation>Alles schließen</translation>
+        <translation>Alle schließen</translation>
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Vollbildmodus</translation>
+        <translation>Vollbildmodus aktvieren</translation>
     </message>
     <message>
         <source>&amp;First File</source>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>Nächstes Frame</translation>
+        <translation>Nächster Frame</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
@@ -1282,7 +1282,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>Öffne den beinhaltenden Ordner</translation>
+        <translation>Öffne beinhaltenden Ordner</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
@@ -1350,11 +1350,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Zoom In</source>
-        <translation>Zoome hinein</translation>
+        <translation>Vergrößern</translation>
     </message>
     <message>
         <source>Zoom Out</source>
-        <translation>Zoome heraus</translation>
+        <translation>Verkleinern</translation>
     </message>
     <message>
         <source>Original Size</source>
@@ -1406,7 +1406,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Save Frame As</source>
-        <translation>Frame speichern unter</translation>
+        <translation>Frame speichern als</translation>
     </message>
     <message>
         <source>Pause</source>

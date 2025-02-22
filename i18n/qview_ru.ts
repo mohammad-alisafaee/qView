@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>Информация о файле</translation>
+        <translation>Показать информацию о файле</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Полный экран</translation>
+        <translation>Полноэкранный режим</translation>
     </message>
     <message>
         <source>&amp;First File</source>
@@ -250,7 +250,7 @@
     <message>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Preference&amp;s...</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Setting&amp;s...</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки...</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -473,7 +473,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Ошибка</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <source>Error checking for updates:
@@ -618,7 +618,7 @@ No write permission or file is read-only.</source>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
@@ -969,7 +969,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -1065,7 +1065,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished">Оригинальный размер</translation>
+        <translation>Оригинальный размер</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1273,7 +1273,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>Открыть папку, содержащую файл</translation>
+        <translation>Открыть папку расположения файла</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
@@ -1293,7 +1293,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Undo Delete</source>
-        <translation>Отменить удаление</translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1425,7 +1425,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Preferences</source>

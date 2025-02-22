@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>Información del archivo</translation>
+        <translation>Mostrar información del archivo</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
@@ -141,7 +141,7 @@
     </message>
     <message>
         <source>R&amp;ename...</source>
-        <translation>Cambiar el nombre...</translation>
+        <translation>Cambiar nombre...</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Pantalla completa</translation>
+        <translation>Entrar en pantalla completa</translation>
     </message>
     <message>
         <source>&amp;First File</source>
@@ -221,7 +221,7 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>Guardar el fotograma como...</translation>
+        <translation>Guardar fotograma como...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
@@ -250,7 +250,7 @@
     <message>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Preference&amp;s...</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Setting&amp;s...</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración...</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -305,11 +305,11 @@
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
-        <translation>Salir del modo a pantalla completa</translation>
+        <translation>Salir de pantalla completa</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Modo a pantalla completa</translation>
+        <translation>Entrar en pantalla completa</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -393,7 +393,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
-        <translation>Guardar el fotograma como...</translation>
+        <translation>Guardar fotograma como...</translation>
     </message>
     <message>
         <source>Res&amp;ume</source>
@@ -409,7 +409,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Iniciar una presentación</translation>
+        <translation>Iniciar la presentación</translation>
     </message>
 </context>
 <context>
@@ -473,7 +473,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Error</translation>
+        <translation>Error</translation>
     </message>
     <message>
         <source>Error checking for updates:
@@ -618,7 +618,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
@@ -969,7 +969,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -1065,7 +1065,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished">Tamaño original</translation>
+        <translation>Tamaño original</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1281,7 +1281,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Show in Finder</source>
-        <translation>Mostrar en Finder</translation>
+        <translation>Mostrar en el Finder</translation>
     </message>
     <message>
         <source>Show File Info</source>
@@ -1397,7 +1397,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Save Frame As</source>
-        <translation>Guardar un fotograma como</translation>
+        <translation>Guardar fotograma como</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -1425,7 +1425,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Configuración</translation>
+        <translation>Configuración</translation>
     </message>
     <message>
         <source>Preferences</source>

@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>Restaurer</translation>
+        <translation>Restaurer depuis la corbeille</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
@@ -149,7 +149,7 @@
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>Diminuer</translation>
+        <translation>Réduire</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Mode plein écran</translation>
+        <translation>Passer en plein écran</translation>
     </message>
     <message>
         <source>&amp;First File</source>
@@ -475,7 +475,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Erreur</translation>
+        <translation>Erreur</translation>
     </message>
     <message>
         <source>Error checking for updates:
@@ -971,7 +971,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">Préférences</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -1067,7 +1067,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished">Taille originale</translation>
+        <translation>Taille originale</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1275,7 +1275,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>Ouvrir dossier contenant</translation>
+        <translation>Ouvrir le dossier contenant</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
@@ -1311,7 +1311,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Move to Trash</source>
-        <translation>Déplacer dans la corbeille</translation>
+        <translation>Envoyer à la corbeille</translation>
     </message>
     <message>
         <source>Delete</source>

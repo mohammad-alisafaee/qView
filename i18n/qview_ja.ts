@@ -70,7 +70,7 @@
     </message>
     <message>
         <source>New Window</source>
-        <translation>新しいウィンドウ</translation>
+        <translation>新しいウインドウ</translation>
     </message>
     <message>
         <source>&amp;Open...</source>
@@ -250,7 +250,7 @@
     <message>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
-        <translation type="unfinished"></translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Preference&amp;s...</source>
@@ -259,7 +259,7 @@
     </message>
     <message>
         <source>Setting&amp;s...</source>
-        <translation type="unfinished"></translation>
+        <translation>設定...</translation>
     </message>
     <message>
         <source>&amp;About</source>
@@ -473,7 +473,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">エラー</translation>
+        <translation>エラー</translation>
     </message>
     <message>
         <source>Error checking for updates:
@@ -618,7 +618,7 @@ No write permission or file is read-only.</source>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
@@ -969,7 +969,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation type="unfinished">環境設定</translation>
+        <translation>環境設定</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -1065,7 +1065,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished">オリジナルのサイズ</translation>
+        <translation>オリジナルのサイズ</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1425,7 +1425,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>Preferences</source>
