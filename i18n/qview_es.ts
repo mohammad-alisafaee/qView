@@ -9,31 +9,31 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Archivo</translation>
+        <translation>Archivo</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>&amp;Ir</translation>
+        <translation>Ir</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Ver</translation>
+        <translation>Ver</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;Herramientas</translation>
+        <translation>Herramientas</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>Ay&amp;uda</translation>
+        <translation>Ayuda</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Abrir &amp;recientes</translation>
+        <translation>Abrir recientes</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Salir</translation>
+        <translation>Salir</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -74,11 +74,11 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp;Abrir...</translation>
+        <translation>Abrir...</translation>
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>Abrir un &amp;URL...</translation>
+        <translation>Abrir un URL...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,29 +95,29 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Abrir la &amp;carpeta contenedora</translation>
+        <translation>Abrir la carpeta contenedora</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>Mostrar en el e&amp;xplorador</translation>
+        <translation>Mostrar en el explorador</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>Mostrar en el &amp;Finder</translation>
+        <translation>Mostrar en el Finder</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>&amp;Información del archivo</translation>
+        <translation>Información del archivo</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>&amp;Mover a la papelera</translation>
+        <translation>Mover a la papelera</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Borrar</translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
@@ -125,35 +125,35 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>&amp;Restaurar de la papelera</translation>
+        <translation>Restaurar de la papelera</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>&amp;Deshacer el borrado</translation>
+        <translation>Deshacer el borrado</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp;Pegar</translation>
+        <translation>Pegar</translation>
     </message>
     <message>
         <source>R&amp;ename...</source>
-        <translation>&amp;Cambiar el nombre...</translation>
+        <translation>Cambiar el nombre...</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Ampliar</translation>
+        <translation>Ampliar</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Reducir</translation>
+        <translation>Reducir</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>&amp;Tamaño original</translation>
+        <translation>Tamaño original</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
@@ -169,19 +169,19 @@
     </message>
     <message>
         <source>Rotate &amp;Right</source>
-        <translation>Girar a la &amp;derecha</translation>
+        <translation>Girar a la derecha</translation>
     </message>
     <message>
         <source>Rotate &amp;Left</source>
-        <translation>Girar a la &amp;izquierda</translation>
+        <translation>Girar a la izquierda</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>Re&amp;flejar</translation>
+        <translation>Reflejar</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>&amp;Voltear</translation>
+        <translation>Voltear</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
@@ -197,23 +197,23 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>&amp;Pantalla completa</translation>
+        <translation>Pantalla completa</translation>
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation>&amp;Primer archivo</translation>
+        <translation>Primer archivo</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
-        <translation>Archivo a&amp;nterior</translation>
+        <translation>Archivo anterior</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>Archivo &amp;siguiente</translation>
+        <translation>Archivo siguiente</translation>
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation>Úl&amp;timo archivo</translation>
+        <translation>Último archivo</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
@@ -221,31 +221,31 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>&amp;Guardar el fotograma como...</translation>
+        <translation>Guardar el fotograma como...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
-        <translation>&amp;Pausar</translation>
+        <translation>Pausar</translation>
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>&amp;Fotograma siguiente</translation>
+        <translation>Fotograma siguiente</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>&amp;Reducir la velocidad</translation>
+        <translation>Reducir la velocidad</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation>Res&amp;tablecer la velocidad</translation>
+        <translation>Restablecer la velocidad</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation>&amp;Aumentar la velocidad</translation>
+        <translation>Aumentar la velocidad</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>&amp;Iniciar la presentación</translation>
+        <translation>Iniciar la presentación</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -255,7 +255,7 @@
     <message>
         <source>Preference&amp;s...</source>
         <extracomment>This is for the options dialog on older mac versions</extracomment>
-        <translation>&amp;Configuración...</translation>
+        <translation>Configuración...</translation>
     </message>
     <message>
         <source>Setting&amp;s...</source>
@@ -263,21 +263,21 @@
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;Acerca de</translation>
+        <translation>Acerca de</translation>
     </message>
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>&amp;Acerca de qView</translation>
+        <translation>Acerca de qView</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
-        <translation>&amp;Bienvenida</translation>
+        <translation>Bienvenida</translation>
     </message>
     <message>
         <source>Clear &amp;Menu</source>
         <extracomment>This is for clearing the recents menu</extracomment>
-        <translation>&amp;Borrar la lista</translation>
+        <translation>Borrar la lista</translation>
     </message>
     <message>
         <source>Other Application...</source>
@@ -305,11 +305,11 @@
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
-        <translation>Salir del &amp;modo a pantalla completa</translation>
+        <translation>Salir del modo a pantalla completa</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>&amp;Modo a pantalla completa</translation>
+        <translation>Modo a pantalla completa</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -397,7 +397,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Res&amp;ume</source>
-        <translation>Contin&amp;uar</translation>
+        <translation>Continuar</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -405,11 +405,11 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>&amp;Detener la presentación</translation>
+        <translation>Detener la presentación</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>&amp;Iniciar una presentación</translation>
+        <translation>Iniciar una presentación</translation>
     </message>
 </context>
 <context>
@@ -622,7 +622,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
-        <translation>&amp;Color del fondo:</translation>
+        <translation>Color del fondo:</translation>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
@@ -712,11 +712,11 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>&amp;Titlebar always dark</source>
-        <translation>Barra de &amp;título siempre obscura</translation>
+        <translation>Barra de título siempre obscura</translation>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
-        <translation>&amp;Salir al cerrar la última ventana</translation>
+        <translation>Salir al cerrar la última ventana</translation>
     </message>
     <message>
         <source>Persist session across app restarts</source>
@@ -756,7 +756,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>
-        <translation>Ampliar &amp;hacia el cursor</translation>
+        <translation>Ampliar hacia el cursor</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
@@ -800,11 +800,11 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>A&amp;scending</source>
-        <translation>A&amp;scendente</translation>
+        <translation>Ascendente</translation>
     </message>
     <message>
         <source>D&amp;escending</source>
-        <translation>D&amp;escendente</translation>
+        <translation>Descendente</translation>
     </message>
     <message>
         <source>Controls the amount of images preloaded</source>
@@ -828,7 +828,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
-        <translation>&amp;Recorrer las carpetas en bucle</translation>
+        <translation>Recorrer las carpetas en bucle</translation>
     </message>
     <message>
         <source>Slideshow direction:</source>
@@ -848,7 +848,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>&amp;Ask before deleting files</source>
-        <translation>&amp;Preguntar antes de borrar archivos</translation>
+        <translation>Preguntar antes de borrar archivos</translation>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
@@ -868,12 +868,12 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Save &amp;recent files</source>
-        <translation>&amp;Guardar los archivos recientes</translation>
+        <translation>Guardar los archivos recientes</translation>
     </message>
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation>&amp;Notificaciones de actualización al inicio</translation>
+        <translation>Notificaciones de actualización al inicio</translation>
     </message>
     <message>
         <source>Action</source>
@@ -1246,7 +1246,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>&amp;Enable update notifications on startup</source>
-        <translation>&amp;Activar las notificaciones de actualización al inicio</translation>
+        <translation>Activar las notificaciones de actualización al inicio</translation>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>

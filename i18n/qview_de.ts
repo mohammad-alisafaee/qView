@@ -9,31 +9,31 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Datei</translation>
+        <translation>Datei</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Bearbeiten</translation>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>&amp;Los</translation>
+        <translation>Los</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Anzeigen</translation>
+        <translation>Anzeigen</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;Werkzeuge</translation>
+        <translation>Werkzeuge</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Hilfe</translation>
+        <translation>Hilfe</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>&amp;Zuletzt geöffnet</translation>
+        <translation>Zuletzt geöffnet</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -45,23 +45,23 @@
     </message>
     <message>
         <source>Remember Session?</source>
-        <translation type="unfinished">Sitzung speichern?</translation>
+        <translation>Sitzung speichern?</translation>
     </message>
     <message>
         <source>Would you like to remember your opened images and re-open them at next launch?</source>
-        <translation type="unfinished">Möchten Sie Ihre geöffneten Bilder speichern und beim nächsten Start wieder öffnen?</translation>
+        <translation>Möchten Sie Ihre geöffneten Bilder speichern und beim nächsten Start wieder öffnen?</translation>
     </message>
     <message>
         <source>&amp;Remember</source>
-        <translation type="unfinished">Speichern</translation>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>&amp;End Session</source>
-        <translation type="unfinished">Sitzung beenden</translation>
+        <translation>Sitzung beenden</translation>
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Beenden</translation>
+        <translation>Beenden</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -74,15 +74,15 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp;Öffnen&#xa0;…</translation>
+        <translation>Öffnen ...</translation>
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>&amp;URL öffnen&#xa0;…</translation>
+        <translation>URL öffnen ...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
-        <translation type="unfinished">Datei neu laden</translation>
+        <translation>Datei neu laden</translation>
     </message>
     <message>
         <source>Close Window</source>
@@ -95,53 +95,53 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Öffne beinhaltenden &amp;Ordner</translation>
+        <translation>Öffne beinhaltenden Ordner</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>Im &amp;Explorer anzeigen</translation>
+        <translation>Im Explorer anzeigen</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>Im &amp;Finder anzeigen</translation>
+        <translation>Im Finder anzeigen</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>Datei-&amp;Informationen anzeigen</translation>
+        <translation>Datei-Informationen anzeigen</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>In den Papierkorb &amp;verschieben</translation>
+        <translation>In den Papierkorb verschieben</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Löschen</translation>
+        <translation>Löschen</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished">Endgültig löschen</translation>
+        <translation>Endgültig löschen</translation>
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>Aus dem Papierkorb &amp;wiederherstellen</translation>
+        <translation>Aus dem Papierkorb wiederherstellen</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>Löschen &amp;rückgängig machen</translation>
+        <translation>Löschen rückgängig machen</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Kopieren</translation>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp;Einfügen</translation>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <source>R&amp;ename...</source>
-        <translation>&amp;Umbenennen&#xa0;…</translation>
+        <translation>Umbenennen ...</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
@@ -153,55 +153,55 @@
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>&amp;Originalgröße</translation>
+        <translation>Originalgröße</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation type="unfinished">Größe an Fenster anpassen</translation>
+        <translation>Größe an Fenster anpassen</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
-        <translation type="unfinished">Fenster ausfüllen</translation>
+        <translation>Fenster ausfüllen</translation>
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
-        <translation type="unfinished">Navigation setzt Zoom zurück</translation>
+        <translation>Navigation setzt Zoom zurück</translation>
     </message>
     <message>
         <source>Rotate &amp;Right</source>
-        <translation>Nach &amp;rechts drehen</translation>
+        <translation>Nach rechts drehen</translation>
     </message>
     <message>
         <source>Rotate &amp;Left</source>
-        <translation>Nach &amp;links drehen</translation>
+        <translation>Nach links drehen</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp;Spiegeln</translation>
+        <translation>Spiegeln</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>&amp;Umdrehen</translation>
+        <translation>Umdrehen</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
-        <translation type="unfinished">&amp;Transformation zurücksetzen</translation>
+        <translation>Transformation zurücksetzen</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
-        <translation type="unfinished">Fenster im Vordergrund</translation>
+        <translation>Fenster im Vordergrund</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished">Titelleiste ausblenden</translation>
+        <translation>Titelleiste ausblenden</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>&amp;Vollbildmodus</translation>
+        <translation>Vollbildmodus</translation>
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation>&amp;Erste Datei</translation>
+        <translation>Erste Datei</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
@@ -217,11 +217,11 @@
     </message>
     <message>
         <source>&amp;Random File</source>
-        <translation type="unfinished">Zufällige Datei</translation>
+        <translation>Zufällige Datei</translation>
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>Frame speichern als&#xa0;…</translation>
+        <translation>Frame speichern als ...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
@@ -229,60 +229,60 @@
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>&amp;Nächstes Frame</translation>
+        <translation>Nächstes Frame</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>Geschwindigkeit &amp;verringern</translation>
+        <translation>Geschwindigkeit verringern</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation>Geschwindigkeit &amp;zurücksetzen</translation>
+        <translation>Geschwindigkeit zurücksetzen</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation>Geschwindigkeit &amp;erhöhen</translation>
+        <translation>Geschwindigkeit erhöhen</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>&amp;Diashow starten</translation>
+        <translation>Diashow starten</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
         <extracomment>This is for the options dialog on windows</extracomment>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Preference&amp;s...</source>
         <extracomment>This is for the options dialog on older mac versions</extracomment>
-        <translation>&amp;Einstellungen&#xa0;…</translation>
+        <translation>Einstellungen ...</translation>
     </message>
     <message>
         <source>Setting&amp;s...</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen ...</translation>
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;Über</translation>
+        <translation>Über</translation>
     </message>
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>&amp;Über qView</translation>
+        <translation>Über qView</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
-        <translation>&amp;Willkommen</translation>
+        <translation>Willkommen</translation>
     </message>
     <message>
         <source>Clear &amp;Menu</source>
         <extracomment>This is for clearing the recents menu</extracomment>
-        <translation>Menü &amp;bereinigen</translation>
+        <translation>Menü bereinigen</translation>
     </message>
     <message>
         <source>Other Application...</source>
         <extracomment>Open with other program for unix non-mac</extracomment>
-        <translation>Andere Anwendung...</translation>
+        <translation>Andere Anwendung ...</translation>
     </message>
     <message>
         <source>Choose another app</source>
@@ -292,7 +292,7 @@
     <message>
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
-        <translation>Andere...</translation>
+        <translation>Andere ...</translation>
     </message>
 </context>
 <context>
@@ -307,19 +307,19 @@
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
-        <translation>Vollbildmodus &amp;verlassen</translation>
+        <translation>Vollbildmodus verlassen</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>&amp;Vollbildmodus aktvieren</translation>
+        <translation>Vollbildmodus aktvieren</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
-        <translation type="unfinished">Titelleiste einblenden</translation>
+        <translation>Titelleiste einblenden</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
-        <translation type="unfinished">Titelleiste ausblenden</translation>
+        <translation>Titelleiste ausblenden</translation>
     </message>
     <message>
         <source>Error</source>
@@ -331,7 +331,7 @@
     </message>
     <message>
         <source>Downloading image...</source>
-        <translation>Bild herunterladen&#xa0;…</translation>
+        <translation>Bild herunterladen ...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -339,7 +339,7 @@
     </message>
     <message>
         <source>Open URL...</source>
-        <translation>URL öffnen&#xa0;…</translation>
+        <translation>URL öffnen ...</translation>
     </message>
     <message>
         <source>Error </source>
@@ -361,7 +361,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
-        <translation type="unfinished">Sind Sie sicher, dass Sie %1 endgültig löschen möchten? Dies kann nicht rückgängig gemacht werden.</translation>
+        <translation>Sind Sie sicher, dass Sie %1 endgültig löschen möchten? Dies kann nicht rückgängig gemacht werden.</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
@@ -395,11 +395,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
-        <translation>Frame speichern als&#xa0;…</translation>
+        <translation>Frame speichern als ...</translation>
     </message>
     <message>
         <source>Res&amp;ume</source>
-        <translation>&amp;Fortsetzen</translation>
+        <translation>Fortsetzen</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -407,11 +407,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>Diashow s&amp;toppen</translation>
+        <translation>Diashow stoppen</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Diashow &amp;starten</translation>
+        <translation>Diashow starten</translation>
     </message>
 </context>
 <context>
@@ -448,11 +448,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished">Nach Aktualisierungen suchen</translation>
+        <translation>Nach Aktualisierungen suchen</translation>
     </message>
     <message>
         <source>Unofficial Fork (jdpurcell)</source>
-        <translation type="unfinished">Offizieller Fork (jdpurcell)</translation>
+        <translation>Inoffizieller Fork (jdpurcell)</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -460,36 +460,36 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Unspecified Version</source>
-        <translation type="unfinished">Unspezifizierte Version</translation>
+        <translation>Unspezifizierte Version</translation>
     </message>
     <message>
         <source>Built with Qt %1 (%2)&lt;br&gt;Licensed under the GNU GPLv3&lt;br&gt;Derivative of official qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Website&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Icon glyph created by Guilhem from the Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell, and qView contributors</source>
-        <translation type="unfinished">Erstellt mit Qt %1 (%2)&lt;br&gt;Lizenziert unter der GNU GPLv3&lt;br&gt;Ableitung der offiziellen qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Website&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Programmsymbol erstellt von Guilhem vom Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell und zu qView Beitragende</translation>
+        <translation>Erstellt mit Qt %1 (%2)&lt;br&gt;Lizenziert unter der GNU GPLv3&lt;br&gt;Ableitung der offiziellen qView: &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://interversehq.com/qview/&quot;&gt;Website&lt;/a&gt;, &lt;a style=&quot;color: #03A9F4; text-decoration:none;&quot; href=&quot;https://github.com/jurplel/qView&quot;&gt;GitHub&lt;/a&gt;&lt;br&gt;Programmsymbol erstellt von Guilhem vom Noun Project&lt;br&gt;Copyright © %3 jurplel, jdpurcell und zu qView Beitragende</translation>
     </message>
 </context>
 <context>
     <name>QVApplication</name>
     <message>
         <source>Open...</source>
-        <translation>Öffnen&#xa0;…</translation>
+        <translation>Öffnen ...</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">Fehler</translation>
+        <translation>Fehler</translation>
     </message>
     <message>
         <source>Error checking for updates:
 %1</source>
-        <translation type="unfinished">Fehler beim Suchen nach Aktualisierungen:
+        <translation>Fehler beim Suchen nach Aktualisierungen:
 %1</translation>
     </message>
     <message>
         <source>No Updates</source>
-        <translation type="unfinished">Keine Aktualisierungen</translation>
+        <translation>Keine Aktualisierungen</translation>
     </message>
     <message>
         <source>You already have the latest version.</source>
-        <translation type="unfinished">Sie haben bereits die neueste Version.</translation>
+        <translation>Sie haben bereits die neueste Version.</translation>
     </message>
     <message>
         <source>Supported Images</source>
@@ -621,15 +621,15 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
-        <translation>Hinter&amp;grundfarbe:</translation>
+        <translation>Hintergrundfarbe:</translation>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
-        <translation type="unfinished">Schachbrettmuster, wenn Bild geladen ist</translation>
+        <translation>Schachbrettmuster, wenn Bild geladen ist</translation>
     </message>
     <message>
         <source>Changes the amount of information displayed in the titlebar</source>
@@ -647,7 +647,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
 %w - Image Width
 %h - Image Height
 %z - Zoom Level</source>
-        <translation type="unfinished">%n - Dateiname
+        <translation>%n - Dateiname
 %i - Bildindex im Ordner
 %c - Anzahl der Bilder im Ordner
 %s - Dateigröße
@@ -661,11 +661,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Window matches image size:</source>
-        <translation type="unfinished">Fenster an Bildgröße anpassen:</translation>
+        <translation>Fenster an Bildgröße anpassen:</translation>
     </message>
     <message>
         <source>After maching image size:</source>
-        <translation type="unfinished">Nach Anpassung der Bildgröße:</translation>
+        <translation>Nach Anpassung der Bildgröße:</translation>
     </message>
     <message>
         <source>Minimum size:</source>
@@ -701,19 +701,19 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
-        <translation type="unfinished">Symbole im „Zuletzt geöffnet“ und „Öffnen mit“ Untermenüs anzeigen</translation>
+        <translation>Symbole im „Zuletzt geöffnet“ und „Öffnen mit“ Untermenüs anzeigen</translation>
     </message>
     <message>
         <source>Show icons in submenus</source>
-        <translation type="unfinished">Symbole in Untermenüs anzeigen</translation>
+        <translation>Symbole in Untermenüs anzeigen</translation>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation type="unfinished">Fenster während der Diashow im Vordergrund halten</translation>
+        <translation>Fenster während der Diashow im Vordergrund halten</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
-        <translation type="unfinished">Fenster wiederverwenden beim Öffnen von Bildern</translation>
+        <translation>Fenster wiederverwenden beim Öffnen von Bildern</translation>
     </message>
     <message>
         <source>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</source>
@@ -721,7 +721,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>&amp;Titlebar always dark</source>
-        <translation>&amp;Titelleiste immer dunkel</translation>
+        <translation>Titelleiste immer dunkel</translation>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
@@ -729,23 +729,23 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Persist session across app restarts</source>
-        <translation type="unfinished">Sitzung über App-Neustarts hinweg beibehalten</translation>
+        <translation>Sitzung über App-Neustarts hinweg beibehalten</translation>
     </message>
     <message>
         <source>Smooth scaling:</source>
-        <translation type="unfinished">Glatte Skalierung:</translation>
+        <translation>Glatte Skalierung:</translation>
     </message>
     <message>
         <source>Use expensive scaling when zooming above the window size (can be laggier with large images)</source>
-        <translation type="unfinished">Aufwendige Skalierung bei Vergrößerung über die Fenstergröße hinaus verwenden (kann bei großen Bildern zu Verzögerungen führen)</translation>
+        <translation>Aufwendige Skalierung bei Vergrößerung über die Fenstergröße hinaus verwenden (kann bei großen Bildern zu Verzögerungen führen)</translation>
     </message>
     <message>
         <source>Expensive scaling above window size</source>
-        <translation type="unfinished">Aufwendige Skalierung über Fenstergröße hinaus</translation>
+        <translation>Aufwendige Skalierung über Fenstergröße hinaus</translation>
     </message>
     <message>
         <source>Disable above:</source>
-        <translation type="unfinished">Deaktivieren ab:</translation>
+        <translation>Deaktivieren ab:</translation>
     </message>
     <message>
         <source>%</source>
@@ -761,43 +761,43 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation>Legt fest, ob beim Zoomen über 100&#xa0;% in Richtung Mauszeiger gezoomt wird</translation>
+        <translation>Legt fest, ob beim Zoomen über 100 % in Richtung Mauszeiger gezoomt wird</translation>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>
-        <translation>In &amp;Richtung Mauszeiger zoomen</translation>
+        <translation>In Richtung Mauszeiger zoomen</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
-        <translation type="unfinished">Zoomstufe bezieht sich auf Bildschirmpixel</translation>
+        <translation>Zoomstufe bezieht sich auf Bildschirmpixel</translation>
     </message>
     <message>
         <source>Zoom default:</source>
-        <translation type="unfinished">Standardzoom:</translation>
+        <translation>Standardzoom:</translation>
     </message>
     <message>
         <source>Limit fit/fill zoom:</source>
-        <translation type="unfinished">Zoomgrenze für Anpassung/Ausfüllung:</translation>
+        <translation>Zoomgrenze für Anpassung/Ausfüllung:</translation>
     </message>
     <message>
         <source> pixel overscan</source>
-        <translation type="unfinished"> Pixel Overscan</translation>
+        <translation> Pixel Overscan</translation>
     </message>
     <message>
         <source>&amp;Constrain image position</source>
-        <translation type="unfinished">Bildposition beschränken</translation>
+        <translation>Bildposition beschränken</translation>
     </message>
     <message>
         <source>Keep ce&amp;ntered if smaller</source>
-        <translation type="unfinished">Zentriert halten, wenn kleiner</translation>
+        <translation>Zentriert halten, wenn kleiner</translation>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation type="unfinished">Originalgröße als Umschaltfunktion</translation>
+        <translation>Originalgröße als Umschaltfunktion</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
-        <translation type="unfinished">Farbraumkonvertierung:</translation>
+        <translation>Farbraumkonvertierung:</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -809,11 +809,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>A&amp;scending</source>
-        <translation>A&amp;ufsteigend</translation>
+        <translation>Aufsteigend</translation>
     </message>
     <message>
         <source>D&amp;escending</source>
-        <translation>A&amp;bsteigend</translation>
+        <translation>Absteigend</translation>
     </message>
     <message>
         <source>Controls the amount of images preloaded</source>
@@ -837,7 +837,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
-        <translation>Durch Ordner &amp;rotieren</translation>
+        <translation>Durch Ordner rotieren</translation>
     </message>
     <message>
         <source>Slideshow direction:</source>
@@ -861,19 +861,19 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
-        <translation type="unfinished">Unterstützte Dateien im Ordner erkennen, auch wenn die Erweiterung nicht erkannt wird (kann bei größeren/Netzwerkordnern langsam sein)</translation>
+        <translation>Unterstützte Dateien im Ordner erkennen, auch wenn die Erweiterung nicht erkannt wird (kann bei größeren/Netzwerkordnern langsam sein)</translation>
     </message>
     <message>
         <source>Allow &amp;MIME content detection</source>
-        <translation type="unfinished">MIME-Inhaltserkennung zulassen</translation>
+        <translation>MIME-Inhaltserkennung zulassen</translation>
     </message>
     <message>
         <source>May be slow with network folders</source>
-        <translation type="unfinished">Kann bei Netzwerkordnern langsam sein</translation>
+        <translation>Kann bei Netzwerkordnern langsam sein</translation>
     </message>
     <message>
         <source>Skip hidden files</source>
-        <translation type="unfinished">Versteckte Dateien überspringen</translation>
+        <translation>Versteckte Dateien überspringen</translation>
     </message>
     <message>
         <source>Save &amp;recent files</source>
@@ -894,67 +894,67 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Left Button</source>
-        <translation type="unfinished">Linke Taste</translation>
+        <translation>Linke Taste</translation>
     </message>
     <message>
         <source>Double Click:</source>
-        <translation type="unfinished">Doppelklick:</translation>
+        <translation>Doppelklick:</translation>
     </message>
     <message>
         <source>Drag:</source>
-        <translation type="unfinished">Ziehen:</translation>
+        <translation>Ziehen:</translation>
     </message>
     <message>
         <source>Navigate when clicking on the left/right edges of the viewport</source>
-        <translation type="unfinished">Navigieren beim Klicken auf die linken/rechten Ränder des Viewports</translation>
+        <translation>Navigieren beim Klicken auf die linken/rechten Ränder des Viewports</translation>
     </message>
     <message>
         <source>Side navigation regions</source>
-        <translation type="unfinished">Seitliche Navigationsbereiche</translation>
+        <translation>Seitliche Navigationsbereiche</translation>
     </message>
     <message>
         <source>Middle Button</source>
-        <translation type="unfinished">Mittlere Taste</translation>
+        <translation>Mittlere Taste</translation>
     </message>
     <message>
         <source>Mode:</source>
-        <translation type="unfinished">Modus:</translation>
+        <translation>Modus:</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished">Klicken</translation>
+        <translation>Klicken</translation>
     </message>
     <message>
         <source>Drag</source>
-        <translation type="unfinished">Ziehen</translation>
+        <translation>Ziehen</translation>
     </message>
     <message>
         <source>Middle Click:</source>
-        <translation type="unfinished">Mittelklick:</translation>
+        <translation>Mittelklick:</translation>
     </message>
     <message>
         <source>Middle Drag:</source>
-        <translation type="unfinished">Mittel-Ziehen:</translation>
+        <translation>Mittel-Ziehen:</translation>
     </message>
     <message>
         <source>Scroll Wheel / Touchpad</source>
-        <translation type="unfinished">Scrollrad / Touchpad</translation>
+        <translation>Scrollrad / Touchpad</translation>
     </message>
     <message>
         <source>Vertical Scroll:</source>
-        <translation type="unfinished">Vertikales Scrollen:</translation>
+        <translation>Vertikales Scrollen:</translation>
     </message>
     <message>
         <source>Horizontal Scroll:</source>
-        <translation type="unfinished">Horizontales Scrollen:</translation>
+        <translation>Horizontales Scrollen:</translation>
     </message>
     <message>
         <source>Useful for touchpads, to prevent a single swipe from triggering multiple navigations, for example</source>
-        <translation type="unfinished">Nützlich für Touchpads, um zu verhindern, dass ein einzelner Wischvorgang mehrere Navigationen auslöst, zum Beispiel</translation>
+        <translation>Nützlich für Touchpads, um zu verhindern, dass ein einzelner Wischvorgang mehrere Navigationen auslöst, zum Beispiel</translation>
     </message>
     <message>
         <source>Cooldown for discrete actions</source>
-        <translation type="unfinished">Abklingzeit für einzelne Aktionen</translation>
+        <translation>Abklingzeit für einzelne Aktionen</translation>
     </message>
     <message>
         <source>Cursor</source>
@@ -962,11 +962,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Auto-hide in fullscreen:</source>
-        <translation type="unfinished">Auto-ausblenden im Vollbildmodus:</translation>
+        <translation>Auto-ausblenden im Vollbildmodus:</translation>
     </message>
     <message>
         <source> sec delay</source>
-        <translation type="unfinished"> Sek. Verzögerung</translation>
+        <translation> Sek. Verzögerung</translation>
     </message>
     <message>
         <source>Extension</source>
@@ -982,27 +982,27 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
-        <translation type="unfinished">%1 + Doppelklick:</translation>
+        <translation>%1 + Doppelklick:</translation>
     </message>
     <message>
         <source>%1 + Drag:</source>
-        <translation type="unfinished">%1 + Ziehen:</translation>
+        <translation>%1 + Ziehen:</translation>
     </message>
     <message>
         <source>%1 + Middle Click:</source>
-        <translation type="unfinished">%1 + Mittelklick:</translation>
+        <translation>%1 + Mittelklick:</translation>
     </message>
     <message>
         <source>%1 + Middle Drag:</source>
-        <translation type="unfinished">%1 + Mittel-Ziehen:</translation>
+        <translation>%1 + Mittel-Ziehen:</translation>
     </message>
     <message>
         <source>%1 + Vertical Scroll:</source>
-        <translation type="unfinished">%1 + Vertikales Scrollen:</translation>
+        <translation>%1 + Vertikales Scrollen:</translation>
     </message>
     <message>
         <source>%1 + Horizontal Scroll:</source>
-        <translation type="unfinished">%1 + Horizontales Scrollen:</translation>
+        <translation>%1 + Horizontales Scrollen:</translation>
     </message>
     <message>
         <source>Restart Required</source>
@@ -1026,7 +1026,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished">Maus</translation>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Formats</source>
@@ -1054,27 +1054,27 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Avoid repositioning</source>
-        <translation type="unfinished">Neupositionierung vermeiden</translation>
+        <translation>Neupositionierung vermeiden</translation>
     </message>
     <message>
         <source>Center relative to previous image</source>
-        <translation type="unfinished">Relativ zum vorherigen Bild zentrieren</translation>
+        <translation>Relativ zum vorherigen Bild zentrieren</translation>
     </message>
     <message>
         <source>Center relative to screen</source>
-        <translation type="unfinished">Relativ zum Bildschirm zentrieren</translation>
+        <translation>Relativ zum Bildschirm zentrieren</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished">Größe an Fenster anpassen</translation>
+        <translation>Größe an Fenster anpassen</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished">Fenster ausfüllen</translation>
+        <translation>Fenster ausfüllen</translation>
     </message>
     <message>
         <source>Original Size</source>
-        <translation type="unfinished">Originalgröße</translation>
+        <translation>Originalgröße</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1082,15 +1082,15 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Auto-detect</source>
-        <translation type="unfinished">Automatisch erkennen</translation>
+        <translation>Automatisch erkennen</translation>
     </message>
     <message>
         <source>sRGB</source>
-        <translation type="unfinished">sRGB</translation>
+        <translation>sRGB</translation>
     </message>
     <message>
         <source>Display P3</source>
-        <translation type="unfinished">Display P3</translation>
+        <translation>Display P3</translation>
     </message>
     <message>
         <source>Adjacent</source>
@@ -1118,7 +1118,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Expensive</source>
-        <translation type="unfinished">Aufwendig</translation>
+        <translation>Aufwendig</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1126,11 +1126,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Date Modified</source>
-        <translation type="unfinished">Änderungsdatum</translation>
+        <translation>Änderungsdatum</translation>
     </message>
     <message>
         <source>Date Created</source>
-        <translation type="unfinished">Erstellungsdatum</translation>
+        <translation>Erstellungsdatum</translation>
     </message>
     <message>
         <source>Size</source>
@@ -1174,42 +1174,42 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished">Keine</translation>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Center Image</source>
-        <translation type="unfinished">Bild zentrieren</translation>
+        <translation>Bild zentrieren</translation>
     </message>
     <message>
         <source>Toggle Full Screen</source>
-        <translation type="unfinished">Vollbildmodus umschalten</translation>
+        <translation>Vollbildmodus umschalten</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished">Titelleiste ausgeblendet umschalten</translation>
+        <translation>Titelleiste ausgeblendet umschalten</translation>
     </message>
     <message>
         <source>Pan</source>
-        <translation type="unfinished">Schwenken</translation>
+        <translation>Schwenken</translation>
     </message>
     <message>
         <source>Move Window</source>
-        <translation type="unfinished">Fenster verschieben</translation>
+        <translation>Fenster verschieben</translation>
     </message>
     <message>
         <source>Zoom</source>
-        <translation type="unfinished">Zoomen</translation>
+        <translation>Zoomen</translation>
     </message>
     <message>
         <source>Navigate</source>
-        <translation type="unfinished">Navigieren</translation>
+        <translation>Navigieren</translation>
     </message>
 </context>
 <context>
     <name>QVRenameDialog</name>
     <message>
         <source>Rename...</source>
-        <translation>Umbenennen...</translation>
+        <translation>Umbenennen ...</translation>
     </message>
     <message>
         <source>File name:</source>
@@ -1255,7 +1255,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>&amp;Enable update notifications on startup</source>
-        <translation>Benachrichtigungen über verfügbare Aktualisierungen beim Programmstart &amp;zulassen</translation>
+        <translation>Benachrichtigungen über verfügbare Aktualisierungen beim Programmstart zulassen</translation>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>
@@ -1278,7 +1278,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Reload File</source>
-        <translation type="unfinished">Datei neu laden</translation>
+        <translation>Datei neu laden</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
@@ -1326,7 +1326,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
-        <translation type="unfinished">Endgültig löschen</translation>
+        <translation>Endgültig löschen</translation>
     </message>
     <message>
         <source>First File</source>
@@ -1346,7 +1346,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Random File</source>
-        <translation type="unfinished">Zufällige Datei</translation>
+        <translation>Zufällige Datei</translation>
     </message>
     <message>
         <source>Zoom In</source>
@@ -1362,15 +1362,15 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation type="unfinished">Größe an Fenster anpassen</translation>
+        <translation>Größe an Fenster anpassen</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation type="unfinished">Fenster ausfüllen</translation>
+        <translation>Fenster ausfüllen</translation>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>
-        <translation type="unfinished">Navigation setzt Zoom zurück</translation>
+        <translation>Navigation setzt Zoom zurück</translation>
     </message>
     <message>
         <source>Rotate Right</source>
@@ -1390,15 +1390,15 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Reset Transformation</source>
-        <translation type="unfinished">Transformation zurücksetzen</translation>
+        <translation>Transformation zurücksetzen</translation>
     </message>
     <message>
         <source>Window On Top</source>
-        <translation type="unfinished">Fenster im Vordergrund</translation>
+        <translation>Fenster im Vordergrund</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
-        <translation type="unfinished">Titelleiste ausgeblendet umschalten</translation>
+        <translation>Titelleiste ausgeblendet umschalten</translation>
     </message>
     <message>
         <source>Full Screen</source>
@@ -1434,7 +1434,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Einstellungen</translation>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Preferences</source>
@@ -1465,11 +1465,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <name>UpdateChecker</name>
     <message>
         <source>This build is not configured for update checking.</source>
-        <translation type="unfinished">Dieser Build ist nicht für die Aktualisierungsprüfung konfiguriert.</translation>
+        <translation>Dieser Build ist nicht für die Aktualisierungsprüfung konfiguriert.</translation>
     </message>
     <message>
         <source>Received null JSON.</source>
-        <translation type="unfinished">Null JSON empfangen.</translation>
+        <translation>Null JSON empfangen.</translation>
     </message>
     <message>
         <source>qView Update Available</source>
@@ -1477,11 +1477,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>A newer version is available to download.</source>
-        <translation type="unfinished">Eine neuere Version steht zum Download bereit.</translation>
+        <translation>Eine neuere Version steht zum Download bereit.</translation>
     </message>
     <message>
         <source>Skip Version</source>
-        <translation type="unfinished">Version überspringen</translation>
+        <translation>Version überspringen</translation>
     </message>
     <message>
         <source>Download</source>
@@ -1489,7 +1489,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>&amp;Disable Checking</source>
-        <translation type="unfinished">Prüfung deaktivieren</translation>
+        <translation>Prüfung deaktivieren</translation>
     </message>
     <message>
         <source>qView Update Checking Disabled</source>

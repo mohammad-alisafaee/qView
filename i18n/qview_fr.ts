@@ -9,31 +9,31 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Fichier</translation>
+        <translation>Fichier</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Modifier</translation>
+        <translation>Modifier</translation>
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>&amp;Aller</translation>
+        <translation>Aller</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Visualiser</translation>
+        <translation>Visualiser</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;Outils</translation>
+        <translation>Outils</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Aide</translation>
+        <translation>Aide</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Ouvrir les &amp;récents</translation>
+        <translation>Ouvrir les récents</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>&amp;Quitter</translation>
+        <translation>Quitter</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -74,11 +74,11 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp;Ouvrir…</translation>
+        <translation>Ouvrir...</translation>
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>Ouvrir l&apos;&amp;URL…</translation>
+        <translation>Ouvrir l&apos;URL...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,29 +95,29 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Ouvrir le &amp;dossier contenant</translation>
+        <translation>Ouvrir le dossier contenant</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>Afficher dans l&apos;E&amp;xplorateur</translation>
+        <translation>Afficher dans l&apos;Explorateur</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>Afficher dans &amp;Finder</translation>
+        <translation>Afficher dans Finder</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>Afficher les &amp;infos du fichier</translation>
+        <translation>Afficher les infos du fichier</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>&amp;Envoyer à la corbeille</translation>
+        <translation>Envoyer à la corbeille</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Supprimer</translation>
+        <translation>Supprimer</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
@@ -125,35 +125,35 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>&amp;Restaurer</translation>
+        <translation>Restaurer</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>&amp;Annuler la suppression</translation>
+        <translation>Annuler la suppression</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp;Coller</translation>
+        <translation>Coller</translation>
     </message>
     <message>
         <source>R&amp;ename...</source>
-        <translation>R&amp;enommer…</translation>
+        <translation>Renommer...</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Agrandir</translation>
+        <translation>Agrandir</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>&amp;Diminuer</translation>
+        <translation>Diminuer</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>Taille ori&amp;ginale</translation>
+        <translation>Taille originale</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
@@ -169,19 +169,19 @@
     </message>
     <message>
         <source>Rotate &amp;Right</source>
-        <translation>Tourner à &amp;droite</translation>
+        <translation>Tourner à droite</translation>
     </message>
     <message>
         <source>Rotate &amp;Left</source>
-        <translation>Tourner à &amp;gauche</translation>
+        <translation>Tourner à gauche</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>&amp;Miroir</translation>
+        <translation>Miroir</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>&amp;Retourner</translation>
+        <translation>Retourner</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
@@ -197,23 +197,23 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Mode &amp;plein écran</translation>
+        <translation>Mode plein écran</translation>
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation>&amp;Premier fichier</translation>
+        <translation>Premier fichier</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
-        <translation>Fi&amp;chier précédent</translation>
+        <translation>Fichier précédent</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>&amp;Fichier suivant</translation>
+        <translation>Fichier suivant</translation>
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation>Der&amp;nier fichier</translation>
+        <translation>Dernier fichier</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
@@ -221,31 +221,31 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>Enregistrer l&apos;écran &amp;sous…</translation>
+        <translation>Enregistrer l&apos;écran sous...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
-        <translation>Pa&amp;use</translation>
+        <translation>Pause</translation>
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>&amp;Écran suivant</translation>
+        <translation>Écran suivant</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>&amp;Réduire la vitesse</translation>
+        <translation>Réduire la vitesse</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation>&amp;Réinitialiser la vitesse</translation>
+        <translation>Réinitialiser la vitesse</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation>&amp;Augmenter la vitesse</translation>
+        <translation>Augmenter la vitesse</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Démarrer le &amp;diaporama</translation>
+        <translation>Démarrer le diaporama</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -255,7 +255,7 @@
     <message>
         <source>Preference&amp;s...</source>
         <extracomment>This is for the options dialog on older mac versions</extracomment>
-        <translation>Préférence&amp;s…</translation>
+        <translation>Préférences...</translation>
     </message>
     <message>
         <source>Setting&amp;s...</source>
@@ -263,16 +263,16 @@
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>&amp;À propos</translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>&amp;À propos de qView</translation>
+        <translation>À propos de qView</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
-        <translation>&amp;Bienvenue</translation>
+        <translation>Bienvenue</translation>
     </message>
     <message>
         <source>Clear &amp;Menu</source>
@@ -282,7 +282,7 @@
     <message>
         <source>Other Application...</source>
         <extracomment>Open with other program for unix non-mac</extracomment>
-        <translation>Autres applications</translation>
+        <translation>Autres applications...</translation>
     </message>
     <message>
         <source>Choose another app</source>
@@ -325,11 +325,11 @@
     </message>
     <message>
         <source>Error: URL is invalid</source>
-        <translation>Erreur&#xa0;: l&apos;URL est invalide</translation>
+        <translation>Erreur : l&apos;URL est invalide</translation>
     </message>
     <message>
         <source>Downloading image...</source>
-        <translation>Téléchargement de l&apos;image…</translation>
+        <translation>Téléchargement de l&apos;image...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -337,7 +337,7 @@
     </message>
     <message>
         <source>Open URL...</source>
-        <translation>Ouvrir l&apos;URL…</translation>
+        <translation>Ouvrir l&apos;URL...</translation>
     </message>
     <message>
         <source>Error </source>
@@ -345,11 +345,11 @@
     </message>
     <message>
         <source>Error: Invalid image</source>
-        <translation>Erreur&#xa0;: image invalide</translation>
+        <translation>Erreur : image invalide</translation>
     </message>
     <message>
         <source>URL of a supported image file:</source>
-        <translation>URL d’un fichier image pris en charge&#xa0;:</translation>
+        <translation>URL d’un fichier image pris en charge :</translation>
     </message>
     <message>
         <source>Can&apos;t delete %1:
@@ -392,11 +392,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save Frame As...</source>
-        <translation>Enregistrer l&apos;écran sous…</translation>
+        <translation>Enregistrer l&apos;écran sous...</translation>
     </message>
     <message>
         <source>Res&amp;ume</source>
-        <translation>Rep&amp;rendre</translation>
+        <translation>Reprendre</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -404,7 +404,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>Arrêter le d&amp;iaporama</translation>
+        <translation>Arrêter le diaporama</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
@@ -468,7 +468,7 @@ No write permission or file is read-only.</source>
     <name>QVApplication</name>
     <message>
         <source>Open...</source>
-        <translation>Ouvrir…</translation>
+        <translation>Ouvrir...</translation>
     </message>
     <message>
         <source>Error</source>
@@ -511,7 +511,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Name:</source>
-        <translation>Nom&#xa0;:</translation>
+        <translation>Nom :</translation>
     </message>
     <message>
         <source>error</source>
@@ -519,31 +519,31 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Type:</source>
-        <translation>Type&#xa0;:</translation>
+        <translation>Type :</translation>
     </message>
     <message>
         <source>Location:</source>
-        <translation>Emplacement&#xa0;:</translation>
+        <translation>Emplacement :</translation>
     </message>
     <message>
         <source>Size:</source>
-        <translation>Taille&#xa0;:</translation>
+        <translation>Taille :</translation>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>Modifié&#xa0;:</translation>
+        <translation>Modifié :</translation>
     </message>
     <message>
         <source>Dimensions:</source>
-        <translation>Dimensions&#xa0;:</translation>
+        <translation>Dimensions :</translation>
     </message>
     <message>
         <source>Aspect Ratio:</source>
-        <translation>Rapport d’aspect&#xa0;:</translation>
+        <translation>Rapport d’aspect :</translation>
     </message>
     <message>
         <source>Frames:</source>
-        <translation>Écrans&#xa0;:</translation>
+        <translation>Écrans :</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -551,11 +551,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>%1 (%2 bytes)</source>
-        <translation>%1 (%2&#xa0;octets)</translation>
+        <translation>%1 (%2 octets)</translation>
     </message>
     <message>
         <source>%1 x %2 (%3 MP)</source>
-        <translation>%1&#xa0;×&#xa0;%2 (%3 MP)</translation>
+        <translation>%1 × %2 (%3 MP)</translation>
     </message>
 </context>
 <context>
@@ -621,7 +621,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
-        <translation>Couleur&amp; d’arrière-plan&#xa0;:</translation>
+        <translation>Couleur d’arrière-plan :</translation>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
@@ -633,7 +633,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Titlebar text:</source>
-        <translation>Texte de la barre de titre&#xa0;:</translation>
+        <translation>Texte de la barre de titre :</translation>
     </message>
     <message>
         <source>%n - Filename
@@ -651,7 +651,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Window matches image size:</source>
-        <translation>La fenêtre s&apos;ajuste à la taille de l&apos;image&#xa0;:</translation>
+        <translation>La fenêtre s&apos;ajuste à la taille de l&apos;image :</translation>
     </message>
     <message>
         <source>After maching image size:</source>
@@ -659,7 +659,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Minimum size:</source>
-        <translation>Taille minimale&#xa0;:</translation>
+        <translation>Taille minimale :</translation>
     </message>
     <message>
         <source>Control the minimum size that the window should reach when matching the image&apos;s actual size</source>
@@ -675,7 +675,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Maximum size:</source>
-        <translation>Taille maximale&#xa0;:</translation>
+        <translation>Taille maximale :</translation>
     </message>
     <message>
         <source>Show menubar</source>
@@ -711,7 +711,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Titlebar always dark</source>
-        <translation>&amp;Barre de titre toujours sombre</translation>
+        <translation>Barre de titre toujours sombre</translation>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
@@ -747,15 +747,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom amount:</source>
-        <translation>Facteur de zoom&#xa0;:</translation>
+        <translation>Facteur de zoom :</translation>
     </message>
     <message>
         <source>Choose whether or not zooming in and out above 100% zoom will zoom towards the cursor</source>
-        <translation>Choisissez si le zoom avant et arrière au-dessus du zoom de 100&#xa0;% fera ou non un zoom vers le curseur</translation>
+        <translation>Choisissez si le zoom avant et arrière au-dessus du zoom de 100 % fera ou non un zoom vers le curseur</translation>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>
-        <translation>Zoom &amp;vers le curseur</translation>
+        <translation>Zoom vers le curseur</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
@@ -791,11 +791,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Language:</source>
-        <translation>Langue&#xa0;:</translation>
+        <translation>Langue :</translation>
     </message>
     <message>
         <source>Sort files by:</source>
-        <translation>Trier les fichiers par&#xa0;:</translation>
+        <translation>Trier les fichiers par :</translation>
     </message>
     <message>
         <source>A&amp;scending</source>
@@ -811,7 +811,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preloading:</source>
-        <translation>Préchargement&#xa0;:</translation>
+        <translation>Préchargement :</translation>
     </message>
     <message>
         <source>Navigation speed:</source>
@@ -827,15 +827,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
-        <translation>&amp;Parcourir les dossiers en boucle</translation>
+        <translation>Parcourir les dossiers en boucle</translation>
     </message>
     <message>
         <source>Slideshow direction:</source>
-        <translation>Direction du diaporama&#xa0;:</translation>
+        <translation>Direction du diaporama :</translation>
     </message>
     <message>
         <source>Slideshow timer:</source>
-        <translation>Minuterie du diaporama&#xa0;:</translation>
+        <translation>Minuterie du diaporama :</translation>
     </message>
     <message>
         <source> sec</source>
@@ -867,12 +867,12 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save &amp;recent files</source>
-        <translation>Enregistrer les &amp;fichiers récents</translation>
+        <translation>Enregistrer les fichiers récents</translation>
     </message>
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation>&amp;Mettre à jour les notifications au démarrage</translation>
+        <translation>Mettre à jour les notifications au démarrage</translation>
     </message>
     <message>
         <source>Action</source>
@@ -1199,11 +1199,11 @@ No write permission or file is read-only.</source>
     <name>QVRenameDialog</name>
     <message>
         <source>Rename...</source>
-        <translation type="unfinished">Renommer…</translation>
+        <translation type="unfinished">Renommer...</translation>
     </message>
     <message>
         <source>File name:</source>
-        <translation type="unfinished">Nom du fichier&#xa0;:</translation>
+        <translation type="unfinished">Nom du fichier :</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1232,7 +1232,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&quot;%1&quot; is already bound to &quot;%2&quot;</source>
-        <translation>«&#xa0;%1&#xa0;» est déjà lié à «&#xa0;%2&#xa0;»</translation>
+        <translation>« %1 » est déjà lié à « %2 »</translation>
     </message>
 </context>
 <context>
@@ -1243,11 +1243,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Enable update notifications on startup</source>
-        <translation>&amp;Activer les notifications de mise à jour au démarrage</translation>
+        <translation>Activer les notifications de mise à jour au démarrage</translation>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>
-        <translation>Merci d&apos;avoir téléchargé qView.&lt;br&gt;Voici quelques conseils pour vous aider à démarrer&#xa0;:</translation>
+        <translation>Merci d&apos;avoir téléchargé qView.&lt;br&gt;Voici quelques conseils pour vous aider à démarrer :</translation>
     </message>
     <message>
         <source>&lt;ul&gt;&lt;li&gt;Right click to access the main menu&lt;/li&gt;&lt;li&gt;Drag the image to reposition it&lt;/li&gt;&lt;li&gt;Scroll to zoom in and out&lt;/li&gt;&lt;li&gt;Use arrow keys to switch files&lt;/li&gt;&lt;/ul&gt;</source>

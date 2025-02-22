@@ -9,31 +9,31 @@
     </message>
     <message>
         <source>&amp;File</source>
-        <translation>&amp;Файл</translation>
+        <translation>Файл</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>&amp;Правка</translation>
+        <translation>Правка</translation>
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>П&amp;ереход</translation>
+        <translation>Переход</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>&amp;Вид</translation>
+        <translation>Вид</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>&amp;Инструменты</translation>
+        <translation>Инструменты</translation>
     </message>
     <message>
         <source>&amp;Help</source>
-        <translation>&amp;Справка</translation>
+        <translation>Справка</translation>
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Открыть &amp;последние</translation>
+        <translation>Открыть последние</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -61,7 +61,7 @@
     </message>
     <message>
         <source>&amp;Quit</source>
-        <translation>В&amp;ыход</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>Exit</source>
@@ -74,11 +74,11 @@
     </message>
     <message>
         <source>&amp;Open...</source>
-        <translation>&amp;Открыть...</translation>
+        <translation>Открыть...</translation>
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>Открыть &amp;URL...</translation>
+        <translation>Открыть URL...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,29 +95,29 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Открыть &amp;папку расположения файла</translation>
+        <translation>Открыть папку расположения файла</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>Показать в E&amp;xplorer</translation>
+        <translation>Показать в Explorer</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>Показать в &amp;Finder</translation>
+        <translation>Показать в Finder</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>&amp;Информация о файле</translation>
+        <translation>Информация о файле</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>&amp;Переместить в корзину</translation>
+        <translation>Переместить в корзину</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Удалить</translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <source>Delete Permanently</source>
@@ -125,35 +125,35 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>&amp;Восстановить из корзины</translation>
+        <translation>Восстановить из корзины</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>&amp;Восстановить</translation>
+        <translation>Восстановить</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>&amp;Копировать</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
-        <translation>&amp;Вставить</translation>
+        <translation>Вставить</translation>
     </message>
     <message>
         <source>R&amp;ename...</source>
-        <translation>Пе&amp;реименовать...</translation>
+        <translation>Переименовать...</translation>
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>&amp;Увеличить</translation>
+        <translation>Увеличить</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>У&amp;меньшить</translation>
+        <translation>Уменьшить</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>&amp;Оригинальный размер</translation>
+        <translation>Оригинальный размер</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
@@ -169,19 +169,19 @@
     </message>
     <message>
         <source>Rotate &amp;Right</source>
-        <translation>Повернуть &amp;вправо</translation>
+        <translation>Повернуть вправо</translation>
     </message>
     <message>
         <source>Rotate &amp;Left</source>
-        <translation>Повернуть в&amp;лево</translation>
+        <translation>Повернуть влево</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>Отразить гори&amp;зонтально</translation>
+        <translation>Отразить горизонтально</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>Отразить вер&amp;тикально</translation>
+        <translation>Отразить вертикально</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
@@ -197,23 +197,23 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>Полный &amp;экран</translation>
+        <translation>Полный экран</translation>
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation>&amp;Первый файл</translation>
+        <translation>Первый файл</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
-        <translation>Предыдущий ф&amp;айл</translation>
+        <translation>Предыдущий файл</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>&amp;Следующий файл</translation>
+        <translation>Следующий файл</translation>
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation>Пос&amp;ледний файл</translation>
+        <translation>Последний файл</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
@@ -221,31 +221,31 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>Сохранить кадр &amp;как...</translation>
+        <translation>Сохранить кадр как...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
-        <translation>&amp;Пауза</translation>
+        <translation>Пауза</translation>
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>&amp;Следующий кадр</translation>
+        <translation>Следующий кадр</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>&amp;Уменьшить скорость</translation>
+        <translation>Уменьшить скорость</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation>В&amp;осстановить скорость</translation>
+        <translation>Восстановить скорость</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation>Ув&amp;еличить скорость</translation>
+        <translation>Увеличить скорость</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>&amp;Запустить слайд-шоу</translation>
+        <translation>Запустить слайд-шоу</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -255,7 +255,7 @@
     <message>
         <source>Preference&amp;s...</source>
         <extracomment>This is for the options dialog on older mac versions</extracomment>
-        <translation>Настр&amp;ойки...</translation>
+        <translation>Настройки...</translation>
     </message>
     <message>
         <source>Setting&amp;s...</source>
@@ -263,21 +263,21 @@
     </message>
     <message>
         <source>&amp;About</source>
-        <translation>О &amp;программе</translation>
+        <translation>О программе</translation>
     </message>
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>О &amp;qView</translation>
+        <translation>О qView</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
-        <translation>&amp;Добро пожаловать</translation>
+        <translation>Добро пожаловать</translation>
     </message>
     <message>
         <source>Clear &amp;Menu</source>
         <extracomment>This is for clearing the recents menu</extracomment>
-        <translation>Очистить &amp;меню</translation>
+        <translation>Очистить меню</translation>
     </message>
     <message>
         <source>Other Application...</source>
@@ -305,11 +305,11 @@
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
-        <translation>Выйти &amp;из полноэкранного режима</translation>
+        <translation>Выйти из полноэкранного режима</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>П&amp;олноэкранный режим</translation>
+        <translation>Полноэкранный режим</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -397,7 +397,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Res&amp;ume</source>
-        <translation>&amp;Продолжить</translation>
+        <translation>Продолжить</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -405,11 +405,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>&amp;Остановить слайдшоу</translation>
+        <translation>Остановить слайдшоу</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Запустить &amp;слайд-шоу</translation>
+        <translation>Запустить слайд-шоу</translation>
     </message>
 </context>
 <context>
@@ -622,7 +622,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
-        <translation>&amp;Цвет фона:</translation>
+        <translation>Цвет фона:</translation>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
@@ -712,11 +712,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Titlebar always dark</source>
-        <translation>&amp;Заголовок всегда темный</translation>
+        <translation>Заголовок всегда темный</translation>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
-        <translation>&amp;Выход при закрытии последнего окна</translation>
+        <translation>Выход при закрытии последнего окна</translation>
     </message>
     <message>
         <source>Persist session across app restarts</source>
@@ -756,7 +756,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom &amp;towards cursor</source>
-        <translation>Масштабирование в &amp;направлении курсора</translation>
+        <translation>Масштабирование в направлении курсора</translation>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
@@ -800,11 +800,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>A&amp;scending</source>
-        <translation>По &amp;возрастанию</translation>
+        <translation>По возрастанию</translation>
     </message>
     <message>
         <source>D&amp;escending</source>
-        <translation>По &amp;убыванию</translation>
+        <translation>По убыванию</translation>
     </message>
     <message>
         <source>Controls the amount of images preloaded</source>
@@ -828,7 +828,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
-        <translation>Переходить по &amp;кругу</translation>
+        <translation>Переходить по кругу</translation>
     </message>
     <message>
         <source>Slideshow direction:</source>
@@ -848,7 +848,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Ask before deleting files</source>
-        <translation>&amp;Спрашивать перед удалением файлов</translation>
+        <translation>Спрашивать перед удалением файлов</translation>
     </message>
     <message>
         <source>Detect supported files in folder even if extension isn&apos;t recognized (may be slow with larger/network folders)</source>
@@ -868,12 +868,12 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save &amp;recent files</source>
-        <translation>Сохранение &amp;последних файлов</translation>
+        <translation>Сохранение последних файлов</translation>
     </message>
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation>&amp;Обновление уведомлений при запуске</translation>
+        <translation>Обновление уведомлений при запуске</translation>
     </message>
     <message>
         <source>Action</source>
@@ -1246,7 +1246,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&amp;Enable update notifications on startup</source>
-        <translation>&amp;Включить уведомления об обновлении при запуске</translation>
+        <translation>Включить уведомления об обновлении при запуске</translation>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>
