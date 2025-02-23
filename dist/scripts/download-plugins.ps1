@@ -37,13 +37,24 @@ if ($IsWindows) {
 New-Item -Type Directory -Path $out_frm -Force
 New-Item -Type Directory -Path $out_imf -Force
 
-# Move QtApng library
-if ($pluginNames -contains 'QtApng') {
-    mv QtApng/output/* "$out_imf"
+function MoveLibraries($category, $destDir, $files) {
+    foreach ($file in $files) {
+        Write-Host "${category}: $($file.Name) ($($file.LastWriteTimeUtc.ToString("yyyy-MM-dd HH:mm:ss")))"
+        Move-Item -Path $file.FullName -Destination $destDir
+    }
 }
 
-# Move KImageFormats libraries
-if ($pluginNames -contains 'KImageFormats') {
-    mv KImageFormats/output/kimg_* "$out_imf"
-    mv KImageFormats/output/* "$out_frm"
+# Deploy QtApng
+if ($pluginNames -contains 'QtApng') {
+    Write-Host "`nDeploying QtApng:"
+    MoveLibraries 'imf' $out_imf (Get-ChildItem "QtApng/output")
 }
+
+# Deploy KImageFormats
+if ($pluginNames -contains 'KImageFormats') {
+    Write-Host "`nDeploying KImageFormats:"
+    MoveLibraries 'imf' $out_imf (Get-ChildItem "KImageFormats/output" -Filter "kimg_*")
+    MoveLibraries 'frm' $out_frm (Get-ChildItem "KImageFormats/output")
+}
+
+Write-Host ''
