@@ -994,7 +994,7 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
+        <source>You must restart qView for the setting change to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1022,7 +1022,7 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
+        <source>You must restart qView for the language change to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

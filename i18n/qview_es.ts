@@ -157,11 +157,11 @@
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation>Ajustar zoom</translation>
+        <translation>Ajustar a la ventana</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
-        <translation>Llenar ventana</translation>
+        <translation>Rellenar ventana</translation>
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
@@ -1005,8 +1005,8 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
         <translation>Es necesario reiniciar</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>Debes reiniciar qView para aplicar este ajuste.</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>Debes reiniciar qView para que el cambio de configuración surta efecto.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
         <translation>Idioma del sistema</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>Debe reiniciar qView para cambiar el idioma.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>Debes reiniciar qView para que el cambio de idioma surta efecto.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1062,11 +1062,11 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Ajustar zoom</translation>
+        <translation>Ajustar a la ventana</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation>Llenar ventana</translation>
+        <translation>Rellenar ventana</translation>
     </message>
     <message>
         <source>Original Size</source>
@@ -1358,11 +1358,11 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Ajustar zoom</translation>
+        <translation>Ajustar a la ventana</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation>Llenar ventana</translation>
+        <translation>Rellenar ventana</translation>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>

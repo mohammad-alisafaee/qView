@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Open With</source>
-        <translation>プログラムから開く</translation>
+        <translation>別のアプリで開く</translation>
     </message>
     <message>
         <source>Remember Session?</source>
@@ -91,7 +91,7 @@
     <message>
         <source>Close All</source>
         <extracomment>Close all windows, that is</extracomment>
-        <translation>すべてのウィンドウを閉じる</translation>
+        <translation>すべて閉じる</translation>
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
@@ -105,7 +105,7 @@
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>ファインダーで表示</translation>
+        <translation>Finderで表示</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>ごみ箱に捨てる</translation>
+        <translation>ゴミ箱に移動</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -125,11 +125,11 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>ごみ箱から戻す</translation>
+        <translation>ゴミ箱から戻す</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>削除の取り消し</translation>
+        <translation>削除を元に戻す</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -145,19 +145,19 @@
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>ズームイン</translation>
+        <translation>拡大</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>ズームアウト</translation>
+        <translation>縮小</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>元のサイズ</translation>
+        <translation>等倍</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation>ズームをウィンドウに合わせる</translation>
+        <translation>全体表示</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
@@ -205,15 +205,15 @@
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
-        <translation>前のファイルを表示</translation>
+        <translation>前のファイル</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
-        <translation>次のファイルを表示</translation>
+        <translation>次のファイル</translation>
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation>最後のファイルを表示</translation>
+        <translation>最後のファイル</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
@@ -221,7 +221,7 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>フレームを保存...</translation>
+        <translation>フレームを別名で保存...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
@@ -233,11 +233,11 @@
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>速度低下</translation>
+        <translation>速度を下げる</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
-        <translation>速度をリセット</translation>
+        <translation>速度を元に戻す</translation>
     </message>
     <message>
         <source>&amp;Increase Speed</source>
@@ -245,7 +245,7 @@
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>スライドショー開始</translation>
+        <translation>スライドショーを開始</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -268,7 +268,7 @@
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>qView について</translation>
+        <translation>qViewについて</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
@@ -407,11 +407,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>スライドショーの停止</translation>
+        <translation>スライドショーを停止</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>スライドショーの開始</translation>
+        <translation>スライドショーを開始</translation>
     </message>
 </context>
 <context>
@@ -471,7 +471,7 @@ No write permission or file is read-only.</source>
     <name>QVApplication</name>
     <message>
         <source>Open...</source>
-        <translation>ファイルを開く...</translation>
+        <translation>開く...</translation>
     </message>
     <message>
         <source>Error</source>
@@ -709,7 +709,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation>スライドショー中にウィンドウを最前面に表示</translation>
+        <translation>スライドショー中はウィンドウを最前面に表示</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
@@ -789,7 +789,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation>オリジナルサイズはトグルとして機能</translation>
+        <translation>等倍をトグル動作にする</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
@@ -841,7 +841,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Slideshow timer:</source>
-        <translation>スライドショーを進める時間:</translation>
+        <translation>スライドショーの間隔:</translation>
     </message>
     <message>
         <source> sec</source>
@@ -1002,11 +1002,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation>再起動が必要</translation>
+        <translation>再起動が必要です</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>この設定を変更するには、qViewを再起動する必要があります。</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>設定を反映するには、qViewを再起動する必要があります。</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ No write permission or file is read-only.</source>
         <translation>システム言語</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>言語を変更するには、qViewを再起動する必要があります</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>言語の変更を反映するには、qViewを再起動する必要があります。</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1062,7 +1062,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>ズームをウィンドウに合わせる</translation>
+        <translation>全体表示</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1070,7 +1070,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation>オリジナルのサイズ</translation>
+        <translation>等倍</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1205,7 +1205,7 @@ No write permission or file is read-only.</source>
     <name>QVRenameDialog</name>
     <message>
         <source>Rename...</source>
-        <translation>名前を変更...</translation>
+        <translation>名前の変更...</translation>
     </message>
     <message>
         <source>File name:</source>
@@ -1278,15 +1278,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>格納フォルダを開く</translation>
+        <translation>ファイルの場所を開く</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
-        <translation>エクスプローラーで開く</translation>
+        <translation>エクスプローラーで表示</translation>
     </message>
     <message>
         <source>Show in Finder</source>
-        <translation>Finderで開く</translation>
+        <translation>Finderで表示</translation>
     </message>
     <message>
         <source>Show File Info</source>
@@ -1294,11 +1294,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Restore from Trash</source>
-        <translation>ゴミ箱から復元</translation>
+        <translation>ゴミ箱から戻す</translation>
     </message>
     <message>
         <source>Undo Delete</source>
-        <translation>削除を取り消す</translation>
+        <translation>削除を元に戻す</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -1314,7 +1314,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Move to Trash</source>
-        <translation>ゴミ箱へ移動</translation>
+        <translation>ゴミ箱に移動</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1354,11 +1354,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation>オリジナルのサイズ</translation>
+        <translation>等倍</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>ズームをウィンドウに合わせる</translation>
+        <translation>全体表示</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1402,7 +1402,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save Frame As</source>
-        <translation>フレームを保存</translation>
+        <translation>フレームを別名で保存</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -1418,7 +1418,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Reset Speed</source>
-        <translation>速度をリセット</translation>
+        <translation>速度を元に戻す</translation>
     </message>
     <message>
         <source>Increase Speed</source>
@@ -1426,7 +1426,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Toggle Slideshow</source>
-        <translation>スライドショーの切り替え</translation>
+        <translation>スライドショーを切り替え</translation>
     </message>
     <message>
         <source>Settings</source>

@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>Переход</translation>
+        <translation>Перейти</translation>
     </message>
     <message>
         <source>&amp;View</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation>Масштабировать по размеру окна</translation>
+        <translation>Подогнать под окно</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
@@ -1002,11 +1002,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation>Требуется перезагрузка</translation>
+        <translation>Требуется перезапуск</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>Необходимо перезапустить qView, чтобы применить этот параметр.</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>Необходимо перезапустить qView, чтобы изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ No write permission or file is read-only.</source>
         <translation>Язык системы</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>Вы должны перезапустить qView, чтобы изменить язык.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>Необходимо перезапустить qView, чтобы изменение языка вступило в силу.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1062,7 +1062,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Масштабировать по размеру окна</translation>
+        <translation>Подогнать под окно</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1358,7 +1358,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Масштабировать по размеру окна</translation>
+        <translation>Подогнать под окно</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1426,7 +1426,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Toggle Slideshow</source>
-        <translation>Запустить слайд-шоу</translation>
+        <translation>Переключить слайд-шоу</translation>
     </message>
     <message>
         <source>Settings</source>

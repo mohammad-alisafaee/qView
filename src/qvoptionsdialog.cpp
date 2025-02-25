@@ -553,7 +553,7 @@ void QVOptionsDialog::restartNotifyForCheckbox(const QString &key, const int sta
 {
     const bool savedValue = qvApp->getSettingsManager().getBoolean(key);
     if (static_cast<bool>(state) != savedValue)
-        QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView to change this setting."));
+        QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView for the setting change to take effect."));
 }
 
 void QVOptionsDialog::titlebarComboBoxCurrentIndexChanged(int index)
@@ -685,7 +685,7 @@ void QVOptionsDialog::languageComboBoxCurrentIndexChanged(int index)
     Q_UNUSED(index)
     if (!isInitialLoad && !languageRestartMessageShown)
     {
-        QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView to change the language."));
+        QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView for the language change to take effect."));
         languageRestartMessageShown = true;
     }
 }

@@ -78,7 +78,7 @@
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>URL로 열기...</translation>
+        <translation>URL 열기...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>폴더 열기</translation>
+        <translation>폴더에서 열기</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
@@ -105,7 +105,7 @@
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>검색에서 보기</translation>
+        <translation>Finder에서 보기</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
@@ -145,23 +145,23 @@
     </message>
     <message>
         <source>Zoom &amp;In</source>
-        <translation>크게 보기</translation>
+        <translation>확대</translation>
     </message>
     <message>
         <source>Zoom &amp;Out</source>
-        <translation>작게 보기</translation>
+        <translation>축소</translation>
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>원본 크기로 보기</translation>
+        <translation>원본 크기</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation>화면 크기에 맞게 확대</translation>
+        <translation>화면에 맞추기</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
-        <translation>창을 가득 채우기</translation>
+        <translation>화면 가득 채우기</translation>
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
@@ -197,7 +197,7 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>전체 화면</translation>
+        <translation>전체 화면 시작</translation>
     </message>
     <message>
         <source>&amp;First File</source>
@@ -307,11 +307,11 @@
     </message>
     <message>
         <source>Exit F&amp;ull Screen</source>
-        <translation>전체화면 종료</translation>
+        <translation>전체 화면 종료</translation>
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>전체화면 시작</translation>
+        <translation>전체 화면 시작</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -602,7 +602,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>환경설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>System</source>
@@ -621,7 +621,7 @@ No write permission or file is read-only.</source>
     <name>QVOptionsDialog</name>
     <message>
         <source>Settings</source>
-        <translation>환경설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Back&amp;ground color:</source>
@@ -789,7 +789,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation>원본 크기는 토글 기능으로 작동</translation>
+        <translation>원본 크기 기능을 토글로 사용</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
@@ -1005,8 +1005,8 @@ No write permission or file is read-only.</source>
         <translation>재시작 필요</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>이 설정을 변경하려면 qView를 다시 시작해야 합니다.</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>설정 변경 사항을 적용하려면 qView를 다시 시작해야 합니다.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ No write permission or file is read-only.</source>
         <translation>시스템 언어</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>언어를 변경하려면 qView를 재시작해야합니다.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>언어 변경 사항을 적용하려면 qView를 다시 시작해야 합니다.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1062,11 +1062,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>화면 크기에 맞게 확대</translation>
+        <translation>화면에 맞추기</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation>창을 가득 채우기</translation>
+        <translation>화면 가득 채우기</translation>
     </message>
     <message>
         <source>Original Size</source>
@@ -1278,7 +1278,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>파일이 포함된 폴더 열기</translation>
+        <translation>폴더에서 열기</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
@@ -1286,7 +1286,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show in Finder</source>
-        <translation>검색에서 보기</translation>
+        <translation>Finder에서 보기</translation>
     </message>
     <message>
         <source>Show File Info</source>
@@ -1310,7 +1310,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Rename</source>
-        <translation>이름변경</translation>
+        <translation>이름 변경</translation>
     </message>
     <message>
         <source>Move to Trash</source>
@@ -1358,11 +1358,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>화면 크기에 맞게 확대</translation>
+        <translation>화면에 맞추기</translation>
     </message>
     <message>
         <source>Fill Window</source>
-        <translation>창을 가득 채우기</translation>
+        <translation>화면 가득 채우기</translation>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>
@@ -1430,7 +1430,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation>환경설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>Preferences</source>

@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>&amp;Go</source>
-        <translation>Los</translation>
+        <translation>Gehe zu</translation>
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>Anzeigen</translation>
+        <translation>Ansicht</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Öffne beinhaltenden Ordner</translation>
+        <translation>Enthaltenden Ordner öffnen</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
@@ -543,7 +543,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Aspect Ratio:</source>
-        <translation>Formfaktor:</translation>
+        <translation>Seitenverhältnis:</translation>
     </message>
     <message>
         <source>Frames:</source>
@@ -1002,11 +1002,11 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Restart Required</source>
-        <translation>Programmneustart erforderlich</translation>
+        <translation>Neustart erforderlich</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>Du musst qView neustarten, um diese Einstellung wirksam zu machen.</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>Du musst qView neu starten, damit die geänderte Einstellung wirksam wird.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation>Systemsprache</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>Du musst qView neustarten, um die Spracheinstellungen wirksam zu machen.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>Du musst qView neu starten, damit die geänderte Sprache wirksam wird.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1278,7 +1278,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>Öffne beinhaltenden Ordner</translation>
+        <translation>Enthaltenden Ordner öffnen</translation>
     </message>
     <message>
         <source>Show in Explorer</source>

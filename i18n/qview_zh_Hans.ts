@@ -78,7 +78,7 @@
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation></translation>
+        <translation>打开URL...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,17 +95,17 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>打开文件夹</translation>
+        <translation>打开所在文件夹</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>在资源管理器中查看</translation>
+        <translation>在资源管理器中显示</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
         <extracomment>Open containing folder on macOS</extracomment>
-        <translation>在文件夹中查看</translation>
+        <translation>在 Finder 中显示</translation>
     </message>
     <message>
         <source>Show File &amp;Info</source>
@@ -113,7 +113,7 @@
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>移至废纸篓</translation>
+        <translation>移至回收站</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -125,7 +125,7 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>移出废纸篓</translation>
+        <translation>从回收站恢复</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
@@ -169,19 +169,19 @@
     </message>
     <message>
         <source>Rotate &amp;Right</source>
-        <translation>顺时针旋转</translation>
+        <translation>向右旋转</translation>
     </message>
     <message>
         <source>Rotate &amp;Left</source>
-        <translation>逆时针旋转</translation>
+        <translation>向左旋转</translation>
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>镜像</translation>
+        <translation>水平翻转</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>翻转</translation>
+        <translation>垂直翻转</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
@@ -197,15 +197,15 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
-        <translation>全屏</translation>
+        <translation>进入全屏</translation>
     </message>
     <message>
         <source>&amp;First File</source>
-        <translation>首文件</translation>
+        <translation>第一张图片</translation>
     </message>
     <message>
         <source>Previous Fi&amp;le</source>
-        <translation>上一张</translation>
+        <translation>上一张图片</translation>
     </message>
     <message>
         <source>&amp;Next File</source>
@@ -213,11 +213,11 @@
     </message>
     <message>
         <source>Las&amp;t File</source>
-        <translation>末文件</translation>
+        <translation>最后一张图片</translation>
     </message>
     <message>
         <source>&amp;Random File</source>
-        <translation>随机文件</translation>
+        <translation>随机一张图片</translation>
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
@@ -245,7 +245,7 @@
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>播放幻灯片</translation>
+        <translation>开始幻灯播放</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -255,7 +255,7 @@
     <message>
         <source>Preference&amp;s...</source>
         <extracomment>This is for the options dialog on older mac versions</extracomment>
-        <translation>首选项s...</translation>
+        <translation>偏好设置...</translation>
     </message>
     <message>
         <source>Setting&amp;s...</source>
@@ -406,11 +406,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
-        <translation>停止幻灯片放映</translation>
+        <translation>停止幻灯播放</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>开始幻灯片放映</translation>
+        <translation>开始幻灯播放</translation>
     </message>
 </context>
 <context>
@@ -708,7 +708,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation>幻灯片播放时窗口置顶</translation>
+        <translation>幻灯播放时窗口置顶</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
@@ -836,11 +836,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Slideshow direction:</source>
-        <translation>幻灯片放映方向:</translation>
+        <translation>幻灯播放方向:</translation>
     </message>
     <message>
         <source>Slideshow timer:</source>
-        <translation>幻灯片计时器:</translation>
+        <translation>幻灯播放间隔:</translation>
     </message>
     <message>
         <source> sec</source>
@@ -973,7 +973,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation>偏好</translation>
+        <translation>偏好设置</translation>
     </message>
     <message>
         <source>%1 + Double Click:</source>
@@ -1004,8 +1004,8 @@ No write permission or file is read-only.</source>
         <translation>需要重新启动</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>您必须重新启动 qView 才能更改此设置。</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>您必须重新启动 qView，所做的更改才能生效。</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1032,8 +1032,8 @@ No write permission or file is read-only.</source>
         <translation>系统语言</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>必须重新启动qView才能更改语言.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>您必须重新启动 qView，语言更改才能生效。</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1097,11 +1097,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Forward</source>
-        <translation>前进</translation>
+        <translation>向前</translation>
     </message>
     <message>
         <source>Backward</source>
-        <translation>后退</translation>
+        <translation>向后</translation>
     </message>
     <message>
         <source>Random</source>
@@ -1269,7 +1269,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open URL</source>
-        <translation>打开链接</translation>
+        <translation>打开URL</translation>
     </message>
     <message>
         <source>Reload File</source>
@@ -1277,11 +1277,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>打开包含文件夹</translation>
+        <translation>打开所在文件夹</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
-        <translation>在资源管理器中查看</translation>
+        <translation>在资源管理器中显示</translation>
     </message>
     <message>
         <source>Show in Finder</source>
@@ -1325,7 +1325,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>First File</source>
-        <translation>首张图片</translation>
+        <translation>第一张图片</translation>
     </message>
     <message>
         <source>Previous File</source>
@@ -1337,11 +1337,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Last File</source>
-        <translation>末尾图片</translation>
+        <translation>最后一张图片</translation>
     </message>
     <message>
         <source>Random File</source>
-        <translation>随机文件</translation>
+        <translation>随机一张图片</translation>
     </message>
     <message>
         <source>Zoom In</source>
@@ -1377,7 +1377,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Mirror</source>
-        <translation>镜像</translation>
+        <translation>水平翻转</translation>
     </message>
     <message>
         <source>Flip</source>
@@ -1425,7 +1425,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Toggle Slideshow</source>
-        <translation>切换幻灯片放映</translation>
+        <translation>切换幻灯播放</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1433,7 +1433,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Preferences</source>
-        <translation>偏好</translation>
+        <translation>偏好设置</translation>
     </message>
     <message>
         <source>New Window</source>

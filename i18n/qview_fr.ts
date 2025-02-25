@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>Modifier</translation>
+        <translation>Édition</translation>
     </message>
     <message>
         <source>&amp;Go</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>&amp;View</source>
-        <translation>Visualiser</translation>
+        <translation>Affichage</translation>
     </message>
     <message>
         <source>&amp;Tools</source>
@@ -157,7 +157,7 @@
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
-        <translation>Ajuster à la taille de la fenêtre</translation>
+        <translation>Adapter à la fenêtre</translation>
     </message>
     <message>
         <source>Fill &amp;Window</source>
@@ -221,7 +221,7 @@
     </message>
     <message>
         <source>Save Frame &amp;As...</source>
-        <translation>Enregistrer l&apos;écran sous...</translation>
+        <translation>Enregistrer la trame sous...</translation>
     </message>
     <message>
         <source>Pa&amp;use</source>
@@ -229,7 +229,7 @@
     </message>
     <message>
         <source>&amp;Next Frame</source>
-        <translation>Écran suivant</translation>
+        <translation>Trame suivante</translation>
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
@@ -351,7 +351,7 @@
     </message>
     <message>
         <source>URL of a supported image file:</source>
-        <translation>URL d’un fichier image pris en charge :</translation>
+        <translation>URL d&apos;un fichier image pris en charge :</translation>
     </message>
     <message>
         <source>Can&apos;t delete %1:
@@ -395,7 +395,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Save Frame As...</source>
-        <translation>Enregistrer l&apos;écran sous...</translation>
+        <translation>Enregistrer la trame sous...</translation>
     </message>
     <message>
         <source>Res&amp;ume</source>
@@ -543,11 +543,11 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Aspect Ratio:</source>
-        <translation>Rapport d’aspect :</translation>
+        <translation>Rapport d&apos;aspect :</translation>
     </message>
     <message>
         <source>Frames:</source>
-        <translation>Écrans :</translation>
+        <translation>Trames :</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -625,7 +625,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Back&amp;ground color:</source>
-        <translation>Couleur d’arrière-plan :</translation>
+        <translation>Couleur d&apos;arrière-plan :</translation>
     </message>
     <message>
         <source>Checkerboard when image loaded</source>
@@ -773,7 +773,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Limit fit/fill zoom:</source>
-        <translation>Limiter le zoom ajusté/rempli :</translation>
+        <translation>Limiter le zoom d&apos;adaptation/remplissage :</translation>
     </message>
     <message>
         <source> pixel overscan</source>
@@ -878,7 +878,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation>Mettre à jour les notifications au démarrage</translation>
+        <translation>Afficher les notifications de mise à jour au démarrage</translation>
     </message>
     <message>
         <source>Action</source>
@@ -1005,8 +1005,8 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation>Redémarrage requis</translation>
     </message>
     <message>
-        <source>You must restart qView to change this setting.</source>
-        <translation>Vous devez redémarrer qView pour appliquer ce paramètre.</translation>
+        <source>You must restart qView for the setting change to take effect.</source>
+        <translation>Vous devez redémarrer qView pour que le changement de paramètre prenne effet.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1033,8 +1033,8 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation>Langue du système</translation>
     </message>
     <message>
-        <source>You must restart qView to change the language.</source>
-        <translation>Vous devez redémarrer qView pour changer la langue.</translation>
+        <source>You must restart qView for the language change to take effect.</source>
+        <translation>Vous devez redémarrer qView pour que le changement de langue prenne effet.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1062,7 +1062,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Ajuster à la taille de la fenêtre</translation>
+        <translation>Adapter à la fenêtre</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1358,7 +1358,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Zoom to Fit</source>
-        <translation>Ajuster à la taille de la fenêtre</translation>
+        <translation>Adapter à la fenêtre</translation>
     </message>
     <message>
         <source>Fill Window</source>
@@ -1402,7 +1402,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Save Frame As</source>
-        <translation>Enregistrer l&apos;écran sous</translation>
+        <translation>Enregistrer la trame sous</translation>
     </message>
     <message>
         <source>Pause</source>
@@ -1410,7 +1410,7 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     </message>
     <message>
         <source>Next Frame</source>
-        <translation>Écran suivant</translation>
+        <translation>Trame suivante</translation>
     </message>
     <message>
         <source>Decrease Speed</source>
