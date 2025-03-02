@@ -107,6 +107,11 @@ void QVImageCore::loadFile(const QString &fileName, bool isReloading)
 
 QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColorSpace &targetColorSpace)
 {
+    // Default initialize return struct now. This is important in case the application starts
+    // closing while we're loading an image. Once that happens it's impossible to construct
+    // even a null pixmap due to Qt requiring that an application instance exists.
+    ReadData readData;
+
     QImageReader imageReader;
     imageReader.setAutoTransform(true);
 
@@ -129,6 +134,9 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         readImage = imageReader.read();
     }
 
+    if (QCoreApplication::closingDown())
+        return readData;
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
     // Work around Qt ICC profile parsing bug
     if (!readImage.colorSpace().isValid() && !readImage.colorSpace().iccProfile().isEmpty())
@@ -147,17 +155,11 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
     if (targetColorSpace.isValid() && readImage.colorSpace() != targetColorSpace)
         readImage.convertToColorSpace(targetColorSpace);
 
+    if (QCoreApplication::closingDown())
+        return readData;
+
     QPixmap readPixmap = QPixmap::fromImage(readImage);
     QFileInfo fileInfo(fileName);
-
-    ReadData readData = {
-        readPixmap,
-        fileInfo.absoluteFilePath(),
-        fileInfo.size(),
-        imageReader.size(),
-        targetColorSpace,
-        {}
-    };
 
     if (readPixmap.isNull())
     {
@@ -166,6 +168,12 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
             imageReader.errorString()
         };
     }
+
+    readData.pixmap = std::move(readPixmap);
+    readData.absoluteFilePath = fileInfo.absoluteFilePath();
+    readData.fileSize = fileInfo.size();
+    readData.imageSize = imageReader.size();
+    readData.targetColorSpace = targetColorSpace;
 
     return readData;
 }
