@@ -17,18 +17,16 @@ public:
     explicit QVInfoDialog(QWidget *parent = nullptr);
     ~QVInfoDialog();
 
-    void setInfo(const QFileInfo &value, const int &value2, const int &value3, const int &value4);
+    void setInfo(const QFileInfo fileInfo, const QSize imageSize, const int frameCount);
 
     void updateInfo();
 
 private:
     Ui::QVInfoDialog *ui;
 
-    QFileInfo selectedFileInfo;
-    int width;
-    int height;
-
-    int frameCount;
+    QFileInfo fileInfo;
+    QSize imageSize;
+    int frameCount {0};
 
 public:
     static QString formatBytes(qint64 bytes)

@@ -267,18 +267,10 @@ void QVImageCore::loadEmptyPixmap()
 
 QVImageCore::FileDetails QVImageCore::getEmptyFileDetails()
 {
-    return {
-        QFileInfo(),
-        currentFileDetails.folderFileInfoList,
-        currentFileDetails.loadedIndexInFolder,
-        false,
-        false,
-        false,
-        QSize(),
-        QSize(),
-        QElapsedTimer(),
-        {}
-    };
+    FileDetails emptyDetails;
+    emptyDetails.folderFileInfoList = currentFileDetails.folderFileInfoList;
+    emptyDetails.loadedIndexInFolder = currentFileDetails.loadedIndexInFolder;
+    return emptyDetails;
 }
 
 QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, const int index)

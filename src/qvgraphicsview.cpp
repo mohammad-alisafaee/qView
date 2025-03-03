@@ -75,8 +75,8 @@ void QVGraphicsView::resizeEvent(QResizeEvent *event)
 
     if (getCurrentFileDetails().isPixmapLoaded)
     {
-        const QPoint sizeDelta = QRect(QPoint(), event->size()).bottomRight() - QRect(QPoint(), event->oldSize()).bottomRight();
-        scrollHelper->move(QPointF(sizeDelta) / -2.0);
+        const QSize sizeDelta = event->size() - event->oldSize();
+        scrollHelper->move(QPointF(sizeDelta.width(), sizeDelta.height()) / -2.0);
         fitOrConstrainImage();
     }
 }

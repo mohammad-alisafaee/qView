@@ -545,12 +545,12 @@ void MainWindow::populateOpenWithMenu(const QList<OpenWith::OpenWithItem> openWi
 
 void MainWindow::refreshProperties()
 {
-    int value4;
-    if (getCurrentFileDetails().isMovieLoaded)
-        value4 = graphicsView->getLoadedMovie().frameCount();
-    else
-        value4 = 0;
-    info->setInfo(getCurrentFileDetails().fileInfo, getCurrentFileDetails().baseImageSize.width(), getCurrentFileDetails().baseImageSize.height(), value4);
+    const QVImageCore::FileDetails &fileDetails = getCurrentFileDetails();
+    info->setInfo(
+        fileDetails.fileInfo,
+        fileDetails.baseImageSize,
+        fileDetails.isMovieLoaded ? graphicsView->getLoadedMovie().frameCount() : 0
+    );
 }
 
 void MainWindow::buildWindowTitle()
@@ -562,7 +562,7 @@ void MainWindow::buildWindowTitle()
         const bool hasError = fileDetails.errorData.has_value();
         auto getFileName = [&]() { return fileDetails.fileInfo.fileName(); };
         auto getZoomLevel = [&]() { return QString::number((hasError ? 1.0 : graphicsView->getZoomLevel()) * 100.0, 'f', 1) + "%"; };
-        auto getImageIndex = [&]() { return QString::number(fileDetails.loadedIndexInFolder+1); };
+        auto getImageIndex = [&]() { return QString::number(fileDetails.loadedIndexInFolder + 1); };
         auto getImageCount = [&]() { return QString::number(fileDetails.folderFileInfoList.count()); };
         auto getImageWidth = [&]() { return QString::number(hasError ? 0 : fileDetails.baseImageSize.width()); };
         auto getImageHeight = [&]() { return QString::number(hasError ? 0 : fileDetails.baseImageSize.height()); };
@@ -881,7 +881,6 @@ void MainWindow::openUrl(const QUrl &url)
         auto percent = (bytesReceived/bytesTotal)*100;
         progressDialog->setValue(qRound(percent));
     });
-
 
     connect(reply, &QNetworkReply::finished, progressDialog, [progressDialog, reply, this]{
         if (reply->error())
