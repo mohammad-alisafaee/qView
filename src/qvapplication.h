@@ -127,6 +127,8 @@ protected slots:
     void onAboutToQuit();
 
 private:
+    std::atomic<bool> isApplicationQuitting {false};
+
     QSet<MainWindow*> activeWindows;
 
     QMenu *dockMenu;
@@ -155,7 +157,6 @@ private:
 
     QSet<QString> loadedFontPaths;
 
-    bool isApplicationQuitting {false};
     bool userDeclinedSessionStateSave {false};
     QList<ClosedWindowData> closedWindowData;
 };

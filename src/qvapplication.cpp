@@ -514,6 +514,8 @@ void QVApplication::onCommitDataRequest(QSessionManager &manager)
 
 void QVApplication::onAboutToQuit()
 {
+    isApplicationQuitting = true;
+
     if (isSessionStateSaveRequested())
     {
         QSettings settings;
@@ -529,7 +531,7 @@ void QVApplication::onAboutToQuit()
                     return a.lastActivatedTimestamp < b.lastActivatedTimestamp;
                 });
             QJsonArray windows;
-            for (const ClosedWindowData& item : closedWindowData)
+            for (const ClosedWindowData& item : std::as_const(closedWindowData))
                 windows.append(item.sessionState);
             state["windows"] = windows;
 
@@ -540,4 +542,9 @@ void QVApplication::onAboutToQuit()
             settings.remove("sessionstate");
         }
     }
+
+    // Delay destroying application until thread pool threads have finished. If preloader
+    // threads are still running, they require an application instance to construct a
+    // QPixmap (even a null one) without crashing.
+    QThreadPool::globalInstance()->waitForDone();
 }
