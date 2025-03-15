@@ -70,10 +70,10 @@ jobs:
         with:
           version: ${{ matrix.qtVersion }}
           arch: ${{ matrix.qtArch }}
-          cache: true
           modules: ${{ matrix.qtModules }}
-          setup-python: false
+          cache: true
           use-naqt: true
+          setup-python: false
 
       - name: Build qView
         shell: pwsh
