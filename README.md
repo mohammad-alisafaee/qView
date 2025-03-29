@@ -11,7 +11,7 @@
 * Ability to hide the titlebar (via menu item, keyboard, or mouse shortcut).
 * Ability to drag window via its viewport (Ctrl/Cmd + drag by default; customizable).
 * Random file navigation (Go -> Random File, or "r" keyboard shortcut) to browse randomly without changing sort mode.
-* Navigate between images when scrolling sideways (e.g. two finger swipe).
+* Navigate between images when scrolling sideways (e.g. two finger swipe), or optionally, when clicking the left/right sides of the viewport.
 * Customizable mouse actions (e.g. change what double clicking or middle clicking does).
 * Option to ignore certain file extensions when navigating through a folder.
 * Show image loading errors inside viewport instead of as modal dialog.
