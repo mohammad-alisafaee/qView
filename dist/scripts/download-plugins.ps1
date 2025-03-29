@@ -19,7 +19,7 @@ foreach ($pluginName in $pluginNames) {
 
     Write-Host "Downloading $downloadUrl"
     Invoke-WebRequest -Uri $downloadUrl -OutFile $artifactName
-    Expand-Archive $artifactName -DestinationPath "."
+    Expand-Archive $artifactName -DestinationPath $pluginName
     Remove-Item $artifactName
 }
 
@@ -47,14 +47,14 @@ function MoveLibraries($category, $destDir, $files) {
 # Deploy QtApng
 if ($pluginNames -contains 'QtApng') {
     Write-Host "`nDeploying QtApng:"
-    MoveLibraries 'imf' $out_imf (Get-ChildItem "QtApng/output")
+    MoveLibraries 'imf' $out_imf (Get-ChildItem "QtApng")
 }
 
 # Deploy KImageFormats
 if ($pluginNames -contains 'KImageFormats') {
     Write-Host "`nDeploying KImageFormats:"
-    MoveLibraries 'imf' $out_imf (Get-ChildItem "KImageFormats/output" -Filter "kimg_*")
-    MoveLibraries 'frm' $out_frm (Get-ChildItem "KImageFormats/output")
+    MoveLibraries 'imf' $out_imf (Get-ChildItem "KImageFormats" -Filter "kimg_*")
+    MoveLibraries 'frm' $out_frm (Get-ChildItem "KImageFormats")
 }
 
 Write-Host ''
