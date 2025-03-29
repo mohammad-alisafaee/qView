@@ -201,7 +201,7 @@ void QVApplication::recentsMenuUpdated()
 {
 #ifdef COCOA_LOADED
     QStringList recentsPathList;
-    for(const auto &recent : actionManager.getRecentsList())
+    for (const auto &recent : actionManager.getRecentsList())
     {
         recentsPathList << recent.filePath;
     }

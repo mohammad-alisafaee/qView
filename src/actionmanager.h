@@ -118,7 +118,7 @@ public:
 
     void addFileToRecentsList(const QFileInfo &file);
 
-    void auditRecentsList();
+    void auditRecentsList(const bool checkIfExists = false);
 
     void clearRecentsList();
 

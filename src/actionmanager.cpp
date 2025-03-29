@@ -335,7 +335,7 @@ QMenu *ActionManager::buildRecentsMenu(bool includeClearAction, QWidget *parent)
         this->loadRecentsList();
     });
 
-    for ( int i = 0; i < recentsListMaxLength; i++ )
+    for (int i = 0; i < recentsListMaxLength; i++)
     {
         auto action = new QAction(tr("Empty"), recentsMenu);
         action->setVisible(false);
@@ -376,8 +376,6 @@ void ActionManager::loadRecentsList()
 
 void ActionManager::saveRecentsList()
 {
-    auditRecentsList();
-
     QSettings settings;
     settings.beginGroup("recents");
 
@@ -386,7 +384,6 @@ void ActionManager::saveRecentsList()
     settings.setValue("recentFiles", variantList);
 }
 
-
 void ActionManager::addFileToRecentsList(const QFileInfo &file)
 {
     recentsList.prepend({file.fileName(), file.filePath()});
@@ -394,43 +391,56 @@ void ActionManager::addFileToRecentsList(const QFileInfo &file)
     recentsSaveTimer->start();
 }
 
-void ActionManager::auditRecentsList()
+void ActionManager::auditRecentsList(const bool checkIfExists)
 {
     // This function should be called whenever there is a change to recentsList,
     // and take care not to call any functions that call it.
-    if (!isSaveRecentsEnabled)
+
+    bool changedList = false;
+
+    if (!isSaveRecentsEnabled && !recentsList.isEmpty())
     {
         recentsList.clear();
+        changedList = true;
     }
 
-    for (int i = 0; i < recentsList.length(); i++)
+    int i = 0;
+    while (i < recentsList.length() && i < recentsListMaxLength)
     {
-        // Ensure each file exists
-        auto recent =  recentsList.value(i);
-        if (!QFileInfo::exists(recent.filePath))
+        const auto recent = recentsList.value(i);
+
+        // Ensure file exists
+        if (checkIfExists && !QFileInfo::exists(recent.filePath))
         {
             recentsList.removeAt(i);
+            changedList = true;
+            continue;
         }
 
         // Check for duplicates
-        for (int i2 = 0; i2 < recentsList.length(); i2++)
+        for (int j = i + 1; j < recentsList.length(); j++)
         {
-            if (i == i2)
-                continue;
-
-            if (recent == recentsList.value(i2))
+            if (recent == recentsList.value(j))
             {
-                recentsList.removeAt(i2);
+                recentsList.removeAt(j);
+                changedList = true;
             }
         }
+
+        i++;
     }
 
     while (recentsList.size() > recentsListMaxLength)
     {
         recentsList.removeLast();
+        changedList = true;
     }
 
     updateRecentsMenu();
+    if (changedList)
+    {
+        recentsSaveTimer->start();
+    }
 }
 
 void ActionManager::clearRecentsList()
@@ -775,7 +785,7 @@ void ActionManager::initializeActionLibrary()
     auto *pasteAction = new QAction(QIcon::fromTheme("edit-paste"), tr("&Paste"));
     actionLibrary.insert("paste", pasteAction);
 
-    auto *renameAction = new QAction(QIcon::fromTheme("edit-rename", QIcon::fromTheme("document-properties")) , tr("R&ename..."));
+    auto *renameAction = new QAction(QIcon::fromTheme("edit-rename", QIcon::fromTheme("document-properties")), tr("R&ename..."));
     renameAction->setData({"disable"});
     actionLibrary.insert("rename", renameAction);
 

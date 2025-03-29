@@ -44,7 +44,7 @@ void ShortcutManager::initializeShortcutsList()
 #ifdef Q_OS_WIN
     shortcutsList.last().readableName = tr("Show in Explorer");
 #elif defined Q_OS_MACOS
-    shortcutsList.last().readableName  = tr("Show in Finder");
+    shortcutsList.last().readableName = tr("Show in Finder");
 #endif
     shortcutsList.append({tr("Show File Info"), "showfileinfo", QStringList(QKeySequence(Qt::Key_I).toString()), {}});
     shortcutsList.append({tr("Restore from Trash"), "undo", keyBindingsToStringList(QKeySequence::Undo), {}});

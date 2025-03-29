@@ -410,8 +410,12 @@ void MainWindow::shortcutsUpdated()
 
 void MainWindow::openRecent(int i)
 {
-    auto recentsList = qvApp->getActionManager().getRecentsList();
-    graphicsView->loadFile(recentsList.value(i).filePath);
+    const QString &filePath = qvApp->getActionManager().getRecentsList().value(i).filePath;
+    if (!QFile::exists(filePath))
+    {
+        qvApp->getActionManager().auditRecentsList(true);
+    }
+    graphicsView->loadFile(filePath);
     cancelSlideshow();
 }
 

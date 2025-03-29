@@ -563,7 +563,8 @@ void QVGraphicsView::postLoad()
     if (lastImageContentRect.isValid())
         matchContentCenter(lastImageContentRect);
 
-    qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
+    if (!getCurrentFileDetails().errorData.has_value())
+        qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
 
     emit fileChanged(loadIsFromSessionRestore);
 
