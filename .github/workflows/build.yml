@@ -1,6 +1,7 @@
 name: Build qView
 on:
   push:
+    branches: '*'
   pull_request:
   workflow_dispatch:
     inputs:
