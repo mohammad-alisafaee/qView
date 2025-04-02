@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>&amp;Tools</source>
-        <translation>Инструменты</translation>
+        <translation>Сервис</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -33,7 +33,7 @@
     </message>
     <message>
         <source>Open &amp;Recent</source>
-        <translation>Открыть последние</translation>
+        <translation>Недавние файлы</translation>
     </message>
     <message>
         <source>Empty</source>
@@ -49,7 +49,7 @@
     </message>
     <message>
         <source>Would you like to remember your opened images and re-open them at next launch?</source>
-        <translation>Хотите запомнить открытые изображения и открыть их снова при следующем запуске?</translation>
+        <translation>Запоминать открытые изображения и открывать их при следующем запуске?</translation>
     </message>
     <message>
         <source>&amp;Remember</source>
@@ -66,7 +66,7 @@
     <message>
         <source>Exit</source>
         <extracomment>The quit action is called &quot;Exit&quot; on windows</extracomment>
-        <translation>Выйти</translation>
+        <translation>Выход</translation>
     </message>
     <message>
         <source>New Window</source>
@@ -78,7 +78,7 @@
     </message>
     <message>
         <source>Open &amp;URL...</source>
-        <translation>Открыть URL...</translation>
+        <translation>Открыть URL-ссылку...</translation>
     </message>
     <message>
         <source>Re&amp;load File</source>
@@ -95,12 +95,12 @@
     </message>
     <message>
         <source>Open Containing &amp;Folder</source>
-        <translation>Открыть папку расположения файла</translation>
+        <translation>Открыть папку с файлом</translation>
     </message>
     <message>
         <source>Show in E&amp;xplorer</source>
         <extracomment>Open containing folder on windows</extracomment>
-        <translation>Показать в Explorer</translation>
+        <translation>Показать в Проводнике</translation>
     </message>
     <message>
         <source>Show in &amp;Finder</source>
@@ -109,11 +109,11 @@
     </message>
     <message>
         <source>Show File &amp;Info</source>
-        <translation>Показать информацию о файле</translation>
+        <translation>Информация о файле</translation>
     </message>
     <message>
         <source>&amp;Move to Trash</source>
-        <translation>Переместить в корзину</translation>
+        <translation>Переместить в Корзину</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -125,15 +125,15 @@
     </message>
     <message>
         <source>&amp;Restore from Trash</source>
-        <translation>Восстановить из корзины</translation>
+        <translation>Восстановить из Корзины</translation>
     </message>
     <message>
         <source>&amp;Undo Delete</source>
-        <translation>Восстановить</translation>
+        <translation>Отменить удаление</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>Копировать</translation>
+        <translation>Скопировать</translation>
     </message>
     <message>
         <source>&amp;Paste</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Ori&amp;ginal Size</source>
-        <translation>Оригинальный размер</translation>
+        <translation>Исходный размер</translation>
     </message>
     <message>
         <source>&amp;Zoom to Fit</source>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>&amp;Navigation Resets Zoom</source>
-        <translation>Навигация сбрасывает масштаб</translation>
+        <translation>Сброс масштаба при навигации</translation>
     </message>
     <message>
         <source>Rotate &amp;Right</source>
@@ -177,11 +177,11 @@
     </message>
     <message>
         <source>&amp;Mirror</source>
-        <translation>Отразить горизонтально</translation>
+        <translation>Перевернуть горизонтально</translation>
     </message>
     <message>
         <source>&amp;Flip</source>
-        <translation>Отразить вертикально</translation>
+        <translation>Перевернуть вертикально</translation>
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
@@ -189,7 +189,7 @@
     </message>
     <message>
         <source>Window On To&amp;p</source>
-        <translation>Окно поверх других</translation>
+        <translation>Поверх других окон</translation>
     </message>
     <message>
         <source>Hide Title&amp;bar</source>
@@ -233,7 +233,7 @@
     </message>
     <message>
         <source>&amp;Decrease Speed</source>
-        <translation>Уменьшить скорость</translation>
+        <translation>Медленнее</translation>
     </message>
     <message>
         <source>&amp;Reset Speed</source>
@@ -241,11 +241,11 @@
     </message>
     <message>
         <source>&amp;Increase Speed</source>
-        <translation>Увеличить скорость</translation>
+        <translation>Быстрее</translation>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Запустить слайд-шоу</translation>
+        <translation>Запустить слайдшоу</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -268,7 +268,7 @@
     <message>
         <source>&amp;About qView</source>
         <extracomment>This is for the about dialog on mac</extracomment>
-        <translation>О qView</translation>
+        <translation>О программе qView</translation>
     </message>
     <message>
         <source>&amp;Welcome</source>
@@ -301,7 +301,7 @@
         <source>Error occurred opening
 %3
 %2 (Error %1)</source>
-        <translation>Произошла ошибка при открытии
+        <translation>Ошибка при открытии
 %3
 %2 (Ошибка %1)</translation>
     </message>
@@ -327,7 +327,7 @@
     </message>
     <message>
         <source>Error: URL is invalid</source>
-        <translation>Ошибка: неверный URL</translation>
+        <translation>Ошибка: неверная URL-ссылка</translation>
     </message>
     <message>
         <source>Downloading image...</source>
@@ -339,7 +339,7 @@
     </message>
     <message>
         <source>Open URL...</source>
-        <translation>Открыть URL...</translation>
+        <translation>Открыть URL-ссылку...</translation>
     </message>
     <message>
         <source>Error </source>
@@ -351,7 +351,7 @@
     </message>
     <message>
         <source>URL of a supported image file:</source>
-        <translation>URL поддерживаемого файла изображения:</translation>
+        <translation>URL поддерживаемого графического файла:</translation>
     </message>
     <message>
         <source>Can&apos;t delete %1:
@@ -361,15 +361,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Are you sure you want to permanently delete %1? This can&apos;t be undone.</source>
-        <translation>Вы уверены, что хотите навсегда удалить %1? Это действие нельзя отменить.</translation>
+        <translation>Вы действительно хотите окончательно удалить %1? Это действие нельзя отменить.</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Recycle Bin?</source>
-        <translation>Вы уверены, что хотите переместить %1 в Recycle Bin?</translation>
+        <translation>Вы действительно хотите переместить %1 в Корзину?</translation>
     </message>
     <message>
         <source>Are you sure you want to move %1 to the Trash?</source>
-        <translation>Вы уверены, что хотите переместить %1 в корзину?</translation>
+        <translation>Вы действительно хотите переместить %1 в Корзину?</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -377,7 +377,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Do not ask again</source>
-        <translation>Не спрашивать снова</translation>
+        <translation>Больше не спрашивать</translation>
     </message>
     <message>
         <source>Can&apos;t delete %1.</source>
@@ -411,7 +411,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Start S&amp;lideshow</source>
-        <translation>Запустить слайд-шоу</translation>
+        <translation>Запустить слайдшоу</translation>
     </message>
 </context>
 <context>
@@ -444,7 +444,7 @@ No write permission or file is read-only.</source>
     <name>QVAboutDialog</name>
     <message>
         <source>About qView</source>
-        <translation>О qView</translation>
+        <translation>О программе qView</translation>
     </message>
     <message>
         <source>Check for Updates</source>
@@ -489,7 +489,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>You already have the latest version.</source>
-        <translation>У вас уже установлена последняя версия.</translation>
+        <translation>У вас новейшая версия.</translation>
     </message>
     <message>
         <source>Supported Images</source>
@@ -535,7 +535,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Modified:</source>
-        <translation>Изменен:</translation>
+        <translation>Изменён:</translation>
     </message>
     <message>
         <source>Dimensions:</source>
@@ -559,7 +559,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>%1 x %2 (%3 MP)</source>
-        <translation>%1 x %2 (%3 Мп)</translation>
+        <translation>%1 x %2 (%3 МП)</translation>
     </message>
 </context>
 <context>
@@ -633,7 +633,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Changes the amount of information displayed in the titlebar</source>
-        <translation>Изменяется объём информации, отображаемой в строке заголовка</translation>
+        <translation>Изменяется объём информации в строке заголовка</translation>
     </message>
     <message>
         <source>Titlebar text:</source>
@@ -647,13 +647,13 @@ No write permission or file is read-only.</source>
 %w - Image Width
 %h - Image Height
 %z - Zoom Level</source>
-        <translation>%n - Имя файла
-%i - Индекс изображения в папке
-%c - Количество изображений в папке
-%s - Размер файла
-%w - Ширина изображения
-%h - Высота изображения
-%z - Уровень масштабирования</translation>
+        <translation>%n - имя файла
+%i - номер изображения в папке
+%c - количество изображений в папке
+%s - размер файла
+%w - ширина изображения
+%h - высота изображения
+%z - масштаб</translation>
     </message>
     <message>
         <source>Control when the window should resize to fit the image&apos;s actual size</source>
@@ -673,7 +673,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Control the minimum size that the window should reach when matching the image&apos;s actual size</source>
-        <translation>Минимальный размер, которого должно достичь окно при сопоставлении фактического размера изображения</translation>
+        <translation>Минимальный размер окна при сопоставлении фактического размера изображения</translation>
     </message>
     <message>
         <source>% of screen size</source>
@@ -681,7 +681,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Control the maximum size that the window should reach when matching the image&apos;s actual size</source>
-        <translation>Максимальный размер, которого должно достичь окно при совпадении с фактическим размером изображения</translation>
+        <translation>Максимальный размер окна при сопоставлении фактического размера изображения</translation>
     </message>
     <message>
         <source>Maximum size:</source>
@@ -689,7 +689,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show menubar</source>
-        <translation>Показать панель меню</translation>
+        <translation>Показать меню</translation>
     </message>
     <message>
         <source>Choose whether or not to display the titlebar text while in fullscreen</source>
@@ -697,11 +697,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show titlebar text in fullscreen</source>
-        <translation>Показать текст заголовка в полноэкранном режиме</translation>
+        <translation>Показывать текст заголовка в полноэкранном режиме</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
-        <translation>Показывать значки в подменю «Открыть недавние» и «Открыть с помощью»</translation>
+        <translation>Показывать значки в подменю &quot;Недавние файлы&quot; и &quot;Открыть с помощью&quot;</translation>
     </message>
     <message>
         <source>Show icons in submenus</source>
@@ -709,7 +709,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Keep window on top during slideshow</source>
-        <translation>Держать окно поверх других во время слайд-шоу</translation>
+        <translation>Удерживать окно поверх других при слайдшоу</translation>
     </message>
     <message>
         <source>Reuse window when launching with image</source>
@@ -717,11 +717,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</source>
-        <translation>Всегда ли заголовок должен быть темным, независимо от выбранного вами внешнего вида macOS</translation>
+        <translation>Всегда ли заголовок должен быть тёмным независимо от выбранного внешнего вида macOS</translation>
     </message>
     <message>
         <source>&amp;Titlebar always dark</source>
-        <translation>Заголовок всегда темный</translation>
+        <translation>Заголовок всегда тёмный</translation>
     </message>
     <message>
         <source>&amp;Quit on last window closed</source>
@@ -765,23 +765,23 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom level is relative to screen pixels</source>
-        <translation>Уровень зума относительно пикселей экрана</translation>
+        <translation>Масштабирование относительно пикселей экрана</translation>
     </message>
     <message>
         <source>Zoom default:</source>
-        <translation>Зум по умолчанию:</translation>
+        <translation>Масштаб по умолчанию:</translation>
     </message>
     <message>
         <source>Limit fit/fill zoom:</source>
-        <translation>Ограничение зума подгонки/заполнения:</translation>
+        <translation>Ограничение масштаба подгонки/заполнения:</translation>
     </message>
     <message>
         <source> pixel overscan</source>
-        <translation> пикселей оверсскана</translation>
+        <translation> пкс кромки экрана</translation>
     </message>
     <message>
         <source>&amp;Constrain image position</source>
-        <translation>Ограничить позицию изображения</translation>
+        <translation>Удерживать позицию изображения</translation>
     </message>
     <message>
         <source>Keep ce&amp;ntered if smaller</source>
@@ -789,11 +789,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size functions as toggle</source>
-        <translation>Оригинальный размер работает как переключатель</translation>
+        <translation>Исходный размер как переключатель</translation>
     </message>
     <message>
         <source>Color space conversion:</source>
-        <translation>Конверсия цветового пространства:</translation>
+        <translation>Преобразование цветового пространства:</translation>
     </message>
     <message>
         <source>Language:</source>
@@ -829,7 +829,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Controls whether or not qView should go back to the first item after reaching the end of a folder</source>
-        <translation>Следует ли qView возвращаться к первому элементу после достижения конца папки</translation>
+        <translation>Возврат к первому элементу при достижения конца папки</translation>
     </message>
     <message>
         <source>&amp;Loop through folders</source>
@@ -837,11 +837,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Slideshow direction:</source>
-        <translation>Направление слайд-шоу:</translation>
+        <translation>Направление слайдшоу:</translation>
     </message>
     <message>
         <source>Slideshow timer:</source>
-        <translation>Таймер слайд-шоу:</translation>
+        <translation>Таймер слайдшоу:</translation>
     </message>
     <message>
         <source> sec</source>
@@ -873,12 +873,12 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save &amp;recent files</source>
-        <translation>Сохранение последних файлов</translation>
+        <translation>Сохранять недавное файлы</translation>
     </message>
     <message>
         <source>&amp;Update notifications on startup</source>
         <extracomment>The notifications are for new qView releases</extracomment>
-        <translation>Обновление уведомлений при запуске</translation>
+        <translation>Сообщать о новой версии при запуске</translation>
     </message>
     <message>
         <source>Action</source>
@@ -894,7 +894,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Double Click:</source>
-        <translation>Двойной клик:</translation>
+        <translation>Двойной щелчок:</translation>
     </message>
     <message>
         <source>Drag:</source>
@@ -902,7 +902,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Navigate when clicking on the left/right edges of the viewport</source>
-        <translation>Навигация при клике по левому/правому краю области просмотра</translation>
+        <translation>Навигация при щелчке по левому/правому краю области просмотра</translation>
     </message>
     <message>
         <source>Side navigation regions</source>
@@ -918,7 +918,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Click</source>
-        <translation>Клик</translation>
+        <translation>Щелчок</translation>
     </message>
     <message>
         <source>Drag</source>
@@ -926,15 +926,15 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Middle Click:</source>
-        <translation>Средний клик:</translation>
+        <translation>Щелчок СКМ:</translation>
     </message>
     <message>
         <source>Middle Drag:</source>
-        <translation>Среднее перетаскивание:</translation>
+        <translation>Перетаскивание с СКМ:</translation>
     </message>
     <message>
         <source>Scroll Wheel / Touchpad</source>
-        <translation>Колесо прокрутки / тачпад</translation>
+        <translation>Колёсико прокрутки / сенсорная панель</translation>
     </message>
     <message>
         <source>Vertical Scroll:</source>
@@ -946,7 +946,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Useful for touchpads, to prevent a single swipe from triggering multiple navigations, for example</source>
-        <translation>Полезно для тачпадов, чтобы предотвратить многократную навигацию при одном движении</translation>
+        <translation>Полезно для сенсорных панелей, чтобы предотвратить многократную навигацию при одном движении</translation>
     </message>
     <message>
         <source>Cooldown for discrete actions</source>
@@ -958,11 +958,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Auto-hide in fullscreen:</source>
-        <translation>Авто-скрытие в полноэкранном режиме:</translation>
+        <translation>Автоскрытие в полноэкранном режиме:</translation>
     </message>
     <message>
         <source> sec delay</source>
-        <translation> сек. задержка</translation>
+        <translation> сек задержка</translation>
     </message>
     <message>
         <source>Extension</source>
@@ -978,7 +978,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>%1 + Double Click:</source>
-        <translation>%1 + Двойной клик:</translation>
+        <translation>%1 + Двойной щелчок:</translation>
     </message>
     <message>
         <source>%1 + Drag:</source>
@@ -986,11 +986,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>%1 + Middle Click:</source>
-        <translation>%1 + Средний клик:</translation>
+        <translation>%1 + Щелчок СКМ:</translation>
     </message>
     <message>
         <source>%1 + Middle Drag:</source>
-        <translation>%1 + Перетаскивание средней кнопкой:</translation>
+        <translation>%1 + Перетаскивание с СКМ:</translation>
     </message>
     <message>
         <source>%1 + Vertical Scroll:</source>
@@ -1006,7 +1006,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
-        <translation>Необходимо перезапустить qView, чтобы изменения вступили в силу.</translation>
+        <translation>Перезапустите qView, чтобы изменения вступили в силу.</translation>
     </message>
     <message>
         <source>Window</source>
@@ -1030,11 +1030,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>System Language</source>
-        <translation>Язык системы</translation>
+        <translation>Как в системе</translation>
     </message>
     <message>
         <source>You must restart qView for the language change to take effect.</source>
-        <translation>Необходимо перезапустить qView, чтобы изменение языка вступило в силу.</translation>
+        <translation>Перезапустите qView, чтобы изменение языка вступило в силу.</translation>
     </message>
     <message>
         <source>Move Back</source>
@@ -1046,7 +1046,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Move Forward</source>
-        <translation>Вперед</translation>
+        <translation>Вперёд</translation>
     </message>
     <message>
         <source>Avoid repositioning</source>
@@ -1070,7 +1070,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation>Оригинальный размер</translation>
+        <translation>Исходный размер</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1086,7 +1086,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Display P3</source>
-        <translation>Display P3</translation>
+        <translation>Монитор P3</translation>
     </message>
     <message>
         <source>Adjacent</source>
@@ -1098,7 +1098,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Forward</source>
-        <translation>Вперед</translation>
+        <translation>Вперёд</translation>
     </message>
     <message>
         <source>Backward</source>
@@ -1114,7 +1114,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Expensive</source>
-        <translation>Ресурсоемкий</translation>
+        <translation>Ресурсоёмкий</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1178,7 +1178,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Toggle Full Screen</source>
-        <translation>Переключить полноэкранный режим</translation>
+        <translation>Вкл./выкл. полноэкранный режим</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
@@ -1186,7 +1186,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Pan</source>
-        <translation>Перемещение</translation>
+        <translation>Панорамирование</translation>
     </message>
     <message>
         <source>Move Window</source>
@@ -1194,7 +1194,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Zoom</source>
-        <translation>Масштабирование</translation>
+        <translation>Масштаб</translation>
     </message>
     <message>
         <source>Navigate</source>
@@ -1232,7 +1232,7 @@ No write permission or file is read-only.</source>
     <name>QVShortcutDialog</name>
     <message>
         <source>Modify Shortcuts</source>
-        <translation>Изменить сочетание</translation>
+        <translation>Изменить клавиши</translation>
     </message>
     <message>
         <source>Shortcut Already Used</source>
@@ -1240,7 +1240,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>&quot;%1&quot; is already bound to &quot;%2&quot;</source>
-        <translation>&quot;%1&quot; уже привязан к &quot;%2&quot;</translation>
+        <translation>&quot;%1&quot; уже назначено на &quot;%2&quot;</translation>
     </message>
 </context>
 <context>
@@ -1255,11 +1255,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Thank you for downloading qView.&lt;br&gt;Here&apos;s a few tips to get you started:</source>
-        <translation>Благодарим Вас за загрузку qView.&lt;br&gt;Вот несколько советов, которые помогут вам начать работу:</translation>
+        <translation>Благодарим за загрузку qView.&lt;br&gt;Вот несколько советов, которые помогут начать работу:</translation>
     </message>
     <message>
         <source>&lt;ul&gt;&lt;li&gt;Right click to access the main menu&lt;/li&gt;&lt;li&gt;Drag the image to reposition it&lt;/li&gt;&lt;li&gt;Scroll to zoom in and out&lt;/li&gt;&lt;li&gt;Use arrow keys to switch files&lt;/li&gt;&lt;/ul&gt;</source>
-        <translation>&lt;ul&gt;&lt;li&gt;Щелкните правой кнопкой мыши, чтобы открыть главное меню&lt;/li&gt;&lt;li&gt;Перетащите изображение, чтобы изменить его положение&lt;/li&gt;&lt;li&gt;Прокрутите, чтобы увеличить и уменьшить масштаб&lt;/li&gt;&lt;li&gt;Используйте клавиши со стрелками для переключения файлов&lt;/li&gt;&lt;/ul&gt;</translation>
+        <translation>&lt;ul&gt;&lt;li&gt;Щёлкните правой кнопкой мыши, чтобы открыть главное меню&lt;/li&gt;&lt;li&gt;Перетащите изображение, чтобы изменить его положение&lt;/li&gt;&lt;li&gt;Колёсико мыши увеличивает/уменьшает масштаб&lt;/li&gt;&lt;li&gt;Клавиши со стрелками сменяют файлы&lt;/li&gt;&lt;/ul&gt;</translation>
     </message>
 </context>
 <context>
@@ -1270,7 +1270,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open URL</source>
-        <translation>Открыть URL</translation>
+        <translation>Открыть URL-ссылку</translation>
     </message>
     <message>
         <source>Reload File</source>
@@ -1278,11 +1278,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Open Containing Folder</source>
-        <translation>Открыть папку расположения файла</translation>
+        <translation>Открыть папку с файлом</translation>
     </message>
     <message>
         <source>Show in Explorer</source>
-        <translation>Показать в Explorer</translation>
+        <translation>Показать в Проводнике</translation>
     </message>
     <message>
         <source>Show in Finder</source>
@@ -1290,19 +1290,19 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Show File Info</source>
-        <translation>Показать информацию о файле</translation>
+        <translation>Информация о файле</translation>
     </message>
     <message>
         <source>Restore from Trash</source>
-        <translation>Восстановить из корзины</translation>
+        <translation>Восстановить из Корзины</translation>
     </message>
     <message>
         <source>Undo Delete</source>
-        <translation>Восстановить</translation>
+        <translation>Отменить удаление</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation>Копировать</translation>
+        <translation>Скопировать</translation>
     </message>
     <message>
         <source>Paste</source>
@@ -1314,7 +1314,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Move to Trash</source>
-        <translation>Переместить в корзину</translation>
+        <translation>Переместить в Корзину</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -1354,7 +1354,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Original Size</source>
-        <translation>Оригинальный размер</translation>
+        <translation>Исходный размер</translation>
     </message>
     <message>
         <source>Zoom to Fit</source>
@@ -1366,7 +1366,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Navigation Resets Zoom</source>
-        <translation>Навигация сбрасывает масштаб</translation>
+        <translation>Сброс масштаба при навигации</translation>
     </message>
     <message>
         <source>Rotate Right</source>
@@ -1378,11 +1378,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Mirror</source>
-        <translation>Отразить горизонтально</translation>
+        <translation>Перевернуть горизонтально</translation>
     </message>
     <message>
         <source>Flip</source>
-        <translation>Отразить вертикально</translation>
+        <translation>Перевернуть вертикально</translation>
     </message>
     <message>
         <source>Reset Transformation</source>
@@ -1390,7 +1390,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Window On Top</source>
-        <translation>Окно поверх других</translation>
+        <translation>Поверх других окон</translation>
     </message>
     <message>
         <source>Toggle Titlebar Hidden</source>
@@ -1414,7 +1414,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Decrease Speed</source>
-        <translation>Уменьшить скорость</translation>
+        <translation>Медленнее</translation>
     </message>
     <message>
         <source>Reset Speed</source>
@@ -1422,11 +1422,11 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Increase Speed</source>
-        <translation>Увеличить скорость</translation>
+        <translation>Быстрее</translation>
     </message>
     <message>
         <source>Toggle Slideshow</source>
-        <translation>Переключить слайд-шоу</translation>
+        <translation>Вкл./выкл. слайдшоу</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1454,7 +1454,7 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Exit</source>
-        <translation>Выйти</translation>
+        <translation>Выход</translation>
     </message>
 </context>
 <context>
@@ -1494,8 +1494,8 @@ No write permission or file is read-only.</source>
     <message>
         <source>Update notifications on startup have been disabled.
 You can reenable them in the options dialog.</source>
-        <translation>Уведомления об обновлении при запуске были отключены.
-Вы можете повторно включить их в диалоговом окне Параметры.</translation>
+        <translation>Уведомления о наличии новой версии при запуске отключены.
+Их можно повторно включить в окне настроек.</translation>
     </message>
 </context>
 </TS>
