@@ -732,23 +732,27 @@ void MainWindow::setWindowSize(const bool isFromTransform)
     const QSize hardLimitSize = currentScreen->availableSize() - windowFrameSize - extraWidgetsSize;
     const QSize screenSize = currentScreen->size();
     const QSize minWindowSize = (screenSize * minWindowResizedPercentage).boundedTo(hardLimitSize);
-    const QSize maxWindowSize = (screenSize * maxWindowResizedPercentage).boundedTo(hardLimitSize);
+    const QSize maxWindowSize = (screenSize * qMax(maxWindowResizedPercentage, minWindowResizedPercentage)).boundedTo(hardLimitSize);
     const bool isZoomFixed = (!graphicsView->getNavigationResetsZoom() || isFromTransform) && !graphicsView->getCalculatedZoomMode().has_value();
     const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);
     const LogicalPixelFitter fitter = graphicsView->getPixelFitter();
+    const bool enforceMinSizeBothDimensions = false;
 
     QSize targetSize = fitter.snapSize(imageSize) - fitOverscanSize;
 
-    if (targetSize.width() > maxWindowSize.width() || targetSize.height() > maxWindowSize.height())
+    const bool limitToMin = targetSize.width() < minWindowSize.width() && targetSize.height() < minWindowSize.height();
+    const bool limitToMax = targetSize.width() > maxWindowSize.width() || targetSize.height() > maxWindowSize.height();
+    if (limitToMin || limitToMax)
     {
-        const QSizeF enforcedSize = fitter.unsnapSize(maxWindowSize) + fitOverscanSize;
+        const QSizeF enforcedSize = fitter.unsnapSize(limitToMin ? minWindowSize : maxWindowSize) + fitOverscanSize;
         const qreal fitRatio = qMin(enforcedSize.width() / imageSize.width(), enforcedSize.height() / imageSize.height());
         targetSize = fitter.snapSize(imageSize * fitRatio) - fitOverscanSize;
     }
 
-    targetSize = targetSize.expandedTo(minWindowSize).boundedTo(maxWindowSize);
+    if (enforceMinSizeBothDimensions)
+        targetSize = targetSize.expandedTo(minWindowSize);
 
     const bool recenterImage = isZoomFixed && geometry().size() != targetSize + extraWidgetsSize;
 
