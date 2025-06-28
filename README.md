@@ -14,10 +14,9 @@
 * Navigate between images when scrolling sideways (e.g. two finger swipe), or optionally, when clicking the left/right sides of the viewport.
 * Customizable mouse actions (e.g. change what double clicking or middle clicking does).
 * Option to ignore certain file extensions when navigating through a folder.
-* Show image loading errors inside viewport instead of as modal dialog.
 * Ability to keep window on top (via menu item + keyboard shortcut, and option to toggle on automatically during slideshow).
 * Improved performance during rapid image navigation when holding down the previous/next file shortcut keys, and configurable speed no longer linked to key repeat rate.
-* Windows: New style which supports dark mode.
+* Windows: Supports dark mode even on Windows 10.
 * macOS: Option to reuse existing window when launching with image.
 * Configurable window positioning behavior after matching image size.
 * More accurate zoom-to-fit plus customizable overscan setting.
