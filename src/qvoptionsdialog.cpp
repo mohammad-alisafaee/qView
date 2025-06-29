@@ -1,6 +1,7 @@
 #include "qvoptionsdialog.h"
 #include "ui_qvoptionsdialog.h"
 #include "qvapplication.h"
+#include "simplefonticonengine.h"
 #include <QColorDialog>
 #include <QPalette>
 #include <QScreen>
@@ -642,8 +643,10 @@ void QVOptionsDialog::populateCategories(int selectedRow)
 {
     const int iconSize = 24;
     const int listRightPadding = 3;
+    const QFont iconFont("Material Icons Outlined");
     const auto addItem = [&](const QChar &iconChar, const QString &text) {
-        ui->categoryList->addItem(new QListWidgetItem(qvApp->iconFromFont("Material Icons Outlined", iconChar, iconSize, devicePixelRatioF()), text));
+        const QIcon icon(new SimpleFontIconEngine(iconChar, iconFont));
+        ui->categoryList->addItem(new QListWidgetItem(icon, text));
     };
     ui->categoryList->setIconSize(QSize(iconSize, iconSize));
     ui->categoryList->setFont(QApplication::font());

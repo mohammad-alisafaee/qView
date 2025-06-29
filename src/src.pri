@@ -18,6 +18,7 @@ SOURCES += \
     $$PWD/scrollhelper.cpp \
     $$PWD/settingsmanager.cpp \
     $$PWD/shortcutmanager.cpp \
+    $$PWD/simplefonticonengine.cpp \
     $$PWD/updatechecker.cpp
 
 macx:!CONFIG(NO_COCOA):SOURCES += $$PWD/qvcocoafunctions.mm
@@ -44,6 +45,7 @@ HEADERS += \
     $$PWD/scrollhelper.h \
     $$PWD/settingsmanager.h \
     $$PWD/shortcutmanager.h \
+    $$PWD/simplefonticonengine.h \
     $$PWD/updatechecker.h
 
 macx:!CONFIG(NO_COCOA):HEADERS += $$PWD/qvcocoafunctions.h

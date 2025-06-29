@@ -96,8 +96,6 @@ public:
 
     void ensureFontLoaded(const QString &path);
 
-    static QIcon iconFromFont(const QString &fontFamily, const QChar &codePoint, const int pixelSize, const qreal pixelRatio);
-
     static qreal keyboardAutoRepeatInterval();
 
     static bool isMouseEventSynthesized(const QMouseEvent *event);

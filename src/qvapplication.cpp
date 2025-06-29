@@ -402,25 +402,6 @@ void QVApplication::ensureFontLoaded(const QString &path)
     loadedFontPaths.insert(path);
 }
 
-QIcon QVApplication::iconFromFont(const QString &fontFamily, const QChar &codePoint, const int pixelSize, const qreal pixelRatio)
-{
-    const int scaledPixelSize = qRound(pixelSize * pixelRatio);
-
-    QFont font(fontFamily);
-    font.setPixelSize(pixelSize);
-
-    QPixmap pixmap(scaledPixelSize, scaledPixelSize);
-    pixmap.fill(Qt::transparent);
-    pixmap.setDevicePixelRatio(pixelRatio);
-
-    QPainter painter(&pixmap);
-    painter.setFont(font);
-    painter.setPen(QApplication::palette().color(QPalette::WindowText));
-    painter.drawText(pixmap.rect(), codePoint);
-
-    return QIcon(pixmap);
-}
-
 qreal QVApplication::keyboardAutoRepeatInterval()
 {
 #if (QT_VERSION < QT_VERSION_CHECK(6, 5, 0))
