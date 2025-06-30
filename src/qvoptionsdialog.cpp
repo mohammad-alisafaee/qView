@@ -1,7 +1,6 @@
 #include "qvoptionsdialog.h"
 #include "ui_qvoptionsdialog.h"
 #include "qvapplication.h"
-#include "simplefonticonengine.h"
 #include <QColorDialog>
 #include <QPalette>
 #include <QScreen>
@@ -21,8 +20,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     setWindowFlags(windowFlags() & (~Qt::WindowContextHelpButtonHint | Qt::CustomizeWindowHint));
 
     resize(640, 540);
-
-    qvApp->ensureFontLoaded(":/fonts/MaterialIconsOutlined-Regular.otf");
 
     connect(ui->categoryList, &QListWidget::currentRowChanged, this, [this](int currentRow) { ui->stackedWidget->setCurrentIndex(currentRow); });
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &QVOptionsDialog::buttonBoxClicked);
@@ -643,20 +640,18 @@ void QVOptionsDialog::populateCategories(int selectedRow)
 {
     const int iconSize = 24;
     const int listRightPadding = 3;
-    const QFont iconFont("Material Icons Outlined");
-    const auto addItem = [&](const QChar &iconChar, const QString &text) {
-        const QIcon icon(new SimpleFontIconEngine(iconChar, iconFont));
-        ui->categoryList->addItem(new QListWidgetItem(icon, text));
+    const auto addItem = [&](const Qv::MaterialIcon iconName, const QString &text) {
+        ui->categoryList->addItem(new QListWidgetItem(qvApp->iconFromFont(iconName), text));
     };
     ui->categoryList->setIconSize(QSize(iconSize, iconSize));
     ui->categoryList->setFont(QApplication::font());
     ui->categoryList->clear();
-    addItem(u'\ue069', tr("Window"));
-    addItem(u'\ue3f4', tr("Image"));
-    addItem(u'\ue429', tr("Miscellaneous"));
-    addItem(u'\ue312', tr("Shortcuts"));
-    addItem(u'\ue323', tr("Mouse"));
-    addItem(u'\ue87b', tr("Formats"));
+    addItem(Qv::MaterialIcon::WebAsset, tr("Window"));
+    addItem(Qv::MaterialIcon::Image, tr("Image"));
+    addItem(Qv::MaterialIcon::Tune, tr("Miscellaneous"));
+    addItem(Qv::MaterialIcon::Keyboard, tr("Shortcuts"));
+    addItem(Qv::MaterialIcon::Mouse, tr("Mouse"));
+    addItem(Qv::MaterialIcon::Extension, tr("Formats"));
     ui->categoryList->setCurrentRow(selectedRow);
     ui->categoryList->setFixedWidth(ui->categoryList->sizeHintForColumn(0) + ui->categoryList->frameWidth() + listRightPadding);
 }

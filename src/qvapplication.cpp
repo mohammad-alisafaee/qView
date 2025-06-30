@@ -1,6 +1,7 @@
 #include "qvapplication.h"
 #include "qvoptionsdialog.h"
 #include "qvcocoafunctions.h"
+#include "simplefonticonengine.h"
 #include "updatechecker.h"
 
 #include <QFileOpenEvent>
@@ -395,11 +396,24 @@ void QVApplication::defineFilterLists()
 
 void QVApplication::ensureFontLoaded(const QString &path)
 {
+    static QSet<QString> loadedFontPaths;
+
     if (loadedFontPaths.contains(path))
         return;
 
     QFontDatabase::addApplicationFont(path);
     loadedFontPaths.insert(path);
+}
+
+QIcon QVApplication::iconFromFont(const Qv::MaterialIcon iconName)
+{
+    static std::optional<QFont> materialIconFont;
+    if (!materialIconFont.has_value())
+    {
+        ensureFontLoaded(":/fonts/MaterialIconsOutlined-Regular.otf");
+        materialIconFont = QFont("Material Icons Outlined");
+    }
+    return QIcon(new SimpleFontIconEngine(QChar(static_cast<quint16>(iconName)), materialIconFont.value()));
 }
 
 qreal QVApplication::keyboardAutoRepeatInterval()

@@ -135,6 +135,16 @@ namespace Qv
         Random
     };
 
+    enum class MaterialIcon : quint16
+    {
+        Extension = 0xE87B,
+        Image = 0xE3F4,
+        Keyboard = 0xE312,
+        Mouse = 0xE323,
+        Tune = 0xE429,
+        WebAsset = 0xE069
+    };
+
     // Helper functions
 
     inline QSet<QString> listToSet(const QStringList &list)

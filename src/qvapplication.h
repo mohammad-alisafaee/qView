@@ -94,7 +94,9 @@ public:
 
     bool getShowSubmenuIcons() const { return showSubmenuIcons; }
 
-    void ensureFontLoaded(const QString &path);
+    static void ensureFontLoaded(const QString &path);
+
+    static QIcon iconFromFont(const Qv::MaterialIcon iconName);
 
     static qreal keyboardAutoRepeatInterval();
 
@@ -152,8 +154,6 @@ private:
     bool showSubmenuIcons {true};
 
     UpdateChecker updateChecker;
-
-    QSet<QString> loadedFontPaths;
 
     bool userDeclinedSessionStateSave {false};
     QList<ClosedWindowData> closedWindowData;
