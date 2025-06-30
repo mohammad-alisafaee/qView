@@ -398,7 +398,7 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

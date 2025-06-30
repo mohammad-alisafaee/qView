@@ -1274,26 +1274,16 @@ void MainWindow::pause()
     if (!getCurrentFileDetails().isMovieLoaded)
         return;
 
-    const auto pauseActions = qvApp->getActionManager().getAllClonesOfAction("pause", this);
+    const bool isPausing = graphicsView->getLoadedMovie().state() == QMovie::Running;
 
-    if (graphicsView->getLoadedMovie().state() == QMovie::Running)
+    const auto pauseActions = qvApp->getActionManager().getAllClonesOfAction("pause", this);
+    for (const auto &pauseAction : pauseActions)
     {
-        graphicsView->setPaused(true);
-        for (const auto &pauseAction : pauseActions)
-        {
-            pauseAction->setText(tr("Res&ume"));
-            pauseAction->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::PlayArrow));
-        }
+        pauseAction->setText(isPausing ? tr("Res&ume") : tr("Pa&use"));
+        pauseAction->setIcon(qvApp->iconFromFont(isPausing ? Qv::MaterialIcon::PlayArrow : Qv::MaterialIcon::Pause));
     }
-    else
-    {
-        graphicsView->setPaused(false);
-        for (const auto &pauseAction : pauseActions)
-        {
-            pauseAction->setText(tr("Pause"));
-            pauseAction->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Pause));
-        }
-    }
+
+    graphicsView->setPaused(isPausing);
 }
 
 void MainWindow::nextFrame()
@@ -1306,12 +1296,12 @@ void MainWindow::nextFrame()
 
 void MainWindow::toggleSlideshow()
 {
-    const auto slideshowActions = qvApp->getActionManager().getAllClonesOfAction("slideshow", this);
     const bool isStarting = !slideshowTimer->isActive();
     if (isStarting)
         slideshowTimer->start();
     else
         slideshowTimer->stop();
+    const auto slideshowActions = qvApp->getActionManager().getAllClonesOfAction("slideshow", this);
     for (const auto &slideshowAction : slideshowActions)
     {
         slideshowAction->setText(isStarting ? tr("Stop S&lideshow") : tr("Start S&lideshow"));

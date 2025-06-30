@@ -402,7 +402,7 @@ No write permission or file is read-only.</source>
         <translation>元に戻す</translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation>一時停止</translation>
     </message>
     <message>

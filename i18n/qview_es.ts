@@ -402,7 +402,7 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
         <translation>Continuar</translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation>Pausar</translation>
     </message>
     <message>

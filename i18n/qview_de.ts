@@ -402,7 +402,7 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation>Fortsetzen</translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation>Pause</translation>
     </message>
     <message>

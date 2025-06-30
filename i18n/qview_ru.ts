@@ -402,7 +402,7 @@ No write permission or file is read-only.</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation>Пауза</translation>
     </message>
     <message>

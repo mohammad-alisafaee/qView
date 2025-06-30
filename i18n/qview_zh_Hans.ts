@@ -401,7 +401,7 @@ No write permission or file is read-only.</source>
         <translation>播放</translation>
     </message>
     <message>
-        <source>Pause</source>
+        <source>Pa&amp;use</source>
         <translation>暂停</translation>
     </message>
     <message>
