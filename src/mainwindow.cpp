@@ -338,7 +338,7 @@ void MainWindow::fullscreenChanged()
     for (const auto &fullscreenAction : fullscreenActions)
     {
         fullscreenAction->setText(isFullscreen ? tr("Exit F&ull Screen") : tr("Enter F&ull Screen"));
-        fullscreenAction->setIcon(isFullscreen ? QIcon::fromTheme("view-restore") : QIcon::fromTheme("view-fullscreen"));
+        fullscreenAction->setIcon(qvApp->iconFromFont(isFullscreen ? Qv::MaterialIcon::FullscreenExit : Qv::MaterialIcon::Fullscreen));
     }
 
     ui->fullscreenLabel->setVisible(isFullscreen && qvApp->getSettingsManager().getBoolean("fullscreendetails"));
@@ -1282,7 +1282,7 @@ void MainWindow::pause()
         for (const auto &pauseAction : pauseActions)
         {
             pauseAction->setText(tr("Res&ume"));
-            pauseAction->setIcon(QIcon::fromTheme("media-playback-start"));
+            pauseAction->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::PlayArrow));
         }
     }
     else
@@ -1291,7 +1291,7 @@ void MainWindow::pause()
         for (const auto &pauseAction : pauseActions)
         {
             pauseAction->setText(tr("Pause"));
-            pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
+            pauseAction->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Pause));
         }
     }
 }
@@ -1315,7 +1315,7 @@ void MainWindow::toggleSlideshow()
     for (const auto &slideshowAction : slideshowActions)
     {
         slideshowAction->setText(isStarting ? tr("Stop S&lideshow") : tr("Start S&lideshow"));
-        slideshowAction->setIcon(QIcon::fromTheme(isStarting ? "media-playback-stop" : "media-playback-start"));
+        slideshowAction->setIcon(qvApp->iconFromFont(isStarting ? Qv::MaterialIcon::CancelPresentation : Qv::MaterialIcon::Slideshow));
     }
     if (isStarting)
     {

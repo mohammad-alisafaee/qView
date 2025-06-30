@@ -42,11 +42,8 @@ QVApplication::QVApplication(int &argc, char **argv) : QApplication(argc, argv)
 #if defined Q_OS_MACOS || defined Q_OS_WIN
     setAttribute(Qt::AA_DontShowIconsInMenus);
 #else
-    if (style()->objectName() == "adwaita-dark" || style()->objectName() == "adwaita" ||
-        QIcon::fromTheme("window-keep-above").isNull() || QIcon::fromTheme("edit-reset").isNull())
-    {
+    if (style()->objectName() == "adwaita-dark" || style()->objectName() == "adwaita")
         setAttribute(Qt::AA_DontShowIconsInMenus);
-    }
 #endif
 
     // Setup macOS dock menu
