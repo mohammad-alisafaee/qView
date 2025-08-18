@@ -978,11 +978,16 @@ void QVGraphicsView::matchContentCenter(const QRect target)
 
 std::optional<Qv::GoToFileMode> QVGraphicsView::getNavigationRegion(const QPoint mousePos) const
 {
-    const int regionWidth = qMin(width() / 3, 175);
-    if (mousePos.x() < regionWidth)
-        return isRightToLeft() ? Qv::GoToFileMode::Next : Qv::GoToFileMode::Previous;
-    if (mousePos.x() >= width() - regionWidth)
-        return isRightToLeft() ? Qv::GoToFileMode::Previous : Qv::GoToFileMode::Next;
+    const int regionWidth = qMin(width() / 3, 150);
+    const int regionMinY = height() / 4;
+    const int regionMaxY = regionMinY + (height() / 2);
+    if (mousePos.y() >= regionMinY && mousePos.y() < regionMaxY)
+    {
+        if (mousePos.x() < regionWidth)
+            return isRightToLeft() ? Qv::GoToFileMode::Next : Qv::GoToFileMode::Previous;
+        if (mousePos.x() >= width() - regionWidth)
+            return isRightToLeft() ? Qv::GoToFileMode::Previous : Qv::GoToFileMode::Next;
+    }
     return {};
 }
 
