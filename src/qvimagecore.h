@@ -47,7 +47,8 @@ public:
         QPixmap pixmap;
         QString absoluteFilePath;
         qint64 fileSize = 0;
-        QSize imageSize;
+        bool isMultiFrameImage = false;
+        QSize intrinsicSize;
         QColorSpace targetColorSpace;
         std::optional<ErrorData> errorData;
     };

@@ -115,6 +115,8 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
 
     imageReader.setFileName(fileName);
 
+    bool isMultiFrameImage = false;
+    QSize intrinsicSize;
     QImage readImage;
     if (imageReader.format() == "svg" || imageReader.format() == "svgz")
     {
@@ -126,10 +128,27 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         // If this fails, try reading the normal way so that a proper error message is given
         if (readImage.isNull())
             readImage = imageReader.read();
+        intrinsicSize = imageReader.size();
     }
     else
     {
+        isMultiFrameImage = !imageReader.supportsOption(QImageIOHandler::Animation) && imageReader.imageCount() > 1;
         readImage = imageReader.read();
+    }
+
+    // Handle cases like icons containing multiple resolutions
+    if (isMultiFrameImage)
+    {
+        qsizetype bestSize = readImage.sizeInBytes();
+        while (imageReader.jumpToNextImage())
+        {
+            QImage candidateImage = imageReader.read();
+            if (!candidateImage.isNull() && candidateImage.sizeInBytes() > bestSize)
+            {
+                bestSize = candidateImage.sizeInBytes();
+                readImage = candidateImage;
+            }
+        }
     }
 
     if (qvApp->getIsApplicationQuitting())
@@ -163,7 +182,8 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
         readPixmap,
         fileInfo.absoluteFilePath(),
         fileInfo.size(),
-        imageReader.size(),
+        isMultiFrameImage,
+        intrinsicSize,
         targetColorSpace,
         {}
     };
@@ -212,19 +232,14 @@ void QVImageCore::loadPixmap(const ReadData &readData)
 
     // Set file details
     currentFileDetails.isPixmapLoaded = true;
-    currentFileDetails.baseImageSize = readData.imageSize;
+    currentFileDetails.baseImageSize = readData.intrinsicSize.isValid() ? readData.intrinsicSize : loadedPixmap.size();
     currentFileDetails.loadedPixmapSize = loadedPixmap.size();
-    if (currentFileDetails.baseImageSize == QSize(-1, -1))
-    {
-        qInfo() << "QImageReader::size gave an invalid size for " + currentFileDetails.fileInfo.fileName() + ", using size from loaded pixmap";
-        currentFileDetails.baseImageSize = currentFileDetails.loadedPixmapSize;
-    }
 
     addToCache(readData);
 
     // Animation detection
-    loadedMovie.setFormat("");
     loadedMovie.stop();
+    loadedMovie.setFormat("");
     loadedMovie.setFileName(currentFileDetails.fileInfo.absoluteFilePath());
 
     // APNG workaround
@@ -234,7 +249,7 @@ void QVImageCore::loadPixmap(const ReadData &readData)
         loadedMovie.setFileName(currentFileDetails.fileInfo.absoluteFilePath());
     }
 
-    if (loadedMovie.isValid() && loadedMovie.frameCount() != 1)
+    if (!readData.isMultiFrameImage && loadedMovie.isValid() && loadedMovie.frameCount() != 1)
         loadedMovie.start();
 
     currentFileDetails.isMovieLoaded = loadedMovie.state() == QMovie::Running;
@@ -439,7 +454,6 @@ void QVImageCore::requestCaching()
         requestCachingFile(filePath, targetColorSpace);
     }
     lastFilesPreloaded = filesToPreload;
-
 }
 
 void QVImageCore::requestCachingFile(const QString &filePath, const QColorSpace &targetColorSpace)
