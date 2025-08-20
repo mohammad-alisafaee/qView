@@ -31,7 +31,8 @@ QVImageCore::QVImageCore(QObject *parent) : QObject(parent)
 
     for (auto const &screen : QGuiApplication::screens())
     {
-        const int largerDimension = qMax(screen->size().width(), screen->size().height());
+        const QSize adjustedSize = screen->size() * screen->devicePixelRatio();
+        const int largerDimension = qMax(adjustedSize.width(), adjustedSize.height());
         if (largerDimension > largestDimension)
             largestDimension = largerDimension;
     }
@@ -118,17 +119,11 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
     bool isMultiFrameImage = false;
     QSize intrinsicSize;
     QImage readImage;
-    if (imageReader.format() == "svg" || imageReader.format() == "svgz")
+    if ((imageReader.format() == "svg" || imageReader.format() == "svgz") && !imageReader.size().isEmpty())
     {
-        // Render vectors into a high resolution
-        QIcon icon;
-        icon.addFile(fileName);
-        readImage = icon.pixmap(largestDimension).toImage();
-        readImage.setDevicePixelRatio(1.0);
-        // If this fails, try reading the normal way so that a proper error message is given
-        if (readImage.isNull())
-            readImage = imageReader.read();
         intrinsicSize = imageReader.size();
+        imageReader.setScaledSize(intrinsicSize.scaled(largestDimension, largestDimension, Qt::KeepAspectRatio));
+        readImage = imageReader.read();
     }
     else
     {
@@ -386,7 +381,7 @@ QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, c
     {
         // If the user just deleted a file through qView, closeImage will have been called which empties
         // currentFileDetails.fileInfo. In this case updateFolderInfo can't infer the directory from
-        // fileInfo like it normally does, so we'll explicity pass in the folder here.
+        // fileInfo like it normally does, so we'll explicitly pass in the folder here.
         updateFolderInfo(QFileInfo(nextImageFilePath).path());
     }
 
