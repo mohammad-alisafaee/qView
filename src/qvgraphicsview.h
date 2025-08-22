@@ -66,7 +66,7 @@ public:
 
     void goToFile(const Qv::GoToFileMode mode, const int index = 0);
 
-    void settingsUpdated();
+    void settingsUpdated(const bool isInitialLoad);
 
     void closeImage();
     void jumpToNextFrame();

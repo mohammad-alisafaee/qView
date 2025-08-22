@@ -28,6 +28,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
     connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
+    connect(ui->navResetsZoomCheckbox, &QCheckBox::stateChanged, this, [this](int state) { perWindowSettingNotifyForCheckbox("navresetszoom", state); });
     connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
     connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged);
     connect(ui->middleButtonModeClickRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
@@ -223,6 +224,8 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncSpinBox(ui->fitZoomLimitSpinBox, "fitzoomlimitpercent", defaults, makeConnections);
     // fitoverscan
     syncSpinBox(ui->fitOverscanSpinBox, "fitoverscan", defaults, makeConnections);
+    // navresetszoom
+    syncCheckbox(ui->navResetsZoomCheckbox, "navresetszoom", defaults, makeConnections);
     // constrainimageposition
     syncCheckbox(ui->constrainImagePositionCheckbox, "constrainimageposition", defaults, makeConnections);
     constrainImagePositionCheckboxStateChanged(ui->constrainImagePositionCheckbox->checkState());
@@ -552,6 +555,13 @@ void QVOptionsDialog::restartNotifyForCheckbox(const QString &key, const int sta
     const bool savedValue = qvApp->getSettingsManager().getBoolean(key);
     if (static_cast<bool>(state) != savedValue)
         QMessageBox::information(this, tr("Restart Required"), tr("You must restart qView for the setting change to take effect."));
+}
+
+void QVOptionsDialog::perWindowSettingNotifyForCheckbox(const QString &key, const int state)
+{
+    const bool savedValue = qvApp->getSettingsManager().getBoolean(key);
+    if (static_cast<bool>(state) != savedValue)
+        QMessageBox::information(this, tr("Per-Window Setting"), tr("This is a per-window setting and will only apply to newly opened windows."));
 }
 
 void QVOptionsDialog::titlebarComboBoxCurrentIndexChanged(int index)

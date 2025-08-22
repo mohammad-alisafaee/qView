@@ -780,6 +780,10 @@ No write permission or file is read-only.</source>
         <translation> пкс кромки экрана</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>Сброс масштаба при навигации</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>Удерживать позицию изображения</translation>
     </message>
@@ -1007,6 +1011,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Перезапустите qView, чтобы изменения вступили в силу.</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>Параметр для каждого окна</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>Это параметр для каждого окна, и он применяется только к вновь открытым окнам.</translation>
     </message>
     <message>
         <source>Window</source>

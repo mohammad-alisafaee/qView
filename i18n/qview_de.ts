@@ -780,6 +780,10 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation> Pixel Overscan</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>Navigation setzt Zoom zurück</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>Bildposition beschränken</translation>
     </message>
@@ -1007,6 +1011,14 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Du musst qView neu starten, damit die geänderte Einstellung wirksam wird.</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>Fensterspezifische Einstellung</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>Dies ist eine fensterspezifische Einstellung und gilt nur für neu geöffnete Fenster.</translation>
     </message>
     <message>
         <source>Window</source>

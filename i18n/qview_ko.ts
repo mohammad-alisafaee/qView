@@ -780,6 +780,10 @@ No write permission or file is read-only.</source>
         <translation> 픽셀 오버스캔</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>탐색 시 확대/축소 초기화</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>이미지 위치 제한</translation>
     </message>
@@ -1007,6 +1011,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>설정 변경 사항을 적용하려면 qView를 다시 시작해야 합니다.</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>창별 설정</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>이 설정은 창별로 적용되며 새로 연 창에만 적용됩니다.</translation>
     </message>
     <message>
         <source>Window</source>

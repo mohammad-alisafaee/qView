@@ -211,6 +211,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("smoothscalinglimitpercent", {400, {}});
     settingsLibrary.insert("scalefactor", {25, {}});
     settingsLibrary.insert("cursorzoom", {true, {}});
+    settingsLibrary.insert("navresetszoom", {true, {}});
 #ifdef Q_OS_MACOS
     // Usually not desired due to the way macOS does DPI scaling
     settingsLibrary.insert("onetoonepixelsizing", {false, {}});

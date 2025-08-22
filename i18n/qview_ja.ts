@@ -780,6 +780,10 @@ No write permission or file is read-only.</source>
         <translation> ピクセルオーバースキャン</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>ナビゲーションでズームをリセット</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>画像位置を制限</translation>
     </message>
@@ -1007,6 +1011,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>設定を反映するには、qViewを再起動する必要があります。</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>ウィンドウごとの設定</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>これはウィンドウごとの設定で、新しく開いたウィンドウにのみ適用されます。</translation>
     </message>
     <message>
         <source>Window</source>

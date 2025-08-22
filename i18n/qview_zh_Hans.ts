@@ -779,6 +779,10 @@ No write permission or file is read-only.</source>
         <translation> 像素超扫描</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>导航重置缩放</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>限制图像位置</translation>
     </message>
@@ -1006,6 +1010,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>您必须重新启动 qView，所做的更改才能生效。</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>視窗專屬設定</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>這是視窗專屬設定，只會套用到新開啟的視窗。</translation>
     </message>
     <message>
         <source>Window</source>

@@ -59,8 +59,8 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     scene->addItem(loadedPixmapItem);
 
     // Connect to settings signal
-    connect(&qvApp->getSettingsManager(), &SettingsManager::settingsUpdated, this, &QVGraphicsView::settingsUpdated);
-    settingsUpdated();
+    connect(&qvApp->getSettingsManager(), &SettingsManager::settingsUpdated, this, [this]() {settingsUpdated(false);});
+    settingsUpdated(true);
 }
 
 // Events
@@ -1104,9 +1104,15 @@ MainWindow* QVGraphicsView::getMainWindow() const
     return qobject_cast<MainWindow*>(window());
 }
 
-void QVGraphicsView::settingsUpdated()
+void QVGraphicsView::settingsUpdated(const bool isInitialLoad)
 {
     auto &settingsManager = qvApp->getSettingsManager();
+
+    if (isInitialLoad)
+    {
+        //nav resets zoom
+        navigationResetsZoom = settingsManager.getBoolean("navresetszoom");
+    }
 
     //smooth scaling
     smoothScalingMode = settingsManager.getEnum<Qv::SmoothScalingMode>("smoothscalingmode");
@@ -1117,10 +1123,10 @@ void QVGraphicsView::settingsUpdated()
     //smooth scaling limit
     smoothScalingLimit = settingsManager.getBoolean("smoothscalinglimitenabled") ? std::make_optional(settingsManager.getInteger("smoothscalinglimitpercent") / 100.0) : std::nullopt;
 
-    //calculatedzoommode
+    //calculated zoom mode
     defaultCalculatedZoomMode = settingsManager.getEnum<Qv::CalculatedZoomMode>("calculatedzoommode");
 
-    //scalefactor
+    //scale factor
     zoomMultiplier = 1.0 + (settingsManager.getInteger("scalefactor") / 100.0);
 
     //fit zoom limit
@@ -1166,6 +1172,11 @@ void QVGraphicsView::settingsUpdated()
     hideCursorTimer->setInterval(settingsManager.getDouble("cursorautohidefullscreendelay") * 1000.0);
 
     // End of settings variables
+
+    if (isInitialLoad)
+    {
+        setCalculatedZoomMode(defaultCalculatedZoomMode);
+    }
 
     handleSmoothScalingChange();
 

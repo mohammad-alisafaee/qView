@@ -769,6 +769,10 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation type="unfinished"></translation>
     </message>
@@ -995,6 +999,14 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

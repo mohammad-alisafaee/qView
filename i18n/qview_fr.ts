@@ -780,6 +780,10 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation> pixel de surbalayage</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>La navigation réinitialise le zoom</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>Limiter la position de l&apos;image</translation>
     </message>
@@ -1007,6 +1011,14 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Vous devez redémarrer qView pour que le changement de paramètre prenne effet.</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>Paramètre par fenêtre</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>Ceci est un paramètre par fenêtre et il ne s’appliquera qu’aux nouvelles fenêtres ouvertes.</translation>
     </message>
     <message>
         <source>Window</source>

@@ -780,6 +780,10 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
         <translation> píxeles de sobreexploración</translation>
     </message>
     <message>
+        <source>Navigation resets zoom</source>
+        <translation>La navegación restablece el zoom</translation>
+    </message>
+    <message>
         <source>&amp;Constrain image position</source>
         <translation>Restringir la posición de la imagen</translation>
     </message>
@@ -1007,6 +1011,14 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Debes reiniciar qView para que el cambio de configuración surta efecto.</translation>
+    </message>
+    <message>
+        <source>Per-Window Setting</source>
+        <translation>Configuración por ventana</translation>
+    </message>
+    <message>
+        <source>This is a per-window setting and will only apply to newly opened windows.</source>
+        <translation>Esta es una configuración por ventana y solo se aplicará a las ventanas que se abran nuevas.</translation>
     </message>
     <message>
         <source>Window</source>
