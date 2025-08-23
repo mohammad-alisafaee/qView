@@ -143,7 +143,7 @@ private:
     QStringList nameFilterList;
 
     // This order is very important
-    SettingsManager settingsManager; 
+    SettingsManager settingsManager;
     ActionManager actionManager;
     ShortcutManager shortcutManager;
 

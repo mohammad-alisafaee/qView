@@ -28,7 +28,6 @@ public:
 
     static QList<QKeySequence> stringListToKeySequenceList(const QStringList &stringList)
     {
-
         QList<QKeySequence> keySequences;
         for (const auto &string : stringList)
         {

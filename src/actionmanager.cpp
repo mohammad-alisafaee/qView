@@ -505,7 +505,6 @@ QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
 
     for (int i = 0; i < openWithMaxLength; i++)
     {
-
         auto action = new QAction(tr("Empty"), openWithMenu);
         action->setVisible(false);
         action->setIconVisibleInMenu(true);

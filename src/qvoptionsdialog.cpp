@@ -521,7 +521,6 @@ void QVOptionsDialog::updateButtonBox()
 
 void QVOptionsDialog::bgColorButtonClicked()
 {
-
     auto *colorDialog = new QColorDialog(ui->bgColorButton->text(), this);
     colorDialog->setWindowModality(Qt::WindowModal);
     connect(colorDialog, &QDialog::accepted, colorDialog, [this, colorDialog] {

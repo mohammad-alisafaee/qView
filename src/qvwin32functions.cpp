@@ -68,7 +68,6 @@ QList<OpenWith::OpenWithItem> QVWin32Functions::getOpenWithItems(const QString &
         openWithItem.isDefault = openWithItem.name == defaultProgramName;
         openWithItem.winAssocHandler = &assocHandler;
 
-
         QString iconLocation = QString::fromWCharArray(icon);
         bool isAppx = iconLocation.contains("ms-resource");
 

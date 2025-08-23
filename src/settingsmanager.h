@@ -52,7 +52,6 @@ protected:
 
 private:
     QHash<QString, SSetting> settingsLibrary;
-
 };
 
 #endif // SETTINGSMANAGER_H

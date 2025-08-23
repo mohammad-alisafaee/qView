@@ -17,11 +17,9 @@
 
 const QList<OpenWith::OpenWithItem> OpenWith::getOpenWithItems(const QString &filePath)
 {
-
     QList<OpenWithItem> listOfOpenWithItems;
     if (!filePath.isNull() && !QFileInfo::exists(filePath))
         return listOfOpenWithItems;
-
 
 #if defined Q_OS_MACOS && defined COCOA_LOADED
     listOfOpenWithItems = QVCocoaFunctions::getOpenWithItems(filePath, qvApp->getShowSubmenuIcons());
@@ -285,4 +283,3 @@ QVOpenWithDialog::~QVOpenWithDialog()
 {
     delete ui;
 }
-

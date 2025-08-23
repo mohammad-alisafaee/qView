@@ -438,7 +438,6 @@ void QVImageCore::requestCaching()
         if (index > currentFileDetails.folderFileInfoList.length()-1 || index < 0 || currentFileDetails.folderFileInfoList.isEmpty())
             continue;
 
-
         QString filePath = currentFileDetails.folderFileInfoList[index].absoluteFilePath;
         filesToPreload.append(filePath);
 
@@ -641,7 +640,6 @@ QPixmap QVImageCore::scaleExpensively(const QSizeF desiredSize)
 
     return relevantPixmap.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
-
 
 void QVImageCore::settingsUpdated()
 {

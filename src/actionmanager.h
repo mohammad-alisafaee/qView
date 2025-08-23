@@ -141,7 +141,6 @@ public:
     int getRecentsListMaxLength() const { return recentsListMaxLength; };
     int getOpenWithMaxLength() const { return openWithMaxLength; };
 
-
 signals:
     void recentsMenuUpdated();
 

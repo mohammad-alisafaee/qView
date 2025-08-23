@@ -138,7 +138,6 @@ void QVApplication::pickFile(MainWindow *parent)
         QSettings settings;
         settings.beginGroup("recents");
         settings.setValue("lastFileDialogDir", QFileInfo(selected.constFirst()).path());
-
     });
     fileDialog->show();
 }

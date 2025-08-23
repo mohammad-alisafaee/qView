@@ -113,5 +113,4 @@ private:
     bool isLoadingFormats {false};
 };
 
-
 #endif // QVOPTIONSDIALOG_H
