@@ -1,4 +1,4 @@
-﻿#include "mainwindow.h"
+#include "mainwindow.h"
 #include "openwith.h"
 #include "qvapplication.h"
 #include "qvcocoafunctions.h"
