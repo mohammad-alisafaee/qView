@@ -185,10 +185,10 @@ private:
     bool expensiveScalingAboveWindowSize {false};
     std::optional<qreal> fitZoomLimit;
     int fitOverscan {0};
-    bool isCursorZoomEnabled {true};
-    bool isOneToOnePixelSizingEnabled {true};
-    bool isConstrainedPositioningEnabled {true};
-    bool isConstrainedSmallCenteringEnabled {true};
+    bool zoomToCursor {true};
+    bool useOneToOnePixelSizing {true};
+    bool constrainImagePosition {true};
+    bool constrainToCenterWhenSmaller {true};
     Qv::CalculatedZoomMode defaultCalculatedZoomMode {Qv::CalculatedZoomMode::ZoomToFit};
     qreal zoomMultiplier {1.25};
 

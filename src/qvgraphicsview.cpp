@@ -32,8 +32,8 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
         {
             p.contentRect = getContentRect();
             p.usableViewportRect = getUsableViewportRect();
-            p.shouldConstrain = isConstrainedPositioningEnabled;
-            p.shouldCenter = isConstrainedSmallCenteringEnabled;
+            p.shouldConstrain = constrainImagePosition;
+            p.shouldCenter = constrainToCenterWhenSmaller;
         });
 
     connect(&imageCore, &QVImageCore::animatedFrameChanged, this, &QVGraphicsView::animatedFrameChanged);
@@ -624,7 +624,7 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
     if (!isApplyingCalculation || !Qv::calculatedZoomModeIsSticky(calculatedZoomMode.value()))
         setCalculatedZoomMode({});
 
-    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : isCursorZoomEnabled && isCursorVisible ? mousePos : getUsableViewportRect().center();
+    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : zoomToCursor && isCursorVisible ? mousePos : getUsableViewportRect().center();
     if (pos != lastZoomEventPos)
     {
         lastZoomEventPos = pos;
@@ -1056,7 +1056,7 @@ qreal QVGraphicsView::getDpiAdjustment() const
     // example with 1:1 pixel sizing @ 100% zoom, the transform's scale must be set to the
     // inverted value. Pre-inverting it here helps keep things consistent, e.g. so that the
     // content rect calculation has the same error that will happen during painting.
-    return isOneToOnePixelSizingEnabled ? 1.0 / devicePixelRatioF() : 1.0;
+    return useOneToOnePixelSizing ? 1.0 / devicePixelRatioF() : 1.0;
 }
 
 void QVGraphicsView::handleDpiAdjustmentChange()
@@ -1136,16 +1136,16 @@ void QVGraphicsView::settingsUpdated(const bool isInitialLoad)
     fitOverscan = settingsManager.getInteger("fitoverscan");
 
     //cursor zoom
-    isCursorZoomEnabled = settingsManager.getBoolean("cursorzoom");
+    zoomToCursor = settingsManager.getBoolean("cursorzoom");
 
     //one-to-one pixel sizing
-    isOneToOnePixelSizingEnabled = settingsManager.getBoolean("onetoonepixelsizing");
+    useOneToOnePixelSizing = settingsManager.getBoolean("onetoonepixelsizing");
 
     //constrained positioning
-    isConstrainedPositioningEnabled = settingsManager.getBoolean("constrainimageposition");
+    constrainImagePosition = settingsManager.getBoolean("constrainimageposition");
 
     //constrained small centering
-    isConstrainedSmallCenteringEnabled = settingsManager.getBoolean("constraincentersmallimage");
+    constrainToCenterWhenSmaller = settingsManager.getBoolean("constraincentersmallimage");
 
     //nav speed
     turboNavInterval = settingsManager.getInteger("navspeed");
