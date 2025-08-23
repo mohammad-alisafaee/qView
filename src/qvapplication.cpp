@@ -409,6 +409,7 @@ QIcon QVApplication::iconFromFont(const Qv::MaterialIcon iconName)
     {
         ensureFontLoaded(":/fonts/MaterialIconsOutlined-Regular.otf");
         materialIconFont = QFont("Material Icons Outlined");
+        materialIconFont->setStyleStrategy(QFont::NoFontMerging);
     }
     return QIcon(new SimpleFontIconEngine(QChar(static_cast<quint16>(iconName)), materialIconFont.value()));
 }
