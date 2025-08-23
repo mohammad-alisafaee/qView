@@ -224,6 +224,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("fitoverscan", {0, {}});
     settingsLibrary.insert("constrainimageposition", {true, {}});
     settingsLibrary.insert("constraincentersmallimage", {true, {}});
+    settingsLibrary.insert("disabledelayedconstraint", {false, {}});
     settingsLibrary.insert("originalsizeastoggle", {false, {}});
     settingsLibrary.insert("colorspaceconversion", {static_cast<int>(Qv::ColorSpaceConversion::AutoDetect), {}});
     // Miscellaneous

@@ -189,6 +189,7 @@ private:
     bool useOneToOnePixelSizing {true};
     bool constrainImagePosition {true};
     bool constrainToCenterWhenSmaller {true};
+    bool disableDelayedConstraint {false};
     Qv::CalculatedZoomMode defaultCalculatedZoomMode {Qv::CalculatedZoomMode::ZoomToFit};
     qreal zoomMultiplier {1.25};
 

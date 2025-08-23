@@ -47,8 +47,7 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
 
     constrainBoundsTimer = new QTimer(this);
     constrainBoundsTimer->setSingleShot(true);
-    constrainBoundsTimer->setInterval(500);
-    connect(constrainBoundsTimer, &QTimer::timeout, this, [this]{scrollHelper->constrain();});
+    connect(constrainBoundsTimer, &QTimer::timeout, this, [this]{scrollHelper->constrain(disableDelayedConstraint);});
 
     hideCursorTimer = new QTimer(this);
     hideCursorTimer->setSingleShot(true);
@@ -1146,6 +1145,10 @@ void QVGraphicsView::settingsUpdated(const bool isInitialLoad)
 
     //constrained small centering
     constrainToCenterWhenSmaller = settingsManager.getBoolean("constraincentersmallimage");
+
+    //disable delayed constraint
+    disableDelayedConstraint = settingsManager.getBoolean("disabledelayedconstraint");
+    constrainBoundsTimer->setInterval(disableDelayedConstraint ? 0 : 500);
 
     //nav speed
     turboNavInterval = settingsManager.getInteger("navspeed");
