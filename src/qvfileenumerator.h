@@ -3,6 +3,9 @@
 
 #include "qvnamespace.h"
 #include <QCollator>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+#include <QDirListing>
+#endif
 #include <QFileInfo>
 #include <QObject>
 
@@ -31,7 +34,11 @@ signals:
     void sortParametersChanged();
 
 protected:
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+    qint64 getFileTimeSortKey(const QDirListing::DirEntry &dirEntry, const QFileDevice::FileTime type) const;
+#else
     qint64 getFileTimeSortKey(const QFileInfo &fileInfo, const QFileDevice::FileTime type) const;
+#endif
     qint64 getRandomSortKey(const QString &filePath) const;
 
 private:

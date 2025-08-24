@@ -18,16 +18,19 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
     const auto &mimeTypes = qvApp->getMimeTypeNameSet();
     const QMimeDatabase::MatchMode mimeMatchMode = allowMimeContentDetection ? QMimeDatabase::MatchDefault : QMimeDatabase::MatchExtension;
 
-    QDir::Filters filters = QDir::Files;
-    if (!skipHiddenFiles)
-        filters |= QDir::Hidden;
-
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+    const QDirListing::IteratorFlags flags = QDirListing::IteratorFlag::FilesOnly | QDirListing::IteratorFlag::ResolveSymlinks |
+        (skipHiddenFiles ? QDirListing::IteratorFlags() : QDirListing::IteratorFlag::IncludeHidden);
+    for (const QDirListing::DirEntry &entry : QDirListing(dirPath, flags))
+#else
+    const QDir::Filters filters = QDir::Files | (skipHiddenFiles ? QDir::Filters() : QDir::Hidden);
     const QFileInfoList candidateFiles = QDir(dirPath).entryInfoList(filters, QDir::Unsorted);
-    for (const QFileInfo &fileInfo : candidateFiles)
+    for (const QFileInfo &entry : candidateFiles)
+#endif
     {
-        const QString absoluteFilePath = fileInfo.absoluteFilePath();
-        const QString fileName = fileInfo.fileName();
-        const QString suffix = fileInfo.suffix().toLower();
+        const QString absoluteFilePath = entry.absoluteFilePath();
+        const QString fileName = entry.fileName();
+        const QString suffix = entry.suffix();
         bool matched = !suffix.isEmpty() && extensions.contains("." + suffix);
         QString mimeType;
 
@@ -50,13 +53,13 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
             switch (sortMode)
             {
             case Qv::SortMode::DateModified:
-                numericSortKey = getFileTimeSortKey(fileInfo, QFileDevice::FileModificationTime);
+                numericSortKey = getFileTimeSortKey(entry, QFileDevice::FileModificationTime);
                 break;
             case Qv::SortMode::DateCreated:
-                numericSortKey = getFileTimeSortKey(fileInfo, QFileDevice::FileBirthTime);
+                numericSortKey = getFileTimeSortKey(entry, QFileDevice::FileBirthTime);
                 break;
             case Qv::SortMode::Size:
-                numericSortKey = fileInfo.size();
+                numericSortKey = entry.size();
                 break;
             case Qv::SortMode::Type:
                 stringSortKey = mimeType;
@@ -93,6 +96,12 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
     return fileList;
 }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+qint64 QVFileEnumerator::getFileTimeSortKey(const QDirListing::DirEntry &dirEntry, const QFileDevice::FileTime type) const
+{
+    return dirEntry.fileTime(type, QTimeZone::UTC).toMSecsSinceEpoch();
+}
+#else
 qint64 QVFileEnumerator::getFileTimeSortKey(const QFileInfo &fileInfo, const QFileDevice::FileTime type) const
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
@@ -101,6 +110,7 @@ qint64 QVFileEnumerator::getFileTimeSortKey(const QFileInfo &fileInfo, const QFi
     return fileInfo.fileTime(type).toMSecsSinceEpoch();
 #endif
 }
+#endif
 
 qint64 QVFileEnumerator::getRandomSortKey(const QString &filePath) const
 {
@@ -134,7 +144,7 @@ void QVFileEnumerator::loadSettings(const bool isInitialLoad)
     //loop folders
     isLoopFoldersEnabled = settingsManager.getBoolean("loopfoldersenabled");
 
-    if (isInitialLoad || globalSortMode != settingsManager.getEnum<Qv::SortMode>("sortmode")  || globalSortDescending != settingsManager.getBoolean("sortdescending"))
+    if (isInitialLoad || globalSortMode != settingsManager.getEnum<Qv::SortMode>("sortmode") || globalSortDescending != settingsManager.getBoolean("sortdescending"))
     {
         //sort mode
         globalSortMode = settingsManager.getEnum<Qv::SortMode>("sortmode");
