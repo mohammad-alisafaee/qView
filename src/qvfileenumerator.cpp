@@ -5,7 +5,7 @@ QVFileEnumerator::QVFileEnumerator(QObject *parent)
     : QObject{parent}
 {
     collator.setNumericMode(true);
-    loadSettings();
+    loadSettings(true);
 }
 
 QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(const QString &dirPath) const
@@ -67,7 +67,7 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
             default:
                 stringSortKey = fileName;
                 break;
-            };
+            }
             fileList.append({
                 absoluteFilePath,
                 numericSortKey,
@@ -76,13 +76,6 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
         }
     }
 
-    sortCompatibleFiles(fileList);
-
-    return fileList;
-}
-
-void QVFileEnumerator::sortCompatibleFiles(QList<CompatibleFile> &fileList) const
-{
     std::sort(
         fileList.begin(),
         fileList.end(),
@@ -96,6 +89,8 @@ void QVFileEnumerator::sortCompatibleFiles(QList<CompatibleFile> &fileList) cons
             return sortDescending ? (result > 0) : (result < 0);
         }
     );
+
+    return fileList;
 }
 
 qint64 QVFileEnumerator::getFileTimeSortKey(const QFileInfo &fileInfo, const QFileDevice::FileTime type) const
@@ -114,18 +109,41 @@ qint64 QVFileEnumerator::getRandomSortKey(const QString &filePath) const
     return static_cast<qint64>(hash.toHex().left(16).toULongLong(nullptr, 16));
 }
 
-void QVFileEnumerator::loadSettings()
+void QVFileEnumerator::setSortMode(const Qv::SortMode mode)
+{
+    if (sortMode == mode)
+        return;
+
+    sortMode = mode;
+    emit sortParametersChanged();
+}
+
+void QVFileEnumerator::setSortDescending(const bool descending)
+{
+    if (sortDescending == descending)
+        return;
+
+    sortDescending = descending;
+    emit sortParametersChanged();
+}
+
+void QVFileEnumerator::loadSettings(const bool isInitialLoad)
 {
     const auto &settingsManager = qvApp->getSettingsManager();
 
     //loop folders
     isLoopFoldersEnabled = settingsManager.getBoolean("loopfoldersenabled");
 
-    //sort mode
-    sortMode = settingsManager.getEnum<Qv::SortMode>("sortmode");
+    if (isInitialLoad || globalSortMode != settingsManager.getEnum<Qv::SortMode>("sortmode")  || globalSortDescending != settingsManager.getBoolean("sortdescending"))
+    {
+        //sort mode
+        globalSortMode = settingsManager.getEnum<Qv::SortMode>("sortmode");
+        setSortMode(globalSortMode);
 
-    //sort ascending
-    sortDescending = settingsManager.getBoolean("sortdescending");
+        //sort ascending
+        globalSortDescending = settingsManager.getBoolean("sortdescending");
+        setSortDescending(globalSortDescending);
+    }
 
     //allow mime content detection
     allowMimeContentDetection = settingsManager.getBoolean("allowmimecontentdetection");

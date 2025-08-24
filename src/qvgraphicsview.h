@@ -46,8 +46,13 @@ public:
     const std::optional<Qv::CalculatedZoomMode> &getCalculatedZoomMode() const;
     void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating = false);
 
-    bool getNavigationResetsZoom() const;
+    bool getNavigationResetsZoom() const { return navigationResetsZoom; }
     void setNavigationResetsZoom(const bool value);
+
+    Qv::SortMode getSortMode() const { return imageCore.getSortMode(); }
+    void setSortMode(const Qv::SortMode mode) { imageCore.setSortMode(mode); }
+    bool getSortDescending() const { return imageCore.getSortDescending(); }
+    void setSortDescending(const bool descending) { imageCore.setSortDescending(descending); }
 
     void applyExpensiveScaling();
     void removeExpensiveScaling();
@@ -100,6 +105,8 @@ signals:
     void calculatedZoomModeChanged();
 
     void navigationResetsZoomChanged();
+
+    void sortParametersChanged();
 
 protected:
     void wheelEvent(QWheelEvent *event) override;
@@ -210,6 +217,7 @@ private:
     bool scrollActionCooldown {false};
 
     std::optional<Qv::CalculatedZoomMode> calculatedZoomMode;
+    bool globalNavigationResetsZoom {true};
     bool navigationResetsZoom {true};
     bool loadIsFromSessionRestore {false};
     qreal zoomLevel {1.0};

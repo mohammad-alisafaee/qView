@@ -63,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     connect(graphicsView, &QVGraphicsView::zoomLevelChanged, this, &MainWindow::zoomLevelChanged);
     connect(graphicsView, &QVGraphicsView::calculatedZoomModeChanged, this, &MainWindow::syncCalculatedZoomMode);
     connect(graphicsView, &QVGraphicsView::navigationResetsZoomChanged, this, &MainWindow::syncNavigationResetsZoom);
+    connect(graphicsView, &QVGraphicsView::sortParametersChanged, this, &MainWindow::syncSortParameters);
     connect(graphicsView, &QVGraphicsView::cancelSlideshow, this, &MainWindow::cancelSlideshow);
 
     // Initialize escape shortcut
@@ -105,6 +106,8 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     contextMenu->addSeparator();
     actionManager.addCloneOfAction(contextMenu, "nextfile");
     actionManager.addCloneOfAction(contextMenu, "previousfile");
+    contextMenu->addSeparator();
+    contextMenu->addMenu(actionManager.buildSortMenu(contextMenu));
     contextMenu->addSeparator();
     contextMenu->addMenu(actionManager.buildViewMenu(true, contextMenu));
     contextMenu->addMenu(actionManager.buildToolsMenu(true, contextMenu));
@@ -225,6 +228,7 @@ void MainWindow::showEvent(QShowEvent *event)
 
     syncCalculatedZoomMode();
     syncNavigationResetsZoom();
+    syncSortParameters();
 
     if (!sessionStateToLoad.isEmpty())
     {
@@ -455,6 +459,17 @@ void MainWindow::syncNavigationResetsZoom()
     const bool value = graphicsView->getNavigationResetsZoom();
     for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("navresetszoom", this))
         action->setChecked(value);
+}
+
+void MainWindow::syncSortParameters()
+{
+    const Qv::SortMode mode = graphicsView->getSortMode();
+    const bool descending = graphicsView->getSortDescending();
+    for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("sortmode" + QString::number(static_cast<int>(mode)), this))
+        action->setChecked(true);
+    for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("sortdirection" + QString::number(static_cast<int>(descending)), this))
+        action->setChecked(true);
+    buildWindowTitle();
 }
 
 void MainWindow::disableActions()
@@ -1185,6 +1200,16 @@ void MainWindow::setFillWindow(const bool value)
 void MainWindow::setNavigationResetsZoom(const bool value)
 {
     graphicsView->setNavigationResetsZoom(value);
+}
+
+void MainWindow::setSortMode(const Qv::SortMode mode)
+{
+    graphicsView->setSortMode(mode);
+}
+
+void MainWindow::setSortDescending(const bool descending)
+{
+    graphicsView->setSortDescending(descending);
 }
 
 void MainWindow::rotateRight()

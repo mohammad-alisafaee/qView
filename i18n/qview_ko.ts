@@ -294,6 +294,42 @@
         <extracomment>Open with other program for macos</extracomment>
         <translation>그 외...</translation>
     </message>
+    <message>
+        <source>Sort Files By</source>
+        <translation>파일 정렬</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>이름순</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>수정 날짜</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>생성 날짜</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>크기순</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>유형순</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>무작위</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>오름차순</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>내림차순</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1011,14 +1047,6 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>설정 변경 사항을 적용하려면 qView를 다시 시작해야 합니다.</translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation>창별 설정</translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
-        <translation>이 설정은 창별로 적용되며 새로 연 창에만 적용됩니다.</translation>
     </message>
     <message>
         <source>Window</source>

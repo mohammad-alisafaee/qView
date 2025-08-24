@@ -294,6 +294,42 @@
         <extracomment>Open with other program for macos</extracomment>
         <translation>Andere ...</translation>
     </message>
+    <message>
+        <source>Sort Files By</source>
+        <translation>Dateien sortieren nach</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Name</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>Änderungsdatum</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>Erstellungsdatum</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Dateigröße</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Typ</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Zufall</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>Aufsteigend</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>Absteigend</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1011,14 +1047,6 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Du musst qView neu starten, damit die geänderte Einstellung wirksam wird.</translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation>Fensterspezifische Einstellung</translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
-        <translation>Dies ist eine fensterspezifische Einstellung und gilt nur für neu geöffnete Fenster.</translation>
     </message>
     <message>
         <source>Window</source>

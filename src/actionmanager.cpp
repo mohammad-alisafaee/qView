@@ -4,6 +4,7 @@
 #include "openwith.h"
 
 #include <QSettings>
+#include <QActionGroup>
 #include <QMessageBox>
 #include <QPushButton>
 #include <QMimeDatabase>
@@ -85,7 +86,8 @@ bool ActionManager::wouldTriggerAction(const QKeyEvent *event, const QString &ke
 
 void ActionManager::setActionShortcuts(const QString &key, const QList<QKeySequence> &shortcuts) const
 {
-    for (const auto &action : getAllInstancesOfAction(key))
+    const auto &actions = getAllInstancesOfAction(key);
+    for (const auto &action : actions)
     {
         action->setShortcuts(shortcuts);
     }
@@ -116,7 +118,7 @@ QList<QAction*> ActionManager::getAllClonesOfAction(const QString &key, QWidget 
         {
             listOfChildActions.append(action);
         }
-    };
+    }
     return listOfChildActions;
 }
 
@@ -135,7 +137,7 @@ QList<QMenu*> ActionManager::getAllClonesOfMenu(const QString &key, QWidget *par
         {
             listOfChildMenus.append(menu);
         }
-    };
+    }
     return listOfChildMenus;
 }
 
@@ -538,6 +540,45 @@ QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
     return openWithMenu;
 }
 
+QMenu *ActionManager::buildSortMenu(QWidget *parent)
+{
+    auto *sortMenu = new QMenu(tr("Sort Files By"), parent);
+    sortMenu->menuAction()->setData("sortmenu");
+    sortMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Sort));
+
+    auto *sortModeGroup = new QActionGroup(sortMenu);
+    const auto addMode = [&](const QString &text, const Qv::SortMode mode) {
+        auto *action = new QAction(text, sortMenu);
+        action->setData(QStringList{"sortmode" + QString::number(static_cast<int>(mode))});
+        action->setCheckable(true);
+        sortModeGroup->addAction(action);
+        sortMenu->addAction(action);
+        actionCloneLibrary.insert(action->data().toStringList().first(), action);
+    };
+    addMode(tr("Name"), Qv::SortMode::Name);
+    addMode(tr("Date Modified"), Qv::SortMode::DateModified);
+    addMode(tr("Date Created"), Qv::SortMode::DateCreated);
+    addMode(tr("Size"), Qv::SortMode::Size);
+    addMode(tr("Type"), Qv::SortMode::Type);
+    addMode(tr("Random"), Qv::SortMode::Random);
+
+    sortMenu->addSeparator();
+
+    auto *sortDirectionGroup = new QActionGroup(sortMenu);
+    const auto addDirection = [&](const QString &text, const bool descending) {
+        auto *action = new QAction(text, sortMenu);
+        action->setData(QStringList{"sortdirection" + QString::number(static_cast<int>(descending))});
+        action->setCheckable(true);
+        sortDirectionGroup->addAction(action);
+        sortMenu->addAction(action);
+        actionCloneLibrary.insert(action->data().toStringList().first(), action);
+    };
+    addDirection(tr("Ascending"), false);
+    addDirection(tr("Descending"), true);
+
+    return sortMenu;
+}
+
 void ActionManager::actionTriggered(QAction *triggeredAction)
 {
     auto key = triggeredAction->data().toStringList().first();
@@ -705,6 +746,10 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->increaseSpeed();
     } else if (key == "slideshow") {
         relevantWindow->toggleSlideshow();
+    } else if (key.startsWith("sortmode")) {
+        relevantWindow->setSortMode(static_cast<Qv::SortMode>(key.mid(QString("sortmode").length()).toInt()));
+    } else if (key.startsWith("sortdirection")) {
+        relevantWindow->setSortDescending(key.endsWith("1"));
     }
 }
 
@@ -831,7 +876,7 @@ void ActionManager::initializeActionLibrary()
     flipAction->setData({"disable"});
     actionLibrary.insert("flip", flipAction);
 
-    auto *resetTransformationAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::RestartAlt), tr("Reset &Transformation"));
+    auto *resetTransformationAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Replay), tr("Reset &Transformation"));
     resetTransformationAction->setData({"disable"});
     actionLibrary.insert("resettransformation", resetTransformationAction);
 
@@ -961,7 +1006,8 @@ QIcon ActionManager::getCacheableIcon(const QString &cacheKey, const QIcon &icon
         cacheEntry = new QIcon();
         // Depending on the source icon's implementation (e.g. if it's backed by a file engine), it may
         // not allow pixmap caching, so get a pixmap of each size once and copy it to a generic QIcon
-        for (const auto &iconSize : icon.availableSizes())
+        const auto iconSizes = icon.availableSizes();
+        for (const auto &iconSize : iconSizes)
             cacheEntry->addPixmap(icon.pixmap(iconSize));
     }
     QIcon cacheableIcon = *cacheEntry;

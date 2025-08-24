@@ -29,6 +29,11 @@ QVImageCore::QVImageCore(QObject *parent) : QObject(parent)
         loadPixmap(loadFutureWatcher.result());
     });
 
+    connect(&fileEnumerator, &QVFileEnumerator::sortParametersChanged, this, [this](){
+        updateFolderInfo();
+        emit sortParametersChanged();
+    });
+
     for (auto const &screen : QGuiApplication::screens())
     {
         const QSize adjustedSize = screen->size() * screen->devicePixelRatio();
@@ -663,10 +668,10 @@ void QVImageCore::settingsUpdated()
     }
 
     //update folder info to reflect new settings (e.g. sort order)
-    fileEnumerator.loadSettings();
+    fileEnumerator.loadSettings(false);
     updateFolderInfo();
 
-    //colorspaceconversion
+    //color space conversion
     Qv::ColorSpaceConversion oldColorSpaceConversion = colorSpaceConversion;
     colorSpaceConversion = settingsManager.getEnum<Qv::ColorSpaceConversion>("colorspaceconversion");
 

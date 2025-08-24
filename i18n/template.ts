@@ -44,6 +44,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -999,14 +1035,6 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

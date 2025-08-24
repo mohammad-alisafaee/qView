@@ -61,20 +61,13 @@ public:
     explicit QVImageCore(QObject *parent = nullptr);
 
     void loadFile(const QString &fileName, bool isReloading = false);
-    ReadData readFile(const QString &fileName, const QColorSpace &targetColorSpace);
-    void loadPixmap(const ReadData &readData);
     void closeImage();
     GoToFileResult goToFile(const Qv::GoToFileMode mode, const int index = 0);
-    void updateFolderInfo(QString dirPath = QString());
-    void requestCaching();
-    void requestCachingFile(const QString &filePath, const QColorSpace &targetColorSpace);
-    void addToCache(const ReadData &readImageAndFileInfo);
-    static QString getPixmapCacheKey(const QString &absoluteFilePath, const qint64 &fileSize, const QColorSpace &targetColorSpace);
-    QColorSpace getTargetColorSpace() const;
-    QColorSpace detectDisplayColorSpace() const;
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
-    static bool removeTinyDataTagsFromIccProfile(QByteArray &profile);
-#endif
+
+    Qv::SortMode getSortMode() const { return fileEnumerator.getSortMode(); }
+    void setSortMode(const Qv::SortMode mode) { fileEnumerator.setSortMode(mode); }
+    bool getSortDescending() const { return fileEnumerator.getSortDescending(); }
+    void setSortDescending(const bool descending) { fileEnumerator.setSortDescending(descending); }
 
     void settingsUpdated();
 
@@ -85,9 +78,9 @@ public:
     QPixmap scaleExpensively(const QSizeF desiredSize);
 
     //returned const reference is read-only
-    const QPixmap& getLoadedPixmap() const {return loadedPixmap; }
-    const QMovie& getLoadedMovie() const {return loadedMovie; }
-    const FileDetails& getCurrentFileDetails() const {return currentFileDetails; }
+    const QPixmap& getLoadedPixmap() const { return loadedPixmap; }
+    const QMovie& getLoadedMovie() const { return loadedMovie; }
+    const FileDetails& getCurrentFileDetails() const { return currentFileDetails; }
 
 signals:
     void animatedFrameChanged(QRect rect);
@@ -96,9 +89,23 @@ signals:
 
     void fileChanged();
 
+    void sortParametersChanged();
+
 protected:
+    ReadData readFile(const QString &fileName, const QColorSpace &targetColorSpace);
+    void loadPixmap(const ReadData &readData);
     void loadEmptyPixmap();
     FileDetails getEmptyFileDetails();
+    void updateFolderInfo(QString dirPath = QString());
+    void requestCaching();
+    void requestCachingFile(const QString &filePath, const QColorSpace &targetColorSpace);
+    void addToCache(const ReadData &readImageAndFileInfo);
+    static QString getPixmapCacheKey(const QString &absoluteFilePath, const qint64 &fileSize, const QColorSpace &targetColorSpace);
+    QColorSpace getTargetColorSpace() const;
+    QColorSpace detectDisplayColorSpace() const;
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
+    static bool removeTinyDataTagsFromIccProfile(QByteArray &profile);
+#endif
 
 private:
     QVFileEnumerator fileEnumerator {this};

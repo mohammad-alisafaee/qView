@@ -103,6 +103,10 @@ public:
 
     void setNavigationResetsZoom(const bool value);
 
+    void setSortMode(const Qv::SortMode mode);
+
+    void setSortDescending(const bool descending);
+
     void rotateRight();
 
     void rotateLeft();
@@ -167,6 +171,8 @@ public slots:
     void syncCalculatedZoomMode();
 
     void syncNavigationResetsZoom();
+
+    void syncSortParameters();
 
     void disableActions();
 

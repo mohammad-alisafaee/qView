@@ -39,6 +39,7 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     connect(&imageCore, &QVImageCore::animatedFrameChanged, this, &QVGraphicsView::animatedFrameChanged);
     connect(&imageCore, &QVImageCore::fileChanging, this, &QVGraphicsView::beforeLoad);
     connect(&imageCore, &QVImageCore::fileChanged, this, &QVGraphicsView::postLoad);
+    connect(&imageCore, &QVImageCore::sortParametersChanged, this, [this]{emit sortParametersChanged();});
 
     expensiveScaleTimer = new QTimer(this);
     expensiveScaleTimer->setSingleShot(true);
@@ -58,7 +59,7 @@ QVGraphicsView::QVGraphicsView(QWidget *parent) : QGraphicsView(parent)
     scene->addItem(loadedPixmapItem);
 
     // Connect to settings signal
-    connect(&qvApp->getSettingsManager(), &SettingsManager::settingsUpdated, this, [this]() {settingsUpdated(false);});
+    connect(&qvApp->getSettingsManager(), &SettingsManager::settingsUpdated, this, [this]{settingsUpdated(false);});
     settingsUpdated(true);
 }
 
@@ -690,11 +691,6 @@ void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoo
     emit calculatedZoomModeChanged();
 }
 
-bool QVGraphicsView::getNavigationResetsZoom() const
-{
-    return navigationResetsZoom;
-}
-
 void QVGraphicsView::setNavigationResetsZoom(const bool value)
 {
     if (navigationResetsZoom == value)
@@ -882,13 +878,15 @@ const QJsonObject QVGraphicsView::getSessionState() const
     state["zoomLevel"] = zoomLevel;
 
     state["hScroll"] = horizontalScrollBar()->value();
-
     state["vScroll"] = verticalScrollBar()->value();
 
     state["navResetsZoom"] = navigationResetsZoom;
 
     if (calculatedZoomMode.has_value())
         state["calcZoomMode"] = static_cast<int>(calculatedZoomMode.value());
+
+    state["sortMode"] = static_cast<int>(getSortMode());
+    state["sortDescending"] = getSortDescending();
 
     return state;
 }
@@ -909,15 +907,18 @@ void QVGraphicsView::loadSessionState(const QJsonObject &state)
     zoomAbsolute(state["zoomLevel"].toDouble());
 
     horizontalScrollBar()->setValue(state["hScroll"].toInt());
-
     verticalScrollBar()->setValue(state["vScroll"].toInt());
 
-    navigationResetsZoom = state["navResetsZoom"].toBool();
+    setNavigationResetsZoom(state["navResetsZoom"].toBool());
 
     calculatedZoomMode = state.contains("calcZoomMode") ? std::make_optional(static_cast<Qv::CalculatedZoomMode>(state["calcZoomMode"].toInt())) : std::nullopt;
-
-    emit navigationResetsZoomChanged();
     emit calculatedZoomModeChanged();
+
+    if (state.contains("sortMode") && state.contains("sortDescending"))
+    {
+        imageCore.setSortMode(static_cast<Qv::SortMode>(state["sortMode"].toInt()));
+        imageCore.setSortDescending(state["sortDescending"].toBool());
+    }
 }
 
 void QVGraphicsView::setLoadIsFromSessionRestore(const bool value)
@@ -1107,10 +1108,11 @@ void QVGraphicsView::settingsUpdated(const bool isInitialLoad)
 {
     auto &settingsManager = qvApp->getSettingsManager();
 
-    if (isInitialLoad)
+    if (isInitialLoad || globalNavigationResetsZoom != settingsManager.getBoolean("navresetszoom"))
     {
         //nav resets zoom
-        navigationResetsZoom = settingsManager.getBoolean("navresetszoom");
+        globalNavigationResetsZoom = settingsManager.getBoolean("navresetszoom");
+        setNavigationResetsZoom(globalNavigationResetsZoom);
     }
 
     //smooth scaling

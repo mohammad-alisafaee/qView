@@ -21,10 +21,16 @@ public:
 
     QList<CompatibleFile> getCompatibleFiles(const QString &dirPath) const;
     bool getIsLoopFoldersEnabled() const { return isLoopFoldersEnabled; }
-    void loadSettings();
+    Qv::SortMode getSortMode() const { return sortMode; }
+    void setSortMode(const Qv::SortMode mode);
+    bool getSortDescending() const { return sortDescending; }
+    void setSortDescending(const bool descending);
+    void loadSettings(const bool isInitialLoad);
+
+signals:
+    void sortParametersChanged();
 
 protected:
-    void sortCompatibleFiles(QList<CompatibleFile> &fileList) const;
     qint64 getFileTimeSortKey(const QFileInfo &fileInfo, const QFileDevice::FileTime type) const;
     qint64 getRandomSortKey(const QString &filePath) const;
 
@@ -34,7 +40,9 @@ private:
     QCollator collator;
 
     bool isLoopFoldersEnabled {true};
+    Qv::SortMode globalSortMode {Qv::SortMode::Name};
     Qv::SortMode sortMode {Qv::SortMode::Name};
+    bool globalSortDescending {false};
     bool sortDescending {false};
     bool allowMimeContentDetection {false};
     bool skipHiddenFiles {false};

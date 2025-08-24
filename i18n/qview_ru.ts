@@ -294,6 +294,42 @@
         <extracomment>Open with other program for macos</extracomment>
         <translation>Другое...</translation>
     </message>
+    <message>
+        <source>Sort Files By</source>
+        <translation>Сортировка файлов</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>Дата изменения</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>Дата создания</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Размер</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Случайно</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>По возрастанию</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>По убыванию</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1011,14 +1047,6 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Перезапустите qView, чтобы изменения вступили в силу.</translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation>Параметр для каждого окна</translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
-        <translation>Это параметр для каждого окна, и он применяется только к вновь открытым окнам.</translation>
     </message>
     <message>
         <source>Window</source>

@@ -294,6 +294,42 @@
         <extracomment>Open with other program for macos</extracomment>
         <translation>Otra...</translation>
     </message>
+    <message>
+        <source>Sort Files By</source>
+        <translation>Ordenar archivos por</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nombre</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>Fecha de modificación</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>Fecha de creación</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Tamaño</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Al azar</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>Ascendente</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>Descendente</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1011,14 +1047,6 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>Debes reiniciar qView para que el cambio de configuración surta efecto.</translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation>Configuración por ventana</translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
-        <translation>Esta es una configuración por ventana y solo se aplicará a las ventanas que se abran nuevas.</translation>
     </message>
     <message>
         <source>Window</source>

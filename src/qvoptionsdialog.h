@@ -50,7 +50,6 @@ protected:
     void bgColorButtonClicked();
     void updateBgColorButton();
     void restartNotifyForCheckbox(const QString &key, const int state);
-    void perWindowSettingNotifyForCheckbox(const QString &key, const int state);
     void customizePalette();
     void populateCategories(int selectedRow);
     void populateLanguages();

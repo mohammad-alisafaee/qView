@@ -294,6 +294,42 @@
         <extracomment>Open with other program for macos</extracomment>
         <translation>その他...</translation>
     </message>
+    <message>
+        <source>Sort Files By</source>
+        <translation>並び順</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名前</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>更新日時</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>作成日時</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>ファイルサイズ</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>ファイルの種類</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>ランダム</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>昇順</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>降順</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1011,14 +1047,6 @@ No write permission or file is read-only.</source>
     <message>
         <source>You must restart qView for the setting change to take effect.</source>
         <translation>設定を反映するには、qViewを再起動する必要があります。</translation>
-    </message>
-    <message>
-        <source>Per-Window Setting</source>
-        <translation>ウィンドウごとの設定</translation>
-    </message>
-    <message>
-        <source>This is a per-window setting and will only apply to newly opened windows.</source>
-        <translation>これはウィンドウごとの設定で、新しく開いたウィンドウにのみ適用されます。</translation>
     </message>
     <message>
         <source>Window</source>

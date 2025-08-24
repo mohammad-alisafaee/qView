@@ -126,6 +126,8 @@ public:
 
     QMenu *buildOpenWithMenu(QWidget *parent = nullptr);
 
+    QMenu *buildSortMenu(QWidget *parent = nullptr);
+
     static void actionTriggered(QAction *triggeredAction);
 
     static void actionTriggered(QAction *triggeredAction, MainWindow *relevantWindow);
