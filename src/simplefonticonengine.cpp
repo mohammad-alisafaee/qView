@@ -6,8 +6,7 @@
 SimpleFontIconEngine::SimpleFontIconEngine(const QChar iconChar, const QFont &iconFont)
     : m_iconChar(iconChar), m_iconFont(iconFont)
 {
-    Q_ASSERT_X(iconFont.styleStrategy() & QFont::NoFontMerging, "SimpleFontIconEngine",
-               "Icon fonts must not use font merging");
+    Q_ASSERT_X(iconFont.styleStrategy() & QFont::NoFontMerging, "SimpleFontIconEngine", "Icon fonts must not use font merging");
 }
 
 SimpleFontIconEngine::~SimpleFontIconEngine() = default;
@@ -81,7 +80,6 @@ void SimpleFontIconEngine::paint(QPainter *painter, const QRect &rect, QIcon::Mo
     const QPalette palette;
     const QColor color =
         mode == QIcon::Disabled ? palette.color(QPalette::Disabled, QPalette::Text) :
-        mode == QIcon::Selected ? palette.color(QPalette::Active, QPalette::HighlightedText) :
         palette.color(QPalette::Active, QPalette::Text);
 
     QFont renderFont(m_iconFont);
