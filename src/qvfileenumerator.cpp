@@ -23,6 +23,7 @@ QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const 
     const QDirListing::IteratorFlags flags = QDirListing::IteratorFlag::FilesOnly | QDirListing::IteratorFlag::ResolveSymlinks |
         (!skipHiddenFiles ? QDirListing::IteratorFlag::IncludeHidden : QDirListing::IteratorFlags()) |
         (recurse ? QDirListing::IteratorFlag::Recursive | QDirListing::IteratorFlag::FollowDirSymlinks : QDirListing::IteratorFlags());
+    fileList.setIsRecursive(recurse);
     for (const QDirListing::DirEntry &entry : QDirListing(dirPath, flags))
 #else
     const QDir::Filters filters = QDir::Files | (!skipHiddenFiles ? QDir::Hidden : QDir::Filters());

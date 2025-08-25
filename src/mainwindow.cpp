@@ -839,7 +839,9 @@ const QJsonObject MainWindow::getSessionState() const
     if (getCurrentFileDetails().isPixmapLoaded)
     {
         state["path"] = getCurrentFileDetails().fileInfo.absoluteFilePath();
-        state["baseDir"] = getCurrentFileDetails().folderFileInfoList.getBaseDir();
+
+        if (getCurrentFileDetails().folderFileInfoList.getIsRecursive())
+            state["baseDir"] = getCurrentFileDetails().folderFileInfoList.getBaseDir();
     }
 
     state["graphicsView"] = graphicsView->getSessionState();

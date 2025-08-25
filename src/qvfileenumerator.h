@@ -32,8 +32,13 @@ public:
 
         QString getBaseDir() const { return baseDir; }
 
+        bool getIsRecursive() const { return isRecursive; }
+
+        void setIsRecursive(const bool value) { isRecursive = value; }
+
     private:
         QString baseDir;
+        bool isRecursive {false};
     };
 
     explicit QVFileEnumerator(QObject *parent = nullptr);
