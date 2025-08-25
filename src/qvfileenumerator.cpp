@@ -23,11 +23,15 @@ QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const 
     const QMimeDatabase::MatchMode mimeMatchMode = allowMimeContentDetection ? QMimeDatabase::MatchDefault : QMimeDatabase::MatchExtension;
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-    const QDirListing::IteratorFlags flags = QDirListing::IteratorFlag::FilesOnly | QDirListing::IteratorFlag::ResolveSymlinks |
+    // Avoid the FilesOnly flag since it makes Qt check isSymLink which causes performance problems
+    // accessing SMB shares from macOS. We'll check isFile later to include only files.
+    const QDirListing::IteratorFlags flags =
         (!skipHiddenFiles ? QDirListing::IteratorFlag::IncludeHidden : QDirListing::IteratorFlags()) |
         (recurse ? QDirListing::IteratorFlag::Recursive | QDirListing::IteratorFlag::FollowDirSymlinks : QDirListing::IteratorFlags());
     for (const QDirListing::DirEntry &entry : QDirListing(dirPath, flags))
     {
+        if (!entry.isFile())
+            continue;
 #else
     const QDir::Filters filters = QDir::Files | (!skipHiddenFiles ? QDir::Hidden : QDir::Filters());
     const QDirIterator::IteratorFlags flags = recurse ? QDirIterator::Subdirectories | QDirIterator::FollowSymlinks : QDirIterator::IteratorFlags();
