@@ -71,11 +71,11 @@ void SettingsManager::loadSettings()
     const auto keys = settingsLibrary.keys();
     for (const auto &key : keys)
     {
-         auto &setting = settingsLibrary[key];
-         if (setting.value != settings.value(key, setting.defaultValue))
-             changed = true;
+        auto &setting = settingsLibrary[key];
+        if (setting.value != settings.value(key, setting.defaultValue))
+            changed = true;
 
-         setting.value = settings.value(key, setting.defaultValue);
+        setting.value = settings.value(key, setting.defaultValue);
     }
 
     if (changed)

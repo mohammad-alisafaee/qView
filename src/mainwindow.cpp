@@ -139,7 +139,7 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     }
     addActions(virtualMenu->actions());
     connect(virtualMenu, &QMenu::triggered, this, [this](QAction *triggeredAction){
-       ActionManager::actionTriggered(triggeredAction, this);
+        ActionManager::actionTriggered(triggeredAction, this);
     });
 
     // Enable actions related to having a window
@@ -937,8 +937,8 @@ void MainWindow::openUrl(const QUrl &url)
             }
             else
             {
-                 QMessageBox::critical(this, tr("Error"), tr("Error: Invalid image"));
-                 tempFile->deleteLater();
+                QMessageBox::critical(this, tr("Error"), tr("Error: Invalid image"));
+                tempFile->deleteLater();
             }
             progressDialog->deleteLater();
             saveFutureWatcher->deleteLater();
@@ -1437,7 +1437,7 @@ void MainWindow::toggleWindowOnTop()
         Qv::alterWindowFlags(info, [&](Qt::WindowFlags f) { return f.setFlag(Qt::WindowStaysOnTopHint, targetValue); });
 
     for (const auto &action : qvApp->getActionManager().getAllClonesOfAction("windowontop", this))
-       action->setChecked(targetValue);
+        action->setChecked(targetValue);
 
 #ifdef COCOA_LOADED
     // Make sure window still participates in Mission Control

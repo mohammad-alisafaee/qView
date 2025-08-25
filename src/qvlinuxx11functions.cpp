@@ -16,7 +16,7 @@ namespace X11Helper
         return nullptr;
 #else
         if (const auto x11App = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
-           return x11App->display();
+            return x11App->display();
         return nullptr;
 #endif
     }

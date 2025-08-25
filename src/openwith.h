@@ -45,9 +45,9 @@ class QVOpenWithDialog : public QDialog
 
 public:
     struct Category {
-      QString name;
-      QString readableName;
-      QString iconName;
+        QString name;
+        QString readableName;
+        QString iconName;
     };
     explicit QVOpenWithDialog(QWidget *parent = nullptr);
 

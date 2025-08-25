@@ -49,7 +49,7 @@ QVApplication::QVApplication(int &argc, char **argv) : QApplication(argc, argv)
     // Setup macOS dock menu
     dockMenu = new QMenu();
     connect(dockMenu, &QMenu::triggered, this, [](QAction *triggeredAction){
-       ActionManager::actionTriggered(triggeredAction);
+        ActionManager::actionTriggered(triggeredAction);
     });
 
     actionManager.loadRecentsList();
