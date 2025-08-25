@@ -1,5 +1,5 @@
 TARGET = qView
-VERSION = 7.0
+VERSION = 8.0
 
 QT += core gui network widgets
 

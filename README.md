@@ -8,8 +8,10 @@
 * Option to disable smooth scaling above a specified zoom level.
 * Menu toggle to preserve zoom level when changing between images.
 * "Fill Window" zoom option.
+* Basic subfolder support (you must create a file named `qv-recurse.txt` in your image folder to enable this).
 * Ability to hide the titlebar (via menu item, keyboard, or mouse shortcut).
 * Ability to drag window via its viewport (Ctrl/Cmd + drag by default; customizable).
+* Ability to change file sorting temporarily per-window (in context menu).
 * Random file navigation (Go -> Random File, or "r" keyboard shortcut) to browse randomly without changing sort mode.
 * Navigate between images when scrolling sideways (e.g. two finger swipe), or optionally, when clicking the left/right sides of the viewport.
 * Customizable mouse actions (e.g. change what double clicking or middle clicking does).
