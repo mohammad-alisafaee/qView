@@ -532,9 +532,9 @@ void QVGraphicsView::loadMimeData(const QMimeData *mimeData)
     }
 }
 
-void QVGraphicsView::loadFile(const QString &fileName)
+void QVGraphicsView::loadFile(const QString &fileName, const QString &baseDir)
 {
-    imageCore.loadFile(fileName);
+    imageCore.loadFile(fileName, false, baseDir);
 }
 
 void QVGraphicsView::reloadFile()

@@ -29,7 +29,7 @@ public:
     struct FileDetails
     {
         QFileInfo fileInfo;
-        QList<QVFileEnumerator::CompatibleFile> folderFileInfoList;
+        QVFileEnumerator::CompatibleFileList folderFileInfoList;
         int loadedIndexInFolder = -1;
         bool isLoadRequested = false;
         bool isPixmapLoaded = false;
@@ -60,7 +60,7 @@ public:
 
     explicit QVImageCore(QObject *parent = nullptr);
 
-    void loadFile(const QString &fileName, bool isReloading = false);
+    void loadFile(const QString &fileName, const bool isReloading = false, const QString &baseDir = "");
     void closeImage();
     GoToFileResult goToFile(const Qv::GoToFileMode mode, const int index = 0);
 
@@ -95,7 +95,6 @@ protected:
     ReadData readFile(const QString &fileName, const QColorSpace &targetColorSpace);
     void loadPixmap(const ReadData &readData);
     void loadEmptyPixmap();
-    FileDetails getEmptyFileDetails();
     void updateFolderInfo(QString dirPath = QString());
     void requestCaching();
     void requestCachingFile(const QString &filePath, const QColorSpace &targetColorSpace);

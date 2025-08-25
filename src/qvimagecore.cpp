@@ -47,7 +47,7 @@ QVImageCore::QVImageCore(QObject *parent) : QObject(parent)
     settingsUpdated();
 }
 
-void QVImageCore::loadFile(const QString &fileName, bool isReloading)
+void QVImageCore::loadFile(const QString &fileName, const bool isReloading, const QString &baseDir)
 {
     if (waitingOnLoad)
     {
@@ -78,6 +78,11 @@ void QVImageCore::loadFile(const QString &fileName, bool isReloading)
         else
             loadFile(currentFileDetails.folderFileInfoList.at(0).absoluteFilePath);
         return;
+    }
+
+    if (!baseDir.isEmpty())
+    {
+        updateFolderInfo(baseDir);
     }
 
     // Pause playing movie because it feels better that way
@@ -205,8 +210,11 @@ void QVImageCore::loadPixmap(const ReadData &readData)
 
     if (readData.errorData.has_value())
     {
-        currentFileDetails = getEmptyFileDetails();
-        currentFileDetails.errorData = readData.errorData;
+        FileDetails emptyDetails;
+        emptyDetails.folderFileInfoList = currentFileDetails.folderFileInfoList;
+        emptyDetails.loadedIndexInFolder = currentFileDetails.loadedIndexInFolder;
+        emptyDetails.errorData = readData.errorData;
+        currentFileDetails = emptyDetails;
     }
     else
     {
@@ -217,7 +225,10 @@ void QVImageCore::loadPixmap(const ReadData &readData)
     currentFileDetails.fileInfo = QFileInfo(readData.absoluteFilePath);
     currentFileDetails.updateLoadedIndexInFolder();
     if (currentFileDetails.loadedIndexInFolder == -1)
-        updateFolderInfo();
+    {
+        // If the current list of files doesn't contain this one, assume we're switching folders now
+        updateFolderInfo(currentFileDetails.fileInfo.path());
+    }
 
     // Reset mechanism to avoid stalling while loading
     waitingOnLoad = false;
@@ -268,7 +279,7 @@ void QVImageCore::loadPixmap(const ReadData &readData)
 void QVImageCore::closeImage()
 {
     emit fileChanging();
-    currentFileDetails = getEmptyFileDetails();
+    currentFileDetails = FileDetails();
     loadEmptyPixmap();
 }
 
@@ -279,14 +290,6 @@ void QVImageCore::loadEmptyPixmap()
     loadedMovie.setFileName("");
 
     emit fileChanged();
-}
-
-QVImageCore::FileDetails QVImageCore::getEmptyFileDetails()
-{
-    FileDetails emptyDetails;
-    emptyDetails.folderFileInfoList = currentFileDetails.folderFileInfoList;
-    emptyDetails.loadedIndexInFolder = currentFileDetails.loadedIndexInFolder;
-    return emptyDetails;
 }
 
 QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, const int index)
@@ -383,12 +386,7 @@ QVImageCore::GoToFileResult QVImageCore::goToFile(const Qv::GoToFileMode mode, c
         return result;
 
     if (shouldRetryFolderInfoUpdate)
-    {
-        // If the user just deleted a file through qView, closeImage will have been called which empties
-        // currentFileDetails.fileInfo. In this case updateFolderInfo can't infer the directory from
-        // fileInfo like it normally does, so we'll explicitly pass in the folder here.
-        updateFolderInfo(QFileInfo(nextImageFilePath).path());
-    }
+        updateFolderInfo();
 
     loadFile(nextImageFilePath);
 
@@ -399,9 +397,10 @@ void QVImageCore::updateFolderInfo(QString dirPath)
 {
     if (dirPath.isEmpty())
     {
-        dirPath = currentFileDetails.fileInfo.path();
+        // No directory specified; we are refreshing the currently loaded directory
+        dirPath = currentFileDetails.folderFileInfoList.getBaseDir();
 
-        // No directory specified and a file is not already loaded from which we can infer one
+        // Return early if there's nothing currently loaded
         if (dirPath.isEmpty())
             return;
     }

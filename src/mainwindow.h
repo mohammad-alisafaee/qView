@@ -156,7 +156,7 @@ public:
     bool getIsClosing() const { return isClosing; }
 
 public slots:
-    void openFile(const QString &fileName);
+    void openFile(const QString &fileName, const QString &baseDir = "");
 
     void toggleSlideshow();
 

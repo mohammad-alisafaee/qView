@@ -8,9 +8,9 @@ QVFileEnumerator::QVFileEnumerator(QObject *parent)
     loadSettings(true);
 }
 
-QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(const QString &dirPath) const
+QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const QString &dirPath) const
 {
-    QList<CompatibleFile> fileList;
+    CompatibleFileList fileList(dirPath);
 
     const QMimeDatabase mimeDb;
     const auto &extensions = qvApp->getFileExtensionSet();
@@ -19,11 +19,13 @@ QList<QVFileEnumerator::CompatibleFile> QVFileEnumerator::getCompatibleFiles(con
     const QMimeDatabase::MatchMode mimeMatchMode = allowMimeContentDetection ? QMimeDatabase::MatchDefault : QMimeDatabase::MatchExtension;
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
+    const bool recurse = QFile::exists(QDir(dirPath).filePath("qv-recurse.txt"));
     const QDirListing::IteratorFlags flags = QDirListing::IteratorFlag::FilesOnly | QDirListing::IteratorFlag::ResolveSymlinks |
-        (skipHiddenFiles ? QDirListing::IteratorFlags() : QDirListing::IteratorFlag::IncludeHidden);
+        (!skipHiddenFiles ? QDirListing::IteratorFlag::IncludeHidden : QDirListing::IteratorFlags()) |
+        (recurse ? QDirListing::IteratorFlag::Recursive | QDirListing::IteratorFlag::FollowDirSymlinks : QDirListing::IteratorFlags());
     for (const QDirListing::DirEntry &entry : QDirListing(dirPath, flags))
 #else
-    const QDir::Filters filters = QDir::Files | (skipHiddenFiles ? QDir::Filters() : QDir::Hidden);
+    const QDir::Filters filters = QDir::Files | (!skipHiddenFiles ? QDir::Hidden : QDir::Filters());
     const QFileInfoList candidateFiles = QDir(dirPath).entryInfoList(filters, QDir::Unsorted);
     for (const QFileInfo &entry : candidateFiles)
 #endif

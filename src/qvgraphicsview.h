@@ -31,7 +31,7 @@ public:
 
     QMimeData* getMimeData() const;
     void loadMimeData(const QMimeData *mimeData);
-    void loadFile(const QString &fileName);
+    void loadFile(const QString &fileName, const QString &baseDir = "");
 
     void reloadFile();
 

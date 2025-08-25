@@ -358,9 +358,9 @@ void MainWindow::fullscreenChanged()
     graphicsView->setCursorVisible(true);
 }
 
-void MainWindow::openFile(const QString &fileName)
+void MainWindow::openFile(const QString &fileName, const QString &baseDir)
 {
-    graphicsView->loadFile(fileName);
+    graphicsView->loadFile(fileName, baseDir);
     cancelSlideshow();
 }
 
@@ -837,7 +837,10 @@ const QJsonObject MainWindow::getSessionState() const
     state["titlebarHidden"] = getTitlebarHidden();
 
     if (getCurrentFileDetails().isPixmapLoaded)
+    {
         state["path"] = getCurrentFileDetails().fileInfo.absoluteFilePath();
+        state["baseDir"] = getCurrentFileDetails().folderFileInfoList.getBaseDir();
+    }
 
     state["graphicsView"] = graphicsView->getSessionState();
 
@@ -862,10 +865,11 @@ void MainWindow::loadSessionState(const QJsonObject &state, const bool isInitial
         toggleTitlebarHidden();
 
     const QString path = state["path"].toString();
+    const QString baseDir = state.contains("baseDir") ? state["baseDir"].toString() : "";
     if (!path.isEmpty())
     {
         graphicsView->setLoadIsFromSessionRestore(true);
-        openFile(path);
+        openFile(path, baseDir);
     }
 }
 
@@ -1162,8 +1166,8 @@ void MainWindow::rename()
         return;
 
     auto *renameDialog = new QVRenameDialog(this, getCurrentFileDetails().fileInfo);
-    connect(renameDialog, &QVRenameDialog::newFileToOpen, this, &MainWindow::openFile);
-    connect(renameDialog, &QVRenameDialog::readyToRenameFile, this, [this] () {
+    connect(renameDialog, &QVRenameDialog::newFileToOpen, this, [this](const QString &filePath) { openFile(filePath); });
+    connect(renameDialog, &QVRenameDialog::readyToRenameFile, this, [this]() {
         if (auto device = graphicsView->getLoadedMovie().device()) {
             device->close();
         }

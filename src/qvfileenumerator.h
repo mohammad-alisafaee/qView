@@ -3,6 +3,7 @@
 
 #include "qvnamespace.h"
 #include <QCollator>
+#include <QList>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
 #include <QDirListing>
 #endif
@@ -20,9 +21,24 @@ public:
         QString stringSortKey;
     };
 
+    class CompatibleFileList : public QList<CompatibleFile>
+    {
+    public:
+        CompatibleFileList() = default;
+
+        explicit CompatibleFileList(const QString &baseDir) :
+            baseDir(baseDir)
+        {}
+
+        QString getBaseDir() const { return baseDir; }
+
+    private:
+        QString baseDir;
+    };
+
     explicit QVFileEnumerator(QObject *parent = nullptr);
 
-    QList<CompatibleFile> getCompatibleFiles(const QString &dirPath) const;
+    CompatibleFileList getCompatibleFiles(const QString &dirPath) const;
     bool getIsLoopFoldersEnabled() const { return isLoopFoldersEnabled; }
     Qv::SortMode getSortMode() const { return sortMode; }
     void setSortMode(const Qv::SortMode mode);
