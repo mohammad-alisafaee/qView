@@ -1,5 +1,8 @@
 #include "qvfileenumerator.h"
 #include "qvapplication.h"
+#if QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
+#include <QDirIterator>
+#endif
 
 QVFileEnumerator::QVFileEnumerator(QObject *parent)
     : QObject{parent}
@@ -10,7 +13,8 @@ QVFileEnumerator::QVFileEnumerator(QObject *parent)
 
 QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const QString &dirPath) const
 {
-    CompatibleFileList fileList(dirPath);
+    const bool recurse = QFile::exists(QDir(dirPath).filePath("qv-recurse.txt"));
+    CompatibleFileList fileList(dirPath, recurse);
 
     const QMimeDatabase mimeDb;
     const auto &extensions = qvApp->getFileExtensionSet();
@@ -19,18 +23,20 @@ QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const 
     const QMimeDatabase::MatchMode mimeMatchMode = allowMimeContentDetection ? QMimeDatabase::MatchDefault : QMimeDatabase::MatchExtension;
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 8, 0)
-    const bool recurse = QFile::exists(QDir(dirPath).filePath("qv-recurse.txt"));
     const QDirListing::IteratorFlags flags = QDirListing::IteratorFlag::FilesOnly | QDirListing::IteratorFlag::ResolveSymlinks |
         (!skipHiddenFiles ? QDirListing::IteratorFlag::IncludeHidden : QDirListing::IteratorFlags()) |
         (recurse ? QDirListing::IteratorFlag::Recursive | QDirListing::IteratorFlag::FollowDirSymlinks : QDirListing::IteratorFlags());
-    fileList.setIsRecursive(recurse);
     for (const QDirListing::DirEntry &entry : QDirListing(dirPath, flags))
+    {
 #else
     const QDir::Filters filters = QDir::Files | (!skipHiddenFiles ? QDir::Hidden : QDir::Filters());
-    const QFileInfoList candidateFiles = QDir(dirPath).entryInfoList(filters, QDir::Unsorted);
-    for (const QFileInfo &entry : candidateFiles)
-#endif
+    const QDirIterator::IteratorFlags flags = recurse ? QDirIterator::Subdirectories | QDirIterator::FollowSymlinks : QDirIterator::IteratorFlags();
+    QDirIterator it(dirPath, filters, flags);
+    while (it.hasNext())
     {
+        it.next();
+        const QFileInfo entry = it.fileInfo();
+#endif
         const QString absoluteFilePath = entry.absoluteFilePath();
         const QString fileName = entry.fileName();
         const QString suffix = entry.suffix();
