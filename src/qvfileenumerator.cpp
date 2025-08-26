@@ -43,7 +43,7 @@ QVFileEnumerator::CompatibleFileList QVFileEnumerator::getCompatibleFiles(const 
 #endif
         const QString absoluteFilePath = entry.absoluteFilePath();
         const QString fileName = entry.fileName();
-        const QString suffix = entry.suffix();
+        const QString suffix = entry.suffix().toLower();
         bool matched = !suffix.isEmpty() && extensions.contains("." + suffix);
         QString mimeType;
 
