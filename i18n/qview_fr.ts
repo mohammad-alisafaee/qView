@@ -44,6 +44,42 @@
         <translation>Ouvrir avec</translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation>Trier les fichiers par</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Nom</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>Date de modification</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>Date de création</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Taille</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Aléatoire</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>Ordre croissant</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>Ordre décroissant</translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation>Se souvenir de la session ?</translation>
     </message>
@@ -293,42 +329,6 @@
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
         <translation>Autre...</translation>
-    </message>
-    <message>
-        <source>Sort Files By</source>
-        <translation>Trier les fichiers par</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Nom</translation>
-    </message>
-    <message>
-        <source>Date Modified</source>
-        <translation>Date de modification</translation>
-    </message>
-    <message>
-        <source>Date Created</source>
-        <translation>Date de création</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Taille</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Type</translation>
-    </message>
-    <message>
-        <source>Random</source>
-        <translation>Aléatoire</translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation>Ordre croissant</translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation>Ordre décroissant</translation>
     </message>
 </context>
 <context>
@@ -734,6 +734,14 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Show titlebar text in fullscreen</source>
         <translation>Afficher le texte de la barre de titre en plein écran</translation>
+    </message>
+    <message>
+        <source>Show icons in main menus</source>
+        <translation>Afficher les icônes dans les menus principaux</translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation>Afficher les icônes dans les menus contextuels</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>

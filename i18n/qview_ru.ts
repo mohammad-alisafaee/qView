@@ -44,6 +44,42 @@
         <translation>Открыть с помощью</translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation>Сортировка файлов</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>Дата изменения</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>Дата создания</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Размер</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>Случайно</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>По возрастанию</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>По убыванию</translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation>Запомнить сеанс?</translation>
     </message>
@@ -293,42 +329,6 @@
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
         <translation>Другое...</translation>
-    </message>
-    <message>
-        <source>Sort Files By</source>
-        <translation>Сортировка файлов</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>Имя</translation>
-    </message>
-    <message>
-        <source>Date Modified</source>
-        <translation>Дата изменения</translation>
-    </message>
-    <message>
-        <source>Date Created</source>
-        <translation>Дата создания</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>Размер</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Тип</translation>
-    </message>
-    <message>
-        <source>Random</source>
-        <translation>Случайно</translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation>По возрастанию</translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation>По убыванию</translation>
     </message>
 </context>
 <context>
@@ -734,6 +734,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Show titlebar text in fullscreen</source>
         <translation>Показывать текст заголовка в полноэкранном режиме</translation>
+    </message>
+    <message>
+        <source>Show icons in main menus</source>
+        <translation>Показывать значки в главных меню</translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation>Показывать значки в контекстных меню</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>

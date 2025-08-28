@@ -725,6 +725,14 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Show icons in main menus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
         <translation type="unfinished"></translation>
     </message>

@@ -44,6 +44,42 @@
         <translation>別のアプリで開く</translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation>並び順</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名前</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>更新日時</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>作成日時</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>ファイルサイズ</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>ファイルの種類</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>ランダム</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>昇順</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>降順</translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation>セッションを記憶しますか？</translation>
     </message>
@@ -293,42 +329,6 @@
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
         <translation>その他...</translation>
-    </message>
-    <message>
-        <source>Sort Files By</source>
-        <translation>並び順</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>名前</translation>
-    </message>
-    <message>
-        <source>Date Modified</source>
-        <translation>更新日時</translation>
-    </message>
-    <message>
-        <source>Date Created</source>
-        <translation>作成日時</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>ファイルサイズ</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>ファイルの種類</translation>
-    </message>
-    <message>
-        <source>Random</source>
-        <translation>ランダム</translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation>昇順</translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation>降順</translation>
     </message>
 </context>
 <context>
@@ -734,6 +734,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Show titlebar text in fullscreen</source>
         <translation>全画面モードでもタイトルバーのテキストを表示する</translation>
+    </message>
+    <message>
+        <source>Show icons in main menus</source>
+        <translation>メインメニューにアイコンを表示</translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation>コンテキストメニューにアイコンを表示</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>

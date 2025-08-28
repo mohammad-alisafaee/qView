@@ -44,6 +44,42 @@
         <translation>打开方式</translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation>文件排序</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>修改日期</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>创建日期</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>大小</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>类型</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>随机</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>升序</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>降序</translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation>记住会话？</translation>
     </message>
@@ -293,42 +329,6 @@
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
         <translation>其他...</translation>
-    </message>
-    <message>
-        <source>Sort Files By</source>
-        <translation>文件排序</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>名称</translation>
-    </message>
-    <message>
-        <source>Date Modified</source>
-        <translation>修改日期</translation>
-    </message>
-    <message>
-        <source>Date Created</source>
-        <translation>创建日期</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>大小</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>类型</translation>
-    </message>
-    <message>
-        <source>Random</source>
-        <translation>随机</translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation>升序</translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation>降序</translation>
     </message>
 </context>
 <context>
@@ -733,6 +733,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Show titlebar text in fullscreen</source>
         <translation>全屏时显示标题栏</translation>
+    </message>
+    <message>
+        <source>Show icons in main menus</source>
+        <translation>在主菜单中显示图标</translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation>在上下文菜单中显示图标</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>

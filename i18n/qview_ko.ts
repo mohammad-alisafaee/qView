@@ -44,6 +44,42 @@
         <translation>다음으로 열기</translation>
     </message>
     <message>
+        <source>Sort Files By</source>
+        <translation>파일 정렬</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>이름순</translation>
+    </message>
+    <message>
+        <source>Date Modified</source>
+        <translation>수정 날짜</translation>
+    </message>
+    <message>
+        <source>Date Created</source>
+        <translation>생성 날짜</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>크기순</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>유형순</translation>
+    </message>
+    <message>
+        <source>Random</source>
+        <translation>무작위</translation>
+    </message>
+    <message>
+        <source>Ascending</source>
+        <translation>오름차순</translation>
+    </message>
+    <message>
+        <source>Descending</source>
+        <translation>내림차순</translation>
+    </message>
+    <message>
         <source>Remember Session?</source>
         <translation>세션을 기억하시겠습니까?</translation>
     </message>
@@ -293,42 +329,6 @@
         <source>Other...</source>
         <extracomment>Open with other program for macos</extracomment>
         <translation>그 외...</translation>
-    </message>
-    <message>
-        <source>Sort Files By</source>
-        <translation>파일 정렬</translation>
-    </message>
-    <message>
-        <source>Name</source>
-        <translation>이름순</translation>
-    </message>
-    <message>
-        <source>Date Modified</source>
-        <translation>수정 날짜</translation>
-    </message>
-    <message>
-        <source>Date Created</source>
-        <translation>생성 날짜</translation>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation>크기순</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>유형순</translation>
-    </message>
-    <message>
-        <source>Random</source>
-        <translation>무작위</translation>
-    </message>
-    <message>
-        <source>Ascending</source>
-        <translation>오름차순</translation>
-    </message>
-    <message>
-        <source>Descending</source>
-        <translation>내림차순</translation>
     </message>
 </context>
 <context>
@@ -734,6 +734,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Show titlebar text in fullscreen</source>
         <translation>전체화면에서 제목 표시줄 표시</translation>
+    </message>
+    <message>
+        <source>Show icons in main menus</source>
+        <translation>메인 메뉴에서 아이콘 표시</translation>
+    </message>
+    <message>
+        <source>Show icons in context menus</source>
+        <translation>컨텍스트 메뉴에서 아이콘 표시</translation>
     </message>
     <message>
         <source>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</source>
