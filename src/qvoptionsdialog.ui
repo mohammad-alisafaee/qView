@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>660</width>
-    <height>600</height>
+    <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -71,7 +71,7 @@
            <x>0</x>
            <y>0</y>
            <width>482</width>
-           <height>497</height>
+           <height>543</height>
           </rect>
          </property>
          <property name="sizePolicy">
@@ -315,6 +315,20 @@
            </widget>
           </item>
           <item row="13" column="1">
+           <widget class="QCheckBox" name="mainMenuIconsCheckbox">
+            <property name="text">
+             <string>Show icons in main menus</string>
+            </property>
+           </widget>
+          </item>
+          <item row="14" column="1">
+           <widget class="QCheckBox" name="contextMenuIconsCheckbox">
+            <property name="text">
+             <string>Show icons in context menus</string>
+            </property>
+           </widget>
+          </item>
+          <item row="15" column="1">
            <widget class="QCheckBox" name="submenuIconsCheckbox">
             <property name="toolTip">
              <string>Show icons in &quot;Open Recent&quot; and &quot;Open With&quot; submenus</string>
@@ -327,21 +341,21 @@
             </property>
            </widget>
           </item>
-          <item row="14" column="1">
+          <item row="16" column="1">
            <widget class="QCheckBox" name="slideshowKeepsWindowOnTopCheckbox">
             <property name="text">
              <string>Keep window on top during slideshow</string>
             </property>
            </widget>
           </item>
-          <item row="15" column="1">
+          <item row="17" column="1">
            <widget class="QCheckBox" name="reuseWindowCheckbox">
             <property name="text">
              <string>Reuse window when launching with image</string>
             </property>
            </widget>
           </item>
-          <item row="16" column="1">
+          <item row="18" column="1">
            <widget class="QCheckBox" name="darkTitlebarCheckbox">
             <property name="toolTip">
              <string>Choose whether or not the titlebar should always be dark regardless of your chosen macOS appearance</string>
@@ -354,14 +368,14 @@
             </property>
            </widget>
           </item>
-          <item row="17" column="1">
+          <item row="19" column="1">
            <widget class="QCheckBox" name="quitOnLastWindowCheckbox">
             <property name="text">
              <string>&amp;Quit on last window closed</string>
             </property>
            </widget>
           </item>
-          <item row="18" column="1">
+          <item row="20" column="1">
            <widget class="QCheckBox" name="persistSessionCheckbox">
             <property name="text">
              <string>Persist session across app restarts</string>

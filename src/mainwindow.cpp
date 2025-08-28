@@ -93,10 +93,11 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     auto &actionManager = qvApp->getActionManager();
 
     contextMenu = new QMenu(this);
+    contextMenu->setProperty("isContextMenu", true);
 
     actionManager.addCloneOfAction(contextMenu, "open");
     actionManager.addCloneOfAction(contextMenu, "openurl");
-    contextMenu->addMenu(actionManager.buildRecentsMenu(true, contextMenu));
+    contextMenu->addMenu(actionManager.buildRecentsMenu(contextMenu));
     contextMenu->addMenu(actionManager.buildOpenWithMenu(contextMenu));
     actionManager.addCloneOfAction(contextMenu, "opencontainingfolder");
     actionManager.addCloneOfAction(contextMenu, "showfileinfo");
@@ -109,9 +110,9 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     contextMenu->addSeparator();
     contextMenu->addMenu(actionManager.buildSortMenu(contextMenu));
     contextMenu->addSeparator();
-    contextMenu->addMenu(actionManager.buildViewMenu(true, contextMenu));
-    contextMenu->addMenu(actionManager.buildToolsMenu(true, contextMenu));
-    contextMenu->addMenu(actionManager.buildHelpMenu(true, contextMenu));
+    contextMenu->addMenu(actionManager.buildViewMenu(contextMenu));
+    contextMenu->addMenu(actionManager.buildToolsMenu(contextMenu));
+    contextMenu->addMenu(actionManager.buildHelpMenu(contextMenu));
 
     connect(contextMenu, &QMenu::triggered, this, [this](QAction *triggeredAction){
         ActionManager::actionTriggered(triggeredAction, this);

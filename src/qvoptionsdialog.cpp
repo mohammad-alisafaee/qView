@@ -25,6 +25,8 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &QVOptionsDialog::buttonBoxClicked);
     connect(ui->shortcutsTable, &QTableWidget::cellDoubleClicked, this, &QVOptionsDialog::shortcutCellDoubleClicked);
     connect(ui->bgColorCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::bgColorCheckboxStateChanged);
+    connect(ui->mainMenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("mainmenuicons", state); });
+    connect(ui->contextMenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("contextmenuicons", state); });
     connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
     connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
     connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
@@ -192,6 +194,10 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->menubarCheckbox, "menubarenabled", defaults, makeConnections);
     // fullscreendetails
     syncCheckbox(ui->detailsInFullscreen, "fullscreendetails", defaults, makeConnections);
+    // mainmenuicons
+    syncCheckbox(ui->mainMenuIconsCheckbox, "mainmenuicons", defaults, makeConnections);
+    // contextmenuicons
+    syncCheckbox(ui->contextMenuIconsCheckbox, "contextmenuicons", defaults, makeConnections);
     // submenuicons
     syncCheckbox(ui->submenuIconsCheckbox, "submenuicons", defaults, makeConnections);
     // slideshowkeepswindowontop

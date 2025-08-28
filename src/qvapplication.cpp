@@ -35,16 +35,12 @@ QVApplication::QVApplication(int &argc, char **argv) : QApplication(argc, argv)
     if (getSettingsManager().getBoolean("updatenotifications"))
         updateChecker.check();
 
+    showMainMenuIcons = getSettingsManager().getBoolean("mainmenuicons");
+    showContextMenuIcons = getSettingsManager().getBoolean("contextmenuicons");
     showSubmenuIcons = getSettingsManager().getBoolean("submenuicons");
 
-    // Block any erroneous icons from showing up on mac and windows
-    // (this is overridden in some cases)
-#if defined Q_OS_MACOS || defined Q_OS_WIN
-    setAttribute(Qt::AA_DontShowIconsInMenus);
-#else
-    if (style()->objectName() == "adwaita-dark" || style()->objectName() == "adwaita")
-        setAttribute(Qt::AA_DontShowIconsInMenus);
-#endif
+    // Ask Qt to show menu icons - the action clone logic decides whether to actually set icons
+    setAttribute(Qt::AA_DontShowIconsInMenus, false);
 
     // Setup macOS dock menu
     dockMenu = new QMenu();

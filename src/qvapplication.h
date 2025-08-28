@@ -92,6 +92,10 @@ public:
 
     UpdateChecker &getUpdateChecker() { return updateChecker; }
 
+    bool getShowMainMenuIcons() const { return showMainMenuIcons; }
+
+    bool getShowContextMenuIcons() const { return showContextMenuIcons; }
+
     bool getShowSubmenuIcons() const { return showSubmenuIcons; }
 
     static void ensureFontLoaded(const QString &path);
@@ -151,6 +155,8 @@ private:
     QPointer<QVWelcomeDialog> welcomeDialog;
     QPointer<QVAboutDialog> aboutDialog;
 
+    bool showMainMenuIcons {true};
+    bool showContextMenuIcons {true};
     bool showSubmenuIcons {true};
 
     UpdateChecker updateChecker;

@@ -104,13 +104,13 @@ public:
 
     QMenuBar *buildMenuBar(QWidget *parent = nullptr);
 
-    QMenu *buildViewMenu(bool addIcon = true, QWidget *parent = nullptr);
+    QMenu *buildViewMenu(QWidget *parent = nullptr);
 
-    QMenu *buildToolsMenu(bool addIcon = true, QWidget *parent = nullptr);
+    QMenu *buildToolsMenu(QWidget *parent = nullptr);
 
-    QMenu *buildHelpMenu(bool addIcon = true, QWidget *parent = nullptr);
+    QMenu *buildHelpMenu(QWidget *parent = nullptr);
 
-    QMenu *buildRecentsMenu(bool includeClearAction = true, QWidget *parent = nullptr);
+    QMenu *buildRecentsMenu(QWidget *parent = nullptr);
 
     void loadRecentsList();
 

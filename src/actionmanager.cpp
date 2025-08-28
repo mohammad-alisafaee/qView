@@ -54,11 +54,14 @@ QAction *ActionManager::addCloneOfAction(QWidget *parent, const QString &key)
 {
     if (auto action = getAction(key))
     {
+        const bool isContextMenu = parent->property("isContextMenu").toBool();
         auto newAction = new QAction(parent);
-        newAction->setIcon(action->icon());
+        if (isContextMenu ? qvApp->getShowContextMenuIcons() : qvApp->getShowMainMenuIcons())
+            newAction->setIcon(action->icon());
         newAction->setData(action->data());
         newAction->setText(action->text());
-        newAction->setMenuRole(action->menuRole());
+        if (!isContextMenu)
+            newAction->setMenuRole(action->menuRole());
         newAction->setCheckable(action->isCheckable());
         newAction->setEnabled(action->isEnabled());
         newAction->setShortcuts(action->shortcuts());
@@ -191,7 +194,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
 #endif
     addCloneOfAction(fileMenu, "open");
     addCloneOfAction(fileMenu, "openurl");
-    fileMenu->addMenu(buildRecentsMenu(true, fileMenu));
+    fileMenu->addMenu(buildRecentsMenu(fileMenu));
     addCloneOfAction(fileMenu, "reloadfile");
     fileMenu->addSeparator();
 #ifdef Q_OS_MACOS
@@ -231,7 +234,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     // End of edit menu
 
     // Beginning of view menu
-    menuBar->addMenu(buildViewMenu(false, menuBar));
+    menuBar->addMenu(buildViewMenu(menuBar));
     // End of view menu
 
     // Beginning of go menu
@@ -247,7 +250,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     // End of go menu
 
     // Beginning of tools menu
-    menuBar->addMenu(buildToolsMenu(false, menuBar));
+    menuBar->addMenu(buildToolsMenu(menuBar));
     // End of tools menu
 
     // Beginning of window menu
@@ -257,17 +260,20 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     // End of window menu
 
     // Beginning of help menu
-    menuBar->addMenu(buildHelpMenu(false, menuBar));
+    menuBar->addMenu(buildHelpMenu(menuBar));
     // End of help menu
 
     return menuBar;
 }
 
-QMenu *ActionManager::buildViewMenu(bool addIcon, QWidget *parent)
+QMenu *ActionManager::buildViewMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *viewMenu = new QMenu(tr("&View"), parent);
     viewMenu->menuAction()->setData("view");
-    if (addIcon)
+    if (isContextMenu)
+        viewMenu->setProperty("isContextMenu", true);
+    if (isContextMenu && qvApp->getShowContextMenuIcons())
         viewMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Visibility));
 
     addCloneOfAction(viewMenu, "zoomin");
@@ -291,11 +297,14 @@ QMenu *ActionManager::buildViewMenu(bool addIcon, QWidget *parent)
     return viewMenu;
 }
 
-QMenu *ActionManager::buildToolsMenu(bool addIcon, QWidget *parent)
+QMenu *ActionManager::buildToolsMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *toolsMenu = new QMenu(tr("&Tools"), parent);
     toolsMenu->menuAction()->setData("tools");
-    if (addIcon)
+    if (isContextMenu)
+        toolsMenu->setProperty("isContextMenu", true);
+    if (isContextMenu && qvApp->getShowContextMenuIcons())
         toolsMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Build));
 
     addCloneOfAction(toolsMenu, "saveframeas");
@@ -313,11 +322,14 @@ QMenu *ActionManager::buildToolsMenu(bool addIcon, QWidget *parent)
     return toolsMenu;
 }
 
-QMenu *ActionManager::buildHelpMenu(bool addIcon, QWidget *parent)
+QMenu *ActionManager::buildHelpMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *helpMenu = new QMenu(tr("&Help"), parent);
     helpMenu->menuAction()->setData("help");
-    if (addIcon)
+    if (isContextMenu)
+        helpMenu->setProperty("isContextMenu", true);
+    if (isContextMenu && qvApp->getShowContextMenuIcons())
         helpMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::HelpOutline));
 
     addCloneOfAction(helpMenu, "about");
@@ -327,11 +339,15 @@ QMenu *ActionManager::buildHelpMenu(bool addIcon, QWidget *parent)
     return helpMenu;
 }
 
-QMenu *ActionManager::buildRecentsMenu(bool includeClearAction, QWidget *parent)
+QMenu *ActionManager::buildRecentsMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *recentsMenu = new QMenu(tr("Open &Recent"), parent);
     recentsMenu->menuAction()->setData("recents");
-    recentsMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::WorkHistory));
+    if (isContextMenu)
+        recentsMenu->setProperty("isContextMenu", true);
+    if (isContextMenu ? qvApp->getShowContextMenuIcons() : qvApp->getShowMainMenuIcons())
+        recentsMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::WorkHistory));
 
     connect(recentsMenu, &QMenu::aboutToShow, this, [this]{
         this->loadRecentsList();
@@ -348,11 +364,8 @@ QMenu *ActionManager::buildRecentsMenu(bool includeClearAction, QWidget *parent)
         actionCloneLibrary.insert(action->data().toStringList().first(), action);
     }
 
-    if (includeClearAction)
-    {
-        recentsMenu->addSeparator();
-        addCloneOfAction(recentsMenu, "clearrecents");
-    }
+    recentsMenu->addSeparator();
+    addCloneOfAction(recentsMenu, "clearrecents");
 
     menuCloneLibrary.insert(recentsMenu->menuAction()->data().toString(), recentsMenu);
     updateRecentsMenu();
@@ -500,9 +513,13 @@ void ActionManager::updateRecentsMenu()
 
 QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *openWithMenu = new QMenu(tr("Open With"), parent);
     openWithMenu->menuAction()->setData("openwith");
-    openWithMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Launch));
+    if (isContextMenu)
+        openWithMenu->setProperty("isContextMenu", true);
+    if (isContextMenu ? qvApp->getShowContextMenuIcons() : qvApp->getShowMainMenuIcons())
+        openWithMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Launch));
     openWithMenu->setDisabled(true);
 
     for (int i = 0; i < openWithMaxLength; i++)
@@ -542,9 +559,13 @@ QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
 
 QMenu *ActionManager::buildSortMenu(QWidget *parent)
 {
+    const bool isContextMenu = parent->property("isContextMenu").toBool();
     auto *sortMenu = new QMenu(tr("Sort Files By"), parent);
     sortMenu->menuAction()->setData("sortmenu");
-    sortMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Sort));
+    if (isContextMenu)
+        sortMenu->setProperty("isContextMenu", true);
+    if (isContextMenu ? qvApp->getShowContextMenuIcons() : qvApp->getShowMainMenuIcons())
+        sortMenu->setIcon(qvApp->iconFromFont(Qv::MaterialIcon::Sort));
 
     auto *sortModeGroup = new QActionGroup(sortMenu);
     const auto addMode = [&](const QString &text, const Qv::SortMode mode) {
@@ -769,7 +790,7 @@ void ActionManager::initializeActionLibrary()
     quitAction->setText(tr("Exit"));
 #endif
 
-    auto *newWindowAction = new QAction(tr("New Window"));
+    auto *newWindowAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::WebAsset), tr("New Window"));
     actionLibrary.insert("newwindow", newWindowAction);
 
     auto *openAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::FileOpen), tr("&Open..."));
@@ -782,11 +803,11 @@ void ActionManager::initializeActionLibrary()
     reloadFileAction->setData({"disable"});
     actionLibrary.insert("reloadfile", reloadFileAction);
 
-    auto *closeWindowAction = new QAction(tr("Close Window"));
+    auto *closeWindowAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Close), tr("Close Window"));
     actionLibrary.insert("closewindow", closeWindowAction);
 
     //: Close all windows, that is
-    auto *closeAllWindowsAction = new QAction(tr("Close All"));
+    auto *closeAllWindowsAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::DisabledByDefault), tr("Close All"));
     actionLibrary.insert("closeallwindows", closeAllWindowsAction);
 
     auto *openContainingFolderAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::FolderOpen), tr("Open Containing &Folder"));

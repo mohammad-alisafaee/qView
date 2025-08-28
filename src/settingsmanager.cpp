@@ -200,6 +200,13 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("quitonlastwindow", {false, {}});
     settingsLibrary.insert("menubarenabled", {false, {}});
     settingsLibrary.insert("fullscreendetails", {false, {}});
+#ifdef Q_OS_MACOS
+    settingsLibrary.insert("mainmenuicons", {false, {}});
+    settingsLibrary.insert("contextmenuicons", {false, {}});
+#else
+    settingsLibrary.insert("mainmenuicons", {true, {}});
+    settingsLibrary.insert("contextmenuicons", {true, {}});
+#endif
     settingsLibrary.insert("submenuicons", {true, {}});
     settingsLibrary.insert("slideshowkeepswindowontop", {false, {}});
     settingsLibrary.insert("reusewindow", {false, {}});
