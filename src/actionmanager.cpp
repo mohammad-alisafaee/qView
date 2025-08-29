@@ -2,6 +2,7 @@
 #include "qvapplication.h"
 #include "qvcocoafunctions.h"
 #include "openwith.h"
+#include "qvmenu.h"
 
 #include <QSettings>
 #include <QActionGroup>
@@ -187,7 +188,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     auto *menuBar = new QMenuBar(parent);
 
     // Beginning of file menu
-    auto *fileMenu = new QMenu(tr("&File"), menuBar);
+    auto *fileMenu = new QVMenu(tr("&File"), menuBar);
 
 #ifdef Q_OS_MACOS
     addCloneOfAction(fileMenu, "newwindow");
@@ -216,7 +217,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     // End of file menu
 
     // Beginning of edit menu
-    auto *editMenu = new QMenu(tr("&Edit"), menuBar);
+    auto *editMenu = new QVMenu(tr("&Edit"), menuBar);
 
     addCloneOfAction(editMenu, "undo");
     editMenu->addSeparator();
@@ -238,7 +239,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     // End of view menu
 
     // Beginning of go menu
-    auto *goMenu = new QMenu(tr("&Go"), menuBar);
+    auto *goMenu = new QVMenu(tr("&Go"), menuBar);
 
     addCloneOfAction(goMenu, "firstfile");
     addCloneOfAction(goMenu, "previousfile");
@@ -269,7 +270,7 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
 QMenu *ActionManager::buildViewMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *viewMenu = new QMenu(tr("&View"), parent);
+    auto *viewMenu = new QVMenu(tr("&View"), parent);
     viewMenu->menuAction()->setData("view");
     if (isContextMenu)
         viewMenu->setProperty("isContextMenu", true);
@@ -300,7 +301,7 @@ QMenu *ActionManager::buildViewMenu(QWidget *parent)
 QMenu *ActionManager::buildToolsMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *toolsMenu = new QMenu(tr("&Tools"), parent);
+    auto *toolsMenu = new QVMenu(tr("&Tools"), parent);
     toolsMenu->menuAction()->setData("tools");
     if (isContextMenu)
         toolsMenu->setProperty("isContextMenu", true);
@@ -325,7 +326,7 @@ QMenu *ActionManager::buildToolsMenu(QWidget *parent)
 QMenu *ActionManager::buildHelpMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *helpMenu = new QMenu(tr("&Help"), parent);
+    auto *helpMenu = new QVMenu(tr("&Help"), parent);
     helpMenu->menuAction()->setData("help");
     if (isContextMenu)
         helpMenu->setProperty("isContextMenu", true);
@@ -342,7 +343,7 @@ QMenu *ActionManager::buildHelpMenu(QWidget *parent)
 QMenu *ActionManager::buildRecentsMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *recentsMenu = new QMenu(tr("Open &Recent"), parent);
+    auto *recentsMenu = new QVMenu(tr("Open &Recent"), parent);
     recentsMenu->menuAction()->setData("recents");
     if (isContextMenu)
         recentsMenu->setProperty("isContextMenu", true);
@@ -514,7 +515,7 @@ void ActionManager::updateRecentsMenu()
 QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *openWithMenu = new QMenu(tr("Open With"), parent);
+    auto *openWithMenu = new QVMenu(tr("Open With"), parent);
     openWithMenu->menuAction()->setData("openwith");
     if (isContextMenu)
         openWithMenu->setProperty("isContextMenu", true);
@@ -560,7 +561,7 @@ QMenu *ActionManager::buildOpenWithMenu(QWidget *parent)
 QMenu *ActionManager::buildSortMenu(QWidget *parent)
 {
     const bool isContextMenu = parent->property("isContextMenu").toBool();
-    auto *sortMenu = new QMenu(tr("Sort Files By"), parent);
+    auto *sortMenu = new QVMenu(tr("Sort Files By"), parent);
     sortMenu->menuAction()->setData("sortmenu");
     if (isContextMenu)
         sortMenu->setProperty("isContextMenu", true);

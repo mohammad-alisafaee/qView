@@ -4,6 +4,7 @@
 #include "qvcocoafunctions.h"
 #include "qvwin32functions.h"
 #include "qvrenamedialog.h"
+#include "qvmenu.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -92,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
     // Context menu
     auto &actionManager = qvApp->getActionManager();
 
-    contextMenu = new QMenu(this);
+    contextMenu = new QVMenu(this);
     contextMenu->setProperty("isContextMenu", true);
 
     actionManager.addCloneOfAction(contextMenu, "open");
