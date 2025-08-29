@@ -83,7 +83,7 @@ void SimpleFontIconEngine::paint(QPainter *painter, const QRect &rect, QIcon::Mo
         palette.color(QPalette::Active, QPalette::Text);
 
     QFont renderFont(m_iconFont);
-    renderFont.setPixelSize(rect.height());
+    renderFont.setPixelSize(qMin(rect.width(), rect.height()));
 
     painter->save();
     painter->setFont(renderFont);
