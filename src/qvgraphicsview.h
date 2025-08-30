@@ -73,7 +73,7 @@ public:
 
     void settingsUpdated(const bool isInitialLoad);
 
-    void closeImage();
+    void closeImage(const bool stayInDir = false);
     void jumpToNextFrame();
     void setPaused(const bool &desiredState);
     void setSpeed(const int &desiredSpeed);

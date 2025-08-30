@@ -74,7 +74,7 @@ void QVImageCore::loadFile(const QString &fileName, const bool isReloading, cons
     {
         updateFolderInfo(sanitaryFileName);
         if (currentFileDetails.folderFileInfoList.isEmpty())
-            closeImage();
+            closeImage(true);
         else
             loadFile(currentFileDetails.folderFileInfoList.at(0).absoluteFilePath);
         return;
@@ -276,10 +276,16 @@ void QVImageCore::loadPixmap(const ReadData &readData)
     requestCaching();
 }
 
-void QVImageCore::closeImage()
+void QVImageCore::closeImage(const bool stayInDir)
 {
     emit fileChanging();
-    currentFileDetails = FileDetails();
+    FileDetails emptyDetails;
+    if (stayInDir)
+    {
+        emptyDetails.folderFileInfoList = currentFileDetails.folderFileInfoList;
+        emptyDetails.loadedIndexInFolder = currentFileDetails.loadedIndexInFolder;
+    }
+    currentFileDetails = emptyDetails;
     loadEmptyPixmap();
 }
 

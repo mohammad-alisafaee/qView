@@ -563,8 +563,9 @@ void QVGraphicsView::postLoad()
     if (lastImageContentRect.isValid())
         matchContentCenter(lastImageContentRect);
 
-    if (!getCurrentFileDetails().errorData.has_value())
-        qvApp->getActionManager().addFileToRecentsList(getCurrentFileDetails().fileInfo);
+    const auto &fileDetails = getCurrentFileDetails();
+    if (!fileDetails.fileInfo.filePath().isEmpty() && !fileDetails.errorData.has_value())
+        qvApp->getActionManager().addFileToRecentsList(fileDetails.fileInfo);
 
     emit fileChanged(loadIsFromSessionRestore);
 
@@ -1192,9 +1193,9 @@ void QVGraphicsView::settingsUpdated(const bool isInitialLoad)
     setCursorVisible(true);
 }
 
-void QVGraphicsView::closeImage()
+void QVGraphicsView::closeImage(const bool stayInDir)
 {
-    imageCore.closeImage();
+    imageCore.closeImage(stayInDir);
 }
 
 void QVGraphicsView::jumpToNextFrame()

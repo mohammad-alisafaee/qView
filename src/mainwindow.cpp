@@ -1070,7 +1070,7 @@ void MainWindow::deleteFile(bool permanent)
     const QString filePath = fileInfo.absoluteFilePath();
     const QString fileName = fileInfo.fileName();
 
-    graphicsView->closeImage();
+    graphicsView->closeImage(true);
 
     bool success;
     QString trashFilePath;
@@ -1092,6 +1092,8 @@ void MainWindow::deleteFile(bool permanent)
         QMessageBox::critical(this, tr("Error"), tr("Can't delete %1.").arg(fileName));
         return;
     }
+
+    qvApp->getActionManager().auditRecentsList(true);
 
     auto afterDelete = qvApp->getSettingsManager().getEnum<Qv::AfterDelete>("afterdelete");
     if (afterDelete == Qv::AfterDelete::MoveForward)

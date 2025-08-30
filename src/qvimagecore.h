@@ -61,7 +61,7 @@ public:
     explicit QVImageCore(QObject *parent = nullptr);
 
     void loadFile(const QString &fileName, const bool isReloading = false, const QString &baseDir = "");
-    void closeImage();
+    void closeImage(const bool stayInDir = false);
     GoToFileResult goToFile(const Qv::GoToFileMode mode, const int index = 0);
 
     Qv::SortMode getSortMode() const { return fileEnumerator.getSortMode(); }
