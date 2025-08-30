@@ -13,6 +13,8 @@ namespace Qv
 
     inline constexpr int SessionStateVersion = 1;
 
+    inline constexpr QPoint CalculateViewportCenterPos(std::numeric_limits<int>::max(), std::numeric_limits<int>::max());
+
     // Settings value enums
 
     enum class AfterDelete
@@ -179,6 +181,7 @@ namespace Qv
         RotateLeft = 0xE419,
         RotateRight = 0xE41A,
         Save = 0xE161,
+        Search = 0xE8B6,
         SettingsOverscan = 0xE8C4,
         Settings = 0xE8B8,
         Shuffle = 0xE043,

@@ -85,6 +85,7 @@ void ShortcutManager::initializeShortcutsList()
         shortcutsList.last().defaultShortcuts << QKeySequence(Qt::CTRL | Qt::Key_Equal).toString();
 
     shortcutsList.append({tr("Zoom Out"), "zoomout", keyBindingsToStringList(QKeySequence::ZoomOut), {}});
+    shortcutsList.append({tr("Set Zoom Level"), "zoomcustom", {}, {}});
     shortcutsList.append({tr("Original Size"), "originalsize", QStringList(QKeySequence(Qt::CTRL | Qt::Key_0).toString()), {}});
     shortcutsList.append({tr("Zoom to Fit"), "zoomtofit", QStringList(QKeySequence(Qt::CTRL | Qt::Key_9).toString()), {}});
     shortcutsList.append({tr("Fill Window"), "fillwindow", QStringList(QKeySequence(Qt::CTRL | Qt::Key_8).toString()), {}});

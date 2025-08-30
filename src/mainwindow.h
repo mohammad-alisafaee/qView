@@ -95,6 +95,8 @@ public:
 
     void zoomOut();
 
+    void zoomCustom();
+
     void originalSize();
 
     void setZoomToFit(const bool value);

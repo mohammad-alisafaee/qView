@@ -279,6 +279,7 @@ QMenu *ActionManager::buildViewMenu(QWidget *parent)
 
     addCloneOfAction(viewMenu, "zoomin");
     addCloneOfAction(viewMenu, "zoomout");
+    addCloneOfAction(viewMenu, "zoomcustom");
     addCloneOfAction(viewMenu, "originalsize");
     addCloneOfAction(viewMenu, "zoomtofit");
     addCloneOfAction(viewMenu, "fillwindow");
@@ -720,6 +721,8 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->zoomIn();
     } else if (key == "zoomout") {
         relevantWindow->zoomOut();
+    } else if (key == "zoomcustom") {
+        relevantWindow->zoomCustom();
     } else if (key == "originalsize") {
         relevantWindow->originalSize();
     } else if (key == "zoomtofit") {
@@ -862,6 +865,10 @@ void ActionManager::initializeActionLibrary()
     auto *zoomOutAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::ZoomOut), tr("Zoom &Out"));
     zoomOutAction->setData({"disable"});
     actionLibrary.insert("zoomout", zoomOutAction);
+
+    auto *zoomCustomAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Search), tr("Set Zoom &Level..."));
+    zoomCustomAction->setData({"disable"});
+    actionLibrary.insert("zoomcustom", zoomCustomAction);
 
     auto *originalSizeAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::LooksOne), tr("Ori&ginal Size"));
     originalSizeAction->setData({"disable"});

@@ -602,30 +602,32 @@ void QVGraphicsView::postLoad()
 
 void QVGraphicsView::zoomIn()
 {
-    zoomRelative(zoomMultiplier);
+    zoomRelative(zoomMultiplier, Qv::CalculateViewportCenterPos);
+    fitOrConstrainImage();
 }
 
 void QVGraphicsView::zoomOut()
 {
-    zoomRelative(qPow(zoomMultiplier, -1));
+    zoomRelative(qPow(zoomMultiplier, -1), Qv::CalculateViewportCenterPos);
+    fitOrConstrainImage();
 }
 
 void QVGraphicsView::zoomRelative(const qreal relativeLevel, const std::optional<QPoint> &mousePos)
 {
-    const qreal absoluteLevel = zoomLevel * relativeLevel;
-
-    if (absoluteLevel >= 500 || absoluteLevel <= 0.01)
-        return;
-
-    zoomAbsolute(absoluteLevel, mousePos);
+    const qreal absoluteLevel = std::clamp(zoomLevel * relativeLevel, 0.01, 100.0);
+    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : zoomToCursor && isCursorVisible ? mousePos : Qv::CalculateViewportCenterPos;
+    zoomAbsolute(absoluteLevel, pos);
 }
 
-void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &mousePos, const bool isApplyingCalculation)
+void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &targetPos, const bool isApplyingCalculation)
 {
     if (!isApplyingCalculation || !Qv::calculatedZoomModeIsSticky(calculatedZoomMode.value()))
         setCalculatedZoomMode({});
 
-    const std::optional<QPoint> pos = !mousePos.has_value() ? std::nullopt : zoomToCursor && isCursorVisible ? mousePos : getUsableViewportRect().center();
+    if (absoluteLevel == zoomLevel)
+        return;
+
+    const std::optional<QPoint> pos = targetPos == Qv::CalculateViewportCenterPos ? getUsableViewportRect().center() : targetPos;
     if (pos != lastZoomEventPos)
     {
         lastZoomEventPos = pos;
