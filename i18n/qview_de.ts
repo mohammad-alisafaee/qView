@@ -188,6 +188,10 @@
         <translation>Verkleinern</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>Zoomstufe festlegen ...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>Originalgröße</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>Transformation zurücksetzen</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>Bildgröße anpassen</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>Das Wiederherstellen von %1 ist fehlgeschlagen.</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>Zoomstufe festlegen</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>Zoomstufe (%):</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
         <translation>Verkleinern</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>Zoomstufe festlegen</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>Originalgröße</translation>
     </message>
@@ -1435,6 +1455,10 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>Reset Transformation</source>
         <translation>Transformation zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>Bildgröße anpassen</translation>
     </message>
     <message>
         <source>Window On Top</source>

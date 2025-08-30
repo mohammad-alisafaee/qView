@@ -188,6 +188,10 @@
         <translation>缩小</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>设置缩放级别...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>原始大小</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>重置变换</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>匹配图像尺寸</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -427,6 +435,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>撤销删除失败。</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>设置缩放级别</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>缩放级别（%）：</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1400,6 +1416,10 @@ No write permission or file is read-only.</source>
         <translation>缩小</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>设置缩放级别</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>原始大小</translation>
     </message>
@@ -1434,6 +1454,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Reset Transformation</source>
         <translation>重置变换</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>匹配图像尺寸</translation>
     </message>
     <message>
         <source>Window On Top</source>

@@ -188,6 +188,10 @@
         <translation>縮小</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>ズーム倍率を設定...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>等倍</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>変換をリセット</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>画像サイズに合わせる</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>%1 の削除の取り消しに失敗しました。</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>ズーム倍率を設定</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>ズーム倍率（%）：</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ No write permission or file is read-only.</source>
         <translation>縮小</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>ズーム倍率を設定</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>等倍</translation>
     </message>
@@ -1435,6 +1455,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Reset Transformation</source>
         <translation>変換をリセット</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>画像サイズに合わせる</translation>
     </message>
     <message>
         <source>Window On Top</source>

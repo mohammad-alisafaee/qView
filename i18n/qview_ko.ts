@@ -188,6 +188,10 @@
         <translation>축소</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>확대/축소 수준 설정...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>원본 크기</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>변형 초기화</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>이미지 크기에 맞추기</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>%1 파일의 복구에 실패했습니다.</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>확대/축소 수준 설정</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>확대/축소 수준 (%):</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ No write permission or file is read-only.</source>
         <translation>축소</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>확대/축소 수준 설정</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>원본 크기</translation>
     </message>
@@ -1435,6 +1455,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Reset Transformation</source>
         <translation>변형 초기화</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>이미지 크기에 맞추기</translation>
     </message>
     <message>
         <source>Window On Top</source>

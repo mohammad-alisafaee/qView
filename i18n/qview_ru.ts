@@ -188,6 +188,10 @@
         <translation>Уменьшить</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>Задать уровень масштаба...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>Исходный размер</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>Сбросить трансформацию</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>Подогнать под размер изображения</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ No write permission or file is read-only.</source>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>Не удалось отменить удаление %1.</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>Задать уровень масштаба</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>Уровень масштаба (%):</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ No write permission or file is read-only.</source>
         <translation>Уменьшить</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>Задать уровень масштаба</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>Исходный размер</translation>
     </message>
@@ -1435,6 +1455,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Reset Transformation</source>
         <translation>Сбросить трансформацию</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>Подогнать под размер изображения</translation>
     </message>
     <message>
         <source>Window On Top</source>

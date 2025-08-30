@@ -188,6 +188,10 @@
         <translation>Reducir</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>Establecer nivel de zoom...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>Tamaño original</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>Restablecer transformación</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>Ajustar al tamaño de la imagen</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>Error al deshacer el borrado de %1.</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>Establecer nivel de zoom</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>Nivel de zoom (%):</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
         <translation>Reducir</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>Establecer nivel de zoom</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>Tamaño original</translation>
     </message>
@@ -1435,6 +1455,10 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>Reset Transformation</source>
         <translation>Restablecer transformación</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>Ajustar al tamaño de la imagen</translation>
     </message>
     <message>
         <source>Window On Top</source>

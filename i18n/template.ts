@@ -188,6 +188,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -221,6 +225,10 @@
     </message>
     <message>
         <source>Reset &amp;Transformation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -423,6 +431,14 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Failed undoing deletion of %1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1388,6 +1404,10 @@ No write permission or file is read-only.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1421,6 +1441,10 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Reset Transformation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

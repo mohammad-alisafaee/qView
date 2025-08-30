@@ -188,6 +188,10 @@
         <translation>Réduire</translation>
     </message>
     <message>
+        <source>Set Zoom &amp;Level...</source>
+        <translation>Définir le niveau de zoom...</translation>
+    </message>
+    <message>
         <source>Ori&amp;ginal Size</source>
         <translation>Taille originale</translation>
     </message>
@@ -222,6 +226,10 @@
     <message>
         <source>Reset &amp;Transformation</source>
         <translation>Réinitialiser la transformation</translation>
+    </message>
+    <message>
+        <source>M&amp;atch Image Size</source>
+        <translation>Ajuster à la taille de l&apos;image</translation>
     </message>
     <message>
         <source>Window On To&amp;p</source>
@@ -428,6 +436,14 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Failed undoing deletion of %1.</source>
         <translation>Échec de l&apos;annulation de la suppression de %1.</translation>
+    </message>
+    <message>
+        <source>Set Zoom Level</source>
+        <translation>Définir le niveau de zoom</translation>
+    </message>
+    <message>
+        <source>Zoom Level (%):</source>
+        <translation>Niveau de zoom (%):</translation>
     </message>
     <message>
         <source>Save Frame As...</source>
@@ -1401,6 +1417,10 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
         <translation>Réduire</translation>
     </message>
     <message>
+        <source>Set Zoom Level</source>
+        <translation>Définir le niveau de zoom</translation>
+    </message>
+    <message>
         <source>Original Size</source>
         <translation>Taille originale</translation>
     </message>
@@ -1435,6 +1455,10 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Reset Transformation</source>
         <translation>Réinitialiser la transformation</translation>
+    </message>
+    <message>
+        <source>Match Image Size</source>
+        <translation>Ajuster à la taille de l&apos;image</translation>
     </message>
     <message>
         <source>Window On Top</source>
