@@ -194,6 +194,7 @@ namespace Qv
         Tune = 0xE429,
         VerticalAlignTop = 0xE25A,
         Visibility = 0xE8F4,
+        Wallpaper = 0xE1BC,
         WebAsset = 0xE069,
         WorkHistory = 0xEC09,
         ZoomIn = 0xE8FF,

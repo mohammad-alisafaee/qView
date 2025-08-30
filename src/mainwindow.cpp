@@ -710,14 +710,18 @@ void MainWindow::setTitlebarHidden(const bool shouldHide)
     graphicsView->fitOrConstrainImage();
 }
 
-void MainWindow::setWindowSize(const bool isFromTransform)
+void MainWindow::setWindowSize(const bool isReapplying, const bool isExplicitRequest)
 {
     if (!getCurrentFileDetails().isPixmapLoaded)
         return;
 
     //check if the program is configured to resize the window
     const auto windowResizeMode = qvApp->getSettingsManager().getEnum<Qv::WindowResizeMode>("windowresizemode");
-    if (!(windowResizeMode == Qv::WindowResizeMode::WhenOpeningImages || (windowResizeMode == Qv::WindowResizeMode::WhenLaunching && justLaunchedWithImage)))
+    const bool shouldResize =
+        isExplicitRequest ||
+        windowResizeMode == Qv::WindowResizeMode::WhenOpeningImages ||
+        (windowResizeMode == Qv::WindowResizeMode::WhenLaunching && justLaunchedWithImage);
+    if (!shouldResize)
         return;
 
     justLaunchedWithImage = false;
@@ -749,7 +753,7 @@ void MainWindow::setWindowSize(const bool isFromTransform)
     const QSize screenSize = currentScreen->size();
     const QSize minWindowSize = (screenSize * minWindowResizedPercentage).boundedTo(hardLimitSize);
     const QSize maxWindowSize = (screenSize * qMax(maxWindowResizedPercentage, minWindowResizedPercentage)).boundedTo(hardLimitSize);
-    const bool isZoomFixed = (!graphicsView->getNavigationResetsZoom() || isFromTransform) && !graphicsView->getCalculatedZoomMode().has_value();
+    const bool isZoomFixed = (!graphicsView->getNavigationResetsZoom() || isReapplying) && !graphicsView->getCalculatedZoomMode().has_value();
     const QSizeF imageSize = graphicsView->getEffectiveOriginalSize() * (isZoomFixed ? graphicsView->getZoomLevel() : 1.0);
     const int fitOverscan = graphicsView->getFitOverscan();
     const QSize fitOverscanSize = QSize(fitOverscan * 2, fitOverscan * 2);

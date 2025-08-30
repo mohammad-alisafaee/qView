@@ -291,6 +291,7 @@ QMenu *ActionManager::buildViewMenu(QWidget *parent)
     addCloneOfAction(viewMenu, "flip");
     addCloneOfAction(viewMenu, "resettransformation");
     viewMenu->addSeparator();
+    addCloneOfAction(viewMenu, "matchimagesize");
     addCloneOfAction(viewMenu, "windowontop");
     addCloneOfAction(viewMenu, "toggletitlebar");
     addCloneOfAction(viewMenu, "fullscreen");
@@ -741,6 +742,8 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->flip();
     } else if (key == "resettransformation") {
         relevantWindow->resetTransformation();
+    } else if (key == "matchimagesize") {
+        relevantWindow->setWindowSize(true, true);
     } else if (key == "windowontop") {
         relevantWindow->toggleWindowOnTop();
     } else if (key == "toggletitlebar") {
@@ -908,6 +911,10 @@ void ActionManager::initializeActionLibrary()
     auto *resetTransformationAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Replay), tr("Reset &Transformation"));
     resetTransformationAction->setData({"disable"});
     actionLibrary.insert("resettransformation", resetTransformationAction);
+
+    auto *matchImageSizeAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Wallpaper), tr("M&atch Image Size"));
+    matchImageSizeAction->setData({"windowdisable"});
+    actionLibrary.insert("matchimagesize", matchImageSizeAction);
 
     auto *windowOnTopAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::KeyboardDoubleArrowUp), tr("Window On To&p"));
     windowOnTopAction->setData({"windowdisable"});

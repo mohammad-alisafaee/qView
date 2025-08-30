@@ -53,7 +53,7 @@ public:
 
     void setTitlebarHidden(const bool shouldHide);
 
-    void setWindowSize(const bool isFromTransform = false);
+    void setWindowSize(const bool isReapplying = false, const bool isExplicitRequest = false);
 
     bool getIsPixmapLoaded() const;
 
