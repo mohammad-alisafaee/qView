@@ -624,9 +624,7 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
     if (!isApplyingCalculation || !Qv::calculatedZoomModeIsSticky(calculatedZoomMode.value()))
         setCalculatedZoomMode({});
 
-    if (absoluteLevel == zoomLevel)
-        return;
-
+    const bool isChanging = absoluteLevel != zoomLevel;
     const std::optional<QPoint> pos = targetPos == Qv::CalculateViewportCenterPos ? getUsableViewportRect().center() : targetPos;
     if (pos != lastZoomEventPos)
     {
@@ -662,9 +660,12 @@ void QVGraphicsView::zoomAbsolute(const qreal absoluteLevel, const std::optional
         centerImage();
     }
 
-    handleSmoothScalingChange();
+    if (isChanging)
+    {
+        handleSmoothScalingChange();
 
-    emit zoomLevelChanged();
+        emit zoomLevelChanged();
+    }
 }
 
 const std::optional<Qv::CalculatedZoomMode> &QVGraphicsView::getCalculatedZoomMode() const
