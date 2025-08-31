@@ -727,10 +727,7 @@ void QVGraphicsView::applyExpensiveScaling()
 void QVGraphicsView::removeExpensiveScaling()
 {
     // Return to original size
-    if (getCurrentFileDetails().isMovieLoaded)
-        loadedPixmapItem->setPixmap(getLoadedMovie().currentPixmap());
-    else
-        loadedPixmapItem->setPixmap(getLoadedPixmap());
+    loadedPixmapItem->setPixmap(imageCore.getLoadedPixmap());
 
     // Set appropriate scale factor
     const qreal dpiAdjustment = getDpiAdjustment();
@@ -750,7 +747,7 @@ void QVGraphicsView::animatedFrameChanged(QRect rect)
     }
     else
     {
-        loadedPixmapItem->setPixmap(getLoadedMovie().currentPixmap());
+        loadedPixmapItem->setPixmap(imageCore.getLoadedPixmap());
     }
 }
 

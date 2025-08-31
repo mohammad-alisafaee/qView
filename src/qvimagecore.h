@@ -36,6 +36,7 @@ public:
         bool isMovieLoaded = false;
         QSize baseImageSize;
         QSize loadedPixmapSize;
+        QColorSpace targetColorSpace;
         QElapsedTimer timeSinceLoaded;
         std::optional<ErrorData> errorData;
 
@@ -77,7 +78,6 @@ public:
 
     QPixmap scaleExpensively(const QSizeF desiredSize);
 
-    //returned const reference is read-only
     const QPixmap& getLoadedPixmap() const { return loadedPixmap; }
     const QMovie& getLoadedMovie() const { return loadedMovie; }
     const FileDetails& getCurrentFileDetails() const { return currentFileDetails; }
@@ -102,6 +102,7 @@ protected:
     static QString getPixmapCacheKey(const QString &absoluteFilePath, const qint64 &fileSize, const QColorSpace &targetColorSpace);
     QColorSpace getTargetColorSpace() const;
     QColorSpace detectDisplayColorSpace() const;
+    static void handleColorSpaceConversion(QImage &image, const QColorSpace &targetColorSpace);
 #if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
     static bool removeTinyDataTagsFromIccProfile(QByteArray &profile);
 #endif

@@ -23,7 +23,12 @@ QVImageCore::QVImageCore(QObject *parent) : QObject(parent)
     QImageReader::setAllocationLimit(8192);
 #endif
 
-    connect(&loadedMovie, &QMovie::updated, this, &QVImageCore::animatedFrameChanged);
+    connect(&loadedMovie, &QMovie::updated, this, [this](QRect rect){
+        QImage movieImage = loadedMovie.currentImage();
+        handleColorSpaceConversion(movieImage, currentFileDetails.targetColorSpace);
+        loadedPixmap = QPixmap::fromImage(movieImage);
+        emit animatedFrameChanged(rect);
+    });
 
     connect(&loadFutureWatcher, &QFutureWatcher<ReadData>::finished, this, [this](){
         loadPixmap(loadFutureWatcher.result());
@@ -54,25 +59,25 @@ void QVImageCore::loadFile(const QString &fileName, const bool isReloading, cons
         return;
     }
 
-    QString sanitaryFileName = fileName;
+    QString adjustedFileName = fileName;
 
     //sanitize file name if necessary
-    QUrl sanitaryUrl = QUrl(fileName);
-    if (sanitaryUrl.isLocalFile())
-        sanitaryFileName = sanitaryUrl.toLocalFile();
+    QUrl fileUrl = QUrl(adjustedFileName);
+    if (fileUrl.isLocalFile())
+        adjustedFileName = fileUrl.toLocalFile();
 
 #ifdef WIN32_LOADED
-    QString longFileName = QVWin32Functions::getLongPath(QDir::toNativeSeparators(QFileInfo(sanitaryFileName).absoluteFilePath()));
+    QString longFileName = QVWin32Functions::getLongPath(QDir::toNativeSeparators(QFileInfo(adjustedFileName).absoluteFilePath()));
     if (!longFileName.isEmpty())
-        sanitaryFileName = longFileName;
+        adjustedFileName = longFileName;
 #endif
 
-    QFileInfo fileInfo(sanitaryFileName);
-    sanitaryFileName = fileInfo.absoluteFilePath();
+    QFileInfo fileInfo(adjustedFileName);
+    QString absolutePath = fileInfo.absoluteFilePath();
 
     if (fileInfo.isDir())
     {
-        updateFolderInfo(sanitaryFileName);
+        updateFolderInfo(absolutePath);
         if (currentFileDetails.folderFileInfoList.isEmpty())
             closeImage(true);
         else
@@ -92,7 +97,7 @@ void QVImageCore::loadFile(const QString &fileName, const bool isReloading, cons
     waitingOnLoad = true;
 
     QColorSpace targetColorSpace = getTargetColorSpace();
-    QString cacheKey = getPixmapCacheKey(sanitaryFileName, fileInfo.size(), targetColorSpace);
+    QString cacheKey = getPixmapCacheKey(absolutePath, fileInfo.size(), targetColorSpace);
 
     //check if cached already before loading the long way
     auto *cachedData = isReloading ? nullptr : QVImageCore::pixmapCache.take(cacheKey);
@@ -102,16 +107,16 @@ void QVImageCore::loadFile(const QString &fileName, const bool isReloading, cons
         delete cachedData;
         loadPixmap(readData);
     }
-    else if (preloadsInProgress.contains(sanitaryFileName))
+    else if (preloadsInProgress.contains(absolutePath))
     {
-        waitingOnPreloadPath = sanitaryFileName;
+        waitingOnPreloadPath = absolutePath;
     }
     else
     {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        loadFutureWatcher.setFuture(QtConcurrent::run(this, &QVImageCore::readFile, sanitaryFileName, targetColorSpace));
+        loadFutureWatcher.setFuture(QtConcurrent::run(this, &QVImageCore::readFile, absolutePath, targetColorSpace));
 #else
-        loadFutureWatcher.setFuture(QtConcurrent::run(&QVImageCore::readFile, this, sanitaryFileName, targetColorSpace));
+        loadFutureWatcher.setFuture(QtConcurrent::run(&QVImageCore::readFile, this, absolutePath, targetColorSpace));
 #endif
     }
 }
@@ -159,23 +164,7 @@ QVImageCore::ReadData QVImageCore::readFile(const QString &fileName, const QColo
     if (qvApp->getIsApplicationQuitting())
         return {};
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
-    // Work around Qt ICC profile parsing bug
-    if (!readImage.colorSpace().isValid() && !readImage.colorSpace().iccProfile().isEmpty())
-    {
-        QByteArray profileData = readImage.colorSpace().iccProfile();
-        if (removeTinyDataTagsFromIccProfile(profileData))
-            readImage.setColorSpace(QColorSpace::fromIccProfile(profileData));
-    }
-#endif
-
-    // Assume image is sRGB if it doesn't specify
-    if (!readImage.colorSpace().isValid())
-        readImage.setColorSpace(QColorSpace::SRgb);
-
-    // Convert image color space if we have a target that's different
-    if (targetColorSpace.isValid() && readImage.colorSpace() != targetColorSpace)
-        readImage.convertToColorSpace(targetColorSpace);
+    handleColorSpaceConversion(readImage, targetColorSpace);
 
     if (qvApp->getIsApplicationQuitting())
         return {};
@@ -245,6 +234,7 @@ void QVImageCore::loadPixmap(const ReadData &readData)
     currentFileDetails.isPixmapLoaded = true;
     currentFileDetails.baseImageSize = readData.intrinsicSize.isValid() ? readData.intrinsicSize : loadedPixmap.size();
     currentFileDetails.loadedPixmapSize = loadedPixmap.size();
+    currentFileDetails.targetColorSpace = readData.targetColorSpace;
 
     addToCache(readData);
 
@@ -462,13 +452,14 @@ void QVImageCore::requestCaching()
 
 void QVImageCore::requestCachingFile(const QString &filePath, const QColorSpace &targetColorSpace)
 {
-    QFile imgFile(filePath);
+    QFileInfo imgFile(filePath);
     QString cacheKey = getPixmapCacheKey(filePath, imgFile.size(), targetColorSpace);
 
     //check if image is already loaded or requested
     if (QVImageCore::pixmapCache.contains(cacheKey) || lastFilesPreloaded.contains(filePath))
         return;
 
+    //TODO: this is basically pointless since the cache goes by uncompressed size
     if (imgFile.size()/1024 > QVImageCore::pixmapCache.maxCost()/2)
         return;
 
@@ -503,9 +494,9 @@ void QVImageCore::addToCache(const ReadData &readData)
         return;
 
     QString cacheKey = getPixmapCacheKey(readData.absoluteFilePath, readData.fileSize, readData.targetColorSpace);
-    qint64 pixmapMemoryBytes = static_cast<qint64>(readData.pixmap.width()) * readData.pixmap.height() * readData.pixmap.depth() / 8;
+    qint64 memoryBytes = static_cast<qint64>(readData.pixmap.width()) * readData.pixmap.height() * readData.pixmap.depth() / 8;
 
-    QVImageCore::pixmapCache.insert(cacheKey, new ReadData(readData), qMax(pixmapMemoryBytes / 1024, 1LL));
+    QVImageCore::pixmapCache.insert(cacheKey, new ReadData(readData), qMax(memoryBytes / 1024, 1LL));
 }
 
 QString QVImageCore::getPixmapCacheKey(const QString &absoluteFilePath, const qint64 &fileSize, const QColorSpace &targetColorSpace)
@@ -549,6 +540,27 @@ QColorSpace QVImageCore::detectDisplayColorSpace() const
     }
 
     return {};
+}
+
+void QVImageCore::handleColorSpaceConversion(QImage &image, const QColorSpace &targetColorSpace)
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
+    // Work around Qt ICC profile parsing bug
+    if (!image.colorSpace().isValid() && !image.colorSpace().iccProfile().isEmpty())
+    {
+        QByteArray profileData = image.colorSpace().iccProfile();
+        if (removeTinyDataTagsFromIccProfile(profileData))
+            image.setColorSpace(QColorSpace::fromIccProfile(profileData));
+    }
+#endif
+
+    // Assume image is sRGB if it doesn't specify
+    if (!image.colorSpace().isValid())
+        image.setColorSpace(QColorSpace::SRgb);
+
+    // Convert image color space if we have a target that's different
+    if (targetColorSpace.isValid() && image.colorSpace() != targetColorSpace)
+        image.convertToColorSpace(targetColorSpace);
 }
 
 #if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
@@ -611,14 +623,8 @@ void QVImageCore::setPaused(bool desiredState)
 
 void QVImageCore::setSpeed(int desiredSpeed)
 {
-    if (desiredSpeed < 0)
-        desiredSpeed = 0;
-
-    if (desiredSpeed > 1000)
-        desiredSpeed = 1000;
-
     if (currentFileDetails.isMovieLoaded)
-        loadedMovie.setSpeed(desiredSpeed);
+        loadedMovie.setSpeed(std::clamp(desiredSpeed, 0, 1000));
 }
 
 QPixmap QVImageCore::scaleExpensively(const QSizeF desiredSize)
@@ -626,29 +632,18 @@ QPixmap QVImageCore::scaleExpensively(const QSizeF desiredSize)
     if (!currentFileDetails.isPixmapLoaded)
         return QPixmap();
 
-    // Get the current frame of the animation if this is an animation
-    QPixmap relevantPixmap;
-    if (!currentFileDetails.isMovieLoaded)
-    {
-        relevantPixmap = loadedPixmap;
-    }
-    else
-    {
-        relevantPixmap = loadedMovie.currentPixmap();
-    }
-
     // If we are really close to the original size, just return the original
-    if (abs(desiredSize.width() - relevantPixmap.width()) < 1 &&
-        abs(desiredSize.height() - relevantPixmap.height()) < 1)
+    if (abs(desiredSize.width() - loadedPixmap.width()) < 1 &&
+        abs(desiredSize.height() - loadedPixmap.height()) < 1)
     {
-        return relevantPixmap;
+        return loadedPixmap;
     }
 
     QSize size = desiredSize.toSize();
     size.rwidth() = qMax(size.width(), 1);
     size.rheight() = qMax(size.height(), 1);
 
-    return relevantPixmap.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return loadedPixmap.scaled(size, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 }
 
 void QVImageCore::settingsUpdated()

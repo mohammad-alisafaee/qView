@@ -1313,7 +1313,7 @@ void MainWindow::saveFrameAs()
     saveDialog->setAcceptMode(QFileDialog::AcceptSave);
     saveDialog->open();
     connect(saveDialog, &QFileDialog::fileSelected, this, [=](const QString &fileName){
-        graphicsView->getLoadedMovie().currentPixmap().save(fileName, nullptr, 100);
+        graphicsView->getLoadedMovie().currentImage().save(fileName, nullptr, 100);
     });
 }
 
