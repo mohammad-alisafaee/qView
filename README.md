@@ -24,7 +24,7 @@
 * More accurate zoom-to-fit plus customizable overscan setting.
 * Option to hide mouse cursor in fullscreen mode.
 * Option for checkerboard background.
-* Option to disable icons in "Open Recent" and "Open With" submenus.
+* Option to show/hide menu icons on all OSes, with separate options for main menus, context menus, and submenus (i.e. "Open Recent" and "Open With").
 ## Screenshot
 ![screenshot](docs/screenshot.png)
 ## Supported platforms
