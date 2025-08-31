@@ -78,8 +78,6 @@ private slots:
 
     void titlebarComboBoxCurrentIndexChanged(int index);
 
-    void windowResizeComboBoxCurrentIndexChanged(int index);
-
     void smoothScalingComboBoxCurrentIndexChanged(int index);
 
     void smoothScalingLimitCheckboxStateChanged(int state);

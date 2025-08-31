@@ -19,7 +19,7 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(windowFlags() & (~Qt::WindowContextHelpButtonHint | Qt::CustomizeWindowHint));
 
-    resize(640, 540);
+    resize(650, 550);
 
     connect(ui->categoryList, &QListWidget::currentRowChanged, this, [this](int currentRow) { ui->stackedWidget->setCurrentIndex(currentRow); });
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &QVOptionsDialog::buttonBoxClicked);
@@ -35,7 +35,6 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->middleButtonModeClickRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->middleButtonModeDragRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->titlebarComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::titlebarComboBoxCurrentIndexChanged);
-    connect(ui->windowResizeComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::windowResizeComboBoxCurrentIndexChanged);
     connect(ui->smoothScalingComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged);
     connect(ui->langComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::languageComboBoxCurrentIndexChanged);
     connect(ui->formatsTable, &QTableWidget::itemChanged, this, &QVOptionsDialog::formatsItemChanged);
@@ -567,18 +566,6 @@ void QVOptionsDialog::titlebarComboBoxCurrentIndexChanged(int index)
     ui->customTitlebarLineEdit->setEnabled(value == Qv::TitleBarText::Custom);
 }
 
-void QVOptionsDialog::windowResizeComboBoxCurrentIndexChanged(int index)
-{
-    const auto value = static_cast<Qv::WindowResizeMode>(ui->windowResizeComboBox->itemData(index).toInt());
-    const bool enableRelatedControls = value != Qv::WindowResizeMode::Never;
-    ui->afterMatchingSizeLabel->setEnabled(enableRelatedControls);
-    ui->afterMatchingSizeComboBox->setEnabled(enableRelatedControls);
-    ui->minWindowResizeLabel->setEnabled(enableRelatedControls);
-    ui->minWindowResizeSpinBox->setEnabled(enableRelatedControls);
-    ui->maxWindowResizeLabel->setEnabled(enableRelatedControls);
-    ui->maxWindowResizeSpinBox->setEnabled(enableRelatedControls);
-}
-
 void QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged(int index)
 {
     const auto value = static_cast<Qv::SmoothScalingMode>(ui->smoothScalingComboBox->itemData(index).toInt());
@@ -621,26 +608,6 @@ void QVOptionsDialog::customizePalette()
         palette.setColor(QPalette::Highlight, Qv::getPerceivedBrightness(textColor) > 0.5 ? QColor(0, 65, 127) : QColor(75, 166, 255));
         ui->categoryList->setPalette(palette);
     }
-#if defined(Q_OS_WIN) && QT_VERSION >= QT_VERSION_CHECK(6, 7, 0) && QT_VERSION < QT_VERSION_CHECK(6, 8, 1)
-    if (currentStyle.compare("windows11", Qt::CaseInsensitive) == 0)
-    {
-        // Workaround for QTBUG-130828
-        const auto specifyWindowAndAccentColors = [&](QWidget *widget) {
-            QPalette palette = widget->palette();
-            palette.setColor(QPalette::Active, QPalette::Window, appPalette.color(QPalette::Active, QPalette::Window));
-            palette.setColor(QPalette::Disabled, QPalette::Window, appPalette.color(QPalette::Disabled, QPalette::Window));
-            palette.setColor(QPalette::Inactive, QPalette::Window, appPalette.color(QPalette::Inactive, QPalette::Window));
-            palette.setColor(QPalette::Active, QPalette::Accent, appPalette.color(QPalette::Active, QPalette::Accent));
-            palette.setColor(QPalette::Disabled, QPalette::Accent, appPalette.color(QPalette::Disabled, QPalette::Accent));
-            palette.setColor(QPalette::Inactive, QPalette::Accent, appPalette.color(QPalette::Inactive, QPalette::Accent));
-            widget->setPalette(palette);
-        };
-        for (QRadioButton* radioButton : findChildren<QRadioButton*>())
-            specifyWindowAndAccentColors(radioButton);
-        for (QCheckBox* checkBox : findChildren<QCheckBox*>())
-            specifyWindowAndAccentColors(checkBox);
-    }
-#endif
 }
 
 void QVOptionsDialog::populateCategories(int selectedRow)
