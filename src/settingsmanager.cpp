@@ -200,7 +200,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("quitonlastwindow", {false, {}});
     settingsLibrary.insert("menubarenabled", {false, {}});
     settingsLibrary.insert("fullscreendetails", {false, {}});
-#ifdef Q_OS_MACOS
+#if defined Q_OS_MACOS && QT_VERSION < QT_VERSION_CHECK(6, 8, 0)
     settingsLibrary.insert("mainmenuicons", {false, {}});
     settingsLibrary.insert("contextmenuicons", {false, {}});
 #else
