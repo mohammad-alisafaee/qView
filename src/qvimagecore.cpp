@@ -652,18 +652,20 @@ void QVImageCore::settingsUpdated()
 
     //preloading mode
     preloadingMode = settingsManager.getEnum<Qv::PreloadMode>("preloadingmode");
+    //cost is in KiB
     switch (preloadingMode) {
     case Qv::PreloadMode::Adjacent:
     {
-        QVImageCore::pixmapCache.setMaxCost(204800);
+        QVImageCore::pixmapCache.setMaxCost(307200);
         break;
     }
     case Qv::PreloadMode::Extended:
     {
-        QVImageCore::pixmapCache.setMaxCost(819200);
+        QVImageCore::pixmapCache.setMaxCost(921600);
         break;
     }
     default:
+        QVImageCore::pixmapCache.setMaxCost(0);
         break;
     }
 
