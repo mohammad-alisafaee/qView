@@ -251,6 +251,13 @@ private:
     QElapsedTimer lastTurboNavKeyPress;
     int turboNavInterval {0};
 
+    // Turbo navigation for random keys
+    std::optional<Qv::GoToFileMode> turboRandomNavMode;
+    QList<QKeySequence> randomPrevShortcuts;
+    QList<QKeySequence> randomNextShortcuts;
+    QElapsedTimer lastTurboRandomNav;
+    QElapsedTimer lastTurboRandomNavKeyPress;
+
     const int startDragDistance {3};
 };
 Q_DECLARE_METATYPE(QVGraphicsView::SwipeData)

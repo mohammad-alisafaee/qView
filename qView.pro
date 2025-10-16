@@ -80,7 +80,7 @@ isEmpty(PREFIX) {
     PREFIX = $$(PREFIX)
 }
 isEmpty(PREFIX) {
-    PREFIX = /usr/local
+    PREFIX = $(pwd)
 }
 
 message("Installation prefix is $$PREFIX")
