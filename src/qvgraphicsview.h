@@ -247,10 +247,18 @@ private:
     std::optional<Qv::GoToFileMode> turboNavMode;
     QList<QKeySequence> navPrevShortcuts;
     QList<QKeySequence> navNextShortcuts;
+    QList<QKeySequence> navPreviousRandomShortcuts;
     QList<QKeySequence> navRandomShortcuts;
     QElapsedTimer lastTurboNav;
     QElapsedTimer lastTurboNavKeyPress;
     int turboNavInterval {0};
+
+    // Turbo navigation for random keys
+    std::optional<Qv::GoToFileMode> turboRandomNavMode;
+    QList<QKeySequence> randomPrevShortcuts;
+    QList<QKeySequence> randomNextShortcuts;
+    QElapsedTimer lastTurboRandomNav;
+    QElapsedTimer lastTurboRandomNavKeyPress;
 
     const int startDragDistance {3};
 };

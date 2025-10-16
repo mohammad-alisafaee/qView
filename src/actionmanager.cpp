@@ -245,8 +245,8 @@ QMenuBar *ActionManager::buildMenuBar(QWidget *parent)
     addCloneOfAction(goMenu, "previousfile");
     addCloneOfAction(goMenu, "nextfile");
     addCloneOfAction(goMenu, "lastfile");
-    addCloneOfAction(goMenu, "randomfile");
     addCloneOfAction(goMenu, "previousrandomfile");
+    addCloneOfAction(goMenu, "randomfile");
 
     menuBar->addMenu(goMenu);
     // End of go menu
@@ -747,10 +747,10 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->nextFile();
     } else if (key == "lastfile") {
         relevantWindow->lastFile();
-    } else if (key == "randomfile") {
-        relevantWindow->randomFile();
     } else if (key == "previousrandomfile") {
         relevantWindow->previousRandomFile();
+    } else if (key == "randomfile") {
+        relevantWindow->randomFile();
     } else if (key == "saveframeas") {
         relevantWindow->saveFrameAs();
     } else if (key == "pause") {

@@ -141,16 +141,13 @@ void ScrollHelper::calculateScrollRange(int contentDimension, int viewportDimens
 
 qreal ScrollHelper::calculateScrollDelta(qreal currentValue, int minValue, int maxValue, qreal proposedDelta)
 {
-    const qreal overflowScaleFactor = 0.05;
     if (proposedDelta < 0 && currentValue + proposedDelta < minValue)
     {
-        return currentValue <= minValue ? proposedDelta * overflowScaleFactor :
-            (minValue - currentValue) + ((currentValue + proposedDelta) - minValue) * overflowScaleFactor;
+        return minValue - currentValue;
     }
     if (proposedDelta > 0 && currentValue + proposedDelta > maxValue)
     {
-        return currentValue >= maxValue ? proposedDelta * overflowScaleFactor :
-            (maxValue - currentValue) + ((currentValue + proposedDelta) - maxValue) * overflowScaleFactor;
+        return maxValue - currentValue;
     }
     return proposedDelta;
 }

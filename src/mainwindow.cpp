@@ -176,6 +176,8 @@ MainWindow::MainWindow(QWidget *parent, const QJsonObject &windowSessionState) :
         restoreGeometry(settings.value("geometry").toByteArray());
     }
 
+    resize(1512, 975);
+
     // Show welcome dialog on first launch
     if (!settings.value("firstlaunch", false).toBool())
     {

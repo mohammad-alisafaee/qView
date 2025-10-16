@@ -262,12 +262,13 @@ bool QVGraphicsView::event(QEvent *event)
             return true;
         }
     }
-    else if (event->type() == QEvent::ShortcutOverride && !turboNavMode.has_value())
+    else if (event->type() == QEvent::ShortcutOverride && !turboNavMode.has_value() && !turboRandomNavMode.has_value())
     {
         const QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         const ActionManager &actionManager = qvApp->getActionManager();
         if (actionManager.wouldTriggerAction(keyEvent, "previousfile") ||
             actionManager.wouldTriggerAction(keyEvent, "nextfile") ||
+            actionManager.wouldTriggerAction(keyEvent, "previousrandomfile") ||
             actionManager.wouldTriggerAction(keyEvent, "randomfile"))
         {
             // Accept event to override shortcut and deliver as key press instead
@@ -275,15 +276,33 @@ bool QVGraphicsView::event(QEvent *event)
             return true;
         }
     }
-    else if (event->type() == QEvent::KeyRelease && turboNavMode.has_value())
+    else if (event->type() == QEvent::KeyRelease && (turboNavMode.has_value() || turboRandomNavMode.has_value()))
     {
         const QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         if (!keyEvent->isAutoRepeat() &&
             (ActionManager::wouldTriggerAction(keyEvent, navPrevShortcuts) ||
              ActionManager::wouldTriggerAction(keyEvent, navNextShortcuts) ||
+             ActionManager::wouldTriggerAction(keyEvent, navPreviousRandomShortcuts) ||
              ActionManager::wouldTriggerAction(keyEvent, navRandomShortcuts)))
         {
-            cancelTurboNav();
+            bool shouldCancel = false;
+
+            // Check regular navigation keys
+            if (turboNavMode.has_value() &&
+                (ActionManager::wouldTriggerAction(keyEvent, navPrevShortcuts) || ActionManager::wouldTriggerAction(keyEvent, navNextShortcuts)))
+            {
+                shouldCancel = true;
+            }
+
+            // Check random navigation keys
+            if (turboRandomNavMode.has_value() &&
+                (ActionManager::wouldTriggerAction(keyEvent, randomPrevShortcuts) || ActionManager::wouldTriggerAction(keyEvent, randomNextShortcuts)))
+            {
+                shouldCancel = true;
+            }
+
+            if (shouldCancel)
+                cancelTurboNav();
         }
     }
 
@@ -334,13 +353,70 @@ void QVGraphicsView::wheelEvent(QWheelEvent *event)
 
 void QVGraphicsView::keyPressEvent(QKeyEvent *event)
 {
+    // Dynamically modify navigation shortcuts based on image fit
+    // Skip this during turbo navigation to avoid interfering with cleared shortcuts
+    ActionManager &actionManager = qvApp->getActionManager();
+    if (getCurrentFileDetails().isPixmapLoaded && !turboNavMode.has_value()) {
+        const QRect contentRect = getContentRect();
+        const QRect viewportRect = getUsableViewportRect();
+        const bool widthFits = contentRect.width() <= viewportRect.width();
+        const bool heightFits = contentRect.height() <= viewportRect.height();
+
+        // Get current shortcuts
+        auto prevShortcuts = actionManager.getAction("previousfile")->shortcuts();
+        auto nextShortcuts = actionManager.getAction("nextfile")->shortcuts();
+
+        // Handle horizontal arrows
+        const QString leftKey = QKeySequence(Qt::Key_Left).toString();
+        const QString rightKey = QKeySequence(Qt::Key_Right).toString();
+
+        if (widthFits) {
+            // Add arrow keys to navigation if not already present
+            if (!prevShortcuts.contains(leftKey)) prevShortcuts.append(leftKey);
+            if (!nextShortcuts.contains(rightKey)) nextShortcuts.append(rightKey);
+        } else {
+            // Remove arrow keys from navigation
+            prevShortcuts.removeAll(leftKey);
+            nextShortcuts.removeAll(rightKey);
+        }
+
+        // Handle vertical arrows
+        const QString upKey = QKeySequence(Qt::Key_Up).toString();
+        const QString downKey = QKeySequence(Qt::Key_Down).toString();
+
+        if (heightFits) {
+            // Add arrow keys to navigation if not already present
+            if (!prevShortcuts.contains(upKey)) prevShortcuts.append(upKey);
+            if (!nextShortcuts.contains(downKey)) nextShortcuts.append(downKey);
+        } else {
+            // Remove arrow keys from navigation
+            prevShortcuts.removeAll(upKey);
+            nextShortcuts.removeAll(downKey);
+        }
+
+        // Update the action shortcuts
+        actionManager.setActionShortcuts("previousfile", prevShortcuts);
+        actionManager.setActionShortcuts("nextfile", nextShortcuts);
+    }
+
+    // Handle regular navigation turbo mode
     if (turboNavMode.has_value())
     {
         if (ActionManager::wouldTriggerAction(event, navPrevShortcuts) ||
             ActionManager::wouldTriggerAction(event, navNextShortcuts) ||
+            ActionManager::wouldTriggerAction(event, navPreviousRandomShortcuts) ||
             ActionManager::wouldTriggerAction(event, navRandomShortcuts))
         {
             lastTurboNavKeyPress.start();
+            return;
+        }
+    }
+    // Handle random navigation turbo mode
+    else if (turboRandomNavMode.has_value())
+    {
+        if (ActionManager::wouldTriggerAction(event, randomPrevShortcuts) || ActionManager::wouldTriggerAction(event, randomNextShortcuts))
+        {
+            lastTurboRandomNavKeyPress.start();
             return;
         }
     }
@@ -350,6 +426,7 @@ void QVGraphicsView::keyPressEvent(QKeyEvent *event)
         const std::optional<Qv::GoToFileMode> triggeredNavMode =
             actionManager.wouldTriggerAction(event, "previousfile") ? Qv::GoToFileMode::Previous :
             actionManager.wouldTriggerAction(event, "nextfile") ? Qv::GoToFileMode::Next :
+            actionManager.wouldTriggerAction(event, "previousrandomfile") ? Qv::GoToFileMode::PreviousRandom :
             actionManager.wouldTriggerAction(event, "randomfile") ? Qv::GoToFileMode::Random :
             std::optional<Qv::GoToFileMode>();
         if (triggeredNavMode.has_value())
@@ -365,12 +442,31 @@ void QVGraphicsView::keyPressEvent(QKeyEvent *event)
                 // the key repeat rate to max without unbinding the shortcuts - it's really bad).
                 navPrevShortcuts = actionManager.getAction("previousfile")->shortcuts();
                 navNextShortcuts = actionManager.getAction("nextfile")->shortcuts();
+                navPreviousRandomShortcuts = actionManager.getAction("previousrandomfile")->shortcuts();
                 navRandomShortcuts = actionManager.getAction("randomfile")->shortcuts();
                 actionManager.setActionShortcuts("previousfile", {});
                 actionManager.setActionShortcuts("nextfile", {});
+                actionManager.setActionShortcuts("previousrandomfile", {});
                 actionManager.setActionShortcuts("randomfile", {});
             }
             goToFile(triggeredNavMode.value());
+            return;
+        }
+        else if (randomPrev || randomNext)
+        {
+            const Qv::GoToFileMode randomNavMode = randomPrev ? Qv::GoToFileMode::PreviousRandom : Qv::GoToFileMode::NextRandom;
+            if (event->isAutoRepeat())
+            {
+                turboRandomNavMode = randomNavMode;
+                lastTurboRandomNav.start();
+                lastTurboRandomNavKeyPress.start();
+                // Remove keyboard shortcuts while turbo random navigation is in progress
+                randomPrevShortcuts = actionManager.getAction("previousrandomfile")->shortcuts();
+                randomNextShortcuts = actionManager.getAction("randomfile")->shortcuts();
+                actionManager.setActionShortcuts("previousrandomfile", {});
+                actionManager.setActionShortcuts("randomfile", {});
+            }
+            goToFile(randomNavMode);
             return;
         }
     }
@@ -387,7 +483,6 @@ void QVGraphicsView::keyPressEvent(QKeyEvent *event)
             (verticalScrollBar()->singleStep() * scrollYSmallSteps) + (verticalScrollBar()->pageStep() * scrollYLargeSteps)
         };
         scrollHelper->move(delta);
-        constrainBoundsTimer->start();
         return;
     }
 
@@ -606,6 +701,24 @@ void QVGraphicsView::postLoad()
             }
             lastTurboNav.start();
             goToFile(turboNavMode.value());
+        });
+    }
+    else if (turboRandomNavMode.has_value())
+    {
+        const qint64 navDelay = qMax(turboNavInterval - lastTurboRandomNav.elapsed(), 0LL);
+        QTimer::singleShot(navDelay, this, [this]() {
+            if (!turboRandomNavMode.has_value())
+                return;
+            if (lastTurboRandomNavKeyPress.elapsed() >= qMax(qvApp->keyboardAutoRepeatInterval() * 1.5, 250.0))
+            {
+                // Backup mechanism in case we somehow stop receiving key presses and aren't
+                // notified of it in some other way (e.g. key release, lost focus), as can happen
+                // in macOS if the menu bar gets clicked on while navigation is in progress.
+                cancelTurboNav();
+                return;
+            }
+            lastTurboRandomNav.start();
+            goToFile(turboRandomNavMode.value());
         });
     }
 }
@@ -1106,16 +1219,15 @@ int QVGraphicsView::getRtlFlip() const
 
 void QVGraphicsView::cancelTurboNav()
 {
-    if (!turboNavMode.has_value())
-        return;
-
     const ActionManager &actionManager = qvApp->getActionManager();
     turboNavMode = {};
     actionManager.setActionShortcuts("previousfile", navPrevShortcuts);
     actionManager.setActionShortcuts("nextfile", navNextShortcuts);
+    actionManager.setActionShortcuts("previousrandomfile", navPreviousRandomShortcuts);
     actionManager.setActionShortcuts("randomfile", navRandomShortcuts);
     navPrevShortcuts = {};
     navNextShortcuts = {};
+    navPreviousRandomShortcuts = {};
     navRandomShortcuts = {};
 }
 
