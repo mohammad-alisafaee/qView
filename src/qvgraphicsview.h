@@ -75,6 +75,7 @@ public:
 
     void closeImage(const bool stayInDir = false);
     void jumpToNextFrame();
+    void jumpToPreviousFrame();
     void setPaused(const bool &desiredState);
     void setSpeed(const int &desiredSpeed);
     void rotateImage(const int relativeAngle);

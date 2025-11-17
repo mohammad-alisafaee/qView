@@ -276,6 +276,10 @@
         <translation>次のフレーム</translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation>前のフレーム</translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation>速度を下げる</translation>
     </message>
@@ -356,6 +360,14 @@
     <message>
         <source>Enter F&amp;ull Screen</source>
         <translation>フルスクリーンで表示</translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation>元に戻す</translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
+        <translation>一時停止</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -448,14 +460,6 @@ No write permission or file is read-only.</source>
     <message>
         <source>Save Frame As...</source>
         <translation>フレームを別名で保存...</translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation>元に戻す</translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
-        <translation>一時停止</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -1483,6 +1487,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Next Frame</source>
         <translation>次のフレーム</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>前のフレーム</translation>
     </message>
     <message>
         <source>Decrease Speed</source>

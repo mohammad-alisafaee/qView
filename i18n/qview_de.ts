@@ -276,6 +276,10 @@
         <translation>Nächster Frame</translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation>Vorheriger Frame</translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation>Geschwindigkeit verringern</translation>
     </message>
@@ -356,6 +360,14 @@
     <message>
         <source>Enter F&amp;ull Screen</source>
         <translation>Vollbildmodus aktvieren</translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation>Fortsetzen</translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
+        <translation>Pause</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -448,14 +460,6 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>Save Frame As...</source>
         <translation>Frame speichern als ...</translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation>Fortsetzen</translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
-        <translation>Pause</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -1483,6 +1487,10 @@ Keine Schreibberechtigung oder Datei ist schreibgeschützt.</translation>
     <message>
         <source>Next Frame</source>
         <translation>Nächster Frame</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>Vorheriger Frame</translation>
     </message>
     <message>
         <source>Decrease Speed</source>

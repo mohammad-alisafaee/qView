@@ -1203,6 +1203,11 @@ void QVGraphicsView::jumpToNextFrame()
     imageCore.jumpToNextFrame();
 }
 
+void QVGraphicsView::jumpToPreviousFrame()
+{
+    imageCore.jumpToPreviousFrame();
+}
+
 void QVGraphicsView::setPaused(const bool &desiredState)
 {
     imageCore.setPaused(desiredState);

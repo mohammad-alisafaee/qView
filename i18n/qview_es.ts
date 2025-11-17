@@ -276,6 +276,10 @@
         <translation>Fotograma siguiente</translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation>Fotograma anterior</translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation>Reducir la velocidad</translation>
     </message>
@@ -356,6 +360,14 @@
     <message>
         <source>Enter F&amp;ull Screen</source>
         <translation>Entrar en pantalla completa</translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation>Continuar</translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
+        <translation>Pausar</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -448,14 +460,6 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>Save Frame As...</source>
         <translation>Guardar fotograma como...</translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation>Continuar</translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
-        <translation>Pausar</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -1483,6 +1487,10 @@ No tiene permiso de escritura o el archivo es de solo lectura.</translation>
     <message>
         <source>Next Frame</source>
         <translation>Fotograma siguiente</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>Fotograma anterior</translation>
     </message>
     <message>
         <source>Decrease Speed</source>

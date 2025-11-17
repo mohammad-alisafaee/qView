@@ -135,6 +135,8 @@ public:
 
     void nextFrame();
 
+    void previousFrame();
+
     void decreaseSpeed();
 
     void resetSpeed();
@@ -192,6 +194,8 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
     void fullscreenChanged();
+
+    void pauseChanged();
 
 protected slots:
     void settingsUpdated();

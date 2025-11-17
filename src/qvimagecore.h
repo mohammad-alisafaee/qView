@@ -73,6 +73,7 @@ public:
     void settingsUpdated();
 
     void jumpToNextFrame();
+    void jumpToPreviousFrame();
     void setPaused(bool desiredState);
     void setSpeed(int desiredSpeed);
 

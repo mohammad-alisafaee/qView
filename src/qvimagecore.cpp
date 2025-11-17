@@ -241,6 +241,7 @@ void QVImageCore::loadPixmap(const ReadData &readData)
     // Animation detection
     loadedMovie.stop();
     loadedMovie.setFormat("");
+    loadedMovie.setCacheMode(QMovie::CacheAll);
     loadedMovie.setFileName(currentFileDetails.fileInfo.absoluteFilePath());
 
     // APNG workaround
@@ -611,8 +612,23 @@ bool QVImageCore::removeTinyDataTagsFromIccProfile(QByteArray &profile)
 
 void QVImageCore::jumpToNextFrame()
 {
-    if (currentFileDetails.isMovieLoaded)
-        loadedMovie.jumpToNextFrame();
+    if (!currentFileDetails.isMovieLoaded)
+        return;
+
+    loadedMovie.setPaused(true);
+    loadedMovie.jumpToNextFrame();
+}
+
+void QVImageCore::jumpToPreviousFrame()
+{
+    if (!currentFileDetails.isMovieLoaded)
+        return;
+
+    loadedMovie.setPaused(true);
+    int frameNumber = loadedMovie.currentFrameNumber() - 1;
+    if (frameNumber < 0)
+        frameNumber = loadedMovie.frameCount() - 1;
+    loadedMovie.jumpToFrame(frameNumber);
 }
 
 void QVImageCore::setPaused(bool desiredState)

@@ -360,6 +360,18 @@ void MainWindow::fullscreenChanged()
     graphicsView->setCursorVisible(true);
 }
 
+void MainWindow::pauseChanged()
+{
+    const bool isPaused = getCurrentFileDetails().isMovieLoaded && graphicsView->getLoadedMovie().state() != QMovie::Running;
+
+    const auto pauseActions = qvApp->getActionManager().getAllClonesOfAction("pause", this);
+    for (const auto &pauseAction : pauseActions)
+    {
+        pauseAction->setText(isPaused ? tr("Res&ume") : tr("Pa&use"));
+        pauseAction->setIcon(qvApp->iconFromFont(isPaused ? Qv::MaterialIcon::PlayArrow : Qv::MaterialIcon::Pause));
+    }
+}
+
 void MainWindow::openFile(const QString &fileName, const QString &baseDir)
 {
     graphicsView->loadFile(fileName, baseDir);
@@ -435,6 +447,7 @@ void MainWindow::fileChanged(const bool isRestoringState)
     updateWindowFilePath();
     if (!isRestoringState)
         setWindowSize();
+    pauseChanged();
 
     // full repaint to handle error message
     update();
@@ -1323,23 +1336,20 @@ void MainWindow::pause()
         return;
 
     const bool isPausing = graphicsView->getLoadedMovie().state() == QMovie::Running;
-
-    const auto pauseActions = qvApp->getActionManager().getAllClonesOfAction("pause", this);
-    for (const auto &pauseAction : pauseActions)
-    {
-        pauseAction->setText(isPausing ? tr("Res&ume") : tr("Pa&use"));
-        pauseAction->setIcon(qvApp->iconFromFont(isPausing ? Qv::MaterialIcon::PlayArrow : Qv::MaterialIcon::Pause));
-    }
-
     graphicsView->setPaused(isPausing);
+    pauseChanged();
 }
 
 void MainWindow::nextFrame()
 {
-    if (!getCurrentFileDetails().isMovieLoaded)
-        return;
-
     graphicsView->jumpToNextFrame();
+    pauseChanged();
+}
+
+void MainWindow::previousFrame()
+{
+    graphicsView->jumpToPreviousFrame();
+    pauseChanged();
 }
 
 void MainWindow::toggleSlideshow()

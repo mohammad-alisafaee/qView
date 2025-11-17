@@ -313,6 +313,7 @@ QMenu *ActionManager::buildToolsMenu(QWidget *parent)
     addCloneOfAction(toolsMenu, "saveframeas");
     addCloneOfAction(toolsMenu, "pause");
     addCloneOfAction(toolsMenu, "nextframe");
+    addCloneOfAction(toolsMenu, "previousframe");
     toolsMenu->addSeparator();
     addCloneOfAction(toolsMenu, "decreasespeed");
     addCloneOfAction(toolsMenu, "resetspeed");
@@ -766,6 +767,8 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         relevantWindow->pause();
     } else if (key == "nextframe") {
         relevantWindow->nextFrame();
+    } else if (key == "previousframe") {
+        relevantWindow->previousFrame();
     } else if (key == "decreasespeed") {
         relevantWindow->decreaseSpeed();
     } else if (key == "resetspeed") {
@@ -961,6 +964,10 @@ void ActionManager::initializeActionLibrary()
     auto *nextFrameAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::SkipNext), tr("&Next Frame"));
     nextFrameAction->setData({"gifdisable"});
     actionLibrary.insert("nextframe", nextFrameAction);
+
+    auto *previousFrameAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::SkipPrevious), tr("&Previous Frame"));
+    previousFrameAction->setData({"gifdisable"});
+    actionLibrary.insert("previousframe", previousFrameAction);
 
     auto *decreaseSpeedAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::FastRewind), tr("&Decrease Speed"));
     decreaseSpeedAction->setData({"gifdisable"});

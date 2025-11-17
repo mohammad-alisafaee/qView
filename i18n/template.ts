@@ -276,6 +276,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -353,6 +357,14 @@
     </message>
     <message>
         <source>Enter F&amp;ull Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -443,14 +455,6 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Save Frame As...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1469,6 +1473,10 @@ No write permission or file is read-only.</source>
     </message>
     <message>
         <source>Next Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

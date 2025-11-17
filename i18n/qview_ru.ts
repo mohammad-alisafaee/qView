@@ -276,6 +276,10 @@
         <translation>Следующий кадр</translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation>Предыдущий кадр</translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation>Медленнее</translation>
     </message>
@@ -356,6 +360,14 @@
     <message>
         <source>Enter F&amp;ull Screen</source>
         <translation>Полноэкранный режим</translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation>Продолжить</translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
+        <translation>Пауза</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -448,14 +460,6 @@ No write permission or file is read-only.</source>
     <message>
         <source>Save Frame As...</source>
         <translation>Сохранить кадр как...</translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation>Продолжить</translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
-        <translation>Пауза</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -1483,6 +1487,10 @@ No write permission or file is read-only.</source>
     <message>
         <source>Next Frame</source>
         <translation>Следующий кадр</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>Предыдущий кадр</translation>
     </message>
     <message>
         <source>Decrease Speed</source>

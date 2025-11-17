@@ -276,6 +276,10 @@
         <translation>Trame suivante</translation>
     </message>
     <message>
+        <source>&amp;Previous Frame</source>
+        <translation>Trame précédente</translation>
+    </message>
+    <message>
         <source>&amp;Decrease Speed</source>
         <translation>Réduire la vitesse</translation>
     </message>
@@ -356,6 +360,14 @@
     <message>
         <source>Enter F&amp;ull Screen</source>
         <translation>Passer en plein écran</translation>
+    </message>
+    <message>
+        <source>Res&amp;ume</source>
+        <translation>Reprendre</translation>
+    </message>
+    <message>
+        <source>Pa&amp;use</source>
+        <translation>Pause</translation>
     </message>
     <message>
         <source>Show Title&amp;bar</source>
@@ -448,14 +460,6 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Save Frame As...</source>
         <translation>Enregistrer la trame sous...</translation>
-    </message>
-    <message>
-        <source>Res&amp;ume</source>
-        <translation>Reprendre</translation>
-    </message>
-    <message>
-        <source>Pa&amp;use</source>
-        <translation>Pause</translation>
     </message>
     <message>
         <source>Stop S&amp;lideshow</source>
@@ -1483,6 +1487,10 @@ Pas d&apos;autorisation d&apos;écriture ou le fichier est en lecture seule.</tr
     <message>
         <source>Next Frame</source>
         <translation>Trame suivante</translation>
+    </message>
+    <message>
+        <source>Previous Frame</source>
+        <translation>Trame précédente</translation>
     </message>
     <message>
         <source>Decrease Speed</source>

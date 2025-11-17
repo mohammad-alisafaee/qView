@@ -186,6 +186,7 @@ namespace Qv
         Settings = 0xE8B8,
         Shuffle = 0xE043,
         SkipNext = 0xE044,
+        SkipPrevious = 0xE045,
         Slideshow = 0xE41B,
         Sort = 0xE164,
         Start = 0xE089,
