@@ -1,6 +1,7 @@
 #include "qvoptionsdialog.h"
 #include "ui_qvoptionsdialog.h"
 #include "qvapplication.h"
+#include "qvshortcutdialog.h"
 #include <QColorDialog>
 #include <QPalette>
 #include <QScreen>
@@ -24,14 +25,14 @@ QVOptionsDialog::QVOptionsDialog(QWidget *parent) :
     connect(ui->categoryList, &QListWidget::currentRowChanged, this, [this](int currentRow) { ui->stackedWidget->setCurrentIndex(currentRow); });
     connect(ui->buttonBox, &QDialogButtonBox::clicked, this, &QVOptionsDialog::buttonBoxClicked);
     connect(ui->shortcutsTable, &QTableWidget::cellDoubleClicked, this, &QVOptionsDialog::shortcutCellDoubleClicked);
-    connect(ui->bgColorCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::bgColorCheckboxStateChanged);
-    connect(ui->mainMenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("mainmenuicons", state); });
-    connect(ui->contextMenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("contextmenuicons", state); });
-    connect(ui->submenuIconsCheckbox, &QCheckBox::stateChanged, this, [this](int state) { restartNotifyForCheckbox("submenuicons", state); });
-    connect(ui->smoothScalingLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxStateChanged);
-    connect(ui->fitZoomLimitCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxStateChanged);
-    connect(ui->constrainImagePositionCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxStateChanged);
-    connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::stateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged);
+    connect(ui->bgColorCheckbox, &QCheckBox::checkStateChanged, this, &QVOptionsDialog::bgColorCheckboxCheckStateChanged);
+    connect(ui->mainMenuIconsCheckbox, &QCheckBox::checkStateChanged, this, [this](Qt::CheckState state) { restartNotifyForCheckbox("mainmenuicons", state); });
+    connect(ui->contextMenuIconsCheckbox, &QCheckBox::checkStateChanged, this, [this](Qt::CheckState state) { restartNotifyForCheckbox("contextmenuicons", state); });
+    connect(ui->submenuIconsCheckbox, &QCheckBox::checkStateChanged, this, [this](Qt::CheckState state) { restartNotifyForCheckbox("submenuicons", state); });
+    connect(ui->smoothScalingLimitCheckbox, &QCheckBox::checkStateChanged, this, &QVOptionsDialog::smoothScalingLimitCheckboxCheckStateChanged);
+    connect(ui->fitZoomLimitCheckbox, &QCheckBox::checkStateChanged, this, &QVOptionsDialog::fitZoomLimitCheckboxCheckStateChanged);
+    connect(ui->constrainImagePositionCheckbox, &QCheckBox::checkStateChanged, this, &QVOptionsDialog::constrainImagePositionCheckboxCheckStateChanged);
+    connect(ui->cursorAutoHideFullscreenCheckbox, &QCheckBox::checkStateChanged, this, &QVOptionsDialog::cursorAutoHideFullscreenCheckboxCheckStateChanged);
     connect(ui->middleButtonModeClickRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->middleButtonModeDragRadioButton, &QRadioButton::clicked, this, &QVOptionsDialog::middleButtonModeChanged);
     connect(ui->titlebarComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &QVOptionsDialog::titlebarComboBoxCurrentIndexChanged);
@@ -165,7 +166,7 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
 
     // bgcolorenabled
     syncCheckbox(ui->bgColorCheckbox, "bgcolorenabled", defaults, makeConnections);
-    bgColorCheckboxStateChanged(ui->bgColorCheckbox->checkState());
+    bgColorCheckboxCheckStateChanged(ui->bgColorCheckbox->checkState());
     // bgcolor
     ui->bgColorButton->setText(settingsManager.getString("bgcolor", defaults));
     transientSettings.insert("bgcolor", ui->bgColorButton->text());
@@ -223,7 +224,7 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncComboBox(ui->zoomDefaultComboBox, "calculatedzoommode", defaults, makeConnections);
     // fitzoomlimitenabled
     syncCheckbox(ui->fitZoomLimitCheckbox, "fitzoomlimitenabled", defaults, makeConnections);
-    fitZoomLimitCheckboxStateChanged(ui->fitZoomLimitCheckbox->checkState());
+    fitZoomLimitCheckboxCheckStateChanged(ui->fitZoomLimitCheckbox->checkState());
     // fitzoomlimitpercent
     syncSpinBox(ui->fitZoomLimitSpinBox, "fitzoomlimitpercent", defaults, makeConnections);
     // fitoverscan
@@ -232,7 +233,7 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncCheckbox(ui->navResetsZoomCheckbox, "navresetszoom", defaults, makeConnections);
     // constrainimageposition
     syncCheckbox(ui->constrainImagePositionCheckbox, "constrainimageposition", defaults, makeConnections);
-    constrainImagePositionCheckboxStateChanged(ui->constrainImagePositionCheckbox->checkState());
+    constrainImagePositionCheckboxCheckStateChanged(ui->constrainImagePositionCheckbox->checkState());
     // constraincentersmallimage
     syncCheckbox(ui->constrainCentersSmallImageCheckbox, "constraincentersmallimage", defaults, makeConnections);
     // originalsizeastoggle
@@ -286,7 +287,7 @@ void QVOptionsDialog::syncSettings(bool defaults, bool makeConnections)
     syncComboBox(ui->altHorizontalScrollComboBox, "viewportalthorizontalscrollaction", defaults, makeConnections);
     syncCheckbox(ui->scrollActionCooldownCheckbox, "scrollactioncooldown", defaults, makeConnections);
     syncCheckbox(ui->cursorAutoHideFullscreenCheckbox, "cursorautohidefullscreenenabled", defaults, makeConnections);
-    cursorAutoHideFullscreenCheckboxStateChanged(ui->cursorAutoHideFullscreenCheckbox->checkState());
+    cursorAutoHideFullscreenCheckboxCheckStateChanged(ui->cursorAutoHideFullscreenCheckbox->checkState());
     syncDoubleSpinBox(ui->cursorAutoHideFullscreenDelaySpinBox, "cursorautohidefullscreendelay", defaults, makeConnections);
 }
 
@@ -298,7 +299,7 @@ void QVOptionsDialog::syncCheckbox(QCheckBox *checkbox, const QString &key, bool
 
     if (makeConnection)
     {
-        connect(checkbox, &QCheckBox::stateChanged, this, [this, key](int state) {
+        connect(checkbox, &QCheckBox::checkStateChanged, this, [this, key](Qt::CheckState state) {
             modifySetting(key, static_cast<bool>(state));
         });
     }
@@ -548,12 +549,12 @@ void QVOptionsDialog::updateBgColorButton()
     ui->bgColorButton->setIcon(QIcon(newPixmap));
 }
 
-void QVOptionsDialog::bgColorCheckboxStateChanged(int state)
+void QVOptionsDialog::bgColorCheckboxCheckStateChanged(Qt::CheckState state)
 {
     ui->bgColorButton->setEnabled(static_cast<bool>(state));
 }
 
-void QVOptionsDialog::restartNotifyForCheckbox(const QString &key, const int state)
+void QVOptionsDialog::restartNotifyForCheckbox(const QString &key, const Qt::CheckState state)
 {
     const bool savedValue = qvApp->getSettingsManager().getBoolean(key);
     if (static_cast<bool>(state) != savedValue)
@@ -571,26 +572,26 @@ void QVOptionsDialog::smoothScalingComboBoxCurrentIndexChanged(int index)
     const auto value = static_cast<Qv::SmoothScalingMode>(ui->smoothScalingComboBox->itemData(index).toInt());
     ui->scalingTwoCheckbox->setEnabled(value == Qv::SmoothScalingMode::Expensive);
     ui->smoothScalingLimitCheckbox->setEnabled(value != Qv::SmoothScalingMode::Disabled);
-    smoothScalingLimitCheckboxStateChanged(ui->smoothScalingLimitCheckbox->checkState());
+    smoothScalingLimitCheckboxCheckStateChanged(ui->smoothScalingLimitCheckbox->checkState());
 }
 
-void QVOptionsDialog::smoothScalingLimitCheckboxStateChanged(int state)
+void QVOptionsDialog::smoothScalingLimitCheckboxCheckStateChanged(Qt::CheckState state)
 {
     const bool selfEnabled = ui->smoothScalingLimitCheckbox->isEnabled();
     ui->smoothScalingLimitSpinBox->setEnabled(selfEnabled && static_cast<bool>(state));
 }
 
-void QVOptionsDialog::fitZoomLimitCheckboxStateChanged(int state)
+void QVOptionsDialog::fitZoomLimitCheckboxCheckStateChanged(Qt::CheckState state)
 {
     ui->fitZoomLimitSpinBox->setEnabled(static_cast<bool>(state));
 }
 
-void QVOptionsDialog::constrainImagePositionCheckboxStateChanged(int state)
+void QVOptionsDialog::constrainImagePositionCheckboxCheckStateChanged(Qt::CheckState state)
 {
     ui->constrainCentersSmallImageCheckbox->setEnabled(static_cast<bool>(state));
 }
 
-void QVOptionsDialog::cursorAutoHideFullscreenCheckboxStateChanged(int state)
+void QVOptionsDialog::cursorAutoHideFullscreenCheckboxCheckStateChanged(Qt::CheckState state)
 {
     ui->cursorAutoHideFullscreenDelaySpinBox->setEnabled(static_cast<bool>(state));
 }

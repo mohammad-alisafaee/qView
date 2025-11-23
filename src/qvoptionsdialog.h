@@ -2,7 +2,6 @@
 #define QVOPTIONSDIALOG_H
 
 #include "qvnamespace.h"
-#include "qvshortcutdialog.h"
 
 #include <QDialog>
 #include <QCheckBox>
@@ -49,7 +48,7 @@ protected:
     void updateButtonBox();
     void bgColorButtonClicked();
     void updateBgColorButton();
-    void restartNotifyForCheckbox(const QString &key, const int state);
+    void restartNotifyForCheckbox(const QString &key, const Qt::CheckState state);
     void customizePalette();
     void populateCategories(int selectedRow);
     void populateLanguages();
@@ -74,19 +73,19 @@ private slots:
 
     void buttonBoxClicked(QAbstractButton *button);
 
-    void bgColorCheckboxStateChanged(int state);
+    void bgColorCheckboxCheckStateChanged(Qt::CheckState state);
 
     void titlebarComboBoxCurrentIndexChanged(int index);
 
     void smoothScalingComboBoxCurrentIndexChanged(int index);
 
-    void smoothScalingLimitCheckboxStateChanged(int state);
+    void smoothScalingLimitCheckboxCheckStateChanged(Qt::CheckState state);
 
-    void fitZoomLimitCheckboxStateChanged(int state);
+    void fitZoomLimitCheckboxCheckStateChanged(Qt::CheckState state);
 
-    void constrainImagePositionCheckboxStateChanged(int state);
+    void constrainImagePositionCheckboxCheckStateChanged(Qt::CheckState state);
 
-    void cursorAutoHideFullscreenCheckboxStateChanged(int state);
+    void cursorAutoHideFullscreenCheckboxCheckStateChanged(Qt::CheckState state);
 
     void languageComboBoxCurrentIndexChanged(int index);
 
