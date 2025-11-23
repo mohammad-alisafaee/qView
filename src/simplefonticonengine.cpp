@@ -22,17 +22,11 @@ QString SimpleFontIconEngine::key() const
 }
 
 QString SimpleFontIconEngine::iconName()
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const
-#endif
 {
     return QString(m_iconChar);
 }
 
 QList<QSize> SimpleFontIconEngine::availableSizes(QIcon::Mode, QIcon::State)
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    const
-#endif
 {
     return {{16, 16}, {24, 24}, {32, 32}, {48, 48}, {64, 64}, {96, 96}, {128, 128}};
 }

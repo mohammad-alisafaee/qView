@@ -10,19 +10,11 @@ public:
     SimpleFontIconEngine(const QChar iconChar, const QFont &iconFont);
     ~SimpleFontIconEngine() override;
 
-    QString iconName()
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const
-#endif
-        override;
+    QString iconName() override;
     QString key() const override;
     QIconEngine *clone() const override;
 
-    QList<QSize> availableSizes(QIcon::Mode mode, QIcon::State state)
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        const
-#endif
-        override;
+    QList<QSize> availableSizes(QIcon::Mode mode, QIcon::State state) override;
     QPixmap pixmap(const QSize &size, QIcon::Mode mode, QIcon::State state) override;
     void virtual_hook(int id, void *data) override;
     void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) override;

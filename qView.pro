@@ -1,7 +1,7 @@
 TARGET = qView
 VERSION = 8.0
 
-QT += core gui network widgets
+QT += core gui network widgets svg
 
 TEMPLATE = app
 
@@ -38,8 +38,6 @@ CONFIG(debug, debug|release) {
 
 # Windows specific stuff
 win32 {
-    QT += svg # needed for including svg support in static build
-
     # To build without win32: qmake CONFIG+=NO_WIN32
     !CONFIG(NO_WIN32) {
         LIBS += -lshell32 -luser32 -lole32 -lshlwapi -lgdi32
@@ -54,23 +52,16 @@ win32 {
 
 # macOS specific stuff
 macx {
-    QT += svg # needed for macdeployqt added qsvg plugin automatically
-
     # To build without cocoa: qmake CONFIG+=NO_COCOA
     !CONFIG(NO_COCOA) {
         LIBS += -framework Cocoa
         DEFINES += COCOA_LOADED
         message("Linked to cocoa framework")
     }
-    QMAKE_TARGET_BUNDLE_PREFIX = "com.interversehq"
 
+    QMAKE_TARGET_BUNDLE_PREFIX = "com.interversehq"
     QMAKE_INFO_PLIST = "dist/mac/Info.plist"
-    # Older icon for qt 5 on mac
-    lessThan(QT_MAJOR_VERSION, 6) {
-        ICON = "dist/mac/qView_legacy.icns"
-    } else {
-        ICON = "dist/mac/qView.icns"
-    }
+    ICON = "dist/mac/qView.icns"
 }
 
 # Linux specific stuff
@@ -78,10 +69,6 @@ linux {
     !CONFIG(NO_X11) {
         LIBS += -lX11
         DEFINES += X11_LOADED
-
-        equals(QT_MAJOR_VERSION, 5) {
-            QT += x11extras
-        }
     }
 }
 

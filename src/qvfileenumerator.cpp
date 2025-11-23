@@ -117,11 +117,7 @@ qint64 QVFileEnumerator::getFileTimeSortKey(const QDirListing::DirEntry &dirEntr
 #else
 qint64 QVFileEnumerator::getFileTimeSortKey(const QFileInfo &fileInfo, const QFileDevice::FileTime type) const
 {
-#if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
     return fileInfo.fileTime(type, QTimeZone::UTC).toMSecsSinceEpoch();
-#else
-    return fileInfo.fileTime(type).toMSecsSinceEpoch();
-#endif
 }
 #endif
 

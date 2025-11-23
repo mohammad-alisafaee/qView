@@ -649,31 +649,16 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
             msgBox.exec();
             qvApp->setUserDeclinedSessionStateSave(msgBox.clickedButton() == noButton);
         }
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        qvApp->legacyQuit();
-#else
         QCoreApplication::quit();
-#endif
     } else if (key == "newwindow") {
         qvApp->newWindow();
     } else if (key == "open") {
         qvApp->pickFile(relevantWindow);
     } else if (key == "open") {
         qvApp->pickFile(relevantWindow);
-    } else if (key == "closewindow") {
-        auto *active = QApplication::activeWindow();
-#if defined COCOA_LOADED && QT_VERSION < QT_VERSION_CHECK(6, 2, 0)
-        // QTBUG-46701
-        QVCocoaFunctions::closeWindow(active->windowHandle());
-#endif
-        active->close();
     } else if (key == "closeallwindows") {
         const auto topLevelWindows = QApplication::topLevelWindows();
         for (auto *window : topLevelWindows) {
-#if defined COCOA_LOADED && QT_VERSION < QT_VERSION_CHECK(6, 2, 0)
-            // QTBUG-46701
-            QVCocoaFunctions::closeWindow(window);
-#endif
             window->close();
         }
     } else if (key == "options") {
@@ -691,7 +676,9 @@ void ActionManager::actionTriggered(QAction *triggeredAction, MainWindow *releva
         return;
 
     // Conditions that require a valid window pointer
-    if (key.startsWith("recent")) {
+    if (key == "closewindow") {
+        relevantWindow->close();
+    } else if (key.startsWith("recent")) {
         QChar finalChar = key.at(key.length()-1);
         relevantWindow->openRecent(finalChar.digitValue());
     } else if (key == "openwithother") {

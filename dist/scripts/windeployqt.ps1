@@ -5,34 +5,6 @@ param (
 $qtVersion = [version](qmake -query QT_VERSION)
 Write-Host "Detected Qt version $qtVersion"
 
-# Ship OpenSSL for older Qt versions. Starting 6.8, windeployqt doesn't deploy the OpenSSL backend
-# by default; although it's easy to opt in, the Schannel backend seems solid enough at this point.
-if ($qtVersion -lt [version]'6.8' -and $env:buildArch -ne 'Arm64') {
-    # Download and extract OpenSSL
-    if ($qtVersion -lt [version]'6.5') {
-        $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-1.1.1w.zip"
-        $openSslSubfolder = "openssl-1.1\"
-        $openSslFilenameVersion = "1_1"
-    } else {
-        $openSslDownloadUrl = "https://download.firedaemon.com/FireDaemon-OpenSSL/openssl-3.4.0.zip"
-        $openSslSubfolder = ""
-        $openSslFilenameVersion = "3"
-    }
-    Write-Host "Downloading $openSslDownloadUrl"
-    $ProgressPreference = 'SilentlyContinue'
-    Invoke-WebRequest -Uri $openSslDownloadUrl -OutFile openssl.zip
-    7z x -y openssl.zip -o"openssl"
-
-    # Copy to output dir
-    if ($env:buildArch -eq 'X86') {
-        copy "openssl\${openSslSubfolder}x86\bin\libssl-$openSslFilenameVersion.dll" bin
-        copy "openssl\${openSslSubfolder}x86\bin\libcrypto-$openSslFilenameVersion.dll" bin
-    } else {
-        copy "openssl\${openSslSubfolder}x64\bin\libssl-$openSslFilenameVersion-x64.dll" bin
-        copy "openssl\${openSslSubfolder}x64\bin\libcrypto-$openSslFilenameVersion-x64.dll" bin
-    }
-}
-
 # Run windeployqt
 $isCrossCompile = $env:buildArch -eq 'Arm64'
 $winDeployQt = $isCrossCompile ? "$env:QT_HOST_PATH\bin\windeployqt" : "windeployqt"

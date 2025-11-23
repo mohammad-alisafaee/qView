@@ -1,8 +1,5 @@
 #include "qvlinuxx11functions.h"
 #include <QGuiApplication>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <QX11Info>
-#endif
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
@@ -10,15 +7,9 @@ namespace X11Helper
 {
     Display* getDisplay()
     {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-        if (QX11Info::isPlatformX11())
-            return QX11Info::display();
-        return nullptr;
-#else
         if (const auto x11App = qGuiApp->nativeInterface<QNativeInterface::QX11Application>())
             return x11App->display();
         return nullptr;
-#endif
     }
 }
 

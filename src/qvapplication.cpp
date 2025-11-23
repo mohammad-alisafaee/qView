@@ -415,20 +415,12 @@ QIcon QVApplication::iconFromFont(const Qv::MaterialIcon iconName)
 
 qreal QVApplication::keyboardAutoRepeatInterval()
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 5, 0))
-    return 1.0 / qGuiApp->styleHints()->keyboardAutoRepeatRate();
-#else
     return 1.0 / qGuiApp->styleHints()->keyboardAutoRepeatRateF();
-#endif
 }
 
 bool QVApplication::isMouseEventSynthesized(const QMouseEvent *event)
 {
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-    return event->source() != Qt::MouseEventNotSynthesized;
-#else
     return event->deviceType() != QInputDevice::DeviceType::Mouse;
-#endif
 }
 
 bool QVApplication::supportsSessionPersistence()
@@ -464,12 +456,6 @@ bool QVApplication::tryRestoreLastSession()
     settings.remove("sessionstate");
 
     return true;
-}
-
-void QVApplication::legacyQuit()
-{
-    isApplicationQuitting = true;
-    qGuiApp->postEvent(qGuiApp, new QEvent(QEvent::Quit));
 }
 
 bool QVApplication::getIsApplicationQuitting() const

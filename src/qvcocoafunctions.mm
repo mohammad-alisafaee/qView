@@ -91,22 +91,6 @@ void QVCocoaFunctions::setFullSizeContentView(QWidget *window, const bool enable
 
     // Restore original size after style mask change
     [view.window setFrame:originalFrame display:YES];
-
-#if QT_VERSION < QT_VERSION_CHECK(6, 2, 0)
-    // workaround for QTBUG-69975
-    if (enable)
-    {
-        [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidExitFullScreenNotification object:view.window queue:nil usingBlock:^(NSNotification *notification){
-            auto *window = reinterpret_cast<NSWindow*>(notification.object);
-            window.styleMask |= NSWindowStyleMaskFullSizeContentView;
-        }];
-
-        [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidEnterFullScreenNotification object:view.window queue:nil usingBlock:^(NSNotification *notification){
-            auto *window = reinterpret_cast<NSWindow*>(notification.object);
-            window.styleMask |= NSWindowStyleMaskFullSizeContentView;
-        }];
-    }
-#endif
 }
 
 bool QVCocoaFunctions::getTitlebarHidden(const QWidget *window)

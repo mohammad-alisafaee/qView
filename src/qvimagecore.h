@@ -104,9 +104,6 @@ protected:
     QColorSpace getTargetColorSpace() const;
     QColorSpace detectDisplayColorSpace() const;
     static void handleColorSpaceConversion(QImage &image, const QColorSpace &targetColorSpace);
-#if QT_VERSION < QT_VERSION_CHECK(6, 7, 2)
-    static bool removeTinyDataTagsFromIccProfile(QByteArray &profile);
-#endif
 
 private:
     QVFileEnumerator fileEnumerator {this};
