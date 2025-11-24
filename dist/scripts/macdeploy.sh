@@ -1,10 +1,5 @@
 #!/usr/bin/bash
 
-if [[ -z "$1" ]]; then
-    RELEASE_VER=$(LC_ALL=C sed -n -e '/^VERSION/p' qView.pro)
-    RELEASE_VER=${RELEASE_VER: -3}
-fi
-
 cd bin
 
 echo "Running macdeployqt"
@@ -39,17 +34,11 @@ else
 fi
 
 echo "Creating disk image"
-if [[ -n "$1" ]]; then
-    BUILD_NAME=qView-JDP-$1
-    DMG_FILENAME=$BUILD_NAME-macOS$2.dmg
-    hdiutil create -srcfolder "qView.app" -volname "$BUILD_NAME" -format UDSB "qView.sparsebundle"
-    hdiutil convert "qView.sparsebundle" -format ULFO -o "$DMG_FILENAME"
-    rm -r qView.sparsebundle
-else
-    DMG_FILENAME=qView-JDP-$RELEASE_VER.dmg
-    brew install create-dmg
-    create-dmg --volname "qView-JDP $RELEASE_VER" --filesystem APFS --format ULFO --window-size 660 400 --icon-size 160 --icon "qView.app" 180 170 --hide-extension qView.app --app-drop-link 480 170 "$DMG_FILENAME" "qView.app"
-fi
+BUILD_NAME=qView-JDP-$1
+DMG_FILENAME=$BUILD_NAME-macOS$2.dmg
+hdiutil create -srcfolder "qView.app" -volname "$BUILD_NAME" -format UDSB "qView.sparsebundle"
+hdiutil convert "qView.sparsebundle" -format ULFO -o "$DMG_FILENAME"
+rm -r qView.sparsebundle
 if [[ "$APPLE_NOTARIZE_REQUESTED" == "true" ]]; then
     codesign --sign "$CODESIGN_CERT_NAME" --timestamp --identifier "$APP_IDENTIFIER.dmg" "$DMG_FILENAME"
     xcrun notarytool submit "$DMG_FILENAME" --apple-id "$APPLE_ID_USER" --password "$APPLE_ID_PASS" --team-id "${CODESIGN_CERT_NAME: -11:10}" --wait

@@ -5,9 +5,6 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      isRelease:
-        type: boolean
-        description: 'Is this a release build?'
       appleNotarize:
         type: boolean
         description: 'Notarize with Apple?'
@@ -53,11 +50,9 @@ jobs:
         shell: bash
         run: |
           echo "buildArch=${{ matrix.buildArch }}" >> $GITHUB_ENV
-          if [ "${{ inputs.isRelease }}" != "true" ]; then
-            buildNum=$(date '+%Y-%m-%d').${GITHUB_SHA::7}
-            echo "nightlyDefines=NIGHTLY=$buildNum" >> $GITHUB_ENV
-            echo "buildNumString=$buildNum" >> $GITHUB_ENV
-          fi
+          buildNum=$(date '+%Y-%m-%d').${GITHUB_SHA::7}
+          echo "nightlyDefines=NIGHTLY=$buildNum" >> $GITHUB_ENV
+          echo "buildNumString=$buildNum" >> $GITHUB_ENV
 
       - name: Checkout
         uses: actions/checkout@v5
@@ -100,5 +95,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v5
         with:
-          name: qView-JDP${{ env.buildNumString != '' && '-' || '' }}${{ env.buildNumString }}-${{ runner.os }}${{ matrix.osSuffix }}
+          name: qView-JDP-${{ env.buildNumString }}-${{ runner.os }}${{ matrix.osSuffix }}
           path: bin

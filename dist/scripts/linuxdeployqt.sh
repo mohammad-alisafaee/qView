@@ -1,10 +1,5 @@
 #!/usr/bin/bash
 
-if [[ -z "$1" ]]; then
-    RELEASE_VER=$(LC_ALL=C sed -n -e '/^VERSION/p' qView.pro)
-    RELEASE_VER=${RELEASE_VER: -3}
-fi
-
 sudo apt update
 sudo apt install libfuse2
 
@@ -31,9 +26,5 @@ rm qview
     --appdir appdir \
     --output appimage
 
-if [[ -n "$1" ]]; then
-    mv *.AppImage qView-JDP-$1-Linux_$ARCH_NAME.AppImage
-else
-    mv *.AppImage qView-JDP-$RELEASE_VER-Linux_$ARCH_NAME.AppImage
-fi
+mv *.AppImage qView-JDP-$1-Linux_$ARCH_NAME.AppImage
 rm -r appdir
