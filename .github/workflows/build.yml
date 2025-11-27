@@ -75,11 +75,6 @@ jobs:
         shell: pwsh
         run: dist/scripts/build.ps1
 
-      - name: Download Plugins
-        if: ${{ matrix.skipPlugins != 'true' }}
-        shell: pwsh
-        run: dist/scripts/download-plugins.ps1
-
       - name: Signing (Windows)
         if: runner.os == 'Windows' && (inputs.codeSign || (env.AUTOSIGN_REQUESTED == 'true' && env.CAN_AUTOSIGN_WINDOWS == 'true'))
         uses: azure/trusted-signing-action@v0
@@ -96,6 +91,11 @@ jobs:
           file-digest: SHA256
           timestamp-rfc3161: http://timestamp.acs.microsoft.com
           timestamp-digest: SHA256
+
+      - name: Download Plugins
+        if: ${{ matrix.skipPlugins != 'true' }}
+        shell: pwsh
+        run: dist/scripts/download-plugins.ps1
 
       - name: Deploy qView
         env:
