@@ -146,7 +146,7 @@ void QVGraphicsView::mousePressEvent(QMouseEvent *event)
         const bool isAltAction = event->modifiers().testFlag(Qt::ControlModifier);
         if (middleButtonMode == Qv::ClickOrDrag::Click)
         {
-            executeClickAction(isAltAction ? altMiddleClickAction : middleClickAction);
+            executeClickAction(isAltAction ? altMiddleClickAction : middleClickAction, event->position().toPoint());
         }
         else if (middleButtonMode == Qv::ClickOrDrag::Drag &&
             (isAltAction ? altMiddleDragAction : middleDragAction) != Qv::ViewportDragAction::None)
@@ -236,7 +236,7 @@ void QVGraphicsView::mouseDoubleClickEvent(QMouseEvent *event)
         const bool isInNavRegion = !isAltAction && enableNavigationRegions && getNavigationRegion(lastMousePos).has_value();
         if (!isInNavRegion)
         {
-            executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction);
+            executeClickAction(isAltAction ? altDoubleClickAction : doubleClickAction, event->position().toPoint());
             return;
         }
     }
@@ -386,7 +386,7 @@ void QVGraphicsView::keyPressEvent(QKeyEvent *event)
 
 // Functions
 
-void QVGraphicsView::executeClickAction(const Qv::ViewportClickAction action)
+void QVGraphicsView::executeClickAction(const Qv::ViewportClickAction action, const QPoint mousePos)
 {
     if (action == Qv::ViewportClickAction::ZoomToFit)
     {
@@ -398,7 +398,7 @@ void QVGraphicsView::executeClickAction(const Qv::ViewportClickAction action)
     }
     else if (action == Qv::ViewportClickAction::OriginalSize)
     {
-        setCalculatedZoomMode(Qv::CalculatedZoomMode::OriginalSize);
+        setCalculatedZoomMode(Qv::CalculatedZoomMode::OriginalSize, false, mousePos);
     }
     else if (action == Qv::ViewportClickAction::CenterImage)
     {
@@ -673,7 +673,7 @@ const std::optional<Qv::CalculatedZoomMode> &QVGraphicsView::getCalculatedZoomMo
     return calculatedZoomMode;
 }
 
-void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating)
+void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating, const std::optional<QPoint> &mousePos)
 {
     if (calculatedZoomMode == value)
     {
@@ -689,8 +689,15 @@ void QVGraphicsView::setCalculatedZoomMode(const std::optional<Qv::CalculatedZoo
     }
 
     calculatedZoomMode = value;
-    if (calculatedZoomMode.has_value())
+    if (calculatedZoomMode == Qv::CalculatedZoomMode::OriginalSize && zoomToCursor && mousePos.has_value())
+    {
+        zoomAbsolute(1.0, mousePos, true);
+        fitOrConstrainImage();
+    }
+    else if (calculatedZoomMode.has_value())
+    {
         recalculateZoom();
+    }
 
     emit calculatedZoomModeChanged();
 }

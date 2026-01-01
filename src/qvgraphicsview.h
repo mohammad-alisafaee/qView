@@ -44,7 +44,7 @@ public:
     void zoomAbsolute(const qreal absoluteLevel, const std::optional<QPoint> &targetPos = {}, const bool isApplyingCalculation = false);
 
     const std::optional<Qv::CalculatedZoomMode> &getCalculatedZoomMode() const;
-    void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating = false);
+    void setCalculatedZoomMode(const std::optional<Qv::CalculatedZoomMode> &value, const bool isNavigating = false, const std::optional<QPoint> &mousePos = {});
 
     bool getNavigationResetsZoom() const { return navigationResetsZoom; }
     void setNavigationResetsZoom(const bool value);
@@ -139,7 +139,7 @@ protected:
 
     void focusOutEvent(QFocusEvent *event) override;
 
-    void executeClickAction(const Qv::ViewportClickAction action);
+    void executeClickAction(const Qv::ViewportClickAction action, const QPoint mousePos);
 
     void executeDragAction(const Qv::ViewportDragAction action, const QPoint delta, bool &isMovingWindow);
 
