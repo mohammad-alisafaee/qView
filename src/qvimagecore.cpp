@@ -205,11 +205,25 @@ void QVImageCore::loadPixmap(const ReadData &readData)
 
     // Do this first so we can keep folder info even when loading errored files
     currentFileDetails.fileInfo = QFileInfo(readData.absoluteFilePath);
+    int previousIndex = currentFileDetails.loadedIndexInFolder;
     currentFileDetails.updateLoadedIndexInFolder();
     if (currentFileDetails.loadedIndexInFolder == -1)
     {
-        // If the current list of files doesn't contain this one, assume we're switching folders now
-        updateFolderInfo(currentFileDetails.fileInfo.path());
+        // If the current list of files doesn't contain this one, check if we're in the same folder
+        QString currentDir = currentFileDetails.folderFileInfoList.getBaseDir();
+        QString newFileDir = currentFileDetails.fileInfo.path();
+
+        if (currentDir == newFileDir && previousIndex >= 0 && previousIndex < currentFileDetails.folderFileInfoList.length())
+        {
+            // Same folder - likely a rename. Update the file in place without re-sorting
+            currentFileDetails.folderFileInfoList[previousIndex].absoluteFilePath = readData.absoluteFilePath;
+            currentFileDetails.loadedIndexInFolder = previousIndex;
+        }
+        else
+        {
+            // Different folder - update folder info normally
+            updateFolderInfo(currentFileDetails.fileInfo.path());
+        }
     }
 
     // Reset mechanism to avoid stalling while loading
