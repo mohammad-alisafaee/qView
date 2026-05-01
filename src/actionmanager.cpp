@@ -939,13 +939,13 @@ void ActionManager::initializeActionLibrary()
     lastFileAction->setData({"folderdisable"});
     actionLibrary.insert("lastfile", lastFileAction);
 
-    auto *randomFileAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Shuffle), tr("&Random File"));
-    randomFileAction->setData({"folderdisable"});
-    actionLibrary.insert("randomfile", randomFileAction);
-
     auto *previousRandomFileAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Shuffle), tr("&Previous Random File"));
     previousRandomFileAction->setData({"folderdisable"});
     actionLibrary.insert("previousrandomfile", previousRandomFileAction);
+
+    auto *randomFileAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Shuffle), tr("&Random File"));
+    randomFileAction->setData({"folderdisable"});
+    actionLibrary.insert("randomfile", randomFileAction);
 
     auto *saveFrameAsAction = new QAction(qvApp->iconFromFont(Qv::MaterialIcon::Save), tr("Save Frame &As..."));
     saveFrameAsAction->setData({"gifdisable"});

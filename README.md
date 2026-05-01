@@ -1,3 +1,5 @@
+To build the project run `make`. The app will be built in the `bin` directory.
+
 # qView
 ## Additional features in this fork
 * Option to constrain image position to keep it snapped inside the viewport.

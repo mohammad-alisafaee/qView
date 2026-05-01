@@ -62,7 +62,7 @@ void ShortcutManager::initializeShortcutsList()
     shortcutsList.last().defaultShortcuts.prepend(QKeySequence(Qt::CTRL | Qt::Key_Return).toString());
 #endif
 
-    shortcutsList.append({tr("Move to Trash"), "delete", keyBindingsToStringList(QKeySequence::Delete), {}});
+    shortcutsList.append({tr("Move to Trash"), "delete", QStringList(QKeySequence(Qt::Key_L).toString()), {}});
 #ifdef Q_OS_MACOS
     // cmd+backspace
     shortcutsList.last().defaultShortcuts.prepend(QKeySequence(Qt::CTRL | Qt::Key_Backspace).toString());
@@ -75,11 +75,11 @@ void ShortcutManager::initializeShortcutsList()
     shortcutsList.last().defaultShortcuts.prepend(QKeySequence(Qt::CTRL | Qt::ALT | Qt::Key_Backspace).toString());
 #endif
     shortcutsList.append({tr("First File"), "firstfile", QStringList(QKeySequence(Qt::Key_Home).toString()), {}});
-    shortcutsList.append({tr("Previous File"), "previousfile", QStringList(QKeySequence(Qt::Key_Left).toString()), {}});
-    shortcutsList.append({tr("Next File"), "nextfile", QStringList(QKeySequence(Qt::Key_Right).toString()), {}});
+    shortcutsList.append({tr("Previous File"), "previousfile", QStringList(QKeySequence(Qt::Key_Comma).toString()), {}});
+    shortcutsList.append({tr("Next File"), "nextfile", QStringList(QKeySequence(Qt::Key_Period).toString()), {}});
     shortcutsList.append({tr("Last File"), "lastfile", QStringList(QKeySequence(Qt::Key_End).toString()), {}});
-    shortcutsList.append({tr("Random File"), "randomfile", QStringList(QKeySequence(Qt::Key_R).toString()), {}});
-    shortcutsList.append({tr("Previous Random File"), "previousrandomfile", QStringList(QKeySequence(Qt::SHIFT | Qt::Key_R).toString()), {}});
+    shortcutsList.append({tr("Previous Random File"), "previousrandomfile", QStringList(QKeySequence(Qt::Key_N).toString()), {}});
+    shortcutsList.append({tr("Random File"), "randomfile", QStringList(QKeySequence(Qt::Key_M).toString()), {}});
     shortcutsList.append({tr("Zoom In"), "zoomin", keyBindingsToStringList(QKeySequence::ZoomIn), {}});
     // Allow zooming with Ctrl + plus like a regular person (without holding shift)
     if (!shortcutsList.last().defaultShortcuts.contains(QKeySequence(Qt::CTRL | Qt::Key_Equal).toString()))
@@ -87,12 +87,12 @@ void ShortcutManager::initializeShortcutsList()
 
     shortcutsList.append({tr("Zoom Out"), "zoomout", keyBindingsToStringList(QKeySequence::ZoomOut), {}});
     shortcutsList.append({tr("Set Zoom Level"), "zoomcustom", {}, {}});
-    shortcutsList.append({tr("Original Size"), "originalsize", QStringList(QKeySequence(Qt::CTRL | Qt::Key_0).toString()), {}});
+    shortcutsList.append({tr("Original Size"), "originalsize", QStringList(QKeySequence(Qt::Key_Slash).toString()), {}});
     shortcutsList.append({tr("Zoom to Fit"), "zoomtofit", QStringList(QKeySequence(Qt::CTRL | Qt::Key_9).toString()), {}});
     shortcutsList.append({tr("Fill Window"), "fillwindow", QStringList(QKeySequence(Qt::CTRL | Qt::Key_8).toString()), {}});
     shortcutsList.append({tr("Navigation Resets Zoom"), "navresetszoom", QStringList(QKeySequence(Qt::Key_Z).toString()), {}});
-    shortcutsList.append({tr("Rotate Right"), "rotateright", QStringList(QKeySequence(Qt::Key_Up).toString()), {}});
-    shortcutsList.append({tr("Rotate Left"), "rotateleft", QStringList(QKeySequence(Qt::Key_Down).toString()), {}});
+    shortcutsList.append({tr("Rotate Right"), "rotateright", QStringList(QKeySequence(Qt::CTRL | Qt::Key_R).toString()), {}});
+    shortcutsList.append({tr("Rotate Left"), "rotateleft", QStringList(QKeySequence(Qt::CTRL | Qt::Key_L).toString()), {}});
     shortcutsList.append({tr("Mirror"), "mirror", QStringList(QKeySequence(Qt::Key_F).toString()), {}});
     shortcutsList.append({tr("Flip"), "flip", QStringList(QKeySequence(Qt::CTRL | Qt::Key_F).toString()), {}});
     shortcutsList.append({tr("Reset Transformation"), "resettransformation", QStringList(QKeySequence(Qt::Key_T).toString()), {}});
@@ -113,8 +113,8 @@ void ShortcutManager::initializeShortcutsList()
 #endif
     shortcutsList.append({tr("Save Frame As"), "saveframeas", keyBindingsToStringList(QKeySequence::Save), {}});
     shortcutsList.append({tr("Pause"), "pause", QStringList(QKeySequence(Qt::Key_P).toString()), {}});
-    shortcutsList.append({tr("Next Frame"), "nextframe", QStringList(QKeySequence(Qt::Key_Period).toString()), {}});
-    shortcutsList.append({tr("Previous Frame"), "previousframe", QStringList(QKeySequence(Qt::Key_Comma).toString()), {}});
+    shortcutsList.append({tr("Next Frame"), "nextframe", {}, {}});
+    shortcutsList.append({tr("Previous Frame"), "previousframe", {}, {}});
     shortcutsList.append({tr("Decrease Speed"), "decreasespeed", QStringList(QKeySequence(Qt::Key_BracketLeft).toString()), {}});
     shortcutsList.append({tr("Reset Speed"), "resetspeed", QStringList(QKeySequence(Qt::Key_Backslash).toString()), {}});
     shortcutsList.append({tr("Increase Speed"), "increasespeed", QStringList(QKeySequence(Qt::Key_BracketRight).toString()), {}});

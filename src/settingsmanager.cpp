@@ -191,7 +191,7 @@ void SettingsManager::initializeSettingsLibrary()
     settingsLibrary.insert("bgcolor", {"#212121", {}});
     settingsLibrary.insert("checkerboardbackground", {false, {}});
     settingsLibrary.insert("titlebarmode", {static_cast<int>(Qv::TitleBarText::Minimal), {}});
-    settingsLibrary.insert("customtitlebartext", {"%z - %n", {}});
+    settingsLibrary.insert("customtitlebartext", {"%i/%c %z %n %wx%h", {}});
     settingsLibrary.insert("windowresizemode", {static_cast<int>(Qv::WindowResizeMode::WhenLaunching), {}});
     settingsLibrary.insert("aftermatchingsizemode", {static_cast<int>(Qv::AfterMatchingSize::CenterOnPrevious), {}});
     settingsLibrary.insert("minwindowresizedpercentage", {20, {}});
